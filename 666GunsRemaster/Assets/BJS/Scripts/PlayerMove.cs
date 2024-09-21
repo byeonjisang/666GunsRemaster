@@ -9,6 +9,9 @@ public class PlayerMovement : MonoBehaviour
     private bool isGrounded = true;   // 땅에 닿았는지 확인
     private Rigidbody2D rb;           // Rigidbody2D 컴포넌트
 
+    //조이스틱 작동을 위한 선언
+    public FixedJoystick joyStick;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();  // Rigidbody2D 가져오기
@@ -24,7 +27,15 @@ public class PlayerMovement : MonoBehaviour
     {
         float moveInputX = Input.GetAxis("Horizontal");  // 좌우 입력 받기 (A, D or 왼쪽, 오른쪽 화살표)
         float moveInputY = Input.GetAxis("Vertical");  // 좌우 입력 받기 (A, D or 왼쪽, 오른쪽 화살표)
-        rb.velocity = new Vector2(moveInputX * moveSpeed, moveInputY * moveSpeed);  // x축으로 이동 (y축 속도 유지)
+
+        //조이스틱 입력
+        float joyStickInputX = joyStick.Horizontal;
+        float joyStickInputY = joyStick.Vertical;
+        
+        //rb.velocity = new Vector2(moveInputX * moveSpeed, moveInputY * moveSpeed);  // x축으로 이동 (y축 속도 유지)
+        
+        //조이스틱 이동
+        rb.velocity = new Vector2(joyStickInputX * moveSpeed, joyStickInputY * moveSpeed);  // x축으로 이동 (y축 속도 유지)
     }
 
     void Jump()
