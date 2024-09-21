@@ -5,7 +5,9 @@ using UnityEngine.AI;
 
 public class AgentMove : MonoBehaviour
 {
-    private Vector3 target;
+    [SerializeField]
+    private GameObject target;
+
     NavMeshAgent agent;
 
     // Start is called before the first frame update
@@ -19,7 +21,7 @@ public class AgentMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        SetTargetPosition();
+        //SetTargetPosition();
         SetAgentPosition();
     }
 
@@ -27,12 +29,12 @@ public class AgentMove : MonoBehaviour
     {
         if (Input.GetMouseButton(0))
         {
-            target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            //target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         }
     }
 
     void SetAgentPosition()
     {
-        agent.SetDestination(new Vector3(target.x, target.y, transform.position.z));
+        agent.SetDestination(new Vector3(target.transform.position.x, target.transform.position.y, transform.position.z));
     }
 }

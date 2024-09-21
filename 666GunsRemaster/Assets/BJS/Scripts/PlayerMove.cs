@@ -17,13 +17,14 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         Move();
-        Jump();
+        //Jump();
     }
 
     void Move()
     {
-        float moveInput = Input.GetAxis("Horizontal");  // 좌우 입력 받기 (A, D or 왼쪽, 오른쪽 화살표)
-        rb.velocity = new Vector2(moveInput * moveSpeed, rb.velocity.y);  // x축으로 이동 (y축 속도 유지)
+        float moveInputX = Input.GetAxis("Horizontal");  // 좌우 입력 받기 (A, D or 왼쪽, 오른쪽 화살표)
+        float moveInputY = Input.GetAxis("Vertical");  // 좌우 입력 받기 (A, D or 왼쪽, 오른쪽 화살표)
+        rb.velocity = new Vector2(moveInputX * moveSpeed, moveInputY * moveSpeed);  // x축으로 이동 (y축 속도 유지)
     }
 
     void Jump()
@@ -38,14 +39,14 @@ public class PlayerMovement : MonoBehaviour
     // 바닥에 닿았는지 확인하는 트리거
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.name == "Floor")  // Ground 태그의 오브젝트와 충돌 시
-        {
-            isGrounded = true;  // 다시 땅에 있음
-        }
-        else if (collision.gameObject.name == "Goal")  // Goal 태그의 오브젝트와 충돌 시
-        {
-            //게임 재시작
-            GameManager.instance.Restart();
-        }
+        //if (collision.gameObject.name == "Floor")  // Ground 태그의 오브젝트와 충돌 시
+        //{
+        //    isGrounded = true;  // 다시 땅에 있음
+        //}
+        //else if (collision.gameObject.name == "Goal")  // Goal 태그의 오브젝트와 충돌 시
+        //{
+        //    //게임 재시작
+        //    GameManager.instance.Restart();
+        //}
     }
 }
