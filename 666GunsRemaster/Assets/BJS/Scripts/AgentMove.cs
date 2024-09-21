@@ -35,6 +35,10 @@ public class AgentMove : MonoBehaviour
 
     void SetAgentPosition()
     {
-        agent.SetDestination(new Vector3(target.transform.position.x, target.transform.position.y, transform.position.z));
+        if (Vector3.Distance(this.transform.position, target.transform.position) < 5.0f)
+        {
+            agent.SetDestination(new Vector3(target.transform.position.x, target.transform.position.y,
+                transform.position.z));
+        }
     }
 }
