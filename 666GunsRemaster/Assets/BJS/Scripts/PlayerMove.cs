@@ -10,7 +10,7 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D rb;           // Rigidbody2D 컴포넌트
 
     //조이스틱 작동을 위한 선언
-    public FixedJoystick joyStick;
+    public VariableJoystick joyStick;
 
     void Start()
     {
