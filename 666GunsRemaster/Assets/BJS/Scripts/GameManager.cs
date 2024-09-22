@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance = null;
+    private bool _isPause = false;
 
     //싱글턴
     private void Awake()
@@ -25,6 +26,20 @@ public class GameManager : MonoBehaviour
     public void Restart()
     {
         SceneManager.LoadScene("Practice");
+    }
+
+    public void Pause()
+    {
+        if (!_isPause)
+        {
+            Time.timeScale = 0f;
+            _isPause = true;
+        }
+        else
+        {
+            Time.timeScale = 1f; // 게임 시간을 다시 흐르게 함
+            _isPause = false;
+        }
     }
 
     // Start is called before the first frame update

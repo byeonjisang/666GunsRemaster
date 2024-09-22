@@ -9,11 +9,13 @@ public class AgentMove : MonoBehaviour
     private GameObject target;
 
     NavMeshAgent agent;
+    public float chaseSpeed = 5f;
 
     // Start is called before the first frame update
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+        agent.speed = chaseSpeed;
         agent.updateRotation = false;
         agent.updateUpAxis = false;
     }
@@ -35,7 +37,7 @@ public class AgentMove : MonoBehaviour
 
     void SetAgentPosition()
     {
-        if (Vector3.Distance(this.transform.position, target.transform.position) < 5.0f)
+        if (Vector3.Distance(this.transform.position, target.transform.position) < 8.0f)
         {
             agent.SetDestination(new Vector3(target.transform.position.x, target.transform.position.y,
                 transform.position.z));
