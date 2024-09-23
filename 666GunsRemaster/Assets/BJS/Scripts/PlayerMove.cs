@@ -19,11 +19,16 @@ public class PlayerMovement : MonoBehaviour
     private bool isCooldown = false;  // 쿨타임 여부
     private Rigidbody2D rb;
 
+    SpriteRenderer spriter;
+    Animator anim;
+
     [SerializeField] private GameObject clearImage;
 
-    void Start()
+    void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        spriter = GetComponent<SpriteRenderer>();
+        anim = GetComponent<Animator>();
 
         // 대시 버튼에 OnClick 이벤트 등록
         dashBtn.onClick.AddListener(StartDash);
@@ -68,6 +73,14 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             rb.velocity = new Vector2(finalInputX * moveSpeed, finalInputY * moveSpeed);
+
+            anim.SetFloat("Speed", rb.velocity.magnitude);
+
+            //Sprite가 바라보는 방향 전환.
+            if (finalInputX != 0)
+            {
+                spriter.flipX = finalInputX < 0;
+            }
         }
     }
 
