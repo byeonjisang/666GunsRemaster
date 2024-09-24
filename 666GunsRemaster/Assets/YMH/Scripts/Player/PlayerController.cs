@@ -3,48 +3,54 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class PlayerController : MonoBehaviour
+namespace Character.Player
 {
-    private PlayerMovement_YMH playerMovement;
-
-    [SerializeField]
-    private PlayerData playerData;
-    [SerializeField]
-    private FloatingJoystick joystick;
-
-    private int health;
-    private float moveSpeed;
-    private float dashSpeed;
-    private float dashDuration;
-    private float dashCooldown;
-    private bool isDashing = false;
-    private float dashTimeLeft;
-    private float cooldownTimeLeft;
-    private bool isCooldown = false;
-
-    private Rigidbody2D rigid;
-    private Animator anim;
-    private SpriteRenderer sprite;
-
-    private void Awake()
+    public class PlayerController : MonoBehaviour
     {
-        rigid = GetComponent<Rigidbody2D>();
-        anim = GetComponent<Animator>();
-        sprite = GetComponent<SpriteRenderer>();
+        private PlayerMovement _playerMovement;
 
-        StateInie();
-    }
-    private void StateInie()
-    {
-        health = playerData.health;
-        moveSpeed = playerData.moveSpeed;
-        dashSpeed = playerData.dashSpeed;
-        dashDuration = playerData.dashDuration;
-        dashCooldown = playerData.dashCooldown;
+        [SerializeField]
+        private PlayerData playerData;
+        [SerializeField]
+        private FloatingJoystick joystick;
+
+        private int _health;
+        private float _moveSpeed;
+        private float _dashSpeed;
+        private float _dashDuration;
+        private float _dashCooldown;
+        private bool _isDashing = false;
+        private float _dashTimeLeft;
+        private float _cooldownTimeLeft;
+        private bool _isCooldown = false;
+
+        private Rigidbody2D rigid;
+        private Animator anim;
+        private SpriteRenderer sprite;
+
+        private void Awake()
+        {
+            //playerMovement = gameObject.AddComponent(PlayerMovement_YMH) as PlayerMovement_YMH;
+
+            rigid = GetComponent<Rigidbody2D>();
+            anim = GetComponent<Animator>();
+            sprite = GetComponent<SpriteRenderer>();
+
+            StateInie();
+        }
+        private void StateInie()
+        {
+            _health = playerData.health;
+            _moveSpeed = playerData.moveSpeed;
+            _dashSpeed = playerData.dashSpeed;
+            _dashDuration = playerData.dashDuration;
+            _dashCooldown = playerData.dashCooldown;
+        }
+
+        private void FixedUpdate()
+        {
+            //HandleMovement();
+        }
     }
 
-    private void FixedUpdate()
-    {
-        HandleMovement();
-    }
 }
