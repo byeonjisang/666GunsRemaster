@@ -30,10 +30,10 @@ namespace Character.Player
 
             _playerController.CurrentSpeed = _playerController.MoveSpeed;
         }
-        public void HandleMovement(FloatingJoystick joystick)
+        public void HandleMovement()
         {
-            float joyStickInputX = joystick.Horizontal;
-            float joyStickInputY = joystick.Vertical;
+            float joyStickInputX = _playerController.Joystick.Horizontal;
+            float joyStickInputY = _playerController.Joystick.Vertical;
 
             float keyboardInputX = Input.GetAxis("Horizontal");
             float keyboardInputY = Input.GetAxis("Vertical");
@@ -49,13 +49,13 @@ namespace Character.Player
                 sprite.flipX = finalInputX > 0;
         }
 
-        public void Update()
+        public void FixedUpdate()
         {
             if (_playerController)
             {
                 if(_playerController.CurrentSpeed > 0)
                 {
-                    //HandleMovement();
+                    HandleMovement();
                 }
             }
         }
