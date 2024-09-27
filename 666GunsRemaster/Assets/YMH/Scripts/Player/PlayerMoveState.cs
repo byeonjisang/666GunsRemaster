@@ -41,7 +41,7 @@ namespace Character.Player
             float finalInputX = joyStickInputX + keyboardInputX;
             float finalInputY = joyStickInputY + keyboardInputY;
 
-            rigid.velocity = new Vector2(finalInputX * _playerController.MoveSpeed, finalInputY * _playerController.MoveSpeed);
+            rigid.velocity = new Vector2(finalInputX * _playerController.CurrentSpeed, finalInputY * _playerController.CurrentSpeed);
 
             anim.SetFloat("Speed", rigid.velocity.magnitude);
 

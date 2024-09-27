@@ -600,7 +600,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 873ff191c450dc341abcb4530129ff45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerData: {fileID: 11400000, guid: e9890fcc2ed3b4c4a9881c480ca67f6c, type: 2}
+  playerData: {fileID: 11400000, guid: 3fbf75a4a1d21be4aa614df2f833b21f, type: 2}
   Joystick: {fileID: 2003510536}
   dashButton: {fileID: 178373157}
 --- !u!95 &405388601
