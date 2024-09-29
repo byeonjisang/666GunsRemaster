@@ -14,6 +14,8 @@ namespace Character.Player
         public FloatingJoystick Joystick;
         [SerializeField]
         private Button dashButton;
+        [SerializeField]
+        private Button fireButton;
 
         //플레이어 데이터
         public int Health { get { return _health; } }
@@ -37,7 +39,7 @@ namespace Character.Player
         private SpriteRenderer sprite;
 
         //상태 패턴
-        private IPlayerState _moveState, _stopState, _attackState, _dashState;
+        private IPlayerState _moveState, _stopState, _fireState, _dashState;
         private PlayerStateContext _playerStateContext;
 
         private void Awake()
@@ -62,6 +64,7 @@ namespace Character.Player
 
             //대쉬 버튼 이벤트 등록
             dashButton.onClick.AddListener(StartDash);
+            fireButton.onClick.AddListener(StartFire);
         }
 
         //데이터 초기화
@@ -122,5 +125,6 @@ namespace Character.Player
             _cooldownTimeLeft = _dashCooldown;
             _isCooldown = true;
         }
+        private void StartFire() { }
     }
 }
