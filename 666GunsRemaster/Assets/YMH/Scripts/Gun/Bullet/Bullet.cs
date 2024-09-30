@@ -11,16 +11,42 @@ namespace Gun.Bullet
         public GunData gunData { private get; set; }
 
         protected float damage;
+        protected float speed;
+        protected float range;
+        protected float penetration;
+        protected LayerMask blockObject;
+        protected int reverse;
 
+        protected SpriteRenderer sprite;
 
         protected virtual void Awake()
         {
-            damage = gunData.damage;
-            speed = gunData.speed;
+            sprite = GetComponent<SpriteRenderer>();
         }
-        protected virtual void Update()
-        {
 
+        protected virtual void Start()
+        {
+            damage = gunData.damage;
+            speed = gunData.bulletSpeed;
+            range = gunData.range;
+            penetration = gunData.penetration;
+            blockObject = gunData.blockObject;
+        }
+        protected virtual void OnEnable()
+        {
+            reverse = sprite.flipX == true ? -1 : 1;
+        }
+        protected virtual void FixedUpdate()
+        {
+            this.transform.Translate(transform.right * reverse * this.speed * Time.deltaTime);
+        }
+        protected virtual void OnTriggerEnter2D(Collider2D collision)
+        {
+            if((blockObject.value & ( 1 << collision.gameObject.layer)) > 0)
+            {
+                Debug.Log("Block");
+                Pool.Release(this);
+            }
         }
     }
 }

@@ -13,10 +13,6 @@ namespace Gun.Bullet
 
         private void Init()
         {
-            damage = bulletData.damage;
-            speed = bulletData.speed;
-            penetrationCount = bulletData.penetrationCount;
-            blockObejct = bulletData.blockObejct;
         }
     }
 }
