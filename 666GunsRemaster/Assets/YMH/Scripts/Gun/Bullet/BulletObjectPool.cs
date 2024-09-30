@@ -1,11 +1,21 @@
 ﻿using System.Collections;
+//using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Pool;
 
-namespace Character.Gun.Bullet
+namespace Gun.Bullet
 {
     public class BulletObjectPool : MonoBehaviour
     {
+        public static BulletObjectPool Instance { get; private set; }
+        private void Awake()
+        {
+            if (Instance == null)
+                Instance = this;
+            else
+                Destroy(gameObject);
+        }   //싱글톤
+
         public GameObject bulletPrefab;
         public int maxPoolSize = 20;
         public int stackDefalutCapcity = 20;
@@ -33,10 +43,9 @@ namespace Character.Gun.Bullet
         private Bullet CreatedPooledItem()
         {
             var go = Instantiate(bulletPrefab);
+            Bullet bullet = go.AddComponent<Bullet>();
 
-            Bullet bullet = go.GetComponent<Bullet>();
-
-            go.name = "Bullet";
+            go.name = bulletPrefab.name;
             bullet.Pool = Pool;
 
             return bullet;
@@ -57,9 +66,18 @@ namespace Character.Gun.Bullet
             Destroy(bullet.gameObject);
         }
 
-        public void Spawn()
+        ///<summary>
+        ///총알 생성
+        ///</summary>
+        ///<param name="gunData"> 총의 데이터</param>
+        ///<param name="bulletPoint"> 총알 생성 위치</param>
+        public void Spawn(GunData gunData, Transform bulletPoint)
         {
-
+            var bullet = Pool.Get();
+            bullet.gunData = gunData;
+            bullet.transform.parent = this.transform;
+            bullet.transform.position = bulletPoint.position;
+            bullet.transform.rotation = bulletPoint.rotation;
         }
     }
 }

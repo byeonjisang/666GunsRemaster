@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-namespace Character.Gun.Bullet
+namespace Gun.Bullet
 {
     [CreateAssetMenu(fileName = "BulletData", menuName = "BulletData", order = 0)]
     public class BulletData : ScriptableObject

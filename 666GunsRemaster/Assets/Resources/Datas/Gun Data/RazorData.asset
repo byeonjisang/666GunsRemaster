@@ -9,12 +9,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: acecaa3d56c85074cb728612906111ef, type: 3}
-  m_Name: Razor Data
+  m_Script: {fileID: 11500000, guid: 7066d6e828309544dac077f5aed48329, type: 3}
+  m_Name: RazorData
   m_EditorClassIdentifier: 
-  damage: 0
-  speed: 0
-  penetrationCount: 0
-  blockObejct:
+  name: Razor
+  type: "\uBC18\uC790\uB3D9"
+  maxMagazineCount: 12
+  maxBullet: 200
+  reloadTime: 1.2
+  fireRate: 0.25
+  bulletSpeed: 25
+  damage: 1
+  range: 25
+  penetration: 2
+  blockObject:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
