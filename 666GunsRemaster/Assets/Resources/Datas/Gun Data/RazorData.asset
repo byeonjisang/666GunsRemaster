@@ -21,7 +21,7 @@ MonoBehaviour:
   bulletSpeed: 25
   damage: 1
   range: 25
-  penetration: 2
+  penetration: 1
   blockObject:
     serializedVersion: 2
     m_Bits: 192

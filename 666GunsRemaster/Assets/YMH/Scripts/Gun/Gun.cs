@@ -7,6 +7,8 @@ namespace Gun
 {
     public class Gun : MonoBehaviour
     {
+        protected SpriteRenderer playerSprite;
+        protected SpriteRenderer sprite;
         protected Button fireButton;
         protected Transform bulletPoint;      //총알 발사 위치
         protected GunData gunData;          // 총의 데이터   
@@ -30,6 +32,8 @@ namespace Gun
 
         protected virtual void Awake()
         {
+            playerSprite = GetComponentsInParent<SpriteRenderer>()[1];
+            sprite = GetComponent<SpriteRenderer>();
             fireButton = GameObject.Find("FireButton").GetComponent<Button>();
             bulletPoint = GetComponentsInChildren<Transform>()[1];
         }
