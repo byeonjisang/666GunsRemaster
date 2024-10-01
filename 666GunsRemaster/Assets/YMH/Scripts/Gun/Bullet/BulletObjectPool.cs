@@ -1,5 +1,5 @@
-﻿using System.Collections;
-//using System.Collections.Generic;
+﻿
+using System;
 using UnityEngine;
 using UnityEngine.Pool;
 
@@ -43,7 +43,10 @@ namespace Gun.Bullet
         private Bullet CreatedPooledItem()
         {
             var go = Instantiate(bulletPrefab);
-            Bullet bullet = go.AddComponent<Bullet>();
+
+            string bulletName = go.name.Replace("(Clone)", "").Trim();
+            Type bulletType = Type.GetType("Gun.Bullet." + bulletName);
+            Bullet bullet = (Bullet)go.AddComponent(bulletType);
 
             go.name = bulletPrefab.name;
             bullet.Pool = Pool;

@@ -6,13 +6,6 @@ namespace Gun.Bullet
 {
     public class RazorBullet : Bullet
     {
-        private void Start()
-        {
-            Init();
-        }
 
-        private void Init()
-        {
-        }
     }
 }

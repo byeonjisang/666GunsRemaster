@@ -17,6 +17,7 @@ namespace Gun
         protected int maxBullet;              // 최대 탄약량
         protected int currentBulletCount;     // 현재 소유한 탄약량
         protected float reloadTime;           // 재장전 시간
+        protected float currentFireRate;      // 남은 딜레이 시간
         protected float fireRate;             // 딜레이
         protected float bulletSpeed;          // 총알 속도
         protected float damage;               // 총알 데미지
@@ -60,8 +61,21 @@ namespace Gun
 
         protected void Fire()
         {
-            Debug.Log("Fire");
+            if (currentFireRate > 0)
+                return;
+
+            currentFireRate = fireRate;
+            //isFiring = true;
+
+            //총 발사
             BulletObjectPool.Instance.Spawn(gunData, bulletPoint);
+            currentMagazineCount -= 1;
+
+            if(currentMagazineCount <= 0)
+            {
+                //재장전
+                isReloading = true;
+            }
         }
     }
 }
