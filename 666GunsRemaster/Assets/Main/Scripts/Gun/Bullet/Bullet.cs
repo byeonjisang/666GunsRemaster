@@ -40,12 +40,18 @@ namespace Gun.Bullet
 
             //현재 남은 관통력 초기화
             currentPenetration = penetration;
-            Debug.Log(currentPenetration);
         }
         protected virtual void FixedUpdate()
         {
             //쏜 방향으로 이동
             this.transform.Translate(transform.right * reverse * this.speed * Time.deltaTime);
+        }
+        /// <summary>
+        /// 데미지 반환
+        /// </summary>
+        public float GetDamage()
+        {
+            return damage;
         }
         protected virtual void OnTriggerEnter2D(Collider2D collision)
         {
