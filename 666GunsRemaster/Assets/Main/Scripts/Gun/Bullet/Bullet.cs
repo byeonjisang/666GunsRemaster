@@ -4,7 +4,6 @@ using UnityEngine.Pool;
 
 namespace Gun.Bullet
 {
-
     public class Bullet : MonoBehaviour
     {
         public IObjectPool<Bullet> Pool { get; set; }   //오브젝트 풀
