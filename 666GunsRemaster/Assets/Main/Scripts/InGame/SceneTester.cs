@@ -10,6 +10,9 @@ public class SceneTester : MonoBehaviour
     [SerializeField]
     private Button sceneChangeButton; // Button 연결
 
+    [SerializeField] 
+    private string loadSceneName;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -35,6 +38,6 @@ public class SceneTester : MonoBehaviour
             yield return null; // 한 프레임 대기
         }
 
-        LoadScene.LoadGameScene("Practice"); // alpha가 1이 되었을 때 씬 변경
+        LoadScene.LoadGameScene(loadSceneName); // alpha가 1이 되었을 때 씬 변경
     }
 }

@@ -8,6 +8,8 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance = null;
+
+    [SerializeField]
     private ReactiveProperty<bool> _isPause = new ReactiveProperty<bool>(false); // 일시정지 상태를 ReactiveProperty로 변경
 
     [Header("게임 설정")]
