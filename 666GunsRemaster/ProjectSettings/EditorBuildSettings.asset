@@ -10,11 +10,20 @@ EditorBuildSettings:
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
     path: Assets/BJS/TItle.unity
-    guid: bb5b7367ad457c341be08613ed6a592c
+    guid: 17ac2fad4076d5745943b9201b169555
   - enabled: 1
     path: Assets/BJS/Practice.unity
-    guid: 5c0ad3c24f8139d4eb754fadefbb48b9
+    guid: f00cc9f45e159b743bf6d03fad09019c
   - enabled: 1
     path: Assets/BJS/LoadingScene.unity
     guid: 2f7df6d405d7b5d4e8d0f4069059ce61
+  - enabled: 0
+    path: Assets/Main/Scenes/Practice.unity
+    guid: cbe864b0dd5d0f04ba49dded8c2a6544
+  - enabled: 0
+    path: Assets/Main/Scenes/Main Scene.unity
+    guid: bfac3d4197a87a04db0ad8d3ad01a45a
+  - enabled: 0
+    path: Assets/Main/Scenes/LoadingScene.unity
+    guid: b93fea745e1654940aa9872f43df6a04
   m_configObjects: {}
