@@ -190,7 +190,7 @@ Canvas:
   m_GameObject: {fileID: 3229745}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 1
+  m_RenderMode: 0
   m_Camera: {fileID: 265927134}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -426,7 +426,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 405388594}
-  chaseSpeed: 5
+  chaseSpeed: 0
 --- !u!70 &67652699
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -1661,7 +1661,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 405388594}
-  chaseSpeed: 5
+  chaseSpeed: 0
 --- !u!70 &498982518
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -1819,7 +1819,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 405388594}
-  chaseSpeed: 5
+  chaseSpeed: 0
 --- !u!70 &538143148
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -2708,8 +2708,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 949882177}
+  - component: {fileID: 949882178}
   m_Layer: 0
-  m_Name: Gun Poistion
+  m_Name: Weapon Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2731,6 +2732,21 @@ Transform:
   - {fileID: 1965702182}
   m_Father: {fileID: 405388597}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &949882178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 949882176}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb1959747bddb664f8e5303a2681ec33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  possessionGuns:
+  - {fileID: 1965702180}
+  - {fileID: 0}
 --- !u!1 &1082617814
 GameObject:
   m_ObjectHideFlags: 0
@@ -2801,7 +2817,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 405388594}
-  chaseSpeed: 5
+  chaseSpeed: 0
 --- !u!70 &1082617818
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -2959,7 +2975,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 405388594}
-  chaseSpeed: 5
+  chaseSpeed: 0
 --- !u!70 &1114960355
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -3161,7 +3177,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 405388594}
-  chaseSpeed: 5
+  chaseSpeed: 0
 --- !u!70 &1166840531
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -3767,7 +3783,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 405388594}
-  chaseSpeed: 5
+  chaseSpeed: 0
 --- !u!70 &1536248743
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -4634,6 +4650,10 @@ PrefabInstance:
     - target: {fileID: 53782171311184286, guid: 62c8f240eaebbd244ab4180ae7a680af, type: 3}
       propertyPath: m_Name
       value: Razor
+      objectReference: {fileID: 0}
+    - target: {fileID: 619820225751351250, guid: 62c8f240eaebbd244ab4180ae7a680af, type: 3}
+      propertyPath: m_FlipX
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 619820225751351250, guid: 62c8f240eaebbd244ab4180ae7a680af, type: 3}
       propertyPath: m_SortingOrder

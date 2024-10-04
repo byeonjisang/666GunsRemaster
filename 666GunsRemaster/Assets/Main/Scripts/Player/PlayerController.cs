@@ -1,8 +1,9 @@
 using Character.Player.State;
-using System.Collections;
-using System.Collections.Generic;
+using Gun;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using static UnityEngine.GraphicsBuffer;
 
 namespace Character.Player
 {
@@ -11,6 +12,8 @@ namespace Character.Player
         //외부 참조
         [SerializeField]
         private PlayerData playerData;
+        private MonsterScannerTest monsterScannerTest;
+        private WeaponManager weaponManager;
         public FloatingJoystick Joystick;
         [SerializeField]
         private Button dashButton;
@@ -33,6 +36,9 @@ namespace Character.Player
         private float _cooldownTimeLeft;    //남은 쿨타임 시간
         private bool _isCooldown = false;   //쿨타임 여부
 
+        private bool _isFire = false;       //총 발사 여부
+        private bool _isTarget = false;
+
         //플레이어 컴포넌트
         private Rigidbody2D rigid;
         private Animator anim;
@@ -47,6 +53,9 @@ namespace Character.Player
             rigid = GetComponent<Rigidbody2D>();
             anim = GetComponent<Animator>();
             sprite = GetComponent<SpriteRenderer>();
+
+            weaponManager =GetComponentInChildren<WeaponManager>();
+            monsterScannerTest = GetComponent<MonsterScannerTest>();
 
             StateInit();    //데이터 초기화
         }
@@ -68,7 +77,7 @@ namespace Character.Player
         }
 
         //데이터 초기화
-        private void StateInit()
+        public void StateInit()
         {
             _health = playerData.health;
             _moveSpeed = playerData.moveSpeed;
@@ -104,6 +113,7 @@ namespace Character.Player
                 _playerStateContext.Transition(_stopState);
             }
 
+            RotateGunTowardsTarget();
 
             //대쉬 테스트 코드
             if (Input.GetKeyDown(KeyCode.Space))
@@ -125,6 +135,37 @@ namespace Character.Player
             _cooldownTimeLeft = _dashCooldown;
             _isCooldown = true;
         }
-        private void StartFire() { }
+       
+        private void StartFire() 
+        {
+            //_isTarget = (monsterScannerTest.nearestTarget == null) ? false : true;
+        }
+        private void RotateGunTowardsTarget()
+        {
+            // 근처 적이 있는지 확인
+            if (monsterScannerTest.nearestTarget != null)
+            {
+                // 적과의 거리 및 방향 계산
+                Vector3 targetDirection = monsterScannerTest.nearestTarget.position - transform.position;
+
+                float angle = Mathf.Atan2(targetDirection.y, targetDirection.x) * Mathf.Rad2Deg;
+                if (targetDirection.x < 0)
+                {
+                    sprite.flipX = false;
+                    weaponManager.transform.localScale = new Vector3(1, 1, 1);
+                    angle += 180;
+
+                    if (angle > 360)
+                        angle -= 360;
+                }
+                else
+                {
+                    sprite.flipX = true;
+                    weaponManager.transform.localScale = new Vector3(-1, 1, 1);
+                }
+
+                weaponManager.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+            }
+        }
     }
 }

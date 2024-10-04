@@ -1,24 +1,23 @@
 using Character.Player.State;
-using System.Collections;
-using System.Collections.Generic;
+using Gun;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace Character.Player 
 {
     public class PlayerMoveState : MonoBehaviour, IPlayerState
     {
+        private WeaponManager weaponManager;
         private PlayerController _playerController;
 
         private Rigidbody2D rigid;
         private Animator anim;
-        private SpriteRenderer sprite;
 
         private void Awake()
         {
             rigid = GetComponent<Rigidbody2D>();
             anim = GetComponent<Animator>();
-            sprite = GetComponent<SpriteRenderer>();
+
+            weaponManager = GetComponentInChildren<WeaponManager>();
         }
 
         public void Movement(PlayerController playerController)
@@ -44,9 +43,6 @@ namespace Character.Player
             rigid.velocity = new Vector2(finalInputX * _playerController.CurrentSpeed, finalInputY * _playerController.CurrentSpeed);
 
             anim.SetFloat("Speed", rigid.velocity.magnitude);
-
-            if (finalInputX != 0)
-                sprite.flipX = finalInputX > 0;
         }
 
         public void FixedUpdate()

@@ -10,7 +10,7 @@ namespace Gun
         protected SpriteRenderer playerSprite;
         protected SpriteRenderer sprite;
         protected Button fireButton;
-        protected Transform bulletPoint;      //총알 발사 위치
+        protected GameObject bulletPoint;      //총알 발사 위치
         protected GunData gunData;          // 총의 데이터   
 
         protected string type;                // 총의 종류
@@ -37,7 +37,7 @@ namespace Gun
             playerSprite = GetComponentsInParent<SpriteRenderer>()[1];
             sprite = GetComponent<SpriteRenderer>();
             fireButton = GameObject.Find("FireButton").GetComponent<Button>();
-            bulletPoint = GetComponentsInChildren<Transform>()[1];
+            bulletPoint = transform.GetChild(0).gameObject;
         }
         protected virtual void Start()
         {
@@ -82,8 +82,10 @@ namespace Gun
             if (isRate || isReloading)
                 return;
 
+            bulletPoint.transform.localScale = new Vector3(playerSprite.flipX ? -1 : 1, 1, 1); //총알 발사 방향 설정
+
             //총 발사
-            BulletObjectPool.Instance.Spawn(gunData, bulletPoint);
+            BulletObjectPool.Instance.Spawn(gunData, bulletPoint.transform);
             currentMagazineCount -= 1;      //탄창 속 탄약 감소
             currentFireRate = fireRate;     //현재 발사 딜레이 시간 초기화
             isRate = true;                  //발사 딜레이 시작

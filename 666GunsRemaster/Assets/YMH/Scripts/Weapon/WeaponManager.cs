@@ -2,17 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WeaponManager : MonoBehaviour
+namespace Gun
 {
-    // Start is called before the first frame update
-    void Start()
+    public class WeaponManager : MonoBehaviour
     {
-        
-    }
+        [SerializeField]// ÀÓ½Ã ÃÑ ºÎ¿©
+        private GameObject[] possessionGuns = new GameObject[2];
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+
     }
 }

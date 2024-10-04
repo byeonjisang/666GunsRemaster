@@ -78,9 +78,10 @@ namespace Gun.Bullet
         {
             var bullet = Pool.Get();
             bullet.gunData = gunData;
-            bullet.transform.parent = this.transform;
             bullet.transform.position = bulletPoint.position;
             bullet.transform.rotation = bulletPoint.rotation;
+            bullet.transform.localScale = bulletPoint.localScale;
+            bullet.transform.parent = this.transform;
         }
     }
 }

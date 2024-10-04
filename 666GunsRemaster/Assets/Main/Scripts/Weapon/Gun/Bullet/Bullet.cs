@@ -19,10 +19,12 @@ namespace Gun.Bullet
         protected int reverse;                  //이미지가 꺼구로 되어 있는가
 
         protected SpriteRenderer sprite;
+        protected Rigidbody2D rigid;
 
         protected virtual void Awake()
         {
             sprite = GetComponent<SpriteRenderer>();
+            rigid = GetComponent<Rigidbody2D>();
         }
 
         protected virtual void Start()
@@ -32,19 +34,20 @@ namespace Gun.Bullet
             range = gunData.range;
             penetration = gunData.penetration;
             blockObject = gunData.blockObject;
+
+            reverse = transform.localScale.x == 1 ? -1 : 1;
+            rigid.AddForce(transform.right * speed * reverse, ForceMode2D.Impulse);
         }
         protected virtual void OnEnable()
         {
             //보고 있는 방향에 힘을 주기 위한 코드
-            reverse = sprite.flipX == true ? -1 : 1;
+            reverse = transform.localScale.x == 1 ? -1 : 1;
 
             //현재 남은 관통력 초기화
             currentPenetration = penetration;
-        }
-        protected virtual void FixedUpdate()
-        {
-            //쏜 방향으로 이동
-            this.transform.Translate(transform.right * reverse * this.speed * Time.deltaTime);
+
+            rigid.AddForce(transform.right * speed * reverse, ForceMode2D.Impulse);
+            rigid.AddForce(new Vector3(transform.rotation.x, transform.rotation.y, transform.rotation.z), ForceMode2D.Impulse);
         }
         /// <summary>
         /// 데미지 반환
@@ -61,7 +64,11 @@ namespace Gun.Bullet
                 currentPenetration -= 1;
 
                 if(currentPenetration <= 0)
+                {
+                    rigid.AddForce(Vector2.zero, ForceMode2D.Force);
                     Pool.Release(this);
+                }
+                    
             }
         }
     }

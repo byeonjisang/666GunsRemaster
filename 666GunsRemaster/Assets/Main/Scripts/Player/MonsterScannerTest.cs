@@ -42,7 +42,11 @@ public class MonsterScannerTest : MonoBehaviour
 
         DrawTargetLines();
     }
-
+    /// <summary>
+    /// 근처에 있는 몬스터 Transform 반환
+    /// </summary>
+    /// <returns></returns>
+     
     Transform GetNearestTarget()
     {
         Transform res = null;
