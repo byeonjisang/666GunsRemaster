@@ -8,10 +8,6 @@ public class GameManager : MonoBehaviour
     public static GameManager instance = null;
     private bool _isPause = false;
 
-    [Header("게임 설정")]
-    public List<string> stages; // 스테이지 목록
-    private int currentStageIndex = 0; // 현재 스테이지 인덱스
-
     //싱글턴
     private void Awake()
     {
@@ -29,12 +25,7 @@ public class GameManager : MonoBehaviour
     //게임 재시작
     public void Restart()
     {
-        //맨 처음 스테이지로 이동
-        currentStageIndex = 0;
-        SceneManager.LoadScene(stages[currentStageIndex]);
-        //currentLives = playerLives;
-        //currentHealth = playerHealth;
-        //RespawnPlayer();
+        SceneManager.LoadScene("Practice");
     }
 
     public void Pause()
