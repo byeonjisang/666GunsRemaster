@@ -228,7 +228,7 @@ GameObject:
   - component: {fileID: 53314003}
   - component: {fileID: 53314002}
   - component: {fileID: 53314005}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: EnemyTest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1273,8 +1273,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 589145841}
+  - component: {fileID: 589145842}
   m_Layer: 0
-  m_Name: Gun Poistion
+  m_Name: Weapon Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1296,6 +1297,21 @@ Transform:
   - {fileID: 2086277650}
   m_Father: {fileID: 1760243103}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &589145842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 589145840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb1959747bddb664f8e5303a2681ec33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  possessionGuns:
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &662394494
 GameObject:
   m_ObjectHideFlags: 0
@@ -3172,6 +3188,7 @@ GameObject:
   - component: {fileID: 1760243100}
   - component: {fileID: 1760243099}
   - component: {fileID: 1760243098}
+  - component: {fileID: 1760243104}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -3346,6 +3363,23 @@ Transform:
   - {fileID: 589145841}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1760243104
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1760243097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83a9591bec8752c4da8e1bb847d39b66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scanRange: 7
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  nearestTarget: {fileID: 0}
 --- !u!1 &1941171063
 GameObject:
   m_ObjectHideFlags: 0
