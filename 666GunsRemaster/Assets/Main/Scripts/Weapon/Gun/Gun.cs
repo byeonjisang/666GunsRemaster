@@ -44,7 +44,7 @@ namespace Gun
             GunDataInit();
             fireButton.onClick.AddListener(Fire);
         }
-        protected void GunDataInit()
+        protected virtual void GunDataInit()
         {
             string gunName = gameObject.name;
             gunData = Resources.Load<GunData>("Datas/Gun Data/"+gunName + "Data");
@@ -64,8 +64,9 @@ namespace Gun
             isRate = false;
             isBullet = true;
         }
-        protected void FixedUpdate()
+        protected virtual void FixedUpdate()
         {
+            //총 발사 딜레이 시간 계산
             if (isRate)
             {
                 currentFireRate -= Time.fixedDeltaTime;
@@ -77,7 +78,7 @@ namespace Gun
             }
         }
 
-        protected void Fire()
+        protected virtual void Fire()
         {
             if (isRate || isReloading)
                 return;
@@ -98,7 +99,7 @@ namespace Gun
                 StartCoroutine(Reload());
             }
         }
-        protected IEnumerator Reload()
+        protected virtual IEnumerator Reload()
         {
             yield return new WaitForSeconds(reloadTime);
             //현재 소유한 탄약이 탄창 속 탄약보다 많을 시

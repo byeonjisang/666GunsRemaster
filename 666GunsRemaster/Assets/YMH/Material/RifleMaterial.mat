@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: GunMaterial
+  m_Name: RifleMaterial
   m_Shader: {fileID: -6465566751694194690, guid: f817dae1c447c63419b41402476dddd6, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -26,7 +26,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _666_Sheet:
-        m_Texture: {fileID: 2800000, guid: b32546f8053d4904a967c3680491067f, type: 3}
+        m_Texture: {fileID: 2800000, guid: 3e477482b1ba6cf4bb52959a42c1a51a, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _AlphaTex:

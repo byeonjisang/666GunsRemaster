@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: BulletMaterial
+  m_Name: RazorMaterial
   m_Shader: {fileID: -6465566751694194690, guid: f817dae1c447c63419b41402476dddd6, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -17,7 +17,7 @@ Material:
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 3000
+  m_CustomRenderQueue: -1
   stringTagMap:
     RenderType: Transparent
   disabledShaderPasses: []
@@ -26,7 +26,11 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _666_Sheet:
-        m_Texture: {fileID: 2800000, guid: a7429b8a643c3ff43a9060b25178a8c7, type: 3}
+        m_Texture: {fileID: 2800000, guid: b32546f8053d4904a967c3680491067f, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _AlphaTex:
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BaseTexture:
@@ -71,6 +75,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - PixelSnap: 0
     - _BUILTIN_AlphaClip: 0
     - _BUILTIN_Blend: 0
     - _BUILTIN_CullMode: 0
@@ -86,11 +91,12 @@ Material:
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
-    - _Fuzziness: 0.35
+    - _EnableExternalAlpha: 0
+    - _Fuzziness: 0
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
-    - _HueRange: 0.35
+    - _HueRange: 0
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
@@ -101,9 +107,11 @@ Material:
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
-    - _ChromaKeyColor: {r: 0, g: 1, b: 0, a: 0}
+    - _ChromaKeyColor: {r: 0, g: 0, b: 0, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _Flip: {r: 1, g: 1, b: 1, a: 1}
+    - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
 --- !u!114 &4468770819460990737
 MonoBehaviour:
