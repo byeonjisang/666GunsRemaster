@@ -40,14 +40,21 @@ namespace Gun.Bullet
         }
         protected virtual void OnEnable()
         {
+            StartCoroutine(Fire());
+        }
+        protected virtual IEnumerator Fire()
+        {
+            yield return new WaitForSeconds(0.01f);
             //보고 있는 방향에 힘을 주기 위한 코드
             reverse = transform.localScale.x == 1 ? -1 : 1;
 
             //현재 남은 관통력 초기화
             currentPenetration = penetration;
 
+            //Debug.Log(transform.right);
+            Debug.Log(reverse);
             rigid.AddForce(transform.right * speed * reverse, ForceMode2D.Impulse);
-            rigid.AddForce(new Vector3(transform.rotation.x, transform.rotation.y, transform.rotation.z), ForceMode2D.Impulse);
+            //rigid.AddForce(new Vector3(transform.rotation.x, transform.rotation.y, transform.rotation.z), ForceMode2D.Impulse);
         }
         /// <summary>
         /// 데미지 반환
