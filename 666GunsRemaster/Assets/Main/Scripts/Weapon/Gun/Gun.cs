@@ -7,12 +7,16 @@ namespace Gun
 {
     public class Gun : MonoBehaviour
     {
+        [SerializeField]
+        protected BulletObjectPool bulletObjectPool; //총알 오브젝트 풀
+
         protected SpriteRenderer playerSprite;
         protected SpriteRenderer sprite;
         protected Button fireButton;
         protected GameObject bulletPoint;      //총알 발사 위치
         protected GunData gunData;          // 총의 데이터   
 
+        protected int gunIndex;               // 총의 인덱스
         protected string type;                // 총의 종류
         protected int maxMagazineCount;       // 최대 탄창 속 탄약 크기
         [SerializeField]
@@ -48,6 +52,7 @@ namespace Gun
         {
             string gunName = gameObject.name;
             gunData = Resources.Load<GunData>("Datas/Gun Data/"+gunName + "Data");
+            gunIndex = gunData.index;
             type = gunData.type;
             maxMagazineCount = gunData.maxMagazineCount;
             currentMagazineCount = maxMagazineCount;
@@ -86,7 +91,7 @@ namespace Gun
             bulletPoint.transform.localScale = new Vector3(playerSprite.flipX ? -1 : 1, 1, 1); //총알 발사 방향 설정
 
             //총 발사
-            BulletObjectPool.Instance.Spawn(gunData, bulletPoint.transform);
+            bulletObjectPool.GetBullet(bulletPoint.transform);
             currentMagazineCount -= 1;      //탄창 속 탄약 감소
             currentFireRate = fireRate;     //현재 발사 딜레이 시간 초기화
             isRate = true;                  //발사 딜레이 시작

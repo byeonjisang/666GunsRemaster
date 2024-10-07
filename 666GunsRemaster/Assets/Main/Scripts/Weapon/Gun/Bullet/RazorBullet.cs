@@ -6,6 +6,5 @@ namespace Gun.Bullet
 {
     public class RazorBullet : Bullet
     {
-
     }
 }

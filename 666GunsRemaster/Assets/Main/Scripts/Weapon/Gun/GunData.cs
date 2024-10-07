@@ -6,7 +6,8 @@ namespace Gun
     [CreateAssetMenu(fileName = "GunData", menuName = "GunData", order = 0)]
     public class GunData : ScriptableObject
     {
-        public string name;                // 총의 이름 
+        public string name;                // 총의 이름
+        public int index;                   // 총의 인덱스
         public string type;                // 총의 종류
         public int maxMagazineCount;       // 최대 탄창 속 탄약 크기
         public int maxBullet;              // 최대 탄약량

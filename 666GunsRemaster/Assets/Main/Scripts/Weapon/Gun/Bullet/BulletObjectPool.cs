@@ -1,72 +1,37 @@
-﻿
-using System;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Pool;
 
 namespace Gun.Bullet
 {
     public class BulletObjectPool : MonoBehaviour
     {
-        public static BulletObjectPool Instance { get; private set; }
+        public GameObject bulletPrefab;
+        public int poolSize = 50;
+
+        [SerializeField]
+        private GunData gunData;
+        private Queue<GameObject> bulletPool;
+
         private void Awake()
         {
-            if (Instance == null)
-                Instance = this;
-            else
-                Destroy(gameObject);
-        }   //싱글톤
+            bulletPool = new Queue<GameObject>();
 
-        public GameObject bulletPrefab;
-        public int maxPoolSize = 20;
-        public int stackDefalutCapcity = 20;
-
-        public IObjectPool<Bullet> Pool
-        {
-            get
+            // 초기 풀 생성
+            for (int i = 0; i < poolSize; i++)
             {
-                if (_pool == null)
-                    _pool = new ObjectPool<Bullet>(
-                        CreatedPooledItem,
-                        OnTakeFromPool,
-                        OnReturnedToPool,
-                        OnDestroyPoolObject,
-                        true,
-                        stackDefalutCapcity,
-                        maxPoolSize
-                        );
+                GameObject bullet = Instantiate(bulletPrefab);
+                bullet.transform.parent = this.transform;
 
-                return _pool;
+                string bulletName = bullet.name.Replace("(Clone)", "").Trim();
+                Type bulletType = Type.GetType("Gun.Bullet." + bulletName);
+                bullet.AddComponent(bulletType);
+
+                bullet.GetComponent<Bullet>().gunData = gunData;
+
+                bullet.SetActive(false);
+                bulletPool.Enqueue(bullet);
             }
-        }
-        private IObjectPool<Bullet> _pool;
-
-        private Bullet CreatedPooledItem()
-        {
-            var go = Instantiate(bulletPrefab);
-
-            string bulletName = go.name.Replace("(Clone)", "").Trim();
-            Type bulletType = Type.GetType("Gun.Bullet." + bulletName);
-            Bullet bullet = (Bullet)go.AddComponent(bulletType);
-
-            go.name = bulletPrefab.name;
-            bullet.Pool = Pool;
-
-            return bullet;
-        }
-
-        private void OnReturnedToPool(Bullet bullet)
-        {
-            bullet.gameObject.SetActive(false);
-        }
-        
-        private void OnTakeFromPool(Bullet bullet)
-        {
-            bullet.gameObject.SetActive(true);
-        }
-
-        private void OnDestroyPoolObject(Bullet bullet)
-        {
-            Destroy(bullet.gameObject);
         }
 
         ///<summary>
@@ -74,14 +39,42 @@ namespace Gun.Bullet
         ///</summary>
         ///<param name="gunData"> 총의 데이터</param>
         ///<param name="bulletPoint"> 총알 생성 위치</param>
-        public void Spawn(GunData gunData, Transform bulletPoint)
+        // 총알을 풀에서 가져오는 메서드
+        public void GetBullet(Transform bulletPoint)
         {
-            var bullet = Pool.Get();
-            bullet.gunData = gunData;
+            GameObject bullet;
+            if (bulletPool.Count > 0)
+            {
+                bullet = bulletPool.Dequeue();
+                bullet.SetActive(true);
+            }
+            else
+            {
+                // 풀에 여유가 없으면 새로운 총알을 생성
+                bullet = Instantiate(bulletPrefab);
+                bullet.transform.parent = this.transform;
+
+                // 총알의 이름을 이용하여 총알의 타입을 동적으로 가져옴
+                string bulletName = bullet.name.Replace("(Clone)", "").Trim();
+                Type bulletType = Type.GetType("Gun.Bullet." + bulletName);
+                bullet.AddComponent(bulletType);
+
+                bullet.GetComponent<Bullet>().gunData = gunData;
+            }
+
             bullet.transform.position = bulletPoint.position;
             bullet.transform.rotation = bulletPoint.rotation;
             bullet.transform.localScale = bulletPoint.localScale;
             bullet.transform.parent = this.transform;
+
+            bullet.GetComponent<Bullet>().Shoot();
+        }
+
+        // 총알을 풀에 다시 반환하는 메서드
+        public void ReturnBullet(GameObject bullet)
+        {
+            bullet.SetActive(false);
+            bulletPool.Enqueue(bullet);
         }
     }
 }

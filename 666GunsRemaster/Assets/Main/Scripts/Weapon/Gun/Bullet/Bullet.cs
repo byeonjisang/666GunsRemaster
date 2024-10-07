@@ -6,7 +6,8 @@ namespace Gun.Bullet
 {
     public class Bullet : MonoBehaviour
     {
-        public IObjectPool<Bullet> Pool { get; set; }   //오브젝트 풀
+        private BulletObjectPool bulletObjectPool;
+
         public GunData gunData { private get; set; }    //총 데이터
 
         protected float damage;                 //데미지
@@ -25,6 +26,7 @@ namespace Gun.Bullet
         {
             sprite = GetComponent<SpriteRenderer>();
             rigid = GetComponent<Rigidbody2D>();
+            bulletObjectPool = GetComponentInParent<BulletObjectPool>();
         }
 
         protected virtual void Start()
@@ -40,21 +42,13 @@ namespace Gun.Bullet
         }
         protected virtual void OnEnable()
         {
-            StartCoroutine(Fire());
+            currentPenetration = penetration;
         }
-        protected virtual IEnumerator Fire()
+        public void Shoot()
         {
-            yield return new WaitForSeconds(0.01f);
-            //보고 있는 방향에 힘을 주기 위한 코드
             reverse = transform.localScale.x == 1 ? -1 : 1;
 
-            //현재 남은 관통력 초기화
-            currentPenetration = penetration;
-
-            //Debug.Log(transform.right);
-            Debug.Log(reverse);
             rigid.AddForce(transform.right * speed * reverse, ForceMode2D.Impulse);
-            //rigid.AddForce(new Vector3(transform.rotation.x, transform.rotation.y, transform.rotation.z), ForceMode2D.Impulse);
         }
         /// <summary>
         /// 데미지 반환
@@ -73,7 +67,7 @@ namespace Gun.Bullet
                 if(currentPenetration <= 0)
                 {
                     rigid.AddForce(Vector2.zero, ForceMode2D.Force);
-                    Pool.Release(this);
+                    bulletObjectPool.ReturnBullet(this.gameObject);
                 }
                     
             }

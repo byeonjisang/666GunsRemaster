@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: RifleData
   m_EditorClassIdentifier: 
   name: Rifle
+  index: 1
   type: "\uBC18\uC790\uB3D9"
   maxMagazineCount: 15
   maxBullet: 250
