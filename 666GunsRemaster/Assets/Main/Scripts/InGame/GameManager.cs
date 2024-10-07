@@ -67,6 +67,12 @@ public class GameManager : MonoBehaviour
         }
 
         Time.timeScale = 1f; // Time.timeScale도 원래 상태로 되돌림
+
+        //인게임 사운드 재생
+        if (scene.name == "Main Scene")
+        {
+            SoundManager.instance.PlayBGMSound(1);
+        }
     }
 
 
@@ -88,6 +94,8 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        SoundManager.instance.PlayBGMSound(1);
+
         // 씬 로드 이벤트에 메서드 등록
         SceneManager.sceneLoaded += OnSceneLoaded;
 

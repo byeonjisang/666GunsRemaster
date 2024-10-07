@@ -52,6 +52,11 @@ namespace Character.Player
                 if(_playerController.CurrentSpeed > 0)
                 {
                     HandleMovement();
+                    SoundManager.instance.PlayEffectSound(1);
+                }
+                else
+                {
+                    SoundManager.instance.StopEffectSound(1);
                 }
             }
         }
