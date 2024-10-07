@@ -9,7 +9,7 @@ public class AgentMove : MonoBehaviour
     private GameObject target;
 
     NavMeshAgent agent;
-    public float chaseSpeed = 5f;
+    public float chaseSpeed = 2f;
 
     // Start is called before the first frame update
     void Start()

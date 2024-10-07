@@ -1391,8 +1391,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1105889151}
   - component: {fileID: 1105889152}
+  - component: {fileID: 1105889153}
   m_Layer: 0
-  m_Name: FrameRate
+  m_Name: DetailSettings
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1425,6 +1426,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5dd154cc21037f14a98b73f1ea911d60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1105889153
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1105889150}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b81df082a5bcba74aa6ec169b55e6526, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  referenceResolution: {x: 1920, y: 1080}
 --- !u!1 &1116672397
 GameObject:
   m_ObjectHideFlags: 0
