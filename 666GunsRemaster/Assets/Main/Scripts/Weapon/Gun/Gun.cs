@@ -82,6 +82,16 @@ namespace Gun
                 }
             }
         }
+        private void OnEnable()
+        {
+            fireButton.onClick.AddListener(Fire);
+        }
+        private void OnDisable()
+        {
+            fireButton.onClick.RemoveListener(Fire);
+            isRate = false;
+            isReloading = false;
+        }
 
         protected virtual void Fire()
         {

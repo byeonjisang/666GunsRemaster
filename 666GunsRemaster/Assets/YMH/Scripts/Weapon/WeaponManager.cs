@@ -33,6 +33,8 @@ namespace Gun
             possessionGuns[currentWeaponIndex].SetActive(true);
             currentBullet = possessionGuns[currentWeaponIndex].GetComponent<Gun>();
             possessionGuns[1 - currentWeaponIndex].SetActive(false);
+
+            //ÀÓÆÑÆ® È¿°ú
         }
     }
 }
