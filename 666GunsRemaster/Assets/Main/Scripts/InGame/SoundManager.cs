@@ -80,6 +80,15 @@ public class SoundManager : MonoBehaviour
     public void PlayEffectSound(int index)
     {
         //Update문에 호출 시 중복재생을 막기 위함.
+        if (index >= 0 && index < effectSources.Count && effectSources[index] != null)
+        {
+            effectSources[index].Play();
+        }
+    }
+
+    public void PlayEffectSoundOnce(int index)
+    {
+        //Update문에 호출 시 중복재생을 막기 위함.
         if (index >= 0 && index < effectSources.Count && effectSources[index] != null && !effectSources[index].isPlaying)
         {
             effectSources[index].Play();
@@ -87,6 +96,15 @@ public class SoundManager : MonoBehaviour
     }
 
     public void PlayBGMSound(int index)
+    {
+        //Update문에 호출 시 중복재생을 막기 위함.
+        if (index >= 0 && index < bgmSources.Count && bgmSources[index] != null)
+        {
+            bgmSources[index].Play();
+        }
+    }
+
+    public void PlayBGMSoundOnce(int index)
     {
         //Update문에 호출 시 중복재생을 막기 위함.
         if (index >= 0 && index < bgmSources.Count && bgmSources[index] != null && !bgmSources[index].isPlaying)

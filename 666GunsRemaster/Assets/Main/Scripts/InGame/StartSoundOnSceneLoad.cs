@@ -14,6 +14,12 @@ public class StartSoundOnSceneLoad : MonoBehaviour
     {
         // 씬 로드 이벤트에 메서드 등록
         SceneManager.sceneLoaded += OnSceneLoaded;
+
+        foreach (Button button in setButtonList)
+        {
+            button.onClick.AddListener(() => SoundManager.instance.PlayEffectSound(0));
+            //Debug.Log(setButtonList + "버튼 이벤트 등록됨");
+        }
     }
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
@@ -22,12 +28,6 @@ public class StartSoundOnSceneLoad : MonoBehaviour
         if (scene.name == "TitleScene")
         {
             SoundManager.instance.PlayBGMSound(soundIndex);
-
-            for (int i = 0; i < setButtonList.Count; i++)
-            {
-                setButtonList[i].onClick.AddListener(() => SoundManager.instance.PlayEffectSound(0));
-                Debug.Log("버튼 이벤트 등록됨");
-            }
         }
     }
 }
