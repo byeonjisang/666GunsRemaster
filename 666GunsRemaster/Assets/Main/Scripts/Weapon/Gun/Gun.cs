@@ -19,6 +19,7 @@ namespace Gun
         protected int gunIndex;               // 총의 인덱스
         protected string type;                // 총의 종류
         protected int maxMagazineCount;       // 최대 탄창 속 탄약 크기
+        [Header("남은 총알의 갯수들")]
         [SerializeField]
         protected int currentMagazineCount;   // 현재 남은 탄창 속 탄약
         protected int maxBullet;              // 최대 탄약량
@@ -28,6 +29,7 @@ namespace Gun
         protected float currentFireRate;      // 남은 딜레이 시간
         protected float fireRate;             // 딜레이
         protected float bulletSpeed;          // 총알 속도
+        public float Damage { get { return damage; } }
         protected float damage;               // 총알 데미지
         protected float range;                // 사거리
         protected float penetration;          // 관통력

@@ -7,7 +7,20 @@ namespace Gun
 {
     public class WeaponManager : MonoBehaviour
     {
-        private Gun currentBullet;   //현재 사용중인 총알
+        public static WeaponManager instance;
+        private void Awake()
+        {
+            if (instance == null)
+            {
+                instance = this;
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
+        }
+
+        private Gun currentGun;   //현재 사용중인 총알
         [SerializeField]// 임시 총 부여
         private GameObject[] possessionGuns = new GameObject[2];
         [SerializeField]
@@ -19,7 +32,7 @@ namespace Gun
         {
             //착용하지 않는 총 비활성화
             possessionGuns[1 - currentWeaponIndex].SetActive(false);
-            currentBullet = possessionGuns[currentWeaponIndex].GetComponent<Gun>();
+            currentGun = possessionGuns[currentWeaponIndex].GetComponent<Gun>();
 
             //무기 변경 버튼 이벤트 추가
             WeaponChangeButton.onClick.AddListener(ChangeWeapon);
@@ -31,10 +44,16 @@ namespace Gun
             currentWeaponIndex = 1 - currentWeaponIndex;
 
             possessionGuns[currentWeaponIndex].SetActive(true);
-            currentBullet = possessionGuns[currentWeaponIndex].GetComponent<Gun>();
+            currentGun = possessionGuns[currentWeaponIndex].GetComponent<Gun>();
             possessionGuns[1 - currentWeaponIndex].SetActive(false);
 
             //임팩트 효과
+        }
+
+        //데미지 반환
+        public float GetDamage()
+        {
+            return currentGun.Damage;
         }
     }
 }

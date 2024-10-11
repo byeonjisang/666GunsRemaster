@@ -50,13 +50,6 @@ namespace Gun.Bullet
 
             rigid.AddForce(transform.right * speed * reverse, ForceMode2D.Impulse);
         }
-        /// <summary>
-        /// 데미지 반환
-        /// </summary>
-        public float GetDamage()
-        {
-            return damage;
-        }
         protected virtual void OnTriggerEnter2D(Collider2D collision)
         {
             //막히는 물체 확인 후 충돌 처리
@@ -69,7 +62,6 @@ namespace Gun.Bullet
                     rigid.AddForce(Vector2.zero, ForceMode2D.Force);
                     bulletObjectPool.ReturnBullet(this.gameObject);
                 }
-                    
             }
         }
     }
