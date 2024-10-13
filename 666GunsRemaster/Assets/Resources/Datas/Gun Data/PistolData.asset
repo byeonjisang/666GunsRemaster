@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7066d6e828309544dac077f5aed48329, type: 3}
-  m_Name: RifleData
+  m_Name: PistolData
   m_EditorClassIdentifier: 
-  index: 2
-  maxMagazineCount: 15
-  maxBullet: 250
+  index: 0
+  maxMagazineCount: -1
+  maxBullet: -1
   reloadTime: 1.2
   fireRate: 0.25
-  bulletSpeed: 35
-  damage: 2
-  range: 15
+  bulletSpeed: 22
+  damage: 1
+  range: 13
   penetration: 1
   blockObject:
     serializedVersion: 2
