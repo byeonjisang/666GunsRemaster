@@ -104,12 +104,10 @@ namespace Character.Player
             //이동 및 정지 상태 판단
             if((Joystick.Horizontal != 0 && Joystick.Vertical != 0))
             {
-                Debug.Log("이동");
                 _playerStateContext.Transition(_moveState);
             }
             else
             {
-                Debug.Log("정지");
                 _playerStateContext.Transition(_stopState);
             }
 

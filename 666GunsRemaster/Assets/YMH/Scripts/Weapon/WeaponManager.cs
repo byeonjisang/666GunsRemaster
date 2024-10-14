@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 namespace Gun
@@ -28,6 +29,9 @@ namespace Gun
         private GameObject[] guns;           //모든 총들
         private int currentGunIndex = 0;     //현재 착용한 총의 인덱스
         private int theNumberOfGun = 2;      //총의 개수
+
+        //무기 발사 관련
+        private bool isFiring = false;
 
         //무기 줍기 기능 관련
         private string keepGunName;
@@ -57,6 +61,31 @@ namespace Gun
             WeaponChangeButtonText = WeaponChangeButton.GetComponentInChildren<Text>();
         }
 
+        public void OnPointerDown()
+        {
+            if (!isFiring)
+            {
+                StartCoroutine(FireContinuously());
+            }
+        }
+        public void OnPointerUp()
+        {
+            isFiring = false;
+        }
+        private IEnumerator FireContinuously()
+        {
+            isFiring = true;
+            float fireRate = currentGun.FireRate;
+            while (isFiring)
+            {
+                if (currentGun != null)
+                {
+                    currentGun.Fire();
+                }
+                yield return new WaitForSeconds(fireRate);
+            }
+        }
+
         //무기 변경
         private void ChangeGun()
         {
@@ -83,8 +112,9 @@ namespace Gun
             possessionGuns[currentGunIndex].SetActive(false);
             possessionGuns[currentGunIndex] = gunObject;
             possessionGuns[currentGunIndex].SetActive(true);
+            currentGun = possessionGuns[currentGunIndex].GetComponent<Gun>();
 
-            if(gunName != "Pistol")
+            if (gunName != "Pistol")
                 keepGunName = null;
         }
         //무기 보유
