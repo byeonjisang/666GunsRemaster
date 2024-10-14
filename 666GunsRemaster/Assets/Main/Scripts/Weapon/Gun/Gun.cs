@@ -17,7 +17,6 @@ namespace Gun
         protected GunData gunData;          // 총의 데이터   
 
         protected int gunIndex;               // 총의 인덱스
-        protected string type;                // 총의 종류
         protected int maxMagazineCount;       // 최대 탄창 속 탄약 크기
         [Header("남은 총알의 갯수들")]
         [SerializeField]
@@ -49,13 +48,14 @@ namespace Gun
         {
             GunDataInit();
             fireButton.onClick.AddListener(Fire);
+
+            gameObject.SetActive(false);
         }
         protected virtual void GunDataInit()
         {
             string gunName = gameObject.name;
             gunData = Resources.Load<GunData>("Datas/Gun Data/"+gunName + "Data");
             gunIndex = gunData.index;
-            type = gunData.type;
             maxMagazineCount = gunData.maxMagazineCount;
             currentMagazineCount = maxMagazineCount;
             maxBullet = gunData.maxBullet;
@@ -109,8 +109,15 @@ namespace Gun
             isRate = true;                  //발사 딜레이 시작
 
             //탄창 속 탄약이 없을 시 재장전
-            if (currentMagazineCount <= 0)
+            if (currentMagazineCount == 0)
             {
+                //총알이 없으면 기본 권총으로 변경
+                if (currentBulletCount == 0)
+                {
+                    WeaponManager.instance.ChangePossessionGuns("Pistol");
+                    return;
+                }
+
                 //재장전
                 isReloading = true;
                 StartCoroutine(Reload());

@@ -79,7 +79,7 @@ namespace Character.Player
         //데이터 초기화
         public void StateInit()
         {
-            _health = playerData.health;
+            _health = playerData.maxHealth;
             _moveSpeed = playerData.moveSpeed;
             _dashSpeed = playerData.dashSpeed;
             _dashDuration = playerData.dashDuration;
@@ -165,6 +165,15 @@ namespace Character.Player
                 }
 
                 weaponManager.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+            }
+        }
+
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+            if (collision.tag == "Weapon")
+            {
+                weaponManager.KeepGun(collision.gameObject.name);
+                collision.gameObject.SetActive(false);
             }
         }
     }
