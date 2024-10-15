@@ -27,14 +27,14 @@ namespace Character.Player
 
         private void StartDash()
         {
-            float joyStickInputX = _playerController.Joystick.Horizontal;
-            float joyStickInputY = _playerController.Joystick.Vertical;
+            Vector2 tmpDir = new Vector2(_playerController.Joystick.Horizontal, _playerController.Joystick.Vertical);
             
             float dashTimeLeft = _playerController.DashDuration;
 
             while(dashTimeLeft >= 0)
             {
-                rigid.velocity = new Vector2(joyStickInputX * _playerController.DashSpeed, joyStickInputY * _playerController.DashSpeed);
+                //rigid.velocity = new Vector2(joyStickInputX * _playerController.DashSpeed, joyStickInputY * _playerController.DashSpeed);
+                rigid.velocity = tmpDir.normalized * _playerController.DashSpeed;
                 dashTimeLeft -= Time.deltaTime;
             }
         }
