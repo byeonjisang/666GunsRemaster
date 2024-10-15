@@ -79,7 +79,7 @@ namespace Character.Player
         //데이터 초기화
         public void StateInit()
         {
-            _health = playerData.health;
+            _health = playerData.maxHealth;
             _moveSpeed = playerData.moveSpeed;
             _dashSpeed = playerData.dashSpeed;
             _dashDuration = playerData.dashDuration;
@@ -104,12 +104,10 @@ namespace Character.Player
             //이동 및 정지 상태 판단
             if((Joystick.Horizontal != 0 && Joystick.Vertical != 0))
             {
-                Debug.Log("이동");
                 _playerStateContext.Transition(_moveState);
             }
             else
             {
-                Debug.Log("정지");
                 _playerStateContext.Transition(_stopState);
             }
 
@@ -168,6 +166,7 @@ namespace Character.Player
             }
         }
 
+<<<<<<< HEAD
         private void OnTriggerEnter2D(Collider2D collision)
         {
             if (collision.tag == "Weapon")
@@ -175,6 +174,15 @@ namespace Character.Player
                 weaponManager.KeepGun(collision.gameObject.name);
                 collision.gameObject.SetActive(false);
             }
+=======
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+            if (collision.tag == "Weapon")
+            {
+                weaponManager.KeepGun(collision.gameObject.name);
+                collision.gameObject.SetActive(false);
+            }
+>>>>>>> 70c8e2f31a85e687722d7301baee4fab9eecbe10
         }
     }
 }

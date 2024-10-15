@@ -9,14 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b713d5c0b0591384f9b7bda838a97876, type: 3}
-  m_Name: Player1Data
+  m_Script: {fileID: 11500000, guid: b436e2b4438ce6b45a11dd7478013cda, type: 3}
+  m_Name: Police1
   m_EditorClassIdentifier: 
-  playerId: 101
-  maxHealth: 0
-  maxShield: 0
+  enemyName: Police1
+  hp: 10
+  damage: 1
+  sightRange: 5
   moveSpeed: 5
-  dashCount: 0
-  dashSpeed: 10
-  dashDuration: 0.5
-  dashCooldown: 3
+  attackRange: 2

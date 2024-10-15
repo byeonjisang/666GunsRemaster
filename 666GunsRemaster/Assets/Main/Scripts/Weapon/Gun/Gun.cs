@@ -1,6 +1,7 @@
 ﻿using Gun.Bullet;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 namespace Gun
@@ -13,6 +14,7 @@ namespace Gun
         protected SpriteRenderer playerSprite;
         protected SpriteRenderer sprite;
         protected Button fireButton;
+        protected EventTrigger eventTrigger;
         protected GameObject bulletPoint;      //총알 발사 위치
         protected GunData gunData;          // 총의 데이터   
 
@@ -26,6 +28,7 @@ namespace Gun
         protected int currentBulletCount;     // 현재 소유한 탄약량
         protected float reloadTime;           // 재장전 시간
         protected float currentFireRate;      // 남은 딜레이 시간
+        public float FireRate { get { return fireRate; } }
         protected float fireRate;             // 딜레이
         protected float bulletSpeed;          // 총알 속도
         public float Damage { get { return damage; } }
@@ -42,12 +45,20 @@ namespace Gun
             playerSprite = GetComponentsInParent<SpriteRenderer>()[1];
             sprite = GetComponent<SpriteRenderer>();
             fireButton = GameObject.Find("FireButton").GetComponent<Button>();
+            eventTrigger = fireButton.GetComponent<EventTrigger>();
             bulletPoint = transform.GetChild(0).gameObject;
         }
         protected virtual void Start()
         {
             GunDataInit();
+<<<<<<< HEAD
             fireButton.onClick.AddListener(Fire);
+=======
+            //fireButton.onClick.AddListener(Fire);
+            //EventTrigger.Entry enterentry = new EventTrigger.Entry();
+            //enterentry.eventID = EventTriggerType.PointerDown;
+            //enterentry.callback.AddListener((data) => { Fire(); });
+>>>>>>> 70c8e2f31a85e687722d7301baee4fab9eecbe10
 
             gameObject.SetActive(false);
         }
@@ -86,16 +97,21 @@ namespace Gun
         }
         private void OnEnable()
         {
-            fireButton.onClick.AddListener(Fire);
+            //fireButton.onClick.AddListener(Fire);
+            //EventTrigger.Entry enterentry = new EventTrigger.Entry();
+            //enterentry.eventID = EventTriggerType.PointerDown;
+            //enterentry.callback.AddListener((data) => { Fire(); });
+
+            //eventTrigger.triggers.Add(enterentry);
         }
         private void OnDisable()
         {
-            fireButton.onClick.RemoveListener(Fire);
+            //fireButton.onClick.RemoveListener(Fire);
             isRate = false;
             isReloading = false;
         }
 
-        protected virtual void Fire()
+        public virtual void Fire()
         {
             if (isRate || isReloading)
                 return;
@@ -112,6 +128,7 @@ namespace Gun
             if (currentMagazineCount == 0)
             {
                 //총알이 없으면 기본 권총으로 변경
+<<<<<<< HEAD
                 if (currentBulletCount == 0)
                 {
                     WeaponManager.instance.ChangeDefaultGun();
@@ -119,6 +136,15 @@ namespace Gun
                 }
 
                 //재장전
+=======
+                if (currentBulletCount == 0)
+                {
+                    WeaponManager.instance.ChangePossessionGuns("Pistol");
+                    return;
+                }
+
+                //재장전
+>>>>>>> 70c8e2f31a85e687722d7301baee4fab9eecbe10
                 isReloading = true;
                 StartCoroutine(Reload());
             }

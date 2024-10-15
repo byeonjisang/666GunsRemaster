@@ -2,8 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "EnemyTest1", menuName = "EnemyTest1", order = int.MaxValue)]
-public class EnemyTest1 : ScriptableObject
+[CreateAssetMenu(fileName = "Police2", menuName = "Police2", order = int.MaxValue)]
+public class Police2 : ScriptableObject
 {
     //몬스터의 기본 정보
     [SerializeField]
@@ -21,4 +21,8 @@ public class EnemyTest1 : ScriptableObject
     [SerializeField]
     private float moveSpeed;
     public float GetMoveSpeed { get { return moveSpeed; } }
+
+    [SerializeField]
+    private float attackRange;
+    public float GetAttackRange { get { return attackRange; } }
 }
