@@ -51,14 +51,10 @@ namespace Gun
         protected virtual void Start()
         {
             GunDataInit();
-<<<<<<< HEAD
-            fireButton.onClick.AddListener(Fire);
-=======
             //fireButton.onClick.AddListener(Fire);
             //EventTrigger.Entry enterentry = new EventTrigger.Entry();
             //enterentry.eventID = EventTriggerType.PointerDown;
             //enterentry.callback.AddListener((data) => { Fire(); });
->>>>>>> 70c8e2f31a85e687722d7301baee4fab9eecbe10
 
             gameObject.SetActive(false);
         }
@@ -128,15 +124,6 @@ namespace Gun
             if (currentMagazineCount == 0)
             {
                 //총알이 없으면 기본 권총으로 변경
-<<<<<<< HEAD
-                if (currentBulletCount == 0)
-                {
-                    WeaponManager.instance.ChangeDefaultGun();
-                    return;
-                }
-
-                //재장전
-=======
                 if (currentBulletCount == 0)
                 {
                     WeaponManager.instance.ChangePossessionGuns("Pistol");
@@ -144,7 +131,6 @@ namespace Gun
                 }
 
                 //재장전
->>>>>>> 70c8e2f31a85e687722d7301baee4fab9eecbe10
                 isReloading = true;
                 StartCoroutine(Reload());
             }

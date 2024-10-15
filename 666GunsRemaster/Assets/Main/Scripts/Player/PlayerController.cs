@@ -166,7 +166,6 @@ namespace Character.Player
             }
         }
 
-<<<<<<< HEAD
         private void OnTriggerEnter2D(Collider2D collision)
         {
             if (collision.tag == "Weapon")
@@ -174,15 +173,6 @@ namespace Character.Player
                 weaponManager.KeepGun(collision.gameObject.name);
                 collision.gameObject.SetActive(false);
             }
-=======
-        private void OnTriggerEnter2D(Collider2D collision)
-        {
-            if (collision.tag == "Weapon")
-            {
-                weaponManager.KeepGun(collision.gameObject.name);
-                collision.gameObject.SetActive(false);
-            }
->>>>>>> 70c8e2f31a85e687722d7301baee4fab9eecbe10
         }
     }
 }
