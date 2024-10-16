@@ -32,7 +32,6 @@ namespace Gun
 
         //무기 발사 관련
         private bool isFiring = false;
-
         //무기 줍기 기능 관련
         private string keepGunName;
 
@@ -45,7 +44,6 @@ namespace Gun
         [SerializeField]
         private Button WeaponDeleteButton;
 
-
         private void Start()
         {
             //착용 중인 총 활성화
@@ -54,6 +52,7 @@ namespace Gun
 
             //무기 변경 버튼 이벤트 추가
             WeaponChangeButton.onClick.AddListener(ChangeGun);
+
             WeaponGetButton.onClick.AddListener(() => ChangePossessionGuns(keepGunName));
             WeaponDeleteButton.onClick.AddListener(DeleteGun);
 
@@ -122,6 +121,7 @@ namespace Gun
         {
             this.keepGunName = keepGunName;
         }
+
         //무기 삭제
         private void DeleteGun()
         {

@@ -12,9 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7066d6e828309544dac077f5aed48329, type: 3}
   m_Name: RifleData
   m_EditorClassIdentifier: 
-  name: Rifle
-  index: 1
-  type: "\uBC18\uC790\uB3D9"
+  index: 2
   maxMagazineCount: 15
   maxBullet: 250
   reloadTime: 1.2
