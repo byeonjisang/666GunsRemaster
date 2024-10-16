@@ -1,9 +1,7 @@
 using Character.Player.State;
 using Gun;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
-using static UnityEngine.GraphicsBuffer;
 
 namespace Character.Player
 {
@@ -17,8 +15,6 @@ namespace Character.Player
         public FloatingJoystick Joystick;
         [SerializeField]
         private Button dashButton;
-        [SerializeField]
-        private Button fireButton;
 
         //플레이어 데이터
         public int Health { get { return _health; } }
@@ -37,7 +33,7 @@ namespace Character.Player
         private bool _isCooldown = false;   //쿨타임 여부
 
         private bool _isFire = false;       //총 발사 여부
-        private bool _isTarget = false;
+        public bool IsTarget = false;     //타켓 존재 여부
 
         //플레이어 컴포넌트
         private Rigidbody2D rigid;
@@ -73,7 +69,6 @@ namespace Character.Player
 
             //대쉬 버튼 이벤트 등록
             dashButton.onClick.AddListener(StartDash);
-            fireButton.onClick.AddListener(StartFire);
         }
 
         //데이터 초기화
@@ -134,15 +129,13 @@ namespace Character.Player
             _isCooldown = true;
         }
        
-        private void StartFire() 
-        {
-            //_isTarget = (monsterScannerTest.nearestTarget == null) ? false : true;
-        }
         private void RotateGunTowardsTarget()
         {
             // 근처 적이 있는지 확인
             if (monsterScannerTest.nearestTarget != null)
             {
+                IsTarget = true;
+
                 // 적과의 거리 및 방향 계산
                 Vector3 targetDirection = monsterScannerTest.nearestTarget.position - transform.position;
 
@@ -163,6 +156,11 @@ namespace Character.Player
                 }
 
                 weaponManager.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+            }
+            else
+            {
+                IsTarget = false;
+                weaponManager.transform.rotation = Quaternion.identity;
             }
         }
 

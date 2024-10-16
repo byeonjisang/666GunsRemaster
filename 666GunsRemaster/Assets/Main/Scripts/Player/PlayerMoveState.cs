@@ -9,11 +9,13 @@ namespace Character.Player
         private WeaponManager weaponManager;
         private PlayerController _playerController;
 
+        private SpriteRenderer sprite;
         private Rigidbody2D rigid;
         private Animator anim;
 
         private void Awake()
         {
+            sprite = GetComponent<SpriteRenderer>();
             rigid = GetComponent<Rigidbody2D>();
             anim = GetComponent<Animator>();
 
@@ -43,6 +45,14 @@ namespace Character.Player
             rigid.velocity = new Vector2(finalInputX * _playerController.CurrentSpeed, finalInputY * _playerController.CurrentSpeed);
 
             anim.SetFloat("Speed", rigid.velocity.magnitude);
+
+            if (!_playerController.IsTarget)
+            {
+                sprite.flipX = rigid.velocity.x > 0;
+
+                int direction = sprite.flipX ? -1 : 1;
+                WeaponManager.instance.transform.localScale = new Vector3(direction, 1, 1);
+            }
         }
 
         public void FixedUpdate()
