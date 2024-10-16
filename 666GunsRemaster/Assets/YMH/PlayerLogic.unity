@@ -5424,7 +5424,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
+        - m_Target: {fileID: 255409916}
           m_TargetAssemblyTypeName: Gun.WeaponManager, Assembly-CSharp
           m_MethodName: OnPointerDown
           m_Mode: 1
@@ -5440,7 +5440,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
+        - m_Target: {fileID: 255409916}
           m_TargetAssemblyTypeName: Gun.WeaponManager, Assembly-CSharp
           m_MethodName: OnPointerUp
           m_Mode: 1
