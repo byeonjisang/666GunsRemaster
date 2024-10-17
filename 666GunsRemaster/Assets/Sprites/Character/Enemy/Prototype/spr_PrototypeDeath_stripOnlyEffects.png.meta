@@ -1,0 +1,420 @@
+fileFormatVersion: 2
+guid: 9622cf5e32bd3fa48bc38fa5c00f671a
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: spr_PrototypeDeath_stripOnlyEffects_0
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 45
+        width: 34
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4dab876128de7ed44b00c78cc63056ae
+      internalID: -43956322
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_PrototypeDeath_stripOnlyEffects_1
+      rect:
+        serializedVersion: 2
+        x: 513
+        y: 42
+        width: 39
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da4c8fe3137cb16448232054b6d58a17
+      internalID: 619835783
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_PrototypeDeath_stripOnlyEffects_4
+      rect:
+        serializedVersion: 2
+        x: 608
+        y: 41
+        width: 42
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 477dd166b2a5e40488deb2ca5cbc7249
+      internalID: 105546826
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_PrototypeDeath_stripOnlyEffects_11
+      rect:
+        serializedVersion: 2
+        x: 331
+        y: 54
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6e2d7da848e36d4fb125a0d2f71363c
+      internalID: 1065161016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_PrototypeDeath_stripOnlyEffects_20
+      rect:
+        serializedVersion: 2
+        x: 702
+        y: 40
+        width: 44
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01d5be40a44c5f54990c23e68f33ae89
+      internalID: 2020283575
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_PrototypeDeath_stripOnlyEffects_25
+      rect:
+        serializedVersion: 2
+        x: 2060
+        y: 33
+        width: 23
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: acb950eb231653c4f9634b1b027d4aeb
+      internalID: 1133644739
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_PrototypeDeath_stripOnlyEffects_27
+      rect:
+        serializedVersion: 2
+        x: 2156
+        y: 32
+        width: 21
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0bda50d2ea96344894c1f83039ef07f
+      internalID: -995807530
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_PrototypeDeath_stripOnlyEffects_33
+      rect:
+        serializedVersion: 2
+        x: 2445
+        y: 35
+        width: 20
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 481faa00cfd46544cb59c750b8c34dd2
+      internalID: 383492495
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_PrototypeDeath_stripOnlyEffects_2
+      rect:
+        serializedVersion: 2
+        x: 797
+        y: 41
+        width: 41
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1453fbddc150ad349a14826458c5da35
+      internalID: 1082602657
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_PrototypeDeath_stripOnlyEffects_3
+      rect:
+        serializedVersion: 2
+        x: 1967
+        y: 34
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8cbf4d216e24cf0469ff5f9706e9c92a
+      internalID: 1354715648
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_PrototypeDeath_stripOnlyEffects_5
+      rect:
+        serializedVersion: 2
+        x: 2250
+        y: 32
+        width: 26
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4a44df0b97efe74fbe3158fd68e604f
+      internalID: 321157919
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_PrototypeDeath_stripOnlyEffects_6
+      rect:
+        serializedVersion: 2
+        x: 2345
+        y: 35
+        width: 23
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 437202b462784554896e68dfc56963f5
+      internalID: 996768838
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      spr_PrototypeDeath_stripOnlyEffects_0: -43956322
+      spr_PrototypeDeath_stripOnlyEffects_1: 619835783
+      spr_PrototypeDeath_stripOnlyEffects_10: -1849599274
+      spr_PrototypeDeath_stripOnlyEffects_11: 1065161016
+      spr_PrototypeDeath_stripOnlyEffects_12: 1404895627
+      spr_PrototypeDeath_stripOnlyEffects_13: 1414419979
+      spr_PrototypeDeath_stripOnlyEffects_14: -561367282
+      spr_PrototypeDeath_stripOnlyEffects_15: -993077003
+      spr_PrototypeDeath_stripOnlyEffects_16: -76390216
+      spr_PrototypeDeath_stripOnlyEffects_17: 1359286082
+      spr_PrototypeDeath_stripOnlyEffects_18: -1720920128
+      spr_PrototypeDeath_stripOnlyEffects_19: -79850909
+      spr_PrototypeDeath_stripOnlyEffects_2: 1082602657
+      spr_PrototypeDeath_stripOnlyEffects_20: 2020283575
+      spr_PrototypeDeath_stripOnlyEffects_21: 1088510006
+      spr_PrototypeDeath_stripOnlyEffects_22: -176342895
+      spr_PrototypeDeath_stripOnlyEffects_23: -1202540505
+      spr_PrototypeDeath_stripOnlyEffects_24: -1988565469
+      spr_PrototypeDeath_stripOnlyEffects_25: 1133644739
+      spr_PrototypeDeath_stripOnlyEffects_26: 882617054
+      spr_PrototypeDeath_stripOnlyEffects_27: -995807530
+      spr_PrototypeDeath_stripOnlyEffects_28: -1673831386
+      spr_PrototypeDeath_stripOnlyEffects_29: 2115580741
+      spr_PrototypeDeath_stripOnlyEffects_3: 1354715648
+      spr_PrototypeDeath_stripOnlyEffects_30: -242632282
+      spr_PrototypeDeath_stripOnlyEffects_31: 1951027189
+      spr_PrototypeDeath_stripOnlyEffects_32: 273937475
+      spr_PrototypeDeath_stripOnlyEffects_33: 383492495
+      spr_PrototypeDeath_stripOnlyEffects_34: 1311026005
+      spr_PrototypeDeath_stripOnlyEffects_35: -838938825
+      spr_PrototypeDeath_stripOnlyEffects_36: -575938956
+      spr_PrototypeDeath_stripOnlyEffects_37: 993138036
+      spr_PrototypeDeath_stripOnlyEffects_38: -17925856
+      spr_PrototypeDeath_stripOnlyEffects_39: 784979769
+      spr_PrototypeDeath_stripOnlyEffects_4: 105546826
+      spr_PrototypeDeath_stripOnlyEffects_40: -1557135634
+      spr_PrototypeDeath_stripOnlyEffects_5: 321157919
+      spr_PrototypeDeath_stripOnlyEffects_6: 996768838
+      spr_PrototypeDeath_stripOnlyEffects_7: 437398746
+      spr_PrototypeDeath_stripOnlyEffects_8: -373213660
+      spr_PrototypeDeath_stripOnlyEffects_9: -377699516
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

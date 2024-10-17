@@ -1,0 +1,290 @@
+fileFormatVersion: 2
+guid: d1c5954c44ae4034db42fdb2dceb5061
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: spr_DroneDeath_stripOnlyEffects_0
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 28
+        width: 65
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e28d5ed2eaf83794a8ff7ab3af7669bc
+      internalID: 586529040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_DroneDeath_stripOnlyEffects_3
+      rect:
+        serializedVersion: 2
+        x: 583
+        y: 28
+        width: 83
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2d04d9399531c340bb997bd31bfe918
+      internalID: -1242001271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_DroneDeath_stripOnlyEffects_9
+      rect:
+        serializedVersion: 2
+        x: 323
+        y: 33
+        width: 28
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c1d1b077a5693040865d8a6ad65dd01
+      internalID: 119196856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_DroneDeath_stripOnlyEffects_14
+      rect:
+        serializedVersion: 2
+        x: 489
+        y: 26
+        width: 80
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 973d8ecef1aea2f4aa2ef6e76338036d
+      internalID: 534332366
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_DroneDeath_stripOnlyEffects_20
+      rect:
+        serializedVersion: 2
+        x: 676
+        y: 27
+        width: 89
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5f0268014d53f143914ad84a1925d65
+      internalID: -1171717185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_DroneDeath_stripOnlyEffects_35
+      rect:
+        serializedVersion: 2
+        x: 791
+        y: 26
+        width: 48
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d4fb4faedcce5f42b3dcdbeb832f0cc
+      internalID: 685431275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      spr_DroneDeath_stripOnlyEffects_0: 586529040
+      spr_DroneDeath_stripOnlyEffects_1: 1486363378
+      spr_DroneDeath_stripOnlyEffects_10: -57395226
+      spr_DroneDeath_stripOnlyEffects_11: -841790595
+      spr_DroneDeath_stripOnlyEffects_12: 1418822133
+      spr_DroneDeath_stripOnlyEffects_13: 1736549254
+      spr_DroneDeath_stripOnlyEffects_14: 534332366
+      spr_DroneDeath_stripOnlyEffects_15: 238387490
+      spr_DroneDeath_stripOnlyEffects_16: 160804627
+      spr_DroneDeath_stripOnlyEffects_17: 673127179
+      spr_DroneDeath_stripOnlyEffects_18: 357164087
+      spr_DroneDeath_stripOnlyEffects_19: -301029508
+      spr_DroneDeath_stripOnlyEffects_2: 650488936
+      spr_DroneDeath_stripOnlyEffects_20: -1171717185
+      spr_DroneDeath_stripOnlyEffects_21: 230965699
+      spr_DroneDeath_stripOnlyEffects_22: 1431333982
+      spr_DroneDeath_stripOnlyEffects_23: 1251010284
+      spr_DroneDeath_stripOnlyEffects_24: -158769862
+      spr_DroneDeath_stripOnlyEffects_25: 719535482
+      spr_DroneDeath_stripOnlyEffects_26: 229362365
+      spr_DroneDeath_stripOnlyEffects_27: -1996593930
+      spr_DroneDeath_stripOnlyEffects_28: 389919926
+      spr_DroneDeath_stripOnlyEffects_29: 1369975861
+      spr_DroneDeath_stripOnlyEffects_3: -1242001271
+      spr_DroneDeath_stripOnlyEffects_30: 1109528155
+      spr_DroneDeath_stripOnlyEffects_31: -438301903
+      spr_DroneDeath_stripOnlyEffects_32: -1751696647
+      spr_DroneDeath_stripOnlyEffects_33: -1611062258
+      spr_DroneDeath_stripOnlyEffects_34: 1689963828
+      spr_DroneDeath_stripOnlyEffects_35: 685431275
+      spr_DroneDeath_stripOnlyEffects_36: -853943106
+      spr_DroneDeath_stripOnlyEffects_4: 200355905
+      spr_DroneDeath_stripOnlyEffects_5: -442828519
+      spr_DroneDeath_stripOnlyEffects_6: 14082391
+      spr_DroneDeath_stripOnlyEffects_7: -2133864549
+      spr_DroneDeath_stripOnlyEffects_8: -1605698920
+      spr_DroneDeath_stripOnlyEffects_9: 119196856
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

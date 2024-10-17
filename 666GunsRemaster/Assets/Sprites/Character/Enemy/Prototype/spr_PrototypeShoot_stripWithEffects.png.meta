@@ -1,0 +1,813 @@
+fileFormatVersion: 2
+guid: 90bffe14608fff947bb6097b98ae4ab0
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: spr_PrototypeShoot_stripWithEffects_0
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 25
+        width: 35
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82552d0f359a9354ba991374f3f475a1
+      internalID: 1514495515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_PrototypeShoot_stripWithEffects_1
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 25
+        width: 39
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a85fd51fe0aeb34ab8e5308de5c814f
+      internalID: -941370388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_PrototypeShoot_stripWithEffects_2
+      rect:
+        serializedVersion: 2
+        x: 353
+        y: 25
+        width: 42
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f22751c3bedcc6a4aa23580956f53c7b
+      internalID: -1907234113
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_PrototypeShoot_stripWithEffects_3
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 25
+        width: 42
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45e7c900ae2108d4ca3da771324edfa5
+      internalID: -715334383
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_PrototypeShoot_stripWithEffects_4
+      rect:
+        serializedVersion: 2
+        x: 674
+        y: 25
+        width: 40
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: adab1a67fbad1a34b965c9c7ee51d42e
+      internalID: 1240083524
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_PrototypeShoot_stripWithEffects_5
+      rect:
+        serializedVersion: 2
+        x: 833
+        y: 25
+        width: 47
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66b5dba5fb0fe024b884be73ca6347c2
+      internalID: -1794824974
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_PrototypeShoot_stripWithEffects_6
+      rect:
+        serializedVersion: 2
+        x: 993
+        y: 25
+        width: 67
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39c6db17675dc1849bfde406e8ffacd3
+      internalID: -844867670
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_PrototypeShoot_stripWithEffects_7
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 25
+        width: 42
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15e7afdc738023348825a1b5402d7498
+      internalID: 1642448678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_PrototypeShoot_stripWithEffects_8
+      rect:
+        serializedVersion: 2
+        x: 1311
+        y: 25
+        width: 47
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af7afa0f517efd447a547e71c4d20b42
+      internalID: -570391072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_PrototypeShoot_stripWithEffects_9
+      rect:
+        serializedVersion: 2
+        x: 1473
+        y: 25
+        width: 58
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e939ca6938f8b4c4ca89549e852dc147
+      internalID: 1174899409
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_PrototypeShoot_stripWithEffects_11
+      rect:
+        serializedVersion: 2
+        x: 1632
+        y: 25
+        width: 92
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: feb1dc75c3788874bb20a0705f4d4f74
+      internalID: -1021130499
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_PrototypeShoot_stripWithEffects_13
+      rect:
+        serializedVersion: 2
+        x: 1793
+        y: 25
+        width: 127
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 618f8491d25e72a45bbf33d606ef741e
+      internalID: -118751654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_PrototypeShoot_stripWithEffects_15
+      rect:
+        serializedVersion: 2
+        x: 1951
+        y: 25
+        width: 133
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3717d4db754e629458767eefa282ae9f
+      internalID: 1222131307
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_PrototypeShoot_stripWithEffects_17
+      rect:
+        serializedVersion: 2
+        x: 2113
+        y: 25
+        width: 132
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6afa5fee520a0e44bbd45ee63ca23d3d
+      internalID: -1476267609
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_PrototypeShoot_stripWithEffects_20
+      rect:
+        serializedVersion: 2
+        x: 2272
+        y: 25
+        width: 135
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70f112c637105c34ba65b30535d8419a
+      internalID: -1944409836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_PrototypeShoot_stripWithEffects_23
+      rect:
+        serializedVersion: 2
+        x: 2434
+        y: 17
+        width: 131
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30ec072d857ff85488eed7c7811a23d6
+      internalID: 462566951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_PrototypeShoot_stripWithEffects_25
+      rect:
+        serializedVersion: 2
+        x: 2591
+        y: 25
+        width: 133
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed6a10739d286764b9c422deb01ea292
+      internalID: 1906908003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_PrototypeShoot_stripWithEffects_28
+      rect:
+        serializedVersion: 2
+        x: 2753
+        y: 25
+        width: 131
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3de7105957074b54396d8df4e24970b2
+      internalID: -1990231909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_PrototypeShoot_stripWithEffects_31
+      rect:
+        serializedVersion: 2
+        x: 2912
+        y: 25
+        width: 133
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0bd28e96ee589440a9498cb9baebe93
+      internalID: 1241500030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_PrototypeShoot_stripWithEffects_34
+      rect:
+        serializedVersion: 2
+        x: 3074
+        y: 20
+        width: 130
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83725d5184ff1a442a1e0950b63252a5
+      internalID: -1872029663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_PrototypeShoot_stripWithEffects_36
+      rect:
+        serializedVersion: 2
+        x: 3231
+        y: 25
+        width: 140
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d6200cdb28e16047acb2227aef795a0
+      internalID: -264448977
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_PrototypeShoot_stripWithEffects_38
+      rect:
+        serializedVersion: 2
+        x: 3393
+        y: 25
+        width: 133
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fccb5081d62e52c4aa8d67c6c1e88cdb
+      internalID: -624975856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_PrototypeShoot_stripWithEffects_41
+      rect:
+        serializedVersion: 2
+        x: 3552
+        y: 25
+        width: 132
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b03c6eb56c11a774493747261a740f79
+      internalID: 973300108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_PrototypeShoot_stripWithEffects_44
+      rect:
+        serializedVersion: 2
+        x: 3714
+        y: 20
+        width: 131
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3acfa5397b89edf4cb25dcd185d96c78
+      internalID: -1623054140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_PrototypeShoot_stripWithEffects_46
+      rect:
+        serializedVersion: 2
+        x: 3873
+        y: 25
+        width: 131
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76dee365e84fd5a4f86f34d7e265ba1a
+      internalID: 287594632
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_PrototypeShoot_stripWithEffects_48
+      rect:
+        serializedVersion: 2
+        x: 4032
+        y: 26
+        width: 133
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67c56f493a2e8b442b1ec8ac09d279c3
+      internalID: -1202865889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_PrototypeShoot_stripWithEffects_50
+      rect:
+        serializedVersion: 2
+        x: 4193
+        y: 26
+        width: 132
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 344444175c4e5db48b67517c529f3e9c
+      internalID: 1240406335
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_PrototypeShoot_stripWithEffects_52
+      rect:
+        serializedVersion: 2
+        x: 4354
+        y: 20
+        width: 132
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 378962b37e417dd4fbcb56dd7ef3536c
+      internalID: 1746174820
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_PrototypeShoot_stripWithEffects_54
+      rect:
+        serializedVersion: 2
+        x: 4513
+        y: 25
+        width: 37
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ddc0ad1dbfa34e48a72669a012b834a
+      internalID: -855150535
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spr_PrototypeShoot_stripWithEffects_55
+      rect:
+        serializedVersion: 2
+        x: 4672
+        y: 25
+        width: 38
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54b627f553ef6334cb8d0a5e5ba20d90
+      internalID: 1143757709
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      spr_PrototypeShoot_stripWithEffects_0: 1514495515
+      spr_PrototypeShoot_stripWithEffects_1: -941370388
+      spr_PrototypeShoot_stripWithEffects_10: 1849622392
+      spr_PrototypeShoot_stripWithEffects_11: -1021130499
+      spr_PrototypeShoot_stripWithEffects_12: -138084544
+      spr_PrototypeShoot_stripWithEffects_13: -118751654
+      spr_PrototypeShoot_stripWithEffects_14: 1684439975
+      spr_PrototypeShoot_stripWithEffects_15: 1222131307
+      spr_PrototypeShoot_stripWithEffects_16: -602811686
+      spr_PrototypeShoot_stripWithEffects_17: -1476267609
+      spr_PrototypeShoot_stripWithEffects_18: 1308455539
+      spr_PrototypeShoot_stripWithEffects_19: 1723871730
+      spr_PrototypeShoot_stripWithEffects_2: -1907234113
+      spr_PrototypeShoot_stripWithEffects_20: -1944409836
+      spr_PrototypeShoot_stripWithEffects_21: 1159923255
+      spr_PrototypeShoot_stripWithEffects_22: 177731851
+      spr_PrototypeShoot_stripWithEffects_23: 462566951
+      spr_PrototypeShoot_stripWithEffects_24: 1785613524
+      spr_PrototypeShoot_stripWithEffects_25: 1906908003
+      spr_PrototypeShoot_stripWithEffects_26: 1848663244
+      spr_PrototypeShoot_stripWithEffects_27: -1098772031
+      spr_PrototypeShoot_stripWithEffects_28: -1990231909
+      spr_PrototypeShoot_stripWithEffects_29: 186827429
+      spr_PrototypeShoot_stripWithEffects_3: -715334383
+      spr_PrototypeShoot_stripWithEffects_30: 1799267210
+      spr_PrototypeShoot_stripWithEffects_31: 1241500030
+      spr_PrototypeShoot_stripWithEffects_32: -1169087835
+      spr_PrototypeShoot_stripWithEffects_33: -743909470
+      spr_PrototypeShoot_stripWithEffects_34: -1872029663
+      spr_PrototypeShoot_stripWithEffects_35: -108344221
+      spr_PrototypeShoot_stripWithEffects_36: -264448977
+      spr_PrototypeShoot_stripWithEffects_37: -2107692166
+      spr_PrototypeShoot_stripWithEffects_38: -624975856
+      spr_PrototypeShoot_stripWithEffects_39: 2001037102
+      spr_PrototypeShoot_stripWithEffects_4: 1240083524
+      spr_PrototypeShoot_stripWithEffects_40: 828055505
+      spr_PrototypeShoot_stripWithEffects_41: 973300108
+      spr_PrototypeShoot_stripWithEffects_42: -1381654245
+      spr_PrototypeShoot_stripWithEffects_43: -1821017796
+      spr_PrototypeShoot_stripWithEffects_44: -1623054140
+      spr_PrototypeShoot_stripWithEffects_45: 746159253
+      spr_PrototypeShoot_stripWithEffects_46: 287594632
+      spr_PrototypeShoot_stripWithEffects_47: 1710338398
+      spr_PrototypeShoot_stripWithEffects_48: -1202865889
+      spr_PrototypeShoot_stripWithEffects_49: -418359697
+      spr_PrototypeShoot_stripWithEffects_5: -1794824974
+      spr_PrototypeShoot_stripWithEffects_50: 1240406335
+      spr_PrototypeShoot_stripWithEffects_51: 1671838789
+      spr_PrototypeShoot_stripWithEffects_52: 1746174820
+      spr_PrototypeShoot_stripWithEffects_53: -1534229592
+      spr_PrototypeShoot_stripWithEffects_54: -855150535
+      spr_PrototypeShoot_stripWithEffects_55: 1143757709
+      spr_PrototypeShoot_stripWithEffects_6: -844867670
+      spr_PrototypeShoot_stripWithEffects_7: 1642448678
+      spr_PrototypeShoot_stripWithEffects_8: -570391072
+      spr_PrototypeShoot_stripWithEffects_9: 1174899409
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
