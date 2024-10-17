@@ -129,5 +129,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12fed743c00a646438c17adc9bbef49e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bulletObjectPool: {fileID: 0}
   currentMagazineCount: 0
   currentBulletCount: 0
