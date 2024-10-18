@@ -94,7 +94,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        SoundManager.instance.PlayBGMSound(1);
+        //SoundManager.instance.PlayBGMSound(1);
 
         // 씬 로드 이벤트에 메서드 등록
         SceneManager.sceneLoaded += OnSceneLoaded;

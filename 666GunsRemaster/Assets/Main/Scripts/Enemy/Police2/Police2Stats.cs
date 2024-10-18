@@ -16,6 +16,7 @@ public class Police2Stats : MonoBehaviour
     private float lastAttackTime;
 
     private Transform player;
+    private SpriteRenderer sprite;
 
     [SerializeField]
     private bool isInAttackRange = false;
@@ -32,12 +33,20 @@ public class Police2Stats : MonoBehaviour
     // 몬스터의 정보를 디버그 하기 위함.
     public void DebugMonsterInfo()
     {
-        Debug.Log("몬스터 이름 :: " + police2.GetMonsterName);
-        Debug.Log("몬스터 체력 :: " + police2.GetHp);
-        Debug.Log("몬스터 공격력 :: " + police2.GetDamage);
-        Debug.Log("몬스터 시야 :: " + police2.GetSightRange);
-        Debug.Log("몬스터 이동속도 :: " + police2.GetMoveSpeed);
-        Debug.Log("몬스터 사정거리 :: " + police2.GetAttackRange);
+        //Debug.Log("몬스터 이름 :: " + police2.GetMonsterName);
+        //Debug.Log("몬스터 체력 :: " + police2.GetHp);
+        //Debug.Log("몬스터 공격력 :: " + police2.GetDamage);
+        //Debug.Log("몬스터 시야 :: " + police2.GetSightRange);
+        //Debug.Log("몬스터 이동속도 :: " + police2.GetMoveSpeed);
+        //Debug.Log("몬스터 사정거리 :: " + police2.GetAttackRange);
+    }
+
+    // 복사 메서드
+    public Police2Stats Clone(GameObject newObject)
+    {
+        //Police2Stats clone = newObject.AddComponent<Police2Stats>();
+        //clone.anima = this.policeName;
+        return null;
     }
     void Awake()
     {
@@ -45,6 +54,9 @@ public class Police2Stats : MonoBehaviour
         agent.speed = police2.GetMoveSpeed;
         agent.updateRotation = false;
         agent.updateUpAxis = false;
+        agent.isStopped = false;
+
+        sprite = GetComponent<SpriteRenderer>();
     }
 
     void Update()
@@ -53,6 +65,8 @@ public class Police2Stats : MonoBehaviour
 
         if (player != null)
         {
+            Vector3 targetDistancePos = player.transform.position - transform.position;
+
             float distanceToPlayer = Vector2.Distance(transform.position, player.position);
 
             if (distanceToPlayer <= police2.GetAttackRange)
@@ -60,21 +74,22 @@ public class Police2Stats : MonoBehaviour
                 // 사정거리 안에 들어오면 공격하고, 움직임 멈춤
                 isInAttackRange = true;
                 TryShoot();
+                StopMovement();
             }
             else
             {
                 // 사정거리 밖이면 움직임을 다시 시작
                 isInAttackRange = false;
+                SetAgentPosition();
             }
 
-            // 사정거리 밖이면 몬스터가 플레이어를 추적
-            if (!isInAttackRange)
+            if (targetDistancePos.x < 0)
             {
-                SetAgentPosition();
+                sprite.flipX = false;
             }
             else
             {
-                StopMovement();  // 사정거리 안에 있으면 움직임 멈추기
+                sprite.flipX = true;
             }
         }
     }
@@ -94,6 +109,7 @@ public class Police2Stats : MonoBehaviour
         else
         {
             player = null;  // 플레이어를 감지하지 못하면 null
+            Debug.Log("Player null");
         }
     }
     void SetAgentPosition()
@@ -102,12 +118,15 @@ public class Police2Stats : MonoBehaviour
 
         agent.SetDestination(new Vector3(player.position.x, player.position.y,
             transform.position.z));
+
+        Debug.Log("Player Chasing...");
     }
 
     // 움직임을 멈추는 함수
     private void StopMovement()
     {
         agent.isStopped = true;
+        Debug.Log("Chasing Stopped");
     }
 
     // 사정거리에 들어왔을 때 플레이어를 향해 총을 발사

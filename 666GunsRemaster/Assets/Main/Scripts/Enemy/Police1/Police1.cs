@@ -9,14 +9,18 @@ public class Police1 : ScriptableObject
     private string enemyName;
     public string GetMonsterName { get { return enemyName; } }
     [SerializeField]
-    private int hp;
-    public int GetHp { get { return hp; } }
+    private float hp;
+    public float GetHp { get { return hp; } }
+    public void SetHp(float damage) { hp -= damage; }
+
     [SerializeField]
     private int damage;
     public int GetDamage { get { return damage; } }
+
     [SerializeField]
     private float sightRange;
     public float GetSightRange { get { return sightRange; } }
+
     [SerializeField]
     private float moveSpeed;
     public float GetMoveSpeed { get { return moveSpeed; } }
@@ -24,4 +28,12 @@ public class Police1 : ScriptableObject
     [SerializeField]
     private float attackRange;
     public float GetAttackRange { get { return attackRange; } }
+
+    public Police1 Clone()
+    {
+        Police1 clone = ScriptableObject.CreateInstance<Police1>();
+        clone.hp = this.hp;
+        clone.moveSpeed = this.moveSpeed;
+        return clone;
+    }
 }
