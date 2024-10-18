@@ -35,7 +35,8 @@ namespace Character.Player
             {
                 Vector2 tmpDir = new Vector2(_playerController.Joystick.Horizontal, _playerController.Joystick.Vertical);
 
-                rigid.velocity = tmpDir.normalized * _playerController.DashSpeed * 5 * Time.fixedDeltaTime;
+                Debug.Log(_playerController.DashSpeed);
+                rigid.velocity = tmpDir.normalized * _playerController.DashSpeed;
                 dashTimeLeft -= Time.deltaTime;
 
                 if(dashTimeLeft <= 0)
@@ -45,28 +46,5 @@ namespace Character.Player
                 }
             }
         }
-
-        //private IEnumerator DashCoroutine()
-        //{
-        //    Vector2 tmpDir = new Vector2(_playerController.Joystick.Horizontal, _playerController.Joystick.Vertical);
-
-        //    // 대쉬 방향이 0일 경우 대쉬하지 않음
-        //    if (tmpDir == Vector2.zero)
-        //    {
-        //        yield break; // 대쉬하지 않고 코루틴 종료
-        //    }
-
-        //    float dashTimeLeft = _playerController.DashDuration;
-
-        //    while (dashTimeLeft > 0)
-        //    {
-        //        rigid.velocity = tmpDir.normalized * _playerController.DashSpeed;
-        //        dashTimeLeft -= Time.deltaTime;
-        //        yield return null; // 다음 프레임까지 대기
-        //    }
-
-        //    // 대쉬가 끝나면 속도를 초기화합니다.
-        //    rigid.velocity = Vector2.zero;
-        //}
     }
 }
