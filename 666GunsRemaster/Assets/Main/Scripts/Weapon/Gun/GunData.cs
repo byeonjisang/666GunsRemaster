@@ -15,6 +15,7 @@ namespace Gun
         public float damage;               // 총알 데미지
         public float range;                // 사거리
         public float penetration;          // 관통력
+        public float shotgunSpread;        // 샷건 탄착 각도
         public LayerMask blockObject;      // 총알이 맞을 수 없는 레이어
     }
 }

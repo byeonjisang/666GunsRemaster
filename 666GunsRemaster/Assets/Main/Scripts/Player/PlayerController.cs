@@ -122,11 +122,11 @@ namespace Character.Player
             if (_isCooldown)
                 return;
 
-            Debug.Log("´ë½¬");
             _playerStateContext.Transition(_dashState);
 
             _cooldownTimeLeft = _dashCooldown;
             _isCooldown = true;
+            anim.SetBool("IsDash", true);
         }
        
         private void RotateGunTowardsTarget()

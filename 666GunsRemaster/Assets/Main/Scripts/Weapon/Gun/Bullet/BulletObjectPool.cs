@@ -34,15 +34,10 @@ namespace Gun.Bullet
             }
         }
 
-        ///<summary>
-        ///총알 생성
-        ///</summary>
-        ///<param name="gunData"> 총의 데이터</param>
-        ///<param name="bulletPoint"> 총알 생성 위치</param>
-        // 총알을 풀에서 가져오는 메서드
-        public void GetBullet(Transform bulletPoint)
+        private GameObject BulletInit(Transform bulletPoint)
         {
             GameObject bullet;
+
             if (bulletPool.Count > 0)
             {
                 bullet = bulletPool.Dequeue();
@@ -67,7 +62,23 @@ namespace Gun.Bullet
             bullet.transform.localScale = bulletPoint.localScale;
             bullet.transform.parent = this.transform;
 
+            return bullet;
+        }
+        ///<summary>
+        ///총알 생성
+        ///</summary>
+        ///<param name="gunData"> 총의 데이터</param>
+        ///<param name="bulletPoint"> 총알 생성 위치</param>
+        // 총알을 풀에서 가져오는 메서드
+        public void GetBullet(Transform bulletPoint)
+        {
+            GameObject bullet = BulletInit(bulletPoint);
             bullet.GetComponent<Bullet>().Shoot();
+        }
+        public void GetBullet(Transform bulletPoint, int index)
+        {
+            GameObject bullet = BulletInit(bulletPoint);
+            bullet.GetComponent<ShotgunBullet>().Shoot(index);
         }
 
         // 총알을 풀에 다시 반환하는 메서드

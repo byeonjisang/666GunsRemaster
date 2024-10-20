@@ -35,7 +35,9 @@ namespace Gun
         protected float damage;               // 총알 데미지
         protected float range;                // 사거리
         protected float penetration;          // 관통력
+        protected float shotgunSpread;        // 샷건 탄착 각도
         protected LayerMask blockObject;      // 총알이 맞을 수 없는 레이어
+
         protected bool isReloading;           // 재장전 중인지
         protected bool isRate;              // 발사 중인지
         protected bool isBullet;              // 총알이 있는지
@@ -51,10 +53,6 @@ namespace Gun
         protected virtual void Start()
         {
             GunDataInit();
-            //fireButton.onClick.AddListener(Fire);
-            //EventTrigger.Entry enterentry = new EventTrigger.Entry();
-            //enterentry.eventID = EventTriggerType.PointerDown;
-            //enterentry.callback.AddListener((data) => { Fire(); });
 
             gameObject.SetActive(false);
         }
@@ -73,6 +71,7 @@ namespace Gun
             damage = gunData.damage;
             range = gunData.range;
             penetration = gunData.penetration;
+            shotgunSpread = gunData.shotgunSpread;
             blockObject = gunData.blockObject;
             isReloading = false;
             isRate = false;
@@ -91,18 +90,8 @@ namespace Gun
                 }
             }
         }
-        private void OnEnable()
-        {
-            //fireButton.onClick.AddListener(Fire);
-            //EventTrigger.Entry enterentry = new EventTrigger.Entry();
-            //enterentry.eventID = EventTriggerType.PointerDown;
-            //enterentry.callback.AddListener((data) => { Fire(); });
-
-            //eventTrigger.triggers.Add(enterentry);
-        }
         private void OnDisable()
         {
-            //fireButton.onClick.RemoveListener(Fire);
             isRate = false;
             isReloading = false;
         }

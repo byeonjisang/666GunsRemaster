@@ -7,6 +7,7 @@ namespace Gun
 {
     public class Rifle : Gun
     {
+
     }
 }
 

@@ -7,15 +7,20 @@ namespace Character.Player
     public class PlayerDashState : MonoBehaviour, IPlayerState
     {
         private PlayerController _playerController;
+        private Ghost ghost;
 
         private Rigidbody2D rigid;
+        private Animator anim;
 
         private float dashTimeLeft;
         private bool isDashing = false;
 
         private void Awake()
         {
+            ghost = GetComponent<Ghost>();
+
             rigid = GetComponent<Rigidbody2D>();
+            anim = GetComponent<Animator>();
         }
 
         public void Movement(PlayerController playerController)
@@ -27,6 +32,7 @@ namespace Character.Player
 
             dashTimeLeft = _playerController.DashDuration;
             isDashing = true;
+            ghost.makeGhost = true;
         }
 
         private void FixedUpdate()
@@ -35,7 +41,6 @@ namespace Character.Player
             {
                 Vector2 tmpDir = new Vector2(_playerController.Joystick.Horizontal, _playerController.Joystick.Vertical);
 
-                Debug.Log(_playerController.DashSpeed);
                 rigid.velocity = tmpDir.normalized * _playerController.DashSpeed;
                 dashTimeLeft -= Time.deltaTime;
 
@@ -43,6 +48,8 @@ namespace Character.Player
                 {
                     isDashing = false;
                     rigid.velocity = Vector2.zero;
+                    anim.SetBool("IsDash", false);
+                    ghost.makeGhost = false;
                 }
             }
         }

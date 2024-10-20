@@ -7,7 +7,7 @@ namespace Gun.Bullet
     {
         private BulletObjectPool bulletObjectPool;
 
-        public GunData gunData { private get; set; }    //총 데이터
+        public GunData gunData { protected get; set; }    //총 데이터
 
         protected float damage;                 //데미지
         protected float speed;                  //속도
@@ -35,19 +35,29 @@ namespace Gun.Bullet
             range = gunData.range;
             penetration = gunData.penetration;
             blockObject = gunData.blockObject;
-
-            reverse = transform.localScale.x == 1 ? -1 : 1;
-            rigid.AddForce(transform.right * speed * reverse, ForceMode2D.Impulse);
         }
         protected virtual void OnEnable()
         {
             currentPenetration = penetration;
         }
-        public void Shoot()
+        public virtual void Shoot()
         {
-            reverse = transform.localScale.x == 1 ? -1 : 1;
+            StartCoroutine(ShootBullet());
+        }
+        protected virtual IEnumerator ShootBullet()
+        {
+            yield return null;
 
+            reverse = transform.localScale.x == 1 ? -1 : 1;
             rigid.AddForce(transform.right * speed * reverse, ForceMode2D.Impulse);
+        }
+        public virtual void Shoot(int index)
+        {
+
+        }
+        protected virtual IEnumerator ShootBullet(int index)
+        {
+            yield return null;
         }
         protected virtual void OnTriggerEnter2D(Collider2D collision)
         {
