@@ -282,6 +282,7 @@ GameObject:
   - component: {fileID: 53314003}
   - component: {fileID: 53314005}
   - component: {fileID: 53314006}
+  - component: {fileID: 53314007}
   m_Layer: 6
   m_Name: Police1
   m_TagString: Untagged
@@ -451,6 +452,20 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   isInAttackRange: 0
+--- !u!114 &53314007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 53313999}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d84425efca5aea44c97dc0609aec6af9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 53313999}
+  poolSize: 1
 --- !u!1 &67222810
 GameObject:
   m_ObjectHideFlags: 0
@@ -692,6 +707,10 @@ PrefabInstance:
     - target: {fileID: 1830359166967693550, guid: aa0d3c28003cf5b48bb294bf4c782c89, type: 3}
       propertyPath: bulletObjectPool
       value: 
+      objectReference: {fileID: 1686214146}
+    - target: {fileID: 1830359166967693550, guid: aa0d3c28003cf5b48bb294bf4c782c89, type: 3}
+      propertyPath: currentMagazineCount
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3735698274508995134, guid: aa0d3c28003cf5b48bb294bf4c782c89, type: 3}
       propertyPath: m_LocalPosition.x
@@ -839,10 +858,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49102f2d621f28549893b91785af93e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  police1Pool: {fileID: 0}
-  police2Pool: {fileID: 0}
-  police1Count: 2
-  police2Count: 2
+  police1Pool: {fileID: 53314007}
+  police2Pool: {fileID: 2009261342}
+  police1Count: 5
+  police2Count: 3
 --- !u!1 &255977691 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5409216494466805741, guid: aa0d3c28003cf5b48bb294bf4c782c89, type: 3}
@@ -1427,7 +1446,7 @@ GameObject:
   - component: {fileID: 609093120}
   - component: {fileID: 609093119}
   - component: {fileID: 609093118}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4255,6 +4274,53 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!1 &1813408101
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1813408103}
+  - component: {fileID: 1813408102}
+  m_Layer: 0
+  m_Name: Shotgun Bullets
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1813408102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1813408101}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c18516804dbd924da1362f2af2ebc3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 143509294907000942, guid: 69715d5bb3b4aa5449418a5eb28fe387, type: 3}
+  poolSize: 50
+  gunData: {fileID: 11400000, guid: 100519fc75cf52f4d8f74a74d5f2705c, type: 2}
+--- !u!4 &1813408103
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1813408101}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1841704907
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4266,7 +4332,7 @@ PrefabInstance:
     - target: {fileID: 1830359166967693550, guid: aa0d3c28003cf5b48bb294bf4c782c89, type: 3}
       propertyPath: bulletObjectPool
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1686214146}
     - target: {fileID: 3735698274508995134, guid: aa0d3c28003cf5b48bb294bf4c782c89, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.1
@@ -4827,6 +4893,7 @@ GameObject:
   - component: {fileID: 2009261338}
   - component: {fileID: 2009261336}
   - component: {fileID: 2009261335}
+  - component: {fileID: 2009261342}
   m_Layer: 6
   m_Name: Police2
   m_TagString: Untagged
@@ -4847,7 +4914,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   police2: {fileID: 11400000, guid: 2a9949650cf9ed541956a2cca49025ad, type: 2}
-  firePoint: {fileID: 0}
+  firePoint: {fileID: 609093126}
   bulletPrefab: {fileID: 0}
   playerLayer:
     serializedVersion: 2
@@ -4999,6 +5066,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 207135947}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2009261342
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2009261334}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d84425efca5aea44c97dc0609aec6af9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 2009261334}
+  poolSize: 1
 --- !u!1 &2045221869
 GameObject:
   m_ObjectHideFlags: 0
@@ -5588,7 +5669,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
+        - m_Target: {fileID: 996840693}
           m_TargetAssemblyTypeName: Gun.WeaponManager, Assembly-CSharp
           m_MethodName: OnPointerDown
           m_Mode: 1
@@ -5604,7 +5685,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
+        - m_Target: {fileID: 996840693}
           m_TargetAssemblyTypeName: Gun.WeaponManager, Assembly-CSharp
           m_MethodName: OnPointerUp
           m_Mode: 1
@@ -5713,3 +5794,4 @@ SceneRoots:
   - {fileID: 560041581}
   - {fileID: 2000878140}
   - {fileID: 1984714605}
+  - {fileID: 1813408103}

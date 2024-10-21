@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Police1
   m_EditorClassIdentifier: 
   enemyName: Police1
-  hp: 0
+  hp: 10
+  currentHp: 0
   damage: 1
   sightRange: 5
   moveSpeed: 3

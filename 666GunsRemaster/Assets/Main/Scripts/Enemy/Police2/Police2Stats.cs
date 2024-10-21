@@ -1,3 +1,4 @@
+using Gun;
 using Gun.Bullet;
 using System.Collections;
 using System.Collections.Generic;
@@ -17,6 +18,7 @@ public class Police2Stats : MonoBehaviour
 
     private Transform player;
     private SpriteRenderer sprite;
+    private Animator animator;
 
     [SerializeField]
     private bool isInAttackRange = false;
@@ -44,9 +46,24 @@ public class Police2Stats : MonoBehaviour
     // 복사 메서드
     public Police2Stats Clone(GameObject newObject)
     {
-        //Police2Stats clone = newObject.AddComponent<Police2Stats>();
-        //clone.anima = this.policeName;
-        return null;
+        Police2Stats clone = newObject.AddComponent<Police2Stats>();
+        clone.animator = this.animator;
+
+        // NavMeshAgent 재설정
+        NavMeshAgent agent = newObject.GetComponent<NavMeshAgent>();
+
+        if (agent == null)
+        {
+            agent = newObject.AddComponent<NavMeshAgent>();  // NavMeshAgent가 없으면 추가
+        }
+
+        // 기존 agent 설정 복사
+        agent.speed = police2.GetMoveSpeed;
+        agent.updateRotation = false;
+        agent.updateUpAxis = false;
+        agent.isStopped = false;
+
+        return clone;
     }
     void Awake()
     {
@@ -57,6 +74,7 @@ public class Police2Stats : MonoBehaviour
         agent.isStopped = false;
 
         sprite = GetComponent<SpriteRenderer>();
+        animator = GetComponent<Animator>();
     }
 
     void Update()
@@ -162,5 +180,35 @@ public class Police2Stats : MonoBehaviour
     {
         Gizmos.color = Color.blue;
         Gizmos.DrawWireSphere(transform.position, police2.GetSightRange);
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "Bullet")
+        {
+            if (police2.GetHp() <= 0f)
+            {
+                //애니메이션
+                animator.SetBool("Walk", false);
+                animator.SetBool("Die", true);
+
+                // 사망 애니메이션이 끝난 후 오브젝트를 제거
+                StartCoroutine(DieAndDestroy());
+            }
+            else
+            {
+                police2.SetHp(police2.GetHp() - WeaponManager.instance.GetDamage());
+            }
+            Debug.Log("몬스터 체력 :: " + police2.GetHp());
+        }
+    }
+
+    private IEnumerator DieAndDestroy()
+    {
+        // 사망 애니메이션이 재생되는 시간만큼 대기 (예: 2초)
+        yield return new WaitForSeconds(2f);  // 애니메이션 길이에 맞게 조정
+
+        // 오브젝트 삭제
+        Destroy(gameObject);
     }
 }

@@ -40,6 +40,39 @@ public class Police1Stats : MonoBehaviour
     {
         Police1Stats clone = newObject.AddComponent<Police1Stats>();
         clone.animator = this.animator;
+
+        // NavMeshAgent 재설정
+        NavMeshAgent agent = newObject.GetComponent<NavMeshAgent>();
+
+        if (agent == null)
+        {
+            agent = newObject.AddComponent<NavMeshAgent>();  // NavMeshAgent가 없으면 추가
+        }
+
+        // 기존 agent 설정 복사
+        agent.speed = police1.GetMoveSpeed;
+        agent.updateRotation = false;
+        agent.updateUpAxis = false;
+        agent.isStopped = false;
+
+        // NavMeshAgent 리셋
+        agent.enabled = false;  // 먼저 비활성화
+        agent.enabled = true;   // 다시 활성화하여 NavMesh와 재연결
+
+        // 경로 재초기화
+        agent.ResetPath();      // 경로 초기화
+
+        // NavMesh 데이터가 유효한지 확인하고 경로 설정
+        if (NavMesh.SamplePosition(newObject.transform.position, out NavMeshHit hit, 1.0f, NavMesh.AllAreas))
+        {
+            agent.Warp(hit.position);  // 네비 메시 상의 유효한 위치로 이동
+            agent.SetDestination(player.position);  // 목적지 설정
+        }
+        else
+        {
+            Debug.LogError("NavMesh에서 유효한 위치를 찾을 수 없습니다.");
+        }
+
         return clone;
     }
 
@@ -53,6 +86,8 @@ public class Police1Stats : MonoBehaviour
 
         sprite = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
+
+        float currentHp = police1.GetCurrentHp();
     }
 
     void Update()
@@ -108,6 +143,7 @@ public class Police1Stats : MonoBehaviour
         else
         {
             player = null;  // 플레이어를 감지하지 못하면 null
+            Debug.Log("Player null");
         }
     }
     void SetAgentPosition()
@@ -128,20 +164,30 @@ public class Police1Stats : MonoBehaviour
     {
         if (other.gameObject.tag == "Bullet")
         {
-            if (police1.GetHp <= 0f)
+            if (police1.GetHp() <= 0f)
             {
-                police1.SetHp(0f);
-
                 //애니메이션
                 animator.SetBool("Walk", false);
-                animator.SetBool("Attack", false);
                 animator.SetBool("Die", true);
+
+                // 사망 애니메이션이 끝난 후 오브젝트를 제거
+                StartCoroutine(DieAndDestroy());
             }
             else
             {
-                police1.SetHp(WeaponManager.instance.GetDamage());
+                police1.SetHp(police1.GetHp() - WeaponManager.instance.GetDamage());
             }
-            Debug.Log("몬스터 체력 :: " + police1.GetHp);
+            Debug.Log("몬스터 체력 :: " + police1.GetHp());
+            Debug.Log(WeaponManager.instance.GetDamage());
         }
+    }
+
+    private IEnumerator DieAndDestroy()
+    {
+        // 사망 애니메이션이 재생되는 시간만큼 대기 (예: 2초)
+        yield return new WaitForSeconds(2f);  // 애니메이션 길이에 맞게 조정
+
+        // 오브젝트 삭제
+        Destroy(gameObject);
     }
 }
