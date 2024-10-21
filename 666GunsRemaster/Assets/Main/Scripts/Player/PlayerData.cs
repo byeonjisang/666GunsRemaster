@@ -19,4 +19,7 @@ public class PlayerData : ScriptableObject
     public float dashCooldown;
     [Header("Player Level")]
     public float maxExp;
+    [Header("OverHit")]
+    public float overHitTime;
+    public float overHitCount;
 }

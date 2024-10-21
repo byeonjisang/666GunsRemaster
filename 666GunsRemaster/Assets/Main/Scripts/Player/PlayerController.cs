@@ -7,6 +7,8 @@ namespace Character.Player
 {
     public class PlayerController : MonoBehaviour
     {
+        public static PlayerController Instance;
+
         //외부 참조
         [SerializeField]
         private PlayerData playerData;
@@ -23,6 +25,7 @@ namespace Character.Player
         public float DashSpeed { get { return _dashSpeed; } }
         public float DashDuration { get { return _dashDuration; } }
         public float DashCooldown { get { return _dashCooldown; } }
+        public bool IsOverHit { get { return _isOverHit; } }
 
         private int _health;                //체력
         private float _moveSpeed;           //이동속도
@@ -31,6 +34,11 @@ namespace Character.Player
         private float _dashCooldown;        //대쉬쿨타임
         private float _cooldownTimeLeft;    //남은 쿨타임 시간
         private bool _isCooldown = false;   //쿨타임 여부
+        private float _overHitTime;         //오버히트 시간
+        private float _currentOverHitTime;  //현재 오버히트 시간
+        private float _overHitCount;        //오버히트 카운트
+        private float _currentOverHitCount; //현재 오버히트 카운트
+        private bool _isOverHit = false;
 
         private bool _isFire = false;       //총 발사 여부
         public bool IsTarget = false;     //타켓 존재 여부
@@ -46,6 +54,11 @@ namespace Character.Player
 
         private void Awake()
         {
+            if (Instance == null)
+            {
+                Instance = this;
+            }
+
             rigid = GetComponent<Rigidbody2D>();
             anim = GetComponent<Animator>();
             sprite = GetComponent<SpriteRenderer>();
@@ -79,6 +92,8 @@ namespace Character.Player
             _dashSpeed = playerData.dashSpeed;
             _dashDuration = playerData.dashDuration;
             _dashCooldown = playerData.dashCooldown;
+            _overHitTime = playerData.overHitTime;
+            _overHitCount = playerData.overHitCount;
         }
 
         private void Update()
@@ -90,6 +105,17 @@ namespace Character.Player
                 if(_cooldownTimeLeft <= 0)
                 {
                     _isCooldown = false;
+                }
+            }
+
+            //오버히트 시간 계산
+            if (_isOverHit)
+            {
+                _overHitTime += Time.fixedDeltaTime;
+                if(_overHitTime >= _currentOverHitTime)
+                {
+                    _isOverHit = false;
+                    _overHitTime = 0;
                 }
             }
         }
@@ -129,6 +155,15 @@ namespace Character.Player
             anim.SetBool("IsDash", true);
         }
        
+        public void OverHit()
+        {
+            _currentOverHitCount += 0.1f;
+            if(_currentOverHitCount >= _overHitCount)
+            {
+                _isOverHit = true;
+            }
+        }
+
         private void RotateGunTowardsTarget()
         {
             // 근처 적이 있는지 확인

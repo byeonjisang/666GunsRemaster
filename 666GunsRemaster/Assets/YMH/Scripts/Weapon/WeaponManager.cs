@@ -1,3 +1,4 @@
+using Character.Player;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -62,6 +63,10 @@ namespace Gun
 
         public void OnPointerDown()
         {
+            //오버 히트일 경우 발사 불가
+            if (PlayerController.Instance.IsOverHit)
+                return;
+
             if (!isFiring)
             {
                 StartCoroutine(FireContinuously());
@@ -80,6 +85,7 @@ namespace Gun
                 if (currentGun != null)
                 {
                     currentGun.Fire();
+                    PlayerController.Instance.OverHit();
                 }
                 yield return new WaitForSeconds(fireRate);
             }
