@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Gun;
+using Unity.Burst.CompilerServices;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
@@ -62,17 +63,6 @@ public class Police1Stats : MonoBehaviour
         // 경로 재초기화
         agent.ResetPath();      // 경로 초기화
 
-        // NavMesh 데이터가 유효한지 확인하고 경로 설정
-        if (NavMesh.SamplePosition(newObject.transform.position, out NavMeshHit hit, 1.0f, NavMesh.AllAreas))
-        {
-            agent.Warp(hit.position);  // 네비 메시 상의 유효한 위치로 이동
-            agent.SetDestination(player.position);  // 목적지 설정
-        }
-        else
-        {
-            Debug.LogError("NavMesh에서 유효한 위치를 찾을 수 없습니다.");
-        }
-
         return clone;
     }
 
@@ -131,19 +121,25 @@ public class Police1Stats : MonoBehaviour
     // CircleCast2D를 이용하여 플레이어 감지
     private void DetectPlayer()
     {
-        RaycastHit2D hit = Physics2D.CircleCast(transform.position, police1.GetSightRange, Vector2.zero, 0, playerLayer);
+        //RaycastHit2D hit = Physics2D.CircleCast(transform.position, police1.GetSightRange, Vector2.zero, 0, playerLayer);
+        //
+        //if (hit.collider != null)
+        //{
+        //    player = hit.transform;  // 플레이어를 감지하면 저장
+        //
+        //    //플레이어 따라 가기
+        //    SetAgentPosition();
+        //}
+        //else
+        //{
+        //    player = null;  // 플레이어를 감지하지 못하면 null
+        //    Debug.Log("Player null");
+        //}
 
-        if (hit.collider != null)
+        if (player != null)
         {
-            player = hit.transform;  // 플레이어를 감지하면 저장
-
-            //플레이어 따라 가기
+            // 플레이어의 위치로 이동
             SetAgentPosition();
-        }
-        else
-        {
-            player = null;  // 플레이어를 감지하지 못하면 null
-            Debug.Log("Player null");
         }
     }
     void SetAgentPosition()

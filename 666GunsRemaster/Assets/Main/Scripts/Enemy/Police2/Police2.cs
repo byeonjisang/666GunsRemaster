@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Police2", menuName = "Police2", order = int.MaxValue)]
 public class Police2 : ScriptableObject
 {
-    //몬스터의 기본 정보
+    //원거리 경찰 몬스터의 기본 정보
     [SerializeField]
     private string enemyName;
     public string GetMonsterName { get { return enemyName; } }
@@ -19,17 +19,17 @@ public class Police2 : ScriptableObject
     public float GetCurrentHp() { return currentHp; }
 
     [SerializeField]
-    private int damage;
+    private int damage = 1;
     public int GetDamage { get { return damage; } }
     [SerializeField]
-    private float sightRange;
+    private float sightRange = 10f;
     public float GetSightRange { get { return sightRange; } }
     [SerializeField]
-    private float moveSpeed;
+    private float moveSpeed = 2f;
     public float GetMoveSpeed { get { return moveSpeed; } }
 
     [SerializeField]
-    private float attackRange;
+    private float attackRange = 5f;
     public float GetAttackRange { get { return attackRange; } }
 
     public Police2 Clone()
