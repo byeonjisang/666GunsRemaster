@@ -63,10 +63,6 @@ namespace Gun
 
         public void OnPointerDown()
         {
-            //오버 히트일 경우 발사 불가
-            if (PlayerController.Instance.IsOverHit)
-                return;
-
             if (!isFiring)
             {
                 StartCoroutine(FireContinuously());
@@ -82,7 +78,11 @@ namespace Gun
             float fireRate = currentGun.FireRate;
             while (isFiring)
             {
-                if (currentGun != null)
+                if (PlayerController.Instance.IsOverHit)
+                {
+                    yield return null;
+                }
+                else if (currentGun != null)
                 {
                     currentGun.Fire();
                     PlayerController.Instance.OverHit();

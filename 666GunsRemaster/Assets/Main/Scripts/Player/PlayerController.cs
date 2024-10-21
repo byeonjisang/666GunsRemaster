@@ -13,6 +13,7 @@ namespace Character.Player
         [SerializeField]
         private PlayerData playerData;
         private MonsterScannerTest monsterScannerTest;
+        private OverHit overHit;
         private WeaponManager weaponManager;
         public FloatingJoystick Joystick;
         [SerializeField]
@@ -25,7 +26,7 @@ namespace Character.Player
         public float DashSpeed { get { return _dashSpeed; } }
         public float DashDuration { get { return _dashDuration; } }
         public float DashCooldown { get { return _dashCooldown; } }
-        public bool IsOverHit { get { return _isOverHit; } }
+        public bool IsOverHit;
 
         private int _health;                //체력
         private float _moveSpeed;           //이동속도
@@ -34,11 +35,12 @@ namespace Character.Player
         private float _dashCooldown;        //대쉬쿨타임
         private float _cooldownTimeLeft;    //남은 쿨타임 시간
         private bool _isCooldown = false;   //쿨타임 여부
+        [SerializeField]
         private float _overHitTime;         //오버히트 시간
+        [SerializeField]
         private float _currentOverHitTime;  //현재 오버히트 시간
         private float _overHitCount;        //오버히트 카운트
         private float _currentOverHitCount; //현재 오버히트 카운트
-        private bool _isOverHit = false;
 
         private bool _isFire = false;       //총 발사 여부
         public bool IsTarget = false;     //타켓 존재 여부
@@ -65,6 +67,7 @@ namespace Character.Player
 
             weaponManager =GetComponentInChildren<WeaponManager>();
             monsterScannerTest = GetComponent<MonsterScannerTest>();
+            overHit = GetComponentInChildren<OverHit>();
 
             StateInit();    //데이터 초기화
         }
@@ -82,6 +85,9 @@ namespace Character.Player
 
             //대쉬 버튼 이벤트 등록
             dashButton.onClick.AddListener(StartDash);
+
+            //오버히트 비활성화
+            overHit.gameObject.SetActive(false);
         }
 
         //데이터 초기화
@@ -109,13 +115,14 @@ namespace Character.Player
             }
 
             //오버히트 시간 계산
-            if (_isOverHit)
+            if (IsOverHit)
             {
-                _overHitTime += Time.fixedDeltaTime;
-                if(_overHitTime >= _currentOverHitTime)
+                _currentOverHitTime += Time.deltaTime;
+                if(_currentOverHitTime >= _overHitTime)
                 {
-                    _isOverHit = false;
-                    _overHitTime = 0;
+                    IsOverHit = false;
+                    _currentOverHitTime = 0;
+                    _currentOverHitCount = 0;
                 }
             }
         }
@@ -157,10 +164,11 @@ namespace Character.Player
        
         public void OverHit()
         {
-            _currentOverHitCount += 0.1f;
+            _currentOverHitCount += 1f;
             if(_currentOverHitCount >= _overHitCount)
             {
-                _isOverHit = true;
+                IsOverHit = true;
+                overHit.gameObject.SetActive(true);
             }
         }
 

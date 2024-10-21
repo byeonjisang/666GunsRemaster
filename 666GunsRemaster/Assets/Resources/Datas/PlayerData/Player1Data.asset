@@ -21,4 +21,5 @@ MonoBehaviour:
   dashDuration: 0.5
   dashCooldown: 3
   maxExp: 0
-  overHItCount: 20
+  overHitTime: 3
+  overHitCount: 30
