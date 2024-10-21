@@ -18,6 +18,8 @@ public class Police1Stats : MonoBehaviour
     [SerializeField]
     private bool isInAttackRange = false;
 
+    private bool isDead = false;
+
     //길찾기 적용
     NavMeshAgent agent;
     public void SetData(Police1 data)
@@ -121,33 +123,31 @@ public class Police1Stats : MonoBehaviour
     // CircleCast2D를 이용하여 플레이어 감지
     private void DetectPlayer()
     {
-        //RaycastHit2D hit = Physics2D.CircleCast(transform.position, police1.GetSightRange, Vector2.zero, 0, playerLayer);
-        //
-        //if (hit.collider != null)
-        //{
-        //    player = hit.transform;  // 플레이어를 감지하면 저장
-        //
-        //    //플레이어 따라 가기
-        //    SetAgentPosition();
-        //}
-        //else
-        //{
-        //    player = null;  // 플레이어를 감지하지 못하면 null
-        //    Debug.Log("Player null");
-        //}
-
-        if (player != null)
+        RaycastHit2D hit = Physics2D.CircleCast(transform.position, police1.GetSightRange, Vector2.zero, 0, playerLayer);
+        
+        if (hit.collider != null)
         {
-            // 플레이어의 위치로 이동
+            player = hit.transform;  // 플레이어를 감지하면 저장
+        
+            //플레이어 따라 가기
             SetAgentPosition();
         }
+        else
+        {
+            player = null;  // 플레이어를 감지하지 못하면 null
+            Debug.Log("Player null");
+        }
     }
+
     void SetAgentPosition()
     {
-        agent.isStopped = false;
+        if (!isDead)
+        {
+            agent.isStopped = false;
 
-        agent.SetDestination(new Vector3(player.position.x, player.position.y,
-            transform.position.z));
+            agent.SetDestination(new Vector3(player.position.x, player.position.y,
+                transform.position.z));
+        }
     }
 
     // 움직임을 멈추는 함수
@@ -165,6 +165,8 @@ public class Police1Stats : MonoBehaviour
                 //애니메이션
                 animator.SetBool("Walk", false);
                 animator.SetBool("Die", true);
+
+                isDead = true;
 
                 // 사망 애니메이션이 끝난 후 오브젝트를 제거
                 StartCoroutine(DieAndDestroy());

@@ -23,6 +23,8 @@ public class Police2Stats : MonoBehaviour
     [SerializeField]
     private bool isInAttackRange = false;
 
+    private bool isDead = false;
+
     //길찾기 적용
     NavMeshAgent agent;
 
@@ -132,12 +134,13 @@ public class Police2Stats : MonoBehaviour
     }
     void SetAgentPosition()
     {
-        agent.isStopped = false;
+        if (!isDead)
+        {
+            agent.isStopped = false;
 
-        agent.SetDestination(new Vector3(player.position.x, player.position.y,
-            transform.position.z));
-
-        Debug.Log("Player Chasing...");
+            agent.SetDestination(new Vector3(player.position.x, player.position.y,
+                transform.position.z));
+        }
     }
 
     // 움직임을 멈추는 함수
@@ -192,6 +195,8 @@ public class Police2Stats : MonoBehaviour
                 animator.SetBool("Walk", false);
                 animator.SetBool("Die", true);
 
+                isDead = true;
+
                 // 사망 애니메이션이 끝난 후 오브젝트를 제거
                 StartCoroutine(DieAndDestroy());
             }
@@ -205,6 +210,9 @@ public class Police2Stats : MonoBehaviour
 
     private IEnumerator DieAndDestroy()
     {
+        //추적 멈춤
+        agent.isStopped = true;
+
         // 사망 애니메이션이 재생되는 시간만큼 대기 (예: 2초)
         yield return new WaitForSeconds(2f);  // 애니메이션 길이에 맞게 조정
 
