@@ -203,7 +203,11 @@ namespace Character.Player
             else
             {
                 IsTarget = false;
-                weaponManager.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 90));
+
+                if (weaponManager.transform.localScale.x == -1)
+                    weaponManager.transform.rotation = Quaternion.Euler(0, 0, -90);
+                else
+                    weaponManager.transform.rotation = Quaternion.Euler(0, 0, 90);
             }
         }
 

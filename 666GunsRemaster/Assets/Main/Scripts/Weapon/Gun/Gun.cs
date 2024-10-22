@@ -53,8 +53,6 @@ namespace Gun
         protected virtual void Start()
         {
             GunDataInit();
-
-            gameObject.SetActive(false);
         }
         protected virtual void GunDataInit()
         {
@@ -76,6 +74,11 @@ namespace Gun
             isReloading = false;
             isRate = false;
             isBullet = true;
+        }
+        protected virtual void OnEnable()
+        {
+            UIManager.Instance.UpdateBulletCount(currentBulletCount, currentMagazineCount); //UI 총알 갱신
+            UIManager.Instance.UpdateWeaponImage(sprite.sprite);                            //UI 총 이미지 갱신
         }
         protected virtual void FixedUpdate()
         {
@@ -108,6 +111,7 @@ namespace Gun
             currentMagazineCount -= 1;      //탄창 속 탄약 감소
             currentFireRate = fireRate;     //현재 발사 딜레이 시간 초기화
             isRate = true;                  //발사 딜레이 시작
+            UIManager.Instance.UpdateBulletCount(currentBulletCount, currentMagazineCount); //UI 갱신
 
             //탄창 속 탄약이 없을 시 재장전
             if (currentMagazineCount == 0)
@@ -141,6 +145,7 @@ namespace Gun
 
                 currentBulletCount = 0;
             }
+            UIManager.Instance.UpdateBulletCount(currentBulletCount, currentMagazineCount); //UI 갱신
             isReloading = false;
         }
     }

@@ -5,6 +5,7 @@ using UnityEngine;
 public class OverHit : MonoBehaviour
 {
     private Animator anim;
+    private float damage = 5;
 
     private void Awake()
     {
@@ -19,5 +20,10 @@ public class OverHit : MonoBehaviour
     public void OffOverHit()
     {
         gameObject.SetActive(false);
+    }
+
+    public float GetDamage()
+    {
+        return damage;
     }
 }
