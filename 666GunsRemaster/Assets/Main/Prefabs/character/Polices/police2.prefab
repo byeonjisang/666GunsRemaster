@@ -57,7 +57,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9012bd4f6423f764eb681fc7a3a1b000, type: 2}
+  - {fileID: 2100000, guid: 90651f08225567c498d9df40b40f0241, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -99,7 +99,7 @@ Animator:
   m_GameObject: {fileID: 3676557131654973235}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 201b62122d19ca547988c534598d3fdd, type: 2}
+  m_Controller: {fileID: 9100000, guid: 193db1485f076594ca3c9929c3fef8e4, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -204,8 +204,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3173453994935045641, guid: 5da6cee434db1844093a45409d841c34, type: 3}
+      propertyPath: m_SortingLayer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3173453994935045641, guid: 5da6cee434db1844093a45409d841c34, type: 3}
       propertyPath: m_SortingOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3173453994935045641, guid: 5da6cee434db1844093a45409d841c34, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -1810666481
       objectReference: {fileID: 0}
     - target: {fileID: 3283623725786089923, guid: 5da6cee434db1844093a45409d841c34, type: 3}
       propertyPath: m_LocalPosition.x
