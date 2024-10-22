@@ -10,7 +10,6 @@ using static UnityEngine.GraphicsBuffer;
 public class Police2Stats : MonoBehaviour
 {
     public Police2 police2;
-    public Transform firePoint;  // 총알이 발사될 위치
     public GameObject bulletPrefab;  // 발사할 총알 프리팹
     public LayerMask playerLayer;    // 플레이어가 속한 레이어
 
@@ -28,6 +27,7 @@ public class Police2Stats : MonoBehaviour
     private bool isInAttackRange = false;
 
     private bool isDead = false;
+    private bool isTarget = false;
 
     //길찾기 적용
     NavMeshAgent agent;
@@ -111,7 +111,7 @@ public class Police2Stats : MonoBehaviour
             if (targetDistancePos.x < 0)
             {
                 sprite.flipX = false;
-                gunSprite.flipY = true;
+                gunSprite.flipY = false;
             }
             else
             {
@@ -119,6 +119,11 @@ public class Police2Stats : MonoBehaviour
                 gunSprite.flipY = false;
             }
         }
+    }
+
+    void FixedUpdate()
+    {
+        RotateGunTowardsTarget();
     }
 
     void OnEnable()
@@ -181,6 +186,41 @@ public class Police2Stats : MonoBehaviour
         Debug.Log("Chasing Stopped");
     }
 
+    private void RotateGunTowardsTarget()
+    {
+        // 근처 적이 있는지 확인
+        if (player != null)
+        {
+            isTarget = true;
+
+            // 적과의 거리 및 방향 계산
+            Vector3 targetDirection = player.position - transform.position;
+
+            float angle = Mathf.Atan2(targetDirection.y, targetDirection.x) * Mathf.Rad2Deg + 270;
+            if (targetDirection.x < 0)
+            {
+                gunSprite.flipX = true;
+                //weaponManager.transform.localScale = new Vector3(1, 1, 1);
+
+                if (angle > 360)
+                    angle -= 360;
+            }
+            else
+            {
+                gunSprite.flipX = false;
+                //weaponManager.transform.localScale = new Vector3(-1, 1, 1);
+
+            }
+
+            gunSprite.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+        }
+        else
+        {
+            isTarget = false;
+            gunSprite.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 90));
+        }
+    }
+
     // 사정거리에 들어왔을 때 플레이어를 향해 총을 발사
     private void TryShoot()
     {
@@ -194,10 +234,10 @@ public class Police2Stats : MonoBehaviour
     // 총알 발사 메서드
     private void Shoot()
     {
-        if (firePoint != null && bulletPrefab != null)
+        if (player != null && bulletPrefab != null)
         {
             // 총알을 생성하고 플레이어를 향해 발사
-            GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+            GameObject bullet = Instantiate(bulletPrefab, player.position, player.rotation);
             Bullet bulletComponent = bullet.GetComponent<Bullet>();
 
             if (bulletComponent != null)
