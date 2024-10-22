@@ -38,8 +38,6 @@ namespace Gun
 
         [SerializeField]
         private Button WeaponChangeButton;
-        private Image WeaponChangeButtonImage;
-        private Text WeaponChangeButtonText;
         [SerializeField]
         private Button WeaponGetButton;
         [SerializeField]
@@ -47,6 +45,12 @@ namespace Gun
 
         private void Start()
         {
+            //총 전체 비활성화
+            foreach(GameObject gun in guns)
+            {
+                gun.SetActive(false);
+            }
+
             //착용 중인 총 활성화
             possessionGuns[currentGunIndex].SetActive(true);
             currentGun = possessionGuns[currentGunIndex].GetComponent<Gun>();
@@ -56,9 +60,6 @@ namespace Gun
 
             WeaponGetButton.onClick.AddListener(() => ChangePossessionGuns(keepGunName));
             WeaponDeleteButton.onClick.AddListener(DeleteGun);
-
-            WeaponChangeButtonImage = WeaponChangeButton.GetComponentInChildren<Image>();
-            WeaponChangeButtonText = WeaponChangeButton.GetComponentInChildren<Text>();
         }
 
         public void OnPointerDown()

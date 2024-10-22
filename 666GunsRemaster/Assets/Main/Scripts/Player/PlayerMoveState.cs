@@ -52,6 +52,11 @@ namespace Character.Player
 
                 int direction = sprite.flipX ? -1 : 1;
                 WeaponManager.instance.transform.localScale = new Vector3(direction, 1, 1);
+
+                if (direction == -1)
+                    WeaponManager.instance.transform.rotation = Quaternion.Euler(0, 0, -90);
+                else
+                    WeaponManager.instance.transform.rotation = Quaternion.Euler(0, 0, 90);
             }
         }
 
