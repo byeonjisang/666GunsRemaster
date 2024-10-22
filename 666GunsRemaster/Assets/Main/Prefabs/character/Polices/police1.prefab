@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7385289889279832427}
   - component: {fileID: 719103631199666473}
   m_Layer: 6
-  m_Name: Police1
+  m_Name: police1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -74,8 +74,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1810666481
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 1059068642, guid: 6ab7cc064c1a93740af53d084bb4fb10, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

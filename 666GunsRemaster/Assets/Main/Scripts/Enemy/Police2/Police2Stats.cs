@@ -281,11 +281,9 @@ public class Police2Stats : MonoBehaviour
 
     private IEnumerator DieAndDestroy()
     {
-        //추적 멈춤
-        agent.isStopped = true;
 
-        // 사망 애니메이션이 재생되는 시간만큼 대기 (예: 2초)
-        yield return new WaitForSeconds(2f);  // 애니메이션 길이에 맞게 조정
+        // 사망 애니메이션이 재생되는 시간만큼 대기
+        yield return new WaitForSeconds(1f);  // 애니메이션 길이에 맞게 조정
 
         // 오브젝트 삭제
         Destroy(gameObject);
