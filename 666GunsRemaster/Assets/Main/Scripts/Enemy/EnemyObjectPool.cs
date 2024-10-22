@@ -1,46 +1,65 @@
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
-public class ObjectPool : MonoBehaviour
+public class EnemyObjectPool : MonoBehaviour
 {
-    [SerializeField] private GameObject prefab; // 풀링할 오브젝트의 프리팹
-    [SerializeField] private int poolSize = 10; // 풀에 보관할 오브젝트 개수
+    public static EnemyObjectPool instance = null;
 
-    private Queue<GameObject> pool = new Queue<GameObject>();
+    public GameObject[] prefabs;
 
-    void Start()
+    List<GameObject>[] pools;
+
+    void Awake()
     {
-        // 미리 오브젝트 생성하여 풀에 보관
-        for (int i = 0; i < poolSize; i++)
+        if (instance == null)
         {
-            GameObject obj = Instantiate(prefab);
-            obj.SetActive(false); // 비활성화
-            pool.Enqueue(obj);    // 풀에 추가
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject); // 이미 인스턴스가 있으면 새로 생성된 GameManager는 파괴
+        }
+
+        //풀의 배열을 초기화
+        pools = new List<GameObject>[prefabs.Length];
+
+        //인덱스 초기화
+        for (int i = 0; i < pools.Length; i++)
+        {
+            pools[i] = new List<GameObject>();
         }
     }
 
     // 풀에서 오브젝트를 꺼내는 메서드
-    public GameObject GetObject()
+    public GameObject GetObject(int index)
     {
-        if (pool.Count > 0)
+        GameObject select = null;
+
+        foreach(GameObject items in pools[index])
         {
-            GameObject obj = pool.Dequeue();
-            obj.SetActive(true);  // 활성화
-            return obj;
+            if(!items.activeSelf)
+            {
+                select = items;
+                select.SetActive(true);
+                break;
+            }
         }
-        else
+
+        if(!select)
         {
-            // 만약 풀에 더 이상 오브젝트가 없으면 새로 생성
-            GameObject obj = Instantiate(prefab);
-            obj.SetActive(true);
-            return obj;
+            select = Instantiate(prefabs[index], transform);
+            pools[index].Add(select);
         }
+
+        return select;
     }
 
     // 오브젝트를 풀로 반환하는 메서드
     public void ReturnObject(GameObject obj)
     {
         obj.SetActive(false);  // 비활성화
-        pool.Enqueue(obj);     // 풀에 다시 넣기
+        //pools.Add(obj);     // 풀에 다시 넣기
     }
 }

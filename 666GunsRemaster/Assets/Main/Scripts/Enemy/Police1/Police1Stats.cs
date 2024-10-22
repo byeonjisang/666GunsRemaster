@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Gun;
 using Unity.Burst.CompilerServices;
 using Unity.VisualScripting;
+using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -39,34 +40,34 @@ public class Police1Stats : MonoBehaviour
     }
 
     // 복사 메서드
-    public Police1Stats Clone(GameObject newObject)
-    {
-        Police1Stats clone = newObject.AddComponent<Police1Stats>();
-        clone.animator = this.animator;
+    //public Police1Stats Clone(GameObject newObject)
+    //{
+    //    Police1Stats clone = newObject.AddComponent<Police1Stats>();
+    //    clone.animator = this.animator;
 
-        // NavMeshAgent 재설정
-        NavMeshAgent agent = newObject.GetComponent<NavMeshAgent>();
+    //    // NavMeshAgent 재설정
+    //    NavMeshAgent agent = newObject.GetComponent<NavMeshAgent>();
 
-        if (agent == null)
-        {
-            agent = newObject.AddComponent<NavMeshAgent>();  // NavMeshAgent가 없으면 추가
-        }
+    //    if (agent == null)
+    //    {
+    //        agent = newObject.AddComponent<NavMeshAgent>();  // NavMeshAgent가 없으면 추가
+    //    }
 
-        // 기존 agent 설정 복사
-        agent.speed = police1.GetMoveSpeed;
-        agent.updateRotation = false;
-        agent.updateUpAxis = false;
-        agent.isStopped = false;
+    //    // 기존 agent 설정 복사
+    //    agent.speed = police1.GetMoveSpeed;
+    //    agent.updateRotation = false;
+    //    agent.updateUpAxis = false;
+    //    agent.isStopped = false;
 
-        // NavMeshAgent 리셋
-        agent.enabled = false;  // 먼저 비활성화
-        agent.enabled = true;   // 다시 활성화하여 NavMesh와 재연결
+    //    // NavMeshAgent 리셋
+    //    agent.enabled = false;  // 먼저 비활성화
+    //    agent.enabled = true;   // 다시 활성화하여 NavMesh와 재연결
 
-        // 경로 재초기화
-        agent.ResetPath();      // 경로 초기화
+    //    // 경로 재초기화
+    //    agent.ResetPath();      // 경로 초기화
 
-        return clone;
-    }
+    //    return clone;
+    //}
 
     void Awake()
     {
@@ -137,6 +138,30 @@ public class Police1Stats : MonoBehaviour
             player = null;  // 플레이어를 감지하지 못하면 null
             Debug.Log("Player null");
         }
+    }
+
+    void OnEnable()
+    {
+        // NavMeshAgent 재설정
+        NavMeshAgent agent = this.GetComponent<NavMeshAgent>();
+
+        if (agent == null)
+        {
+            agent = this.AddComponent<NavMeshAgent>();  // NavMeshAgent가 없으면 추가
+        }
+
+        // 기존 agent 설정 복사
+        agent.speed = police1.GetMoveSpeed;
+        agent.updateRotation = false;
+        agent.updateUpAxis = false;
+        agent.isStopped = false;
+
+        // NavMeshAgent 리셋
+        agent.enabled = false;  // 먼저 비활성화
+        agent.enabled = true;   // 다시 활성화하여 NavMesh와 재연결
+
+        // 경로 재초기화
+        agent.ResetPath();      // 경로 초기화
     }
 
     void SetAgentPosition()
