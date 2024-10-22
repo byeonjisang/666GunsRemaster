@@ -182,12 +182,11 @@ namespace Character.Player
                 // 적과의 거리 및 방향 계산
                 Vector3 targetDirection = monsterScannerTest.nearestTarget.position - transform.position;
 
-                float angle = Mathf.Atan2(targetDirection.y, targetDirection.x) * Mathf.Rad2Deg;
+                float angle = Mathf.Atan2(targetDirection.y, targetDirection.x) * Mathf.Rad2Deg + 270;
                 if (targetDirection.x < 0)
                 {
                     sprite.flipX = false;
                     weaponManager.transform.localScale = new Vector3(1, 1, 1);
-                    angle += 180;
 
                     if (angle > 360)
                         angle -= 360;
@@ -196,6 +195,7 @@ namespace Character.Player
                 {
                     sprite.flipX = true;
                     weaponManager.transform.localScale = new Vector3(-1, 1, 1);
+
                 }
 
                 weaponManager.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
@@ -203,7 +203,7 @@ namespace Character.Player
             else
             {
                 IsTarget = false;
-                weaponManager.transform.rotation = Quaternion.identity;
+                weaponManager.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 90));
             }
         }
 
