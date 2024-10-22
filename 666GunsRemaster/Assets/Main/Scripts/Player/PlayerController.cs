@@ -219,5 +219,13 @@ namespace Character.Player
                 collision.gameObject.SetActive(false);
             }
         }
+
+        private void OnTriggerStay2D(Collider2D collision)
+        {
+            if (collision.tag == "Position")
+            {
+                GameManager.instance.Timer();
+            }
+        }
     }
 }

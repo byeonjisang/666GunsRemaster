@@ -1753,6 +1753,7 @@ MonoBehaviour:
   pauseBtn: {fileID: 1280088324}
   pauseImage: {fileID: 2045221869}
   menuBtn: {fileID: 1573049816}
+  timerText: {fileID: 260076303}
 --- !u!4 &693395483
 Transform:
   m_ObjectHideFlags: 0

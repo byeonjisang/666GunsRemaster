@@ -23,6 +23,11 @@ public class GameManager : MonoBehaviour
     public GameObject pauseImage;
     public GameObject menuBtn;
 
+    //제한시간은 6분 고정.
+    public Text timerText;
+    float timer = 300f;
+
+
     // 싱글턴
     private void Awake()
     {
@@ -92,6 +97,12 @@ public class GameManager : MonoBehaviour
         Debug.Log("일시정지 누름");
     }
 
+    public void Timer()
+    {
+        timer -= Time.deltaTime;
+        timer = Mathf.Max(timer, 0); // 타이머가 음수가 되지 않도록 보정
+    }
+
     void Start()
     {
         //SoundManager.instance.PlayBGMSound(1);
@@ -127,6 +138,16 @@ public class GameManager : MonoBehaviour
                 Time.timeScale = 1f;
             }
         }).AddTo(this); // 구독을 GameManager에 추가하여 게임 오브젝트가 파괴될 때 자동으로 구독 해제
+    }
+
+    void Update()
+    {
+        // 분과 초로 변환
+        int minutes = Mathf.FloorToInt(timer / 60); // 분 계산
+        int seconds = Mathf.FloorToInt(timer % 60); // 초 계산
+
+        // 텍스트 UI 업데이트
+        timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds); // "MM:SS" 형식으로 출력
     }
 
     private void OnDestroy()
