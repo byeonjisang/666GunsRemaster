@@ -2,6 +2,7 @@ using Gun;
 using Gun.Bullet;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 using static UnityEngine.GraphicsBuffer;
@@ -18,6 +19,9 @@ public class Police2Stats : MonoBehaviour
 
     private Transform player;
     private SpriteRenderer sprite;
+
+    public SpriteRenderer gunSprite;
+
     private Animator animator;
 
     [SerializeField]
@@ -45,28 +49,28 @@ public class Police2Stats : MonoBehaviour
         //Debug.Log("몬스터 사정거리 :: " + police2.GetAttackRange);
     }
 
-    // 복사 메서드
-    public Police2Stats Clone(GameObject newObject)
-    {
-        Police2Stats clone = newObject.AddComponent<Police2Stats>();
-        clone.animator = this.animator;
+    //// 복사 메서드
+    //public Police2Stats Clone(GameObject newObject)
+    //{
+    //    Police2Stats clone = newObject.AddComponent<Police2Stats>();
+    //    clone.animator = this.animator;
 
-        // NavMeshAgent 재설정
-        NavMeshAgent agent = newObject.GetComponent<NavMeshAgent>();
+    //    // NavMeshAgent 재설정
+    //    NavMeshAgent agent = newObject.GetComponent<NavMeshAgent>();
 
-        if (agent == null)
-        {
-            agent = newObject.AddComponent<NavMeshAgent>();  // NavMeshAgent가 없으면 추가
-        }
+    //    if (agent == null)
+    //    {
+    //        agent = newObject.AddComponent<NavMeshAgent>();  // NavMeshAgent가 없으면 추가
+    //    }
 
-        // 기존 agent 설정 복사
-        agent.speed = police2.GetMoveSpeed;
-        agent.updateRotation = false;
-        agent.updateUpAxis = false;
-        agent.isStopped = false;
+    //    // 기존 agent 설정 복사
+    //    agent.speed = police2.GetMoveSpeed;
+    //    agent.updateRotation = false;
+    //    agent.updateUpAxis = false;
+    //    agent.isStopped = false;
 
-        return clone;
-    }
+    //    return clone;
+    //}
     void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -76,6 +80,7 @@ public class Police2Stats : MonoBehaviour
         agent.isStopped = false;
 
         sprite = GetComponent<SpriteRenderer>();
+
         animator = GetComponent<Animator>();
     }
 
@@ -106,12 +111,38 @@ public class Police2Stats : MonoBehaviour
             if (targetDistancePos.x < 0)
             {
                 sprite.flipX = false;
+                gunSprite.flipY = true;
             }
             else
             {
                 sprite.flipX = true;
+                gunSprite.flipY = false;
             }
         }
+    }
+
+    void OnEnable()
+    {
+        // NavMeshAgent 재설정
+        NavMeshAgent agent = this.GetComponent<NavMeshAgent>();
+
+        if (agent == null)
+        {
+            agent = this.AddComponent<NavMeshAgent>();  // NavMeshAgent가 없으면 추가
+        }
+
+        // 기존 agent 설정 복사
+        agent.speed = police2.GetMoveSpeed;
+        agent.updateRotation = false;
+        agent.updateUpAxis = false;
+        agent.isStopped = false;
+
+        // NavMeshAgent 리셋
+        agent.enabled = false;  // 먼저 비활성화
+        agent.enabled = true;   // 다시 활성화하여 NavMesh와 재연결
+
+        // 경로 재초기화
+        agent.ResetPath();      // 경로 초기화
     }
 
     // CircleCast2D를 이용하여 플레이어 감지
