@@ -77,6 +77,11 @@ namespace Gun
         }
         protected virtual void OnEnable()
         {
+            StartCoroutine(UpdateWeaponUI());
+        }
+        protected virtual IEnumerator UpdateWeaponUI()
+        {
+            yield return null;
             UIManager.Instance.UpdateBulletCount(currentBulletCount, currentMagazineCount); //UI 총알 갱신
             UIManager.Instance.UpdateWeaponImage(sprite.sprite);                            //UI 총 이미지 갱신
         }
