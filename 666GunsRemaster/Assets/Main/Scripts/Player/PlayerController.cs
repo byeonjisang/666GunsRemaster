@@ -65,7 +65,7 @@ namespace Character.Player
             anim = GetComponent<Animator>();
             sprite = GetComponent<SpriteRenderer>();
 
-            weaponManager =GetComponentInChildren<WeaponManager>();
+            weaponManager = GetComponentInChildren<WeaponManager>();
             monsterScannerTest = GetComponent<MonsterScannerTest>();
             overHit = GetComponentInChildren<OverHit>();
 
@@ -108,7 +108,7 @@ namespace Character.Player
             if (_isCooldown)
             {
                 _cooldownTimeLeft -= Time.deltaTime;
-                if(_cooldownTimeLeft <= 0)
+                if (_cooldownTimeLeft <= 0)
                 {
                     _isCooldown = false;
                 }
@@ -118,7 +118,7 @@ namespace Character.Player
             if (IsOverHit)
             {
                 _currentOverHitTime += Time.deltaTime;
-                if(_currentOverHitTime >= _overHitTime)
+                if (_currentOverHitTime >= _overHitTime)
                 {
                     IsOverHit = false;
                     _currentOverHitTime = 0;
@@ -130,7 +130,7 @@ namespace Character.Player
         private void FixedUpdate()
         {
             //이동 및 정지 상태 판단
-            if((Joystick.Horizontal != 0 && Joystick.Vertical != 0))
+            if ((Joystick.Horizontal != 0 && Joystick.Vertical != 0))
             {
                 _playerStateContext.Transition(_moveState);
             }
@@ -161,11 +161,11 @@ namespace Character.Player
             _isCooldown = true;
             anim.SetBool("IsDash", true);
         }
-       
+
         public void OverHit()
         {
             _currentOverHitCount += 1f;
-            if(_currentOverHitCount >= _overHitCount)
+            if (_currentOverHitCount >= _overHitCount)
             {
                 IsOverHit = true;
                 overHit.gameObject.SetActive(true);
