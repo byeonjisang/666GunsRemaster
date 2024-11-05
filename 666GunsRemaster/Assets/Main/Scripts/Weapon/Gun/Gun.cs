@@ -11,6 +11,8 @@ namespace Gun
         [SerializeField]
         protected BulletObjectPool bulletObjectPool; //총알 오브젝트 풀
 
+        public Sprite gunUiImage; //총 이미지
+
         protected SpriteRenderer playerSprite;
         protected SpriteRenderer sprite;
         protected Button fireButton;
