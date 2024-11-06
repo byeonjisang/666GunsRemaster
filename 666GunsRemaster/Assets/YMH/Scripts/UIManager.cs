@@ -35,4 +35,8 @@ public class UIManager : MonoBehaviour
     {
         weaponChangeImage.sprite = weaponImage;
     }
+    public void UpdateGetWeaponImage()
+    {
+
+    }
 }

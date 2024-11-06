@@ -1,9 +1,7 @@
 using Character.Player;
 using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 namespace Gun
@@ -38,7 +36,6 @@ namespace Gun
 
         [SerializeField]
         private Button WeaponChangeButton;
-        private Image weaponImage;
         [SerializeField]
         private Button WeaponGetButton;
         [SerializeField]
@@ -46,8 +43,6 @@ namespace Gun
 
         private void Start()
         {
-            weaponImage = WeaponChangeButton.GetComponentsInChildren<Image>()[1];
-
             //총 전체 비활성화
             foreach(GameObject gun in guns)
             {
@@ -57,7 +52,6 @@ namespace Gun
             //착용 중인 총 활성화
             possessionGuns[currentGunIndex].SetActive(true);
             currentGun = possessionGuns[currentGunIndex].GetComponent<Gun>();
-            weaponImage.sprite = possessionGuns[currentGunIndex].GetComponent<Gun>().gunUiImage;
 
             //무기 변경 버튼 이벤트 추가
             WeaponChangeButton.onClick.AddListener(ChangeGun);
@@ -108,20 +102,19 @@ namespace Gun
             currentGun = possessionGuns[currentGunIndex].GetComponent<Gun>();
             possessionGuns[1 - currentGunIndex].SetActive(false);
 
-            //UI 이미지 변경
-            weaponImage.sprite = possessionGuns[currentGunIndex].GetComponent<Gun>().gunUiImage;
-
             //임팩트 효과
 
             //사운드
         }
-        //무기 교체
+        //소지한 무기 교체
         public void ChangePossessionGuns(string gunName)
         {
             if (gunName == null)
                 return;
 
-            GameObject gunObject = guns.FirstOrDefault(gun => gun.name == gunName);
+            //GameObject gunObject = guns.FirstOrDefault(gun => gun.name == gunName);
+            GameObject gunObject = guns.Find(gun => gun.name == gunName);
+            Debug.Log(gunObject);
             possessionGuns[currentGunIndex].SetActive(false);
             possessionGuns[currentGunIndex] = gunObject;
             possessionGuns[currentGunIndex].SetActive(true);

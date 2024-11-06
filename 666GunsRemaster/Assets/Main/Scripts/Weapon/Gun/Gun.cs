@@ -85,7 +85,7 @@ namespace Gun
         {
             yield return null;
             UIManager.Instance.UpdateBulletCount(currentBulletCount, currentMagazineCount); //UI 총알 갱신
-            UIManager.Instance.UpdateWeaponImage(sprite.sprite);                            //UI 총 이미지 갱신
+            UIManager.Instance.UpdateWeaponImage(gunUiImage);                            //UI 총 이미지 갱신
         }
         protected virtual void FixedUpdate()
         {
