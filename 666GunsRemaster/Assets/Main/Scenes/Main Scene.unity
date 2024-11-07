@@ -165,7 +165,7 @@ GameObject:
   - component: {fileID: 55654767}
   m_Layer: 0
   m_Name: UIManager
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -182,9 +182,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23afeae86b9e2594b82489dad646654f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponChangeImage: {fileID: 0}
-  weaponChangeText: {fileID: 0}
-  weaponGetButton: {fileID: 0}
+  weaponChangeImage: {fileID: 593346888}
+  weaponChangeText: {fileID: 626613709}
+  weaponGetButton: {fileID: 1358429492}
 --- !u!4 &55654768
 Transform:
   m_ObjectHideFlags: 0
