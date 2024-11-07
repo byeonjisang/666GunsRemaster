@@ -18,8 +18,8 @@ public class Police1 : ScriptableObject
     public float GetCurrentHp() { return currentHp; }
 
     [SerializeField]
-    private int damage = 2;
-    public int GetDamage { get { return damage; } }
+    private float damage = 2f;
+    public float GetDamage() { return damage; }
 
     [SerializeField]
     private float sightRange = 5f;

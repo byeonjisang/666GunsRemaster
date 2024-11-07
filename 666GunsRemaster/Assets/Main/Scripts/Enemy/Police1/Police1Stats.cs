@@ -1,3 +1,4 @@
+using Character.Player;
 using Gun;
 using System.Collections;
 using UnityEngine;
@@ -7,6 +8,9 @@ public class Police1Stats : MonoBehaviour
 {
     public Police1 police1;
     public LayerMask playerLayer;
+
+    public float attackCooldown = 1f; // 데미지 전달 쿨다운 (초)
+    private float lastAttackTime;
 
     private Transform player;
     private SpriteRenderer sprite;
@@ -41,6 +45,12 @@ public class Police1Stats : MonoBehaviour
     {
         DetectPlayer();
 
+        if (Time.time - lastAttackTime >= attackCooldown)
+        {
+            DealDamageToPlayer();
+            lastAttackTime = Time.time;
+        }
+
         if (player != null && !isDead)
         {
             float distanceToPlayer = Vector2.Distance(transform.position, player.position);
@@ -52,7 +62,12 @@ public class Police1Stats : MonoBehaviour
                 animator.SetBool("Attack", true);
                 animator.SetBool("Walk", false);
                 StopMovement();
-                Attack();
+
+                if (Time.time - lastAttackTime >= attackCooldown)
+                {
+                    DealDamageToPlayer();
+                    lastAttackTime = Time.time;
+                }
             }
             else
             {
@@ -67,7 +82,7 @@ public class Police1Stats : MonoBehaviour
         }
     }
 
-    private void Attack()
+    private void DealDamageToPlayer()
     {
         Collider2D[] hitPlayers = Physics2D.OverlapCircleAll(transform.position, police1.GetAttackRange, playerLayer);
         foreach (Collider2D hit in hitPlayers)
@@ -75,8 +90,9 @@ public class Police1Stats : MonoBehaviour
             if (hit.CompareTag("Player"))
             {
                 // 플레이어에게 데미지 전달
-                //hit.GetComponent<PlayerHealth>().TakeDamage(police1.GetDamage());
+                hit.GetComponent<PlayerController>().SetHp(police1.GetDamage());
                 Debug.Log("플레이어에게 근거리 공격을 가했습니다.");
+                break; // 첫 번째 플레이어에게만 데미지를 전달한 후 종료
             }
         }
     }

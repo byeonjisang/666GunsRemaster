@@ -24,7 +24,9 @@ public class GameManager : MonoBehaviour
 
     //제한시간은 6분 고정.
     public Text timerText;
-    float timer = 300f;
+    float timer = 360f;
+
+    public float GetTimer() {  return timer; }
 
 
     // 싱글턴
