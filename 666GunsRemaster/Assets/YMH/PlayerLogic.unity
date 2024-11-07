@@ -1041,11 +1041,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerData: {fileID: 11400000, guid: 3fbf75a4a1d21be4aa614df2f833b21f, type: 2}
+  overHit: {fileID: 0}
   Joystick: {fileID: 310465521}
   dashButton: {fileID: 1278087736}
-  IsOverHit: 0
+  _health: 0
   _overHitTime: 0
+  IsOverHit: 0
   _currentOverHitTime: 0
+  _currentOverHitCount: 0
   IsTarget: 0
 --- !u!114 &425380000
 MonoBehaviour:

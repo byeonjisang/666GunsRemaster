@@ -158,5 +158,10 @@ namespace Gun
         {
             return currentGun.Damage;
         }
+
+        public void DeleteAllWeapon()
+        {
+            gameObject.SetActive(false);
+        }
     }
 }
