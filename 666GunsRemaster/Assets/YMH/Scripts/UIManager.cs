@@ -19,12 +19,14 @@ public class UIManager : MonoBehaviour
     private Image weaponChangeImage;
     [SerializeField]
     private Text weaponChangeText;
+    [SerializeField]
+    private Image weaponGetButton;
 
     public void UpdateBulletCount(int currentBulletCount, int magazineCount)
     {
         if (currentBulletCount == -1)
         {
-            weaponChangeText.text = "¡Ä / ¡Ä";
+            weaponChangeText.text = "¡Ä";
         }
         else
         {
@@ -35,8 +37,15 @@ public class UIManager : MonoBehaviour
     {
         weaponChangeImage.sprite = weaponImage;
     }
-    public void UpdateGetWeaponImage()
+    public void UpdateGetWeaponImage(Sprite weaponImage)
     {
-
+        if (weaponImage == null)
+        {
+            weaponGetButton.sprite = null;
+        }
+        else
+        {
+            weaponGetButton.sprite = weaponImage;
+        }
     }
 }

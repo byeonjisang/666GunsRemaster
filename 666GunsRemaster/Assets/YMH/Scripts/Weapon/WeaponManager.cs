@@ -1,5 +1,6 @@
 using Character.Player;
 using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
@@ -21,11 +22,11 @@ namespace Gun
             }
         }
 
-        private Gun currentGun;   //현재 사용중인 총
-        [SerializeField]// 임시 총 부여
+        private Gun currentGun;             //현재 사용중인 총
+        [SerializeField]
         private GameObject[] possessionGuns = new GameObject[2];
         [SerializeField]
-        private GameObject[] guns;           //모든 총들
+        private List<GameObject> guns;       //모든 총들
         private int currentGunIndex = 0;     //현재 착용한 총의 인덱스
         private int theNumberOfGun = 2;      //총의 개수
 
@@ -57,7 +58,7 @@ namespace Gun
             WeaponChangeButton.onClick.AddListener(ChangeGun);
 
             WeaponGetButton.onClick.AddListener(() => ChangePossessionGuns(keepGunName));
-            WeaponDeleteButton.onClick.AddListener(DeleteGun);
+            WeaponDeleteButton.onClick.AddListener(DeleteKeepGun);
         }
 
         public void OnPointerDown()
@@ -106,36 +107,50 @@ namespace Gun
 
             //사운드
         }
+
         //소지한 무기 교체
         public void ChangePossessionGuns(string gunName)
         {
             if (gunName == null)
                 return;
 
-            //GameObject gunObject = guns.FirstOrDefault(gun => gun.name == gunName);
             GameObject gunObject = guns.Find(gun => gun.name == gunName);
-            Debug.Log(gunObject);
             possessionGuns[currentGunIndex].SetActive(false);
             possessionGuns[currentGunIndex] = gunObject;
             possessionGuns[currentGunIndex].SetActive(true);
             currentGun = possessionGuns[currentGunIndex].GetComponent<Gun>();
+            //UI 변경
+            UIManager.Instance.UpdateGetWeaponImage(null);
 
             if (gunName != "Pistol")
                 keepGunName = null;
         }
-        //무기 보유
+
+        //보관 무기 획득
         public void KeepGun(string keepGunName)
         {
             this.keepGunName = keepGunName;
+
+            //이미지 변경
+            Gun gunObject = guns.Find(gun => gun.name == keepGunName).GetComponent<Gun>();
+            Sprite gunImage = gunObject.gunUiImage;
+            UIManager.Instance.UpdateGetWeaponImage(gunImage);
         }
 
-        //무기 삭제
-        private void DeleteGun()
+        //보관 무기 삭제
+        private void DeleteKeepGun()
         {
             if (keepGunName == null)
                 return;
 
             keepGunName = null;
+            UIManager.Instance.UpdateGetWeaponImage(null);
+        }
+
+        //보관 무기 기본값으로 변경
+        private void ChangeKeepGunDefault()
+        {
+
         }
 
         //데미지 반환

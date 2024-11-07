@@ -13,7 +13,7 @@ namespace Character.Player
         [SerializeField]
         private PlayerData playerData;
         private MonsterScannerTest monsterScannerTest;
-        private OverHit overHit;
+        public OverHit overHit;
         private WeaponManager weaponManager;
         public FloatingJoystick Joystick;
         [SerializeField]
@@ -26,21 +26,25 @@ namespace Character.Player
         public float DashSpeed { get { return _dashSpeed; } }
         public float DashDuration { get { return _dashDuration; } }
         public float DashCooldown { get { return _dashCooldown; } }
-        public bool IsOverHit;
 
         private int _health;                //체력
         private float _moveSpeed;           //이동속도
         private float _dashSpeed;           //대쉬속도
         private float _dashDuration;        //대쉬지속시간
         private float _dashCooldown;        //대쉬쿨타임
-        private float _cooldownTimeLeft;    //남은 쿨타임 시간
-        private bool _isCooldown = false;   //쿨타임 여부
+        private float _cooldownTimeLeft;    //남은 대쉬쿨타임 시간
+        private bool _isCooldown = false;   //대쉬쿨타임 여부
+
+        [Header("OverHit")]
         [SerializeField]
         private float _overHitTime;         //오버히트 시간
-        [SerializeField]
+        public bool IsOverHit;
         private float _currentOverHitTime;  //현재 오버히트 시간
         private float _overHitCount;        //오버히트 카운트
         private float _currentOverHitCount; //현재 오버히트 카운트
+        [SerializeField]
+        private float _startDecreaseTime;   //오버히트 감소 시작 시간
+        private float _currentDecreaseTime; //현재 오버히트 감소 시간
 
         private bool _isFire = false;       //총 발사 여부
         public bool IsTarget = false;     //타켓 존재 여부
@@ -88,6 +92,7 @@ namespace Character.Player
 
             //오버히트 비활성화
             overHit.gameObject.SetActive(false);
+            _currentDecreaseTime = 0f;
         }
 
         //데이터 초기화
@@ -124,6 +129,11 @@ namespace Character.Player
                     _currentOverHitTime = 0;
                     _currentOverHitCount = 0;
                 }
+            }
+            //오버히트 시간 감소
+            if(_currentOverHitTime > 0)
+            {
+
             }
         }
 

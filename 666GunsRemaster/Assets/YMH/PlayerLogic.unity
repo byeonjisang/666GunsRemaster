@@ -168,6 +168,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponChangeImage: {fileID: 1877168722}
   weaponChangeText: {fileID: 345884633}
+  weaponGetButton: {fileID: 1365117063}
 --- !u!1 &67222810
 GameObject:
   m_ObjectHideFlags: 0
@@ -4253,7 +4254,7 @@ GameObject:
   - component: {fileID: 1795997833}
   - component: {fileID: 1795997832}
   m_Layer: 0
-  m_Name: Pistol_B
+  m_Name: Pistol
   m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
