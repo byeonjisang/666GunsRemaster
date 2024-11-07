@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Player1Data
   m_EditorClassIdentifier: 
   playerId: 101
-  maxHealth: 0
+  maxHealth: 10
   maxShield: 0
   moveSpeed: 5
   dashCount: 0

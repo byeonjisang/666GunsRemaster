@@ -30,6 +30,7 @@ namespace Character.Player
         public float DashDuration { get { return _dashDuration; } }
         public float DashCooldown { get { return _dashCooldown; } }
 
+        [SerializeField]
         private float _health;                //체력
         private float _moveSpeed;           //이동속도
         private float _dashSpeed;           //대쉬속도
@@ -52,6 +53,7 @@ namespace Character.Player
 
         private bool _isFire = false;       //총 발사 여부
         public bool IsTarget = false;     //타켓 존재 여부
+        private bool isDie = false;
 
         //플레이어 컴포넌트
         private Rigidbody2D rigid;
@@ -59,7 +61,7 @@ namespace Character.Player
         private SpriteRenderer sprite;
 
         //상태 패턴
-        private IPlayerState _moveState, _stopState, _fireState, _dashState;
+        private IPlayerState _moveState, _stopState, _dashState, _dieState;
         private PlayerStateContext _playerStateContext;
 
         private void Awake()
@@ -88,6 +90,7 @@ namespace Character.Player
             _moveState = gameObject.AddComponent<PlayerMoveState>();
             _stopState = gameObject.AddComponent<PlayerStopState>();
             _dashState = gameObject.AddComponent<PlayerDashState>();
+            _dieState = gameObject.AddComponent<PlayerDieState>();
 
             _playerStateContext.Transition(_stopState);
 
@@ -113,6 +116,13 @@ namespace Character.Player
 
         private void Update()
         {
+            if (Input.GetKeyDown(KeyCode.V))
+            {
+                _health -= 1;
+                Debug.Log("데미지 받음");
+            }
+                
+
             //대쉬 쿨타임 계산
             if (_isCooldown)
             {
@@ -133,6 +143,13 @@ namespace Character.Player
                     _currentOverHitTime = 0;
                     _currentOverHitCount = 0;
                 }
+            }
+
+            if(_health <= 0 && !isDie)
+            {
+                isDie = true;
+                _playerStateContext.Transition(_dieState);
+                weaponManager.DeleteAllWeapon();
             }
         }
 
