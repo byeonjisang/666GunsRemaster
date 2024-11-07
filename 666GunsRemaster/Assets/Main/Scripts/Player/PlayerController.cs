@@ -1,5 +1,6 @@
 using Character.Player.State;
 using Gun;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -20,14 +21,16 @@ namespace Character.Player
         private Button dashButton;
 
         //플레이어 데이터
-        public int Health { get { return _health; } }
+        public float Health { get { return _health; } }
+        public float GetHp() { return _health; }
+        public void SetHp(float damage) { _health -= damage; }
         public float CurrentSpeed { get; set; }
         public float MoveSpeed { get { return _moveSpeed; } }
         public float DashSpeed { get { return _dashSpeed; } }
         public float DashDuration { get { return _dashDuration; } }
         public float DashCooldown { get { return _dashCooldown; } }
 
-        private int _health;                //체력
+        private float _health;                //체력
         private float _moveSpeed;           //이동속도
         private float _dashSpeed;           //대쉬속도
         private float _dashDuration;        //대쉬지속시간
@@ -39,12 +42,13 @@ namespace Character.Player
         [SerializeField]
         private float _overHitTime;         //오버히트 시간
         public bool IsOverHit;
+        [SerializeField]
         private float _currentOverHitTime;  //현재 오버히트 시간
         private float _overHitCount;        //오버히트 카운트
-        private float _currentOverHitCount; //현재 오버히트 카운트
         [SerializeField]
+        private float _currentOverHitCount; //현재 오버히트 카운트
         private float _startDecreaseTime;   //오버히트 감소 시작 시간
-        private float _currentDecreaseTime; //현재 오버히트 감소 시간
+        private bool _isDecrease = false;  //오버히트 감소 여부
 
         private bool _isFire = false;       //총 발사 여부
         public bool IsTarget = false;     //타켓 존재 여부
@@ -91,8 +95,8 @@ namespace Character.Player
             dashButton.onClick.AddListener(StartDash);
 
             //오버히트 비활성화
+            StartCoroutine(DecreaseGaugeOverHit());
             overHit.gameObject.SetActive(false);
-            _currentDecreaseTime = 0f;
         }
 
         //데이터 초기화
@@ -129,11 +133,6 @@ namespace Character.Player
                     _currentOverHitTime = 0;
                     _currentOverHitCount = 0;
                 }
-            }
-            //오버히트 시간 감소
-            if(_currentOverHitTime > 0)
-            {
-
             }
         }
 
@@ -179,6 +178,27 @@ namespace Character.Player
             {
                 IsOverHit = true;
                 overHit.gameObject.SetActive(true);
+            }
+            else
+            {
+                _isDecrease = false;
+                StartCoroutine(ResetOverHitFlag());
+            }
+        }
+        private IEnumerator ResetOverHitFlag()
+        {
+            yield return new WaitForSeconds(2f);
+            _isDecrease = true;
+        }
+        private IEnumerator DecreaseGaugeOverHit()
+        {
+            while (true)
+            {
+                if (_isDecrease && _currentOverHitCount > 0)
+                {
+                    _currentOverHitCount = Mathf.Max(_currentOverHitCount - 1f, 0);
+                }
+                yield return new WaitForSeconds(1f);
             }
         }
 
