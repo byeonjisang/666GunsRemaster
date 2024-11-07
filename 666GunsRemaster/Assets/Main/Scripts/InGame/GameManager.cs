@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UniRx;
 using UnityEngine.UI;
+using Character.Player;
 
 public class GameManager : MonoBehaviour
 {
@@ -19,8 +20,10 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private Button pauseBtn;
 
+    public GameObject player;
     public GameObject pauseImage;
     public GameObject menuBtn;
+    public GameObject gameOverObject;
 
     //제한시간은 6분 고정.
     public Text timerText;
@@ -80,7 +83,24 @@ public class GameManager : MonoBehaviour
             SoundManager.instance.PlayBGMSound(1);
         }
     }
+    void GameOver()
+    {
+        //플레이어가 죽으면
+        if(PlayerController.Instance.GetIsDie() == true)
+        {
+            float deathTime = 0f;
+            deathTime += Time.deltaTime * 500;
+            Debug.Log(deathTime);
 
+            if (deathTime > 1f)
+            {
+                //플레이어 없어지고 게임오버 창 활성화
+                player.SetActive(false);
+                gameOverObject.SetActive(true);
+                deathTime = 0f;
+            }
+        }
+    }
 
     // 게임 재시작
     public void Restart()
@@ -149,6 +169,8 @@ public class GameManager : MonoBehaviour
 
         // 텍스트 UI 업데이트
         timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds); // "MM:SS" 형식으로 출력
+
+        GameOver();
     }
 
     private void OnDestroy()

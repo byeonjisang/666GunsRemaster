@@ -55,6 +55,8 @@ namespace Character.Player
         public bool IsTarget = false;     //타켓 존재 여부
         private bool isDie = false;
 
+        public bool GetIsDie() { return isDie; }
+
         //플레이어 컴포넌트
         private Rigidbody2D rigid;
         private Animator anim;
