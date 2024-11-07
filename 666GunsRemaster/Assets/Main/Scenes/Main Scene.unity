@@ -184,6 +184,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponChangeImage: {fileID: 1877168722}
   weaponChangeText: {fileID: 345884633}
+  weaponGetButton: {fileID: 0}
 --- !u!4 &55654768
 Transform:
   m_ObjectHideFlags: 0
@@ -235,7 +236,7 @@ MonoBehaviour:
   m_Center: {x: 0, y: 2, z: 0}
   m_LayerMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 65
   m_UseGeometry: 0
   m_DefaultArea: 0
   m_IgnoreNavMeshAgent: 1
@@ -1932,8 +1933,8 @@ Transform:
   m_GameObject: {fileID: 831919545}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.64, y: 7.67, z: -8.45}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0.66, y: 1.9175, z: -8.45}
+  m_LocalScale: {x: 0.25, y: 0.25, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1056850206}
@@ -1947,7 +1948,7 @@ Transform:
   - {fileID: 592313879}
   - {fileID: 478909951}
   - {fileID: 1879408339}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1385139777}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &831919547
 MonoBehaviour:
@@ -2784,6 +2785,7 @@ Transform:
   - {fileID: 1599908834}
   - {fileID: 153276470}
   - {fileID: 277118028}
+  - {fileID: 831919546}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1385139778
@@ -2814,11 +2816,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerData: {fileID: 11400000, guid: 3fbf75a4a1d21be4aa614df2f833b21f, type: 2}
+  overHit: {fileID: 0}
   Joystick: {fileID: 310465521}
   dashButton: {fileID: 1278087736}
-  IsOverHit: 0
   _overHitTime: 0
-  _currentOverHitTime: 0
+  IsOverHit: 0
+  _startDecreaseTime: 0
   IsTarget: 0
 --- !u!114 &1385139780
 MonoBehaviour:
@@ -4539,7 +4542,6 @@ SceneRoots:
   - {fileID: 1385139777}
   - {fileID: 669999104}
   - {fileID: 2067627913}
-  - {fileID: 831919546}
   - {fileID: 207135947}
   - {fileID: 85234532}
   - {fileID: 1984714605}
