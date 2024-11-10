@@ -118,6 +118,10 @@ namespace Character.Player
 
         private void Update()
         {
+            //죽었을 경우
+            if (isDie)
+                return;
+
             if (Input.GetKeyDown(KeyCode.V))
             {
                 _health -= 1;
@@ -157,6 +161,11 @@ namespace Character.Player
 
         private void FixedUpdate()
         {
+            //죽었을 경우
+            if (isDie)
+                return;
+
+
             //이동 및 정지 상태 판단
             if ((Joystick.Horizontal != 0 && Joystick.Vertical != 0))
             {
