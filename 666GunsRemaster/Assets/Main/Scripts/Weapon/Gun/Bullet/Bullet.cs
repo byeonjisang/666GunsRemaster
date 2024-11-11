@@ -12,7 +12,6 @@ namespace Gun.Bullet
         protected float damage;                 //데미지
         protected float speed;                  //속도
         protected float range;                  //범위
-        [SerializeField]
         protected float currentPenetration;     //남은 관통력
         protected float penetration;            //관통력
         protected LayerMask blockObject;        //막히는 물체

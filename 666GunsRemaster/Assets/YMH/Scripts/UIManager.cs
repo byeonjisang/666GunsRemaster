@@ -21,7 +21,12 @@ public class UIManager : MonoBehaviour
     private Text weaponChangeText;
     [SerializeField]
     private Image weaponGetButton;
+    [SerializeField]
+    private Slider PlayerHealthSlider;
+    [SerializeField]
+    private List<Image> DashImages;
 
+    //총알 개수 UI 업데이트
     public void UpdateBulletCount(int currentBulletCount, int magazineCount)
     {
         if (currentBulletCount == -1)
@@ -33,10 +38,12 @@ public class UIManager : MonoBehaviour
             weaponChangeText.text = magazineCount + " / " + currentBulletCount;
         }
     }
+    //무기 교체 기능 관련 UI
     public void UpdateWeaponImage(Sprite weaponImage)
     {
         weaponChangeImage.sprite = weaponImage;
     }
+    //무기 줍기 기능 관련 UI
     public void UpdateGetWeaponImage(Sprite weaponImage)
     {
         if (weaponImage == null)
@@ -47,5 +54,14 @@ public class UIManager : MonoBehaviour
         {
             weaponGetButton.sprite = weaponImage;
         }
+    }
+    //체력 게이지 UI
+    public void UpdatePlayerHealth(int maxHealth, int health)
+    {
+        PlayerHealthSlider.value = health / maxHealth;
+    }
+    public void UpdatePlayerDash(int dashNumber)
+    {
+
     }
 }
