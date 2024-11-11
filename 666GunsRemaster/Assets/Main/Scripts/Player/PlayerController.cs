@@ -1,6 +1,7 @@
 using Character.Player.State;
 using Gun;
 using System.Collections;
+using UniRx;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,7 +9,8 @@ namespace Character.Player
 {
     public class PlayerController : MonoBehaviour
     {
-        public static PlayerController Instance;
+        private static PlayerController _instance;
+        public static PlayerController Instance => _instance;
 
         //외부 참조
         [SerializeField]
@@ -19,6 +21,7 @@ namespace Character.Player
         public FloatingJoystick Joystick;
         [SerializeField]
         private Button dashButton;
+        private Collider2D playerCollider;
 
         //플레이어 데이터
         public float Health { get { return _health; } }
@@ -53,10 +56,12 @@ namespace Character.Player
 
         private bool _isFire = false;       //총 발사 여부
         public bool IsTarget = false;     //타켓 존재 여부
-        private bool isDie = false;
 
-        public bool GetIsDie() { return isDie; }
-        public void SetIsDie(bool die) {  isDie = die; }
+        private BoolReactiveProperty isDie = new BoolReactiveProperty(false); // 사망 상태를 ReactiveProperty로
+        public IReadOnlyReactiveProperty<bool> IsDie => isDie; // 외부에서 읽기 전용으로 접근
+
+        //public bool GetIsDie() { return isDie; }
+        //public void SetIsDie(bool die) {  isDie = die; }
 
         //플레이어 컴포넌트
         private Rigidbody2D rigid;
@@ -71,7 +76,7 @@ namespace Character.Player
         {
             if (Instance == null)
             {
-                Instance = this;
+                _instance = this;
             }
 
             rigid = GetComponent<Rigidbody2D>();
@@ -120,7 +125,7 @@ namespace Character.Player
         private void Update()
         {
             //죽었을 경우
-            if (isDie)
+            if (isDie.Value)
                 return;
 
             if (Input.GetKeyDown(KeyCode.V))
@@ -152,18 +157,37 @@ namespace Character.Player
                 }
             }
 
-            if(_health <= 0 && !isDie)
+            if(_health <= 0 && !isDie.Value)
             {
-                isDie = true;
+                Die();
                 _playerStateContext.Transition(_dieState);
                 weaponManager.DeleteAllWeapon();
+            }
+        }
+
+        //사망과 부활 함수 추가. 이는 isDie 변수를 외부에서 변경하기 위함.
+        public void Die()
+        {
+            isDie.Value = true;
+            if (playerCollider != null)
+            {
+                playerCollider.enabled = false; // 사망 시 Collider 비활성화
+            }
+        }
+
+        public void Revive()
+        {
+            isDie.Value = false;
+            if (playerCollider != null)
+            {
+                //playerCollider.enabled = true; // 사망 시 Collider 비활성화
             }
         }
 
         private void FixedUpdate()
         {
             //죽었을 경우
-            if (isDie)
+            if (isDie.Value)
                 return;
 
 

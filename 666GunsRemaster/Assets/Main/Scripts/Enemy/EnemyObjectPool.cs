@@ -15,11 +15,11 @@ public class EnemyObjectPool : MonoBehaviour
         if (instance == null)
         {
             instance = this;
-            DontDestroyOnLoad(gameObject);
+            //DontDestroyOnLoad(gameObject);
         }
         else
         {
-            Destroy(gameObject); // 이미 인스턴스가 있으면 새로 생성된 GameManager는 파괴
+            //Destroy(gameObject); // 이미 인스턴스가 있으면 새로 생성된 GameManager는 파괴
         }
 
         //풀의 배열을 초기화

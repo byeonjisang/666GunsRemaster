@@ -126,10 +126,7 @@ public class PlayerMovement : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Enemy") // Ground 태그의 오브젝트와 충돌 시
-        {
-            GameManager.instance.Restart();
-        }
+
     }
 
     //void OnTriggerEnter2D(Collider2D other)

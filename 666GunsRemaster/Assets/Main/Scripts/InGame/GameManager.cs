@@ -41,11 +41,11 @@ public class GameManager : MonoBehaviour
         if (instance == null)
         {
             instance = this;
-            DontDestroyOnLoad(gameObject);
+            //DontDestroyOnLoad(gameObject);
         }
         else
         {
-            Destroy(gameObject); // 이미 인스턴스가 있으면 새로 생성된 GameManager는 파괴
+            //Destroy(gameObject); // 이미 인스턴스가 있으면 새로 생성된 GameManager는 파괴
         }
     }
 
@@ -55,6 +55,9 @@ public class GameManager : MonoBehaviour
         // 씬이 로드될 때 pauseImage 및 menuBtn을 다시 찾아 할당
         pauseImage = GameObject.Find("PauseImage"); // PauseImage라는 이름을 가진 오브젝트를 찾음
         menuBtn = GameObject.Find("ExitMenu");
+        player = GameObject.Find("Player");
+        pauseImage = GameObject.Find("PauseImage");
+        gameOverObject = GameObject.Find("GameOver");
 
         // 새로운 씬에서 pauseBtn을 찾아 이벤트 리스너를 등록
         pauseBtn = GameObject.Find("Pause")?.GetComponent<Button>();
@@ -83,12 +86,16 @@ public class GameManager : MonoBehaviour
         if (scene.name == "Main Scene")
         {
             SoundManager.instance.PlayBGMSound(1);
+            Debug.Log("인게임 브금 재생");
         }
+
+        timer = 360;
+        deathTime = 0f;
     }
     void GameOver()
     {
         //플레이어가 죽으면
-        if(PlayerController.Instance.GetIsDie() == true)
+        if(PlayerController.Instance != null && PlayerController.Instance.IsDie.Value == true)
         {
             deathTime += Time.deltaTime;
             Debug.Log(deathTime);
@@ -96,21 +103,50 @@ public class GameManager : MonoBehaviour
             if (deathTime > 3f)
             {
                 //플레이어 없어지고 게임오버 창 활성화
-                //player.SetActive(false);
-                gameOverObject.SetActive(true);
+                if (gameOverObject != null)
+                {
+                    gameOverObject.SetActive(true);
+                    Debug.Log("Game over UI activated");
+                }
                 deathTime = 0f;
-                PlayerController.Instance.SetIsDie(false);
+
+                //Restart();
             }
         }
     }
 
     // 게임 재시작
-    public void Restart()
-    {
-        // 처음 스테이지에서 시작
-        currentStageIndex = 0;
-        SceneManager.LoadScene(stages[currentStageIndex]);
-    }
+    //public void Restart()
+    //{
+    //    // 처음 스테이지에서 시작
+    //    currentStageIndex = 0;
+    //    timer = 360f; // 타이머 초기화
+    //    deathTime = 0f; // 죽은 시간 초기화
+
+    //    // 플레이어 상태 초기화
+    //    //if (PlayerController.Instance != null)
+    //    //{
+    //    //    PlayerController.Instance.Revive(); // 플레이어 죽음 상태 초기화
+    //    //}
+
+    //    // 일시정지 상태 초기화
+    //    _isPause.Value = false;
+    //    Time.timeScale = 1f; // 타임스케일 초기화
+
+    //    // 모든 UI 및 오브젝트 상태 초기화
+    //    if (pauseImage != null) pauseImage.SetActive(false);
+    //    if (menuBtn != null) menuBtn.SetActive(false);
+    //    if (gameOverObject != null) gameOverObject.SetActive(false);
+    //    if (player != null) player.SetActive(true); // 플레이어를 다시 활성화
+
+    //    // 씬을 다시 로드
+    //    //SceneManager.LoadScene(stages[currentStageIndex]);
+
+    //    // 배경음 초기화 및 재생
+    //    //SoundManager.instance.PlayBGMSound(1);
+    //    Debug.Log("게임이 재시작되었습니다.");
+    //}
+
 
     public void Pause()
     {
@@ -161,6 +197,16 @@ public class GameManager : MonoBehaviour
                 Time.timeScale = 1f;
             }
         }).AddTo(this); // 구독을 GameManager에 추가하여 게임 오브젝트가 파괴될 때 자동으로 구독 해제
+
+        //타이머들 초기화
+        timer = 360;
+        deathTime = 0f;
+
+        // 플레이어 사망 상태 변화 구독
+        //PlayerController.Instance.IsDie
+        //    .Where(isDead => isDead) // 사망 상태가 true일 때만 실행
+        //    .Subscribe(_ => GameOver())
+        //    .AddTo(this);
     }
 
     void Update()
