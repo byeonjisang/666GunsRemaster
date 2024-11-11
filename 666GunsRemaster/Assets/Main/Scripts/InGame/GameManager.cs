@@ -29,6 +29,8 @@ public class GameManager : MonoBehaviour
     public Text timerText;
     float timer = 360f;
 
+    private float deathTime = 0f;
+
     public float GetTimer() {  return timer; }
 
 
@@ -88,16 +90,16 @@ public class GameManager : MonoBehaviour
         //플레이어가 죽으면
         if(PlayerController.Instance.GetIsDie() == true)
         {
-            float deathTime = 0f;
-            deathTime += Time.deltaTime * 500;
+            deathTime += Time.deltaTime;
             Debug.Log(deathTime);
 
-            if (deathTime > 1f)
+            if (deathTime > 3f)
             {
                 //플레이어 없어지고 게임오버 창 활성화
-                player.SetActive(false);
+                //player.SetActive(false);
                 gameOverObject.SetActive(true);
                 deathTime = 0f;
+                PlayerController.Instance.SetIsDie(false);
             }
         }
     }

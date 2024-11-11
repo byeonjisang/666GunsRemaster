@@ -56,6 +56,7 @@ namespace Character.Player
         private bool isDie = false;
 
         public bool GetIsDie() { return isDie; }
+        public void SetIsDie(bool die) {  isDie = die; }
 
         //플레이어 컴포넌트
         private Rigidbody2D rigid;
