@@ -16,10 +16,11 @@ MonoBehaviour:
   maxHealth: 10
   maxShield: 0
   moveSpeed: 5
-  dashCount: 0
+  dashCount: 2
   dashSpeed: 10
   dashDuration: 0.5
   dashCooldown: 3
+  fillInTime: 10
   maxExp: 0
   overHitTime: 3
   overHitCount: 30

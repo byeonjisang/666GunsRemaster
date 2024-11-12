@@ -29,17 +29,22 @@ namespace Character.Player
         public void SetHp(float damage) { _health -= damage; }
         public float CurrentSpeed { get; set; }
         public float MoveSpeed { get { return _moveSpeed; } }
+        public int DashCount { get { return _dashCount; } }
         public float DashSpeed { get { return _dashSpeed; } }
         public float DashDuration { get { return _dashDuration; } }
         public float DashCooldown { get { return _dashCooldown; } }
+        public float DashFillInTime { get { return _dashFillInTime; } }
 
         [SerializeField]
         private float _health;                //체력
         private float _moveSpeed;           //이동속도
+        private int _dashCount;           //대쉬횟수
+        private int _currentDashCount;    //현재 대쉬횟수
         private float _dashSpeed;           //대쉬속도
         private float _dashDuration;        //대쉬지속시간
         private float _dashCooldown;        //대쉬쿨타임
         private float _cooldownTimeLeft;    //남은 대쉬쿨타임 시간
+        private float _dashFillInTime;      //대쉬가 다시 차는 시간
         private bool _isCooldown = false;   //대쉬쿨타임 여부
 
         [Header("OverHit")]
@@ -114,10 +119,15 @@ namespace Character.Player
         public void StateInit()
         {
             _health = playerData.maxHealth;
+
             _moveSpeed = playerData.moveSpeed;
+            _dashCount = playerData.dashCount;
+            _currentDashCount = _dashCount;
             _dashSpeed = playerData.dashSpeed;
             _dashDuration = playerData.dashDuration;
             _dashCooldown = playerData.dashCooldown;
+            _dashFillInTime = playerData.fillInTime;
+
             _overHitTime = playerData.overHitTime;
             _overHitCount = playerData.overHitCount;
         }
@@ -128,22 +138,8 @@ namespace Character.Player
             if (isDie.Value)
                 return;
 
-            if (Input.GetKeyDown(KeyCode.V))
-            {
-                _health -= 1;
-                Debug.Log("데미지 받음");
-            }
-                
-
-            //대쉬 쿨타임 계산
-            if (_isCooldown)
-            {
-                _cooldownTimeLeft -= Time.deltaTime;
-                if (_cooldownTimeLeft <= 0)
-                {
-                    _isCooldown = false;
-                }
-            }
+            if (Input.GetKeyDown(KeyCode.Space))
+                StartDash();
 
             //오버히트 시간 계산
             if (IsOverHit)
@@ -157,6 +153,7 @@ namespace Character.Player
                 }
             }
 
+            //사망 판단
             if(_health <= 0 && !isDie.Value)
             {
                 Die();
@@ -181,6 +178,7 @@ namespace Character.Player
             if (playerCollider != null)
             {
                 //playerCollider.enabled = true; // 사망 시 Collider 비활성화
+
             }
         }
 
@@ -202,26 +200,12 @@ namespace Character.Player
             }
 
             RotateGunTowardsTarget();
-
-            //대쉬 테스트 코드
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                StartDash();
-            }
         }
 
         //대쉬 시작
         private void StartDash()
         {
-            //대쉬가 쿨일 경우 실행 안함
-            if (_isCooldown)
-                return;
-
             _playerStateContext.Transition(_dashState);
-
-            _cooldownTimeLeft = _dashCooldown;
-            _isCooldown = true;
-            anim.SetBool("IsDash", true);
         }
 
         public void OverHit()
