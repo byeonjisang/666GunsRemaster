@@ -170,7 +170,20 @@ MonoBehaviour:
   weaponChangeText: {fileID: 345884633}
   weaponGetButton: {fileID: 1365117063}
   PlayerHealthSlider: {fileID: 1589722081}
-  DashImages: []
+  DashBackgroundImages:
+  - {fileID: 348866076}
+  - {fileID: 797614182}
+  - {fileID: 97612465}
+  - {fileID: 1886272097}
+  - {fileID: 707930392}
+  - {fileID: 1944789828}
+  DashImages:
+  - {fileID: 1296234641}
+  - {fileID: 1919253695}
+  - {fileID: 967469256}
+  - {fileID: 1049452234}
+  - {fileID: 1678471790}
+  - {fileID: 427450331}
 --- !u!1 &67222810
 GameObject:
   m_ObjectHideFlags: 0
@@ -1372,7 +1385,6 @@ MonoBehaviour:
   IsOverHit: 0
   _currentOverHitTime: 0
   _currentOverHitCount: 0
-  IsTarget: 0
 --- !u!114 &425380000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4967,7 +4979,7 @@ GameObject:
   - component: {fileID: 1640987801}
   - component: {fileID: 1640987800}
   m_Layer: 5
-  m_Name: Health
+  m_Name: Player State
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

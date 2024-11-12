@@ -60,6 +60,9 @@ namespace Character.Player
             _isCooldown = true;
             ghost.makeGhost = true;
 
+            //UI 업데이트
+            UIManager.Instance.UpdatePlayerDash(_dashCount, _currentDashCount);
+
             //대쉬 쿨타임 측정 시작
             StartCoroutine(DashCoolDown());
 
@@ -110,6 +113,10 @@ namespace Character.Player
 
             _currentDashCount += 1;
             _isFillIn = false;
+
+            //UI 업데이트
+            UIManager.Instance.UpdatePlayerDash(_dashCount, _currentDashCount);
+
             if (_currentDashCount < _dashCount)
             {
                 StartCoroutine(FillInDash());

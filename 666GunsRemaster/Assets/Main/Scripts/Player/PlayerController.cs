@@ -129,6 +129,8 @@ namespace Character.Player
 
             _overHitTime = playerData.overHitTime;
             _overHitCount = playerData.overHitCount;
+
+            UIManager.Instance.PlayerDashUiInit(_dashCount);
         }
 
         private void Update()
