@@ -20,7 +20,12 @@ namespace Gun
             {
                 Destroy(gameObject);
             }
+
+            monsterScanner = GetComponent<MonsterScannerTest>();
         }
+
+        private MonsterScannerTest monsterScanner;
+        public bool IsTarget { get { return monsterScanner.nearestTarget != null; } }
 
         private Gun currentGun;             //현재 사용중인 총
         [SerializeField]
@@ -59,6 +64,11 @@ namespace Gun
 
             WeaponGetButton.onClick.AddListener(() => ChangePossessionGuns(keepGunName));
             WeaponDeleteButton.onClick.AddListener(DeleteKeepGun);
+        }
+
+        private void FixedUpdate()
+        {
+            RotateWeaponTowardsTarget();
         }
 
         public void OnPointerDown()
@@ -162,6 +172,40 @@ namespace Gun
         public void DeleteAllWeapon()
         {
             gameObject.SetActive(false);
+        }
+
+        private void RotateWeaponTowardsTarget()
+        {
+            if(monsterScanner.nearestTarget != null)
+            {
+                Debug.Log("몬스터 감지");
+
+                Vector3 targetDirection = monsterScanner.nearestTarget.position - transform.position;
+
+                float angle = Mathf.Atan2(targetDirection.y, targetDirection.x) * Mathf.Rad2Deg + 270;
+                if(targetDirection.x < 0)
+                {
+                    PlayerController.Instance.ReversePlayer(false);
+                    transform.localScale = new Vector3(1, 1, 1);
+
+                    if (angle > 360)
+                        angle -= 360;
+                }
+                else
+                {
+                    PlayerController.Instance.ReversePlayer(true);
+                    transform.localScale = new Vector3(-1, 1, 1);
+                }
+
+                transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+            }
+            else
+            {
+                if(transform.localScale.x == -1)
+                    transform.rotation = Quaternion.Euler(0, 0, -90);
+                else
+                    transform.rotation = Quaternion.Euler(0, 0, 90);
+            }
         }
     }
 }

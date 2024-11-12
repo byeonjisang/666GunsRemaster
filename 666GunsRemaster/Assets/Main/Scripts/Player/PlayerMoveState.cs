@@ -6,7 +6,6 @@ namespace Character.Player
 {
     public class PlayerMoveState : MonoBehaviour, IPlayerState
     {
-        private WeaponManager weaponManager;
         private PlayerController _playerController;
 
         private SpriteRenderer sprite;
@@ -18,8 +17,6 @@ namespace Character.Player
             sprite = GetComponent<SpriteRenderer>();
             rigid = GetComponent<Rigidbody2D>();
             anim = GetComponent<Animator>();
-
-            weaponManager = GetComponentInChildren<WeaponManager>();
         }
 
         public void Movement(PlayerController playerController)
@@ -46,7 +43,7 @@ namespace Character.Player
 
             anim.SetFloat("Speed", rigid.velocity.magnitude);
 
-            if (!_playerController.IsTarget)
+            if (!WeaponManager.instance.IsTarget)
             {
                 sprite.flipX = rigid.velocity.x > 0;
 

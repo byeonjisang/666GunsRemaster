@@ -60,7 +60,6 @@ namespace Character.Player
         private bool _isDecrease = false;  //오버히트 감소 여부
 
         private bool _isFire = false;       //총 발사 여부
-        public bool IsTarget = false;     //타켓 존재 여부
 
         private BoolReactiveProperty isDie = new BoolReactiveProperty(false); // 사망 상태를 ReactiveProperty로
         public IReadOnlyReactiveProperty<bool> IsDie => isDie; // 외부에서 읽기 전용으로 접근
@@ -198,8 +197,6 @@ namespace Character.Player
             {
                 _playerStateContext.Transition(_stopState);
             }
-
-            RotateGunTowardsTarget();
         }
 
         //대쉬 시작
@@ -239,43 +236,9 @@ namespace Character.Player
             }
         }
 
-        private void RotateGunTowardsTarget()
+        public void ReversePlayer(bool reverse)
         {
-            // 근처 적이 있는지 확인
-            if (monsterScannerTest.nearestTarget != null)
-            {
-                IsTarget = true;
-
-                // 적과의 거리 및 방향 계산
-                Vector3 targetDirection = monsterScannerTest.nearestTarget.position - transform.position;
-
-                float angle = Mathf.Atan2(targetDirection.y, targetDirection.x) * Mathf.Rad2Deg + 270;
-                if (targetDirection.x < 0)
-                {
-                    sprite.flipX = false;
-                    weaponManager.transform.localScale = new Vector3(1, 1, 1);
-
-                    if (angle > 360)
-                        angle -= 360;
-                }
-                else
-                {
-                    sprite.flipX = true;
-                    weaponManager.transform.localScale = new Vector3(-1, 1, 1);
-
-                }
-
-                weaponManager.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
-            }
-            else
-            {
-                IsTarget = false;
-
-                if (weaponManager.transform.localScale.x == -1)
-                    weaponManager.transform.rotation = Quaternion.Euler(0, 0, -90);
-                else
-                    weaponManager.transform.rotation = Quaternion.Euler(0, 0, 90);
-            }
+            sprite.flipX = reverse;
         }
 
         private void OnTriggerEnter2D(Collider2D collision)

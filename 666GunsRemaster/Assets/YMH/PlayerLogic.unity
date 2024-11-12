@@ -611,6 +611,7 @@ GameObject:
   m_Component:
   - component: {fileID: 255409915}
   - component: {fileID: 255409916}
+  - component: {fileID: 255409917}
   m_Layer: 0
   m_Name: Weapon Manager
   m_TagString: Untagged
@@ -662,6 +663,23 @@ MonoBehaviour:
   WeaponChangeButton: {fileID: 1859132789}
   WeaponGetButton: {fileID: 1377926969}
   WeaponDeleteButton: {fileID: 1240493285}
+--- !u!114 &255409917
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 255409914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83a9591bec8752c4da8e1bb847d39b66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scanRange: 7
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  nearestTarget: {fileID: 0}
 --- !u!1 &291749721
 GameObject:
   m_ObjectHideFlags: 0
@@ -1395,7 +1413,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 425379998}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 83a9591bec8752c4da8e1bb847d39b66, type: 3}
   m_Name: 
