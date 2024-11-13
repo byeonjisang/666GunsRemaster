@@ -38,9 +38,9 @@ public class ChangePosition : MonoBehaviour
     {
         float timeRemaining = GameManager.instance.GetTimer() % 60f;
 
-        if (timeRemaining <= 5 && timeRemaining > 0)
+        if (timeRemaining <= 6 && timeRemaining > 0)
         {
-            SetPosition((int)(5 - timeRemaining));
+            SetPosition((int)(6 - timeRemaining));
         }
         else if (timeRemaining == 0)
         {

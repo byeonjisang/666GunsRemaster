@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour
 
     //제한시간은 6분 고정.
     public Text timerText;
-    float timer = 360f;
+    float timer = 305f;
 
     private float deathTime = 0f;
 
@@ -89,7 +89,7 @@ public class GameManager : MonoBehaviour
             Debug.Log("인게임 브금 재생");
         }
 
-        timer = 360;
+        timer = 305;
         deathTime = 0f;
     }
     void GameOver()
@@ -199,7 +199,7 @@ public class GameManager : MonoBehaviour
         }).AddTo(this); // 구독을 GameManager에 추가하여 게임 오브젝트가 파괴될 때 자동으로 구독 해제
 
         //타이머들 초기화
-        timer = 360;
+        timer = 305;
         deathTime = 0f;
 
         // 플레이어 사망 상태 변화 구독
