@@ -16,6 +16,6 @@ MonoBehaviour:
   hp: 10
   currentHp: 190
   damage: 1
-  sightRange: 10
+  sightRange: 1000
   moveSpeed: 2
   attackRange: 5
