@@ -175,7 +175,7 @@ namespace Character.Player
 
         private IEnumerator Unbeatable()
         {
-            gameObject.layer = 0;
+            gameObject.layer = 8;
             _isUnbeatable = true;
 
             Color saveColor = sprite.color;

@@ -87,7 +87,7 @@ public class Police1Stats : MonoBehaviour
         Collider2D[] hitPlayers = Physics2D.OverlapCircleAll(transform.position, police1.GetAttackRange, playerLayer);
         foreach (Collider2D hit in hitPlayers)
         {
-            if (hit.CompareTag("Player"))
+            if (hit.gameObject.layer == LayerMask.NameToLayer("Player"))
             {
                 // 플레이어에게 데미지 전달
                 hit.GetComponent<PlayerController>().SetHp(police1.GetDamage());
