@@ -17,7 +17,7 @@ namespace Gun.Bullet
         protected override void Start()
         {
             damage = 2;
-            speed = 10;
+            speed =  5;
             range = 10;
             penetration = 1;
             blockObject = LayerMask.GetMask("Player", "Wall");

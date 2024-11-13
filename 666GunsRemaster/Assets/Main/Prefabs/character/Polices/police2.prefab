@@ -99,7 +99,7 @@ Animator:
   m_GameObject: {fileID: 3676557131654973235}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 193db1485f076594ca3c9929c3fef8e4, type: 2}
+  m_Controller: {fileID: 9100000, guid: 201b62122d19ca547988c534598d3fdd, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -183,7 +183,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 4240961181218679740, guid: a2116f0212eb777429973cc22b837b52, type: 3}
   playerLayer:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 264
   attackCooldown: 1
   gunSprite: {fileID: 1104452762859027284}
   isInAttackRange: 0
