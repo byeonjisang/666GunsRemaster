@@ -26,7 +26,10 @@ namespace Character.Player
         //플레이어 데이터
         public float Health { get { return _health; } }
         public float GetHp() { return _health; }
-        public void SetHp(float damage) { _health -= damage; }
+        public void SetHp(float damage) { 
+            _health -= damage;
+            UIManager.Instance.UpdatePlayerHealth(_maxHealth, _health);
+        }
         public float CurrentSpeed { get; set; }
         public float MoveSpeed { get { return _moveSpeed; } }
         public int DashCount { get { return _dashCount; } }
@@ -36,6 +39,7 @@ namespace Character.Player
         public float DashFillInTime { get { return _dashFillInTime; } }
 
         [SerializeField]
+        private float _maxHealth;
         private float _health;                //체력
         private float _moveSpeed;           //이동속도
         private int _dashCount;           //대쉬횟수
@@ -117,7 +121,8 @@ namespace Character.Player
         //데이터 초기화
         public void StateInit()
         {
-            _health = playerData.maxHealth;
+            _maxHealth = playerData.maxHealth;
+            _health = _maxHealth;
 
             _moveSpeed = playerData.moveSpeed;
             _dashCount = playerData.dashCount;

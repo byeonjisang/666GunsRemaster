@@ -59,7 +59,7 @@ public class UIManager : MonoBehaviour
         }
     }
     //체력 게이지 UI
-    public void UpdatePlayerHealth(int maxHealth, int health)
+    public void UpdatePlayerHealth(float maxHealth, float health)
     {
         PlayerHealthSlider.value = health / maxHealth;
     }
