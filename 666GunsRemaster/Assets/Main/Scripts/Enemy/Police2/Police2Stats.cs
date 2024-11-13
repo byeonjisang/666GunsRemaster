@@ -237,11 +237,15 @@ public class Police2Stats : MonoBehaviour
         if (player != null && bulletPrefab != null)
         {
             // 총알을 생성하고 플레이어를 향해 발사
-            GameObject bullet = Instantiate(bulletPrefab, player.position, player.rotation);
-            Bullet bulletComponent = bullet.GetComponent<Bullet>();
+            GameObject bullet = Instantiate(bulletPrefab, transform.position, transform.rotation);
+            //Bullet bulletComponent = bullet.GetComponent<Bullet>();
+            bullet.transform.rotation = Quaternion.Euler(0, 0, gunSprite.transform.rotation.eulerAngles.z - 90);
+            PoliceBullet bulletComponent = bullet.GetComponent<PoliceBullet>();
 
             if (bulletComponent != null)
             {
+                Debug.Log("총알 나감");
+                bulletComponent.Shoot();
                 //bulletComponent.SetTarget(player.position);
             }
 

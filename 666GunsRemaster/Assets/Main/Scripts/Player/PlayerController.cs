@@ -272,6 +272,12 @@ namespace Character.Player
                 weaponManager.KeepGun(collision.gameObject.name);
                 collision.gameObject.SetActive(false);
             }
+            
+            if(collision.tag == "EnemyBullet")
+            {
+                float damage = collision.GetComponent<Gun.Bullet.PoliceBullet>().GetDamage();
+                SetHp(damage);
+            }
         }
 
         private void OnTriggerStay2D(Collider2D collision)

@@ -180,7 +180,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   police2: {fileID: 11400000, guid: 2a9949650cf9ed541956a2cca49025ad, type: 2}
-  bulletPrefab: {fileID: 0}
+  bulletPrefab: {fileID: 4240961181218679740, guid: a2116f0212eb777429973cc22b837b52, type: 3}
   playerLayer:
     serializedVersion: 2
     m_Bits: 8
