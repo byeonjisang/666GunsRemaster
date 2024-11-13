@@ -29,6 +29,7 @@ namespace Character.Player
         public void SetHp(float damage) { 
             _health -= damage;
             UIManager.Instance.UpdatePlayerHealth(_maxHealth, _health);
+            StartCoroutine(Unbeatable());
         }
         public float CurrentSpeed { get; set; }
         public float MoveSpeed { get { return _moveSpeed; } }
@@ -64,6 +65,7 @@ namespace Character.Player
         private bool _isDecrease = false;  //오버히트 감소 여부
 
         private bool _isFire = false;       //총 발사 여부
+        private Color hitEffect = new Color(1, 0, 0, 1); //피격시 색상
 
         private BoolReactiveProperty isDie = new BoolReactiveProperty(false); // 사망 상태를 ReactiveProperty로
         public IReadOnlyReactiveProperty<bool> IsDie => isDie; // 외부에서 읽기 전용으로 접근
@@ -75,6 +77,7 @@ namespace Character.Player
         private Rigidbody2D rigid;
         private Animator anim;
         private SpriteRenderer sprite;
+        private Collider2D collider;
 
         //상태 패턴
         private IPlayerState _moveState, _stopState, _dashState, _dieState;
@@ -90,6 +93,7 @@ namespace Character.Player
             rigid = GetComponent<Rigidbody2D>();
             anim = GetComponent<Animator>();
             sprite = GetComponent<SpriteRenderer>();
+            collider = GetComponent<Collider2D>();
 
             weaponManager = GetComponentInChildren<WeaponManager>();
             monsterScannerTest = GetComponent<MonsterScannerTest>();
@@ -166,6 +170,19 @@ namespace Character.Player
                 _playerStateContext.Transition(_dieState);
                 weaponManager.DeleteAllWeapon();
             }
+        }
+
+        private IEnumerator Unbeatable()
+        {
+            gameObject.layer = 0;
+
+            Color saveColor = sprite.color;
+            sprite.color = hitEffect;
+            yield return new WaitForSeconds(0.2f);
+            sprite.color = saveColor;
+
+            yield return new WaitForSeconds(0.8f);
+            gameObject.layer = 3;
         }
 
         //사망과 부활 함수 추가. 이는 isDie 변수를 외부에서 변경하기 위함.
