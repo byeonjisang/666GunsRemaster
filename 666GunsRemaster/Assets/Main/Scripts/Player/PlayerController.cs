@@ -65,6 +65,7 @@ namespace Character.Player
         private bool _isDecrease = false;  //오버히트 감소 여부
 
         private bool _isFire = false;       //총 발사 여부
+        private bool _isUnbeatable = false; //무적 여부
         private Color hitEffect = new Color(1, 0, 0, 1); //피격시 색상
 
         private BoolReactiveProperty isDie = new BoolReactiveProperty(false); // 사망 상태를 ReactiveProperty로
@@ -175,6 +176,7 @@ namespace Character.Player
         private IEnumerator Unbeatable()
         {
             gameObject.layer = 0;
+            _isUnbeatable = true;
 
             Color saveColor = sprite.color;
             sprite.color = hitEffect;
@@ -183,6 +185,7 @@ namespace Character.Player
 
             yield return new WaitForSeconds(0.8f);
             gameObject.layer = 3;
+            _isUnbeatable = false;
         }
 
         //사망과 부활 함수 추가. 이는 isDie 변수를 외부에서 변경하기 위함.
@@ -275,6 +278,9 @@ namespace Character.Player
             
             if(collision.tag == "EnemyBullet")
             {
+                if (_isUnbeatable)
+                    return;
+
                 float damage = collision.GetComponent<Gun.Bullet.PoliceBullet>().GetDamage();
                 SetHp(damage);
             }
