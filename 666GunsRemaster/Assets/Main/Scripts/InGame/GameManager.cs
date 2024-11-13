@@ -164,7 +164,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        //SoundManager.instance.PlayBGMSound(1);
+        SoundManager.instance.PlayBGMSound(1);
 
         // 씬 로드 이벤트에 메서드 등록
         SceneManager.sceneLoaded += OnSceneLoaded;
@@ -201,12 +201,6 @@ public class GameManager : MonoBehaviour
         //타이머들 초기화
         timer = 305;
         deathTime = 0f;
-
-        // 플레이어 사망 상태 변화 구독
-        //PlayerController.Instance.IsDie
-        //    .Where(isDead => isDead) // 사망 상태가 true일 때만 실행
-        //    .Subscribe(_ => GameOver())
-        //    .AddTo(this);
     }
 
     void Update()

@@ -9,52 +9,47 @@ public class ChangePosition : MonoBehaviour
     public Text timer;
 
     private int currentPosIndex = 0;
-
-    void Awake()
-    {
-
-    }
+    private int lastMinute = -1; // 마지막으로 확인한 분 단위 시간
 
     void Start()
     {
-        //timer = GetComponent<Text>();
-
-        // 첫 번째 위치만 활성화하고 나머지는 비활성화
-        //posList[0].SetActive(true);
-
-        foreach (GameObject obj in posList)
+        // 모든 위치를 비활성화하고 첫 번째 위치만 활성화
+        for (int i = 0; i < posList.Count; i++)
         {
-            Debug.Log($"{obj.name} 초기 상태: {obj.activeSelf}");
-        }
-
-        for (int i = 1; i < posList.Count; i++)
-        {
-            posList[i].SetActive(false); // 나머지 위치 비활성화
+            posList[i].SetActive(i == 0);
         }
         currentPosIndex = 0;
+        lastMinute = Mathf.FloorToInt(GameManager.instance.GetTimer() / 60f); // 초기 분 값 설정
     }
 
     void Update()
     {
-        float timeRemaining = GameManager.instance.GetTimer() % 60f;
+        // 남은 시간을 분 단위로 확인
+        int minutesRemaining = Mathf.FloorToInt(GameManager.instance.GetTimer() / 60f);
 
-        if (timeRemaining <= 6 && timeRemaining > 0)
+        if (minutesRemaining != lastMinute)
         {
-            SetPosition((int)(6 - timeRemaining));
-        }
-        else if (timeRemaining == 0)
-        {
-            DeactivateAllPositions();
+            // 분이 줄어들면 다음 거점을 활성화
+            SetPosition(currentPosIndex + 1);
+            lastMinute = minutesRemaining;
         }
     }
 
     private void SetPosition(int index)
     {
-        if (index != currentPosIndex && index < posList.Count)
+        if (index < posList.Count)
         {
+            // 이전 위치 비활성화
             posList[currentPosIndex].SetActive(false);
+
+            // 새로운 위치 활성화
             posList[index].SetActive(true);
             currentPosIndex = index;
+        }
+        else
+        {
+            // 모든 위치를 비활성화하고 인덱스 초기화
+            DeactivateAllPositions();
         }
     }
 

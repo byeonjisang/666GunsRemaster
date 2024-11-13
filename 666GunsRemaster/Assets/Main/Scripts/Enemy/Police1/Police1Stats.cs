@@ -45,12 +45,6 @@ public class Police1Stats : MonoBehaviour
     {
         DetectPlayer();
 
-        if (Time.time - lastAttackTime >= attackCooldown)
-        {
-            DealDamageToPlayer();
-            lastAttackTime = Time.time;
-        }
-
         if (player != null && !isDead)
         {
             float distanceToPlayer = Vector2.Distance(transform.position, player.position);
@@ -63,7 +57,7 @@ public class Police1Stats : MonoBehaviour
                 animator.SetBool("Walk", false);
                 StopMovement();
 
-                DealDamageToPlayer();
+                //DealDamageToPlayer();
             }
             else
             {
@@ -80,21 +74,17 @@ public class Police1Stats : MonoBehaviour
 
     private void DealDamageToPlayer()
     {
-        // 현재 시간이 마지막 공격 시간 + 쿨다운 시간보다 크면 공격 가능
-        if (Time.time >= lastAttackTime + attackCooldown)
+        Collider2D[] hitPlayers = Physics2D.OverlapCircleAll(transform.position, police1.GetAttackRange, playerLayer);
+        foreach (Collider2D hit in hitPlayers)
         {
-            Collider2D[] hitPlayers = Physics2D.OverlapCircleAll(transform.position, police1.GetAttackRange, playerLayer);
-            foreach (Collider2D hit in hitPlayers)
+            if (hit.gameObject.layer == LayerMask.NameToLayer("Player"))
             {
-                if (hit.gameObject.layer == LayerMask.NameToLayer("Player"))
-                {
-                    // 플레이어에게 데미지 전달
-                    hit.GetComponent<PlayerController>().SetHp(police1.GetDamage());
-                    Debug.Log("플레이어에게 근거리 공격을 가했습니다.");
+                // 플레이어에게 데미지 전달
+                hit.GetComponent<PlayerController>().SetHp(police1.GetDamage());
+                Debug.Log("플레이어에게 근거리 공격을 가했습니다.");
 
-                    lastAttackTime = Time.time; // 공격 시간을 업데이트
-                    break; // 첫 번째 플레이어에게만 데미지를 전달한 후 종료
-                }
+                lastAttackTime = Time.time; // 공격 시간을 업데이트
+                break; // 첫 번째 플레이어에게만 데미지를 전달한 후 종료
             }
         }
     }

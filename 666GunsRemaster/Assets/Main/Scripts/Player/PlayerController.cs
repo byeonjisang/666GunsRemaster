@@ -180,10 +180,10 @@ namespace Character.Player
 
             Color saveColor = sprite.color;
             sprite.color = hitEffect;
-            yield return new WaitForSeconds(0.2f);
+            yield return new WaitForSeconds(0.5f);
             sprite.color = saveColor;
 
-            yield return new WaitForSeconds(0.8f);
+            yield return new WaitForSeconds(1f);
             gameObject.layer = 3;
             _isUnbeatable = false;
         }

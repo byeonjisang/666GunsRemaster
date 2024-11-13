@@ -98,7 +98,7 @@ Animator:
   m_GameObject: {fileID: 332902155409536799}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 193db1485f076594ca3c9929c3fef8e4, type: 2}
+  m_Controller: {fileID: 9100000, guid: 201b62122d19ca547988c534598d3fdd, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -147,8 +147,8 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 264
-  attackCooldown: 1
   isInAttackRange: 0
+  attackCooldown: 1
 --- !u!70 &148120430973339910
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
