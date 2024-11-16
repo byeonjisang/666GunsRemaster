@@ -41,12 +41,7 @@ public class Pointer2D : MonoBehaviour
             Vector3 direction = screenPosition - screenCenter;
 
             // 방향을 단위 벡터로 변환
-            direction.Normalize();
-
-            // 화살표의 위치를 화면 가장자리로 이동
-            //float borderOffset = 50f; // 화살표가 화면 가장자리에서 약간 떨어지도록 오프셋 설정
-            //Vector3 arrowPosition = screenCenter + direction * (Screen.height / 2f - borderOffset);
-            //arrowUI.position = arrowPosition;
+            direction.Normalize(); 
 
             // 화살표가 목표 방향을 가리키도록 회전
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
@@ -58,7 +53,7 @@ public class Pointer2D : MonoBehaviour
         else
         {
             // 목표가 화면 안에 있을 때 화살표 숨김
-            //arrowUI.gameObject.SetActive(false);
+            arrowUI.gameObject.SetActive(false);
         }
     }
 

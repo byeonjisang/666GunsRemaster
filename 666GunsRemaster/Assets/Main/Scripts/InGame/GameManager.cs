@@ -22,7 +22,6 @@ public class GameManager : MonoBehaviour
 
     public GameObject player;
     public GameObject pauseImage;
-    public GameObject menuBtn;
     public GameObject gameOverObject;
 
     //제한시간은 6분 고정.
@@ -53,14 +52,12 @@ public class GameManager : MonoBehaviour
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         // 씬이 로드될 때 pauseImage 및 menuBtn을 다시 찾아 할당
-        pauseImage = GameObject.Find("PauseImage"); // PauseImage라는 이름을 가진 오브젝트를 찾음
-        menuBtn = GameObject.Find("ExitMenu");
+        pauseImage = GameObject.Find("Pause");
         player = GameObject.Find("Player");
-        pauseImage = GameObject.Find("PauseImage");
         gameOverObject = GameObject.Find("GameOver");
 
         // 새로운 씬에서 pauseBtn을 찾아 이벤트 리스너를 등록
-        pauseBtn = GameObject.Find("Pause")?.GetComponent<Button>();
+        pauseBtn = GameObject.Find("PauseButton")?.GetComponent<Button>();
 
         if (pauseBtn != null)
         {
@@ -73,11 +70,6 @@ public class GameManager : MonoBehaviour
         if (pauseImage != null)
         {
             pauseImage.SetActive(false);
-        }
-
-        if (menuBtn != null)
-        {
-            menuBtn.SetActive(false);
         }
 
         Time.timeScale = 1f; // Time.timeScale도 원래 상태로 되돌림
@@ -150,10 +142,17 @@ public class GameManager : MonoBehaviour
 
     public void Pause()
     {
+        Time.timeScale = 0f;
         _isPause.Value = !_isPause.Value; // 일시정지 상태를 반전시킴
         pauseImage.SetActive(_isPause.Value);
-        menuBtn.SetActive(_isPause.Value);
         Debug.Log("일시정지 누름");
+    }
+    public void Continue()
+    {
+        Time.timeScale = 1f;
+        _isPause.Value = !_isPause.Value; // 일시정지 상태를 반전시킴
+        pauseImage.SetActive(_isPause.Value);
+        Debug.Log("계속 진행");
     }
 
     public void Timer()
@@ -178,11 +177,6 @@ public class GameManager : MonoBehaviour
         if (pauseImage != null)
         {
             pauseImage.SetActive(false);
-        }
-
-        if (menuBtn != null)
-        {
-            menuBtn.SetActive(false);
         }
 
         // UniRx로 일시정지 상태 변화를 구독
@@ -211,6 +205,13 @@ public class GameManager : MonoBehaviour
 
         // 텍스트 UI 업데이트
         timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds); // "MM:SS" 형식으로 출력
+
+        //테스트를 위한 치트
+        if(Input.GetKey(KeyCode.O))
+        {
+            timer -= Time.deltaTime * 9;
+            Debug.Log("치트키 사용 중");
+        }
 
         GameOver();
     }
