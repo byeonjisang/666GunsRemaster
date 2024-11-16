@@ -2273,9 +2273,10 @@ GameObject:
   - component: {fileID: 673852783}
   - component: {fileID: 673852782}
   - component: {fileID: 673852781}
+  - component: {fileID: 673852785}
   m_Layer: 0
   m_Name: Pos0
-  m_TagString: Untagged
+  m_TagString: Position
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2309,7 +2310,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -2413,6 +2414,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1890641779}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &673852785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 673852780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe1dafd02a04dbc4683ea99f4dfc7ccb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &693395481
 GameObject:
   m_ObjectHideFlags: 0
@@ -5846,9 +5859,10 @@ GameObject:
   - component: {fileID: 2006822705}
   - component: {fileID: 2006822704}
   - component: {fileID: 2006822703}
+  - component: {fileID: 2006822707}
   m_Layer: 0
   m_Name: Pos1
-  m_TagString: Untagged
+  m_TagString: Position
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5882,7 +5896,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -5986,6 +6000,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1890641779}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2006822707
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2006822702}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe1dafd02a04dbc4683ea99f4dfc7ccb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2045221869
 GameObject:
   m_ObjectHideFlags: 0
@@ -6183,9 +6209,10 @@ GameObject:
   - component: {fileID: 2064949290}
   - component: {fileID: 2064949289}
   - component: {fileID: 2064949288}
+  - component: {fileID: 2064949292}
   m_Layer: 0
   m_Name: Pos2
-  m_TagString: Untagged
+  m_TagString: Position
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6219,7 +6246,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -6323,6 +6350,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1890641779}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2064949292
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2064949287}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe1dafd02a04dbc4683ea99f4dfc7ccb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2067627910
 GameObject:
   m_ObjectHideFlags: 0

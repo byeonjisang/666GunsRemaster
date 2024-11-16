@@ -285,13 +285,5 @@ namespace Character.Player
                 SetHp(damage);
             }
         }
-
-        private void OnTriggerStay2D(Collider2D collision)
-        {
-            if (collision.tag == "Position")
-            {
-                GameManager.instance.Timer();
-            }
-        }
     }
 }
