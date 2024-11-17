@@ -22,7 +22,9 @@ namespace Gun
             }
             currentFireRate = fireRate;     //현재 발사 딜레이 시간 초기화
             isRate = true;                  //발사 딜레이 시작
+            
             //샷건 사운드
+            SoundManager.instance.PlayEffectSoundOnce(4);
 
 
             //탄창 속 탄약이 없을 시 재장전

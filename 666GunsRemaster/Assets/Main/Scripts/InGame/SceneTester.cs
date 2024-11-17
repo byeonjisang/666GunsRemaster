@@ -39,7 +39,7 @@ public class SceneTester : MonoBehaviour
         }
 
         //씬 바뀔 때 모든 소리 다 중지
-        //SoundManager.instance.StopAllSound();
+        SoundManager.instance.StopAllSound();
         LoadScene.LoadGameScene(loadSceneName); // alpha가 1이 되었을 때 씬 변경
     }
 }
