@@ -278,6 +278,7 @@ namespace Character.Player
             {
                 weaponManager.KeepGun(collision.gameObject.name);
                 collision.gameObject.SetActive(false);
+                Debug.Log("√—±‚ ªË¡¶");
             }
             
             if(collision.tag == "EnemyBullet")

@@ -57,6 +57,7 @@ public class UIManager : MonoBehaviour
         {
             weaponGetButton.sprite = weaponImage;
         }
+        weaponGetButton.SetNativeSize();
     }
     //체력 게이지 UI
     public void UpdatePlayerHealth(float maxHealth, float health)
