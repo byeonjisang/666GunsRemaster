@@ -91,9 +91,11 @@ public class GameManager : MonoBehaviour
         {
             deathTime += Time.deltaTime;
             Debug.Log(deathTime);
+            SoundManager.instance.StopBGMSound(1);
 
             if (deathTime > 3f)
             {
+                SoundManager.instance.PlayBGMSoundOnce(2);
                 //플레이어 없어지고 게임오버 창 활성화
                 if (gameOverObject != null)
                 {

@@ -21,11 +21,14 @@ EditorBuildSettings:
     path: Assets/Main/Scenes/TitleScene.unity
     guid: cbe864b0dd5d0f04ba49dded8c2a6544
   - enabled: 1
+    path: Assets/Main/Scenes/LoadingScene.unity
+    guid: b93fea745e1654940aa9872f43df6a04
+  - enabled: 1
     path: Assets/Main/Scenes/Main Scene.unity
     guid: bfac3d4197a87a04db0ad8d3ad01a45a
   - enabled: 1
-    path: Assets/Main/Scenes/LoadingScene.unity
-    guid: b93fea745e1654940aa9872f43df6a04
+    path: Assets/Main/Scenes/Ending Scene.unity
+    guid: 101404c57696a59408d31c06c43d9513
   - enabled: 0
     path: Assets/YMH/PlayerLogic.unity
     guid: 76bcc64766a287e4092f7f54b968f3cf

@@ -59,6 +59,7 @@ public class BlinkingTextSceneLoad : MonoBehaviour
                 obj.alpha = 0;
                 obj.gameObject.SetActive(false);
                 //¾À ÀüÈ¯
+                SoundManager.instance.StopAllSound();
                 SceneManager.LoadScene(loadSceneName);
             }
         }
