@@ -105,6 +105,7 @@ public class Police2Stats : MonoBehaviour
             {
                 // 사정거리 밖이면 움직임을 다시 시작
                 isInAttackRange = false;
+                animator.SetBool("IsAttack", false);
                 SetAgentPosition();
             }
 
@@ -227,6 +228,7 @@ public class Police2Stats : MonoBehaviour
         if (Time.time >= lastAttackTime + attackCooldown)
         {
             Shoot();
+            animator.SetBool("IsAttack", true);
             lastAttackTime = Time.time;
         }
     }
