@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 6ab7cc064c1a93740af53d084bb4fb10
+guid: 62cfe7f6b7e05dd4693e5ada9ef06be7
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,49 +110,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: police_2_Sheet_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 896
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8016403ae8392d944b942e780b1758a9
-      internalID: 1059068642
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: police_2_Sheet_11
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 768
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: cd6154039b42c5a408b03324a36875d5
-      internalID: 5956583
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: police_2_Sheet_22
+      name: Effect_Sheet(1)_0
       rect:
         serializedVersion: 2
         x: 0
@@ -166,14 +124,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 316514d063889a4408e54170c128208a
-      internalID: -1503946123
+      spriteID: d9a191f4eee164846ad44101f5ddd0a3
+      internalID: 1200198646
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: police_2_Sheet_23
+      name: Effect_Sheet(1)_1
       rect:
         serializedVersion: 2
         x: 128
@@ -187,14 +145,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f5eb51d415b89c34f87d1240fa608eb1
-      internalID: 132841406
+      spriteID: d00c663d0733837419b9a09be493dd58
+      internalID: 1734644426
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: police_2_Sheet_24
+      name: Effect_Sheet(1)_2
       rect:
         serializedVersion: 2
         x: 256
@@ -208,14 +166,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ab2a55f1c4709f644a83e329e63e5b29
-      internalID: 1321833972
+      spriteID: d10183ecd2aea6c4185cdfda38ef4277
+      internalID: 54643842
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: police_2_Sheet_25
+      name: Effect_Sheet(1)_3
       rect:
         serializedVersion: 2
         x: 384
@@ -229,14 +187,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d463cfef0a4287b4a86a47dfea1a8f33
-      internalID: -965719523
+      spriteID: daed592b9201c53469b7de2368a0c006
+      internalID: 1603325304
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: police_2_Sheet_26
+      name: Effect_Sheet(1)_4
       rect:
         serializedVersion: 2
         x: 512
@@ -250,14 +208,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b5f9aeda587c581459797d28f7d02e61
-      internalID: -822535836
+      spriteID: 2b4d787411ffff4428fe590991e82259
+      internalID: 1556631840
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: police_2_Sheet_27
+      name: Effect_Sheet(1)_5
       rect:
         serializedVersion: 2
         x: 640
@@ -271,14 +229,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6b8af8eed6cdb1e4e8724ac4bc4aaf3c
-      internalID: 1074463150
+      spriteID: bd1268b6814dcc3419cc922711e1c5ea
+      internalID: 1186832467
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: police_2_Sheet_28
+      name: Effect_Sheet(1)_6
       rect:
         serializedVersion: 2
         x: 768
@@ -292,14 +250,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0e24c6cd5edaa1e46970bb76c5cc64c7
-      internalID: 477369911
+      spriteID: 4da4963c44612864a810ec453bdc8add
+      internalID: 1898507057
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: police_2_Sheet_29
+      name: Effect_Sheet(1)_7
       rect:
         serializedVersion: 2
         x: 896
@@ -313,14 +271,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cadbc28afd6e83a44ae4e22b81230558
-      internalID: -1187755937
+      spriteID: e51f46081008019438ac44c61080ed03
+      internalID: -30601927
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: police_2_Sheet_30
+      name: Effect_Sheet(1)_8
       rect:
         serializedVersion: 2
         x: 1024
@@ -334,14 +292,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3a1511177deae2541be4ede99adf46db
-      internalID: 1050321604
+      spriteID: 561e14efdc766ec4f8d25713aed9648e
+      internalID: 1384011069
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: police_2_Sheet_31
+      name: Effect_Sheet(1)_9
       rect:
         serializedVersion: 2
         x: 1152
@@ -355,14 +313,140 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 49220bddb9743a7419c895ca311ee71d
-      internalID: -1727136631
+      spriteID: 24d017bf400c30749a72eac0dedf1380
+      internalID: -1049674034
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: police_2_Sheet_33
+      name: Effect_Sheet(1)_10
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 640
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 272b0c8d1e7375b41ae80afa6a3b6916
+      internalID: -773913328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect_Sheet(1)_11
+      rect:
+        serializedVersion: 2
+        x: 1408
+        y: 640
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f4dce129d6935843b0cef9e85405e3f
+      internalID: -922511719
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect_Sheet(1)_12
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 640
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32d63f6f2ad22834ba30a72522d37c04
+      internalID: -1473908448
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect_Sheet(1)_13
+      rect:
+        serializedVersion: 2
+        x: 1664
+        y: 640
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c7e6e1d22b55194e8a682bbfd4e9931
+      internalID: -231487184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect_Sheet(1)_14
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 640
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dcc27ee1c3fc27e4d8cd7a7b117e75bd
+      internalID: 889880125
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect_Sheet(1)_15
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 640
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d3a1094fc3f5643449e919706d13c3d8
+      internalID: -1208356697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect_Sheet(1)_16
       rect:
         serializedVersion: 2
         x: 0
@@ -376,14 +460,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a610ea7bcfb88b644accaea45f23b113
-      internalID: 2053249231
+      spriteID: cda1d132c608512478ed1ef4f1d423b6
+      internalID: 555579780
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: police_2_Sheet_34
+      name: Effect_Sheet(1)_17
       rect:
         serializedVersion: 2
         x: 128
@@ -397,14 +481,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 425cfb02518232146a4ebbac98fced14
-      internalID: 300495078
+      spriteID: 76a6f75ae75a21646b5c2c65016d93dd
+      internalID: 1190347611
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: police_2_Sheet_35
+      name: Effect_Sheet(1)_18
       rect:
         serializedVersion: 2
         x: 256
@@ -418,14 +502,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fef046097ad0f174c9c6bac449f03194
-      internalID: 2146599196
+      spriteID: 81cdfcedba098ca4eb3f0e1b199a285e
+      internalID: -409439836
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: police_2_Sheet_36
+      name: Effect_Sheet(1)_19
       rect:
         serializedVersion: 2
         x: 384
@@ -439,14 +523,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0f73330212e680843aa13ba0d78a1fdf
-      internalID: 307559067
+      spriteID: 2dc896b0835e542458778fd9e22bd29b
+      internalID: 1868885389
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: police_2_Sheet_37
+      name: Effect_Sheet(1)_20
       rect:
         serializedVersion: 2
         x: 512
@@ -460,14 +544,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d4c224e14210cce4b8617441aa776f28
-      internalID: 275185360
+      spriteID: c24346a86d39815409cae830cbdd8b2c
+      internalID: -19911562
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: police_2_Sheet_38
+      name: Effect_Sheet(1)_21
       rect:
         serializedVersion: 2
         x: 640
@@ -481,14 +565,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7bf3652bd29be1e4e8ba6ecee38527ba
-      internalID: -144900706
+      spriteID: 347f146140f3d8445a9f44216a268af5
+      internalID: -1292891748
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: police_2_Sheet_39
+      name: Effect_Sheet(1)_22
       rect:
         serializedVersion: 2
         x: 768
@@ -502,14 +586,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b2caf09898da64745834c8af8e65cd19
-      internalID: -1956120313
+      spriteID: ba20a8eb281ec144b85b95ccd083921a
+      internalID: -2058953769
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: police_2_Sheet_40
+      name: Effect_Sheet(1)_23
       rect:
         serializedVersion: 2
         x: 896
@@ -523,14 +607,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f6592003b6ce4194c8e12fc3e7eba73a
-      internalID: -183525462
+      spriteID: 244c60c9d6aa45240b417f4a1b168c2e
+      internalID: -1819868274
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: police_2_Sheet_41
+      name: Effect_Sheet(1)_24
       rect:
         serializedVersion: 2
         x: 1024
@@ -544,14 +628,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 158e4bc413db14042961ca459e8ecd72
-      internalID: 1492747199
+      spriteID: 248d524c543de81489342245e60c0fba
+      internalID: 1851353569
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: police_2_Sheet_42
+      name: Effect_Sheet(1)_25
       rect:
         serializedVersion: 2
         x: 1152
@@ -565,14 +649,140 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1cd9bf3e62c66a747971ffcd407c2b8c
-      internalID: 1410861852
+      spriteID: 4a889613455198f41a0834dab36b2c1c
+      internalID: 1459049110
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: police_2_Sheet_44
+      name: Effect_Sheet(1)_26
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 512
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 165097a5db16b314e8f2271380bfbc1d
+      internalID: -1466045810
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect_Sheet(1)_27
+      rect:
+        serializedVersion: 2
+        x: 1408
+        y: 512
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b2d82c83ffcb5140875f3529a114bd3
+      internalID: 552550295
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect_Sheet(1)_28
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 512
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1d569fc178b6f946a7af2a1392702eb
+      internalID: -255346050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect_Sheet(1)_29
+      rect:
+        serializedVersion: 2
+        x: 1664
+        y: 512
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 625c240d2922076449abf684024dd6f5
+      internalID: -370256424
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect_Sheet(1)_30
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 512
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15dfbe9dcab58e5449a3ce1d6216fa94
+      internalID: 1835170291
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect_Sheet(1)_31
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 512
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be72f5868719e344084b32df92a25be8
+      internalID: 872970630
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect_Sheet(1)_32
       rect:
         serializedVersion: 2
         x: 0
@@ -586,14 +796,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b8d9140bea478ec46947fd1d2cd9b0d8
-      internalID: -526981827
+      spriteID: a56ce08f2b6ca0841bc536d8c86c35e0
+      internalID: -1540893487
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: police_2_Sheet_45
+      name: Effect_Sheet(1)_33
       rect:
         serializedVersion: 2
         x: 128
@@ -607,14 +817,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8263fd949426867439c13bbb9f8a39dc
-      internalID: 381429567
+      spriteID: 04625723254344b4eb9d981692b07a1e
+      internalID: -662624147
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: police_2_Sheet_46
+      name: Effect_Sheet(1)_34
       rect:
         serializedVersion: 2
         x: 256
@@ -628,14 +838,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 99a5852134645c34b8f1cbd4387c0b2e
-      internalID: -406476542
+      spriteID: 1e17588167767b34385c0e5997655f52
+      internalID: 390306389
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: police_2_Sheet_47
+      name: Effect_Sheet(1)_35
       rect:
         serializedVersion: 2
         x: 384
@@ -649,14 +859,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c853ad3a7ae386e468e8d74421fdaf07
-      internalID: 2058016183
+      spriteID: 7211ebd2901b1b94488400f55c4925ff
+      internalID: -446612429
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: police_2_Sheet_48
+      name: Effect_Sheet(1)_36
       rect:
         serializedVersion: 2
         x: 512
@@ -670,14 +880,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5d324e118fdeda44a95bd01472cdd97b
-      internalID: 192726244
+      spriteID: aa19a3aedfc0ad544a5510c0e8ed6591
+      internalID: -6952059
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: police_2_Sheet_49
+      name: Effect_Sheet(1)_37
       rect:
         serializedVersion: 2
         x: 640
@@ -691,14 +901,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 76329fe1a51a7134bb0f86f30c892a6d
-      internalID: 1069185182
+      spriteID: af0099136967e234795fca9b7ffc66c6
+      internalID: 888794896
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: police_2_Sheet_50
+      name: Effect_Sheet(1)_38
       rect:
         serializedVersion: 2
         x: 768
@@ -712,14 +922,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c46b788ef2b73334f8885781def95bb1
-      internalID: -392491115
+      spriteID: f4d70dc1869ff2a429435582508be944
+      internalID: -1346846116
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: police_2_Sheet_55
+      name: Effect_Sheet(1)_48
       rect:
         serializedVersion: 2
         x: 0
@@ -733,14 +943,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 647cbba5de65e7847b9b7ab6421a702a
-      internalID: -1071731628
+      spriteID: 515acf3b6c1c8cd44b778526daf13433
+      internalID: 114921470
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: police_2_Sheet_56
+      name: Effect_Sheet(1)_49
       rect:
         serializedVersion: 2
         x: 128
@@ -754,119 +964,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b810e1ad72b55db4487d8381ba5deb86
-      internalID: 820324151
+      spriteID: a8644da90635eba47bcdf910b9b07c6f
+      internalID: -176384270
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: police_2_Sheet_57
-      rect:
-        serializedVersion: 2
-        x: 256
-        y: 256
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 272dbbc6b7ada6e4db70ce1d39000f02
-      internalID: 411449939
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: police_2_Sheet_58
-      rect:
-        serializedVersion: 2
-        x: 384
-        y: 256
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d82aac66fff906c47b723ba31dfa2903
-      internalID: -1031065724
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: police_2_Sheet_59
-      rect:
-        serializedVersion: 2
-        x: 512
-        y: 256
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d6c91e967b79dd84fbd9e599a66dab06
-      internalID: 1076627887
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: police_2_Sheet_60
-      rect:
-        serializedVersion: 2
-        x: 640
-        y: 256
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d20e49b89c06a4849bfcbd73c142d285
-      internalID: 1938960633
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: police_2_Sheet_61
-      rect:
-        serializedVersion: 2
-        x: 768
-        y: 256
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 56b82d99bfb63a44b91fb74174561aff
-      internalID: -647390542
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: police_2_Sheet_66
+      name: Effect_Sheet(1)_64
       rect:
         serializedVersion: 2
         x: 0
@@ -880,14 +985,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dfc47d38fd0790b418a537cbcd19541d
-      internalID: -2123858337
+      spriteID: e98e83c39d108d54fb69859ac0baa7d8
+      internalID: 807163248
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: police_2_Sheet_67
+      name: Effect_Sheet(1)_65
       rect:
         serializedVersion: 2
         x: 128
@@ -901,14 +1006,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 88068d5fe1859ae46996619dd0c3ffc9
-      internalID: -548660795
+      spriteID: dd2180222de2ed44d8fe92f4cfb9e7aa
+      internalID: 53395462
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: police_2_Sheet_68
+      name: Effect_Sheet(1)_66
       rect:
         serializedVersion: 2
         x: 256
@@ -922,14 +1027,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 97d762aa52d1c0b45a7b1dd0310e5872
-      internalID: 860665202
+      spriteID: 597e391d9b1f9d24695ac5ada06b463d
+      internalID: 1728873100
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: police_2_Sheet_69
+      name: Effect_Sheet(1)_67
       rect:
         serializedVersion: 2
         x: 384
@@ -943,14 +1048,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ec503239fa627a645a94eac1142e3611
-      internalID: 627990241
+      spriteID: 321c6f4ab618af04d98515a785dd052f
+      internalID: 1311349493
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: police_2_Sheet_70
+      name: Effect_Sheet(1)_68
       rect:
         serializedVersion: 2
         x: 512
@@ -964,14 +1069,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 35fa4242afc3c1a44818b24fa66cfd41
-      internalID: 1865808099
+      spriteID: 6c296b32f05a5944aadec9283e477967
+      internalID: -915827560
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: police_2_Sheet_71
+      name: Effect_Sheet(1)_69
       rect:
         serializedVersion: 2
         x: 640
@@ -985,14 +1090,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9fdef8b332cc8774dbfa774a62c6c048
-      internalID: -742265871
+      spriteID: d8d9843cc94bde245b1572fe5987d49d
+      internalID: -45842399
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: police_2_Sheet_72
+      name: Effect_Sheet(1)_70
       rect:
         serializedVersion: 2
         x: 768
@@ -1006,14 +1111,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e66147b6eed1b914898b12904755fba7
-      internalID: 1703414004
+      spriteID: 8ec35df99bcd80a49b6bd4d675eabc03
+      internalID: -146370845
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: police_2_Sheet_73
+      name: Effect_Sheet(1)_71
       rect:
         serializedVersion: 2
         x: 896
@@ -1027,14 +1132,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b67adae3264f4494bb2a240e34ae4957
-      internalID: 950816169
+      spriteID: 768516617d0a1bd4d81441bac8886235
+      internalID: -1162804175
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: police_2_Sheet_74
+      name: Effect_Sheet(1)_72
       rect:
         serializedVersion: 2
         x: 1024
@@ -1048,14 +1153,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7c31800ca0b7a4e40a62c745aa44601b
-      internalID: 915102579
+      spriteID: 4292aee6da9ec8a4d88c2156a1915bad
+      internalID: -762111214
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: police_2_Sheet_75
+      name: Effect_Sheet(1)_73
       rect:
         serializedVersion: 2
         x: 1152
@@ -1069,14 +1174,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c579928f7c9d10a4aafa632d2b10e03e
-      internalID: 1378127027
+      spriteID: 3d464d333fbfead4d8b918e01e45353f
+      internalID: -1106498748
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: police_2_Sheet_76
+      name: Effect_Sheet(1)_74
       rect:
         serializedVersion: 2
         x: 1280
@@ -1090,14 +1195,98 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b207b95178b6c394dbda7a2027ee5580
-      internalID: -1280343869
+      spriteID: 4b7a23ab60c9d2744963abf400bff7bf
+      internalID: 690751574
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: police_2_Sheet_77
+      name: Effect_Sheet(1)_75
+      rect:
+        serializedVersion: 2
+        x: 1408
+        y: 128
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8db4495b1c45bd642a58d1aa23859fcd
+      internalID: 1250837673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect_Sheet(1)_76
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 128
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a00ee18efc9a1b841be5d2da00288d16
+      internalID: -986550280
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect_Sheet(1)_77
+      rect:
+        serializedVersion: 2
+        x: 1664
+        y: 128
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67a6fc0993b8526418fc8b87aa183491
+      internalID: 1650212344
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect_Sheet(1)_78
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 128
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3d1a73d4282ba2468252efaa473c147
+      internalID: -406459226
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Effect_Sheet(1)_80
       rect:
         serializedVersion: 2
         x: 0
@@ -1111,218 +1300,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 48bcda272748a0d41929294dad864168
-      internalID: 690934345
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: police_2_Sheet_78
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 0
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 57b03f2afd8d2f443bed87cae62ee05b
-      internalID: 962557391
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: police_2_Sheet_79
-      rect:
-        serializedVersion: 2
-        x: 256
-        y: 0
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b3ce56c4fd1a32349ab9bddb4acfefdc
-      internalID: -1893490223
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: police_2_Sheet_80
-      rect:
-        serializedVersion: 2
-        x: 384
-        y: 0
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 72e9c807ae3aee14083cbafe084f5d75
-      internalID: -1258245447
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: police_2_Sheet_81
-      rect:
-        serializedVersion: 2
-        x: 512
-        y: 0
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e7a3d6b8c68f3464ebba45553a1357fc
-      internalID: -1654938193
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: police_2_Sheet_82
-      rect:
-        serializedVersion: 2
-        x: 640
-        y: 0
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 60001a402983d614298c5e99cc3e910f
-      internalID: -340911254
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: police_2_Sheet_83
-      rect:
-        serializedVersion: 2
-        x: 768
-        y: 0
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4663bf8b3054a0a46a66c9331a4416d7
-      internalID: 1661218184
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: police_2_Sheet_84
-      rect:
-        serializedVersion: 2
-        x: 896
-        y: 0
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8fc30f3d3f96f0742838f2ecc0458cac
-      internalID: 1752628741
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: police_2_Sheet_85
-      rect:
-        serializedVersion: 2
-        x: 1024
-        y: 0
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 47afa45c3bd515547827054924c8466d
-      internalID: 688549694
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: police_2_Sheet_86
-      rect:
-        serializedVersion: 2
-        x: 1152
-        y: 0
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: bf67b8a654df52d40bf1d5201e28f0b8
-      internalID: 107698043
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: police_2_Sheet_87
-      rect:
-        serializedVersion: 2
-        x: 1280
-        y: 0
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e398b7090632ae0438fe8e66e535aeb6
-      internalID: 1285785207
+      spriteID: df8cc54f61fd8584fae2d557d363af0d
+      internalID: 308931841
       vertices: []
       indices: 
       edges: []
@@ -1338,94 +1317,102 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      police_2_Sheet_0: 1059068642
-      police_2_Sheet_1: 1233913802
-      police_2_Sheet_10: -1229869396
-      police_2_Sheet_11: 5956583
-      police_2_Sheet_12: -1016875099
-      police_2_Sheet_13: -500602645
-      police_2_Sheet_14: -40672494
-      police_2_Sheet_15: -584699932
-      police_2_Sheet_16: -870474526
-      police_2_Sheet_17: -859646985
-      police_2_Sheet_18: -915936345
-      police_2_Sheet_19: 639663492
-      police_2_Sheet_2: 1500109056
-      police_2_Sheet_20: 402723276
-      police_2_Sheet_21: 381522482
-      police_2_Sheet_22: -1503946123
-      police_2_Sheet_23: 132841406
-      police_2_Sheet_24: 1321833972
-      police_2_Sheet_25: -965719523
-      police_2_Sheet_26: -822535836
-      police_2_Sheet_27: 1074463150
-      police_2_Sheet_28: 477369911
-      police_2_Sheet_29: -1187755937
-      police_2_Sheet_3: 1395850847
-      police_2_Sheet_30: 1050321604
-      police_2_Sheet_31: -1727136631
-      police_2_Sheet_32: 1864512172
-      police_2_Sheet_33: 2053249231
-      police_2_Sheet_34: 300495078
-      police_2_Sheet_35: 2146599196
-      police_2_Sheet_36: 307559067
-      police_2_Sheet_37: 275185360
-      police_2_Sheet_38: -144900706
-      police_2_Sheet_39: -1956120313
-      police_2_Sheet_4: 490495985
-      police_2_Sheet_40: -183525462
-      police_2_Sheet_41: 1492747199
-      police_2_Sheet_42: 1410861852
-      police_2_Sheet_43: 2020260791
-      police_2_Sheet_44: -526981827
-      police_2_Sheet_45: 381429567
-      police_2_Sheet_46: -406476542
-      police_2_Sheet_47: 2058016183
-      police_2_Sheet_48: 192726244
-      police_2_Sheet_49: 1069185182
-      police_2_Sheet_5: 1686262858
-      police_2_Sheet_50: -392491115
-      police_2_Sheet_51: 909166873
-      police_2_Sheet_52: -2099304304
-      police_2_Sheet_53: -1929340419
-      police_2_Sheet_54: 1094329867
-      police_2_Sheet_55: -1071731628
-      police_2_Sheet_56: 820324151
-      police_2_Sheet_57: 411449939
-      police_2_Sheet_58: -1031065724
-      police_2_Sheet_59: 1076627887
-      police_2_Sheet_6: -1446024812
-      police_2_Sheet_60: 1938960633
-      police_2_Sheet_61: -647390542
-      police_2_Sheet_62: -217532124
-      police_2_Sheet_63: 884280488
-      police_2_Sheet_64: 799073261
-      police_2_Sheet_65: -563828175
-      police_2_Sheet_66: -2123858337
-      police_2_Sheet_67: -548660795
-      police_2_Sheet_68: 860665202
-      police_2_Sheet_69: 627990241
-      police_2_Sheet_7: 1717111574
-      police_2_Sheet_70: 1865808099
-      police_2_Sheet_71: -742265871
-      police_2_Sheet_72: 1703414004
-      police_2_Sheet_73: 950816169
-      police_2_Sheet_74: 915102579
-      police_2_Sheet_75: 1378127027
-      police_2_Sheet_76: -1280343869
-      police_2_Sheet_77: 690934345
-      police_2_Sheet_78: 962557391
-      police_2_Sheet_79: -1893490223
-      police_2_Sheet_8: -1294807973
-      police_2_Sheet_80: -1258245447
-      police_2_Sheet_81: -1654938193
-      police_2_Sheet_82: -340911254
-      police_2_Sheet_83: 1661218184
-      police_2_Sheet_84: 1752628741
-      police_2_Sheet_85: 688549694
-      police_2_Sheet_86: 107698043
-      police_2_Sheet_87: 1285785207
-      police_2_Sheet_9: 2010333033
+      Effect_Sheet(1)_0: 1200198646
+      Effect_Sheet(1)_1: 1734644426
+      Effect_Sheet(1)_10: -773913328
+      Effect_Sheet(1)_11: -922511719
+      Effect_Sheet(1)_12: -1473908448
+      Effect_Sheet(1)_13: -231487184
+      Effect_Sheet(1)_14: 889880125
+      Effect_Sheet(1)_15: -1208356697
+      Effect_Sheet(1)_16: 555579780
+      Effect_Sheet(1)_17: 1190347611
+      Effect_Sheet(1)_18: -409439836
+      Effect_Sheet(1)_19: 1868885389
+      Effect_Sheet(1)_2: 54643842
+      Effect_Sheet(1)_20: -19911562
+      Effect_Sheet(1)_21: -1292891748
+      Effect_Sheet(1)_22: -2058953769
+      Effect_Sheet(1)_23: -1819868274
+      Effect_Sheet(1)_24: 1851353569
+      Effect_Sheet(1)_25: 1459049110
+      Effect_Sheet(1)_26: -1466045810
+      Effect_Sheet(1)_27: 552550295
+      Effect_Sheet(1)_28: -255346050
+      Effect_Sheet(1)_29: -370256424
+      Effect_Sheet(1)_3: 1603325304
+      Effect_Sheet(1)_30: 1835170291
+      Effect_Sheet(1)_31: 872970630
+      Effect_Sheet(1)_32: -1540893487
+      Effect_Sheet(1)_33: -662624147
+      Effect_Sheet(1)_34: 390306389
+      Effect_Sheet(1)_35: -446612429
+      Effect_Sheet(1)_36: -6952059
+      Effect_Sheet(1)_37: 888794896
+      Effect_Sheet(1)_38: -1346846116
+      Effect_Sheet(1)_39: 1287970453
+      Effect_Sheet(1)_4: 1556631840
+      Effect_Sheet(1)_40: -987287674
+      Effect_Sheet(1)_41: -1669212502
+      Effect_Sheet(1)_42: -736114272
+      Effect_Sheet(1)_43: 1233516241
+      Effect_Sheet(1)_44: -1412562097
+      Effect_Sheet(1)_45: 206709981
+      Effect_Sheet(1)_46: -1250294526
+      Effect_Sheet(1)_47: 1805658873
+      Effect_Sheet(1)_48: 114921470
+      Effect_Sheet(1)_49: -176384270
+      Effect_Sheet(1)_5: 1186832467
+      Effect_Sheet(1)_50: -751882200
+      Effect_Sheet(1)_51: -553572381
+      Effect_Sheet(1)_52: -1675811178
+      Effect_Sheet(1)_53: -2090837813
+      Effect_Sheet(1)_54: 240546140
+      Effect_Sheet(1)_55: 1232904667
+      Effect_Sheet(1)_56: -526287997
+      Effect_Sheet(1)_57: -926522860
+      Effect_Sheet(1)_58: -647818853
+      Effect_Sheet(1)_59: -42861971
+      Effect_Sheet(1)_6: 1898507057
+      Effect_Sheet(1)_60: -1642602476
+      Effect_Sheet(1)_61: 333773565
+      Effect_Sheet(1)_62: 1883155809
+      Effect_Sheet(1)_63: 1303845797
+      Effect_Sheet(1)_64: 807163248
+      Effect_Sheet(1)_65: 53395462
+      Effect_Sheet(1)_66: 1728873100
+      Effect_Sheet(1)_67: 1311349493
+      Effect_Sheet(1)_68: -915827560
+      Effect_Sheet(1)_69: -45842399
+      Effect_Sheet(1)_7: -30601927
+      Effect_Sheet(1)_70: -146370845
+      Effect_Sheet(1)_71: -1162804175
+      Effect_Sheet(1)_72: -762111214
+      Effect_Sheet(1)_73: -1106498748
+      Effect_Sheet(1)_74: 690751574
+      Effect_Sheet(1)_75: 1250837673
+      Effect_Sheet(1)_76: -986550280
+      Effect_Sheet(1)_77: 1650212344
+      Effect_Sheet(1)_78: -406459226
+      Effect_Sheet(1)_79: 2090403364
+      Effect_Sheet(1)_8: 1384011069
+      Effect_Sheet(1)_80: 308931841
+      Effect_Sheet(1)_81: 1406140788
+      Effect_Sheet(1)_82: -64797712
+      Effect_Sheet(1)_83: 598782344
+      Effect_Sheet(1)_84: 712643171
+      Effect_Sheet(1)_85: 1349515276
+      Effect_Sheet(1)_86: -296527079
+      Effect_Sheet(1)_87: -1684663426
+      Effect_Sheet(1)_88: 1471013501
+      Effect_Sheet(1)_89: -937268941
+      Effect_Sheet(1)_9: -1049674034
+      Effect_Sheet(1)_90: -1641473990
+      Effect_Sheet(1)_91: 1258959254
+      Effect_Sheet(1)_92: 241403558
+      Effect_Sheet(1)_93: 1664841554
+      Effect_Sheet(1)_94: -1031227461
+      Effect_Sheet(1)_95: 600092015
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

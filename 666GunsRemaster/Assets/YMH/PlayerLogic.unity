@@ -1380,7 +1380,7 @@ MonoBehaviour:
   overHit: {fileID: 895897613}
   Joystick: {fileID: 310465521}
   dashButton: {fileID: 1278087736}
-  _health: 0
+  _maxHealth: 0
   _overHitTime: 0
   IsOverHit: 0
   _currentOverHitTime: 0
@@ -1407,7 +1407,7 @@ Animator:
   m_GameObject: {fileID: 425379998}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: aec673583b5acac43903716f4d5cd83b, type: 2}
+  m_Controller: {fileID: 9100000, guid: 55ca5f62ff4a8ac4db7df82aba4bbae8, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1535,10 +1535,10 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1810666481
+  m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1711688723, guid: 8cb26ee228dd6244586d1aa806a42a5c, type: 3}
+  m_Sprite: {fileID: 1376971390, guid: 611136d3bb2b66c479790bb0277e1065, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2494,7 +2494,6 @@ MonoBehaviour:
   pauseBtn: {fileID: 1280088324}
   player: {fileID: 0}
   pauseImage: {fileID: 2045221869}
-  menuBtn: {fileID: 1573049816}
   gameOverObject: {fileID: 0}
   timerText: {fileID: 578589492}
 --- !u!4 &693395483

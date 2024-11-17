@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 84cdab5bcea65f248a87eba55e6d48e7
+guid: d86f46d177d84f543afc85ab9ccbe2e5
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -72,7 +72,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 2
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -98,7 +98,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 2
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -110,7 +110,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: police_1_Sheet_0
+      name: police_2_Sheet(1)_0
       rect:
         serializedVersion: 2
         x: 0
@@ -118,20 +118,20 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7279e609dc816a3439fe5f6f59739f9f
-      internalID: -19549732
+      spriteID: d25aa7073f45a7848bd696c157fa89f0
+      internalID: -1418606665
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: police_1_Sheet_10
+      name: police_2_Sheet(1)_10
       rect:
         serializedVersion: 2
         x: 0
@@ -139,20 +139,20 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f3c68145d61b6074d8abaaa50c62b34b
-      internalID: -1623329265
+      spriteID: a84f5025accd3bf448eafcf01e826414
+      internalID: 2078860381
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: police_1_Sheet_20
+      name: police_2_Sheet(1)_20
       rect:
         serializedVersion: 2
         x: 0
@@ -160,20 +160,20 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9b4aaadb57fa53c419a14ea8b4db1319
-      internalID: -1840482298
+      spriteID: 45c448e8b7511cf489752ee3f7d7d629
+      internalID: -1835138864
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: police_1_Sheet_21
+      name: police_2_Sheet(1)_21
       rect:
         serializedVersion: 2
         x: 64
@@ -181,20 +181,20 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5740cfc5a7558164a9ed25af8683e003
-      internalID: -641862023
+      spriteID: ed3b39e7efd93ec4dbfac70effceb93c
+      internalID: 501999582
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: police_1_Sheet_22
+      name: police_2_Sheet(1)_22
       rect:
         serializedVersion: 2
         x: 128
@@ -202,20 +202,20 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1fae72b309658f64e95aaa86b61cfa5f
-      internalID: -588197760
+      spriteID: 49fd4cc956f49db4c8ff8931e71519e1
+      internalID: -57532653
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: police_1_Sheet_23
+      name: police_2_Sheet(1)_23
       rect:
         serializedVersion: 2
         x: 192
@@ -223,20 +223,20 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: df277ccb96a8340449e53212e578ccd0
-      internalID: -237614390
+      spriteID: b91aa673311b2e64496dd6322e52f587
+      internalID: -1801187510
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: police_1_Sheet_24
+      name: police_2_Sheet(1)_24
       rect:
         serializedVersion: 2
         x: 256
@@ -244,20 +244,20 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 14fe22c69793631499e19c5bc988f74d
-      internalID: 752084101
+      spriteID: 97e1328d3e471a542904cea557120872
+      internalID: -1955347175
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: police_1_Sheet_25
+      name: police_2_Sheet(1)_25
       rect:
         serializedVersion: 2
         x: 320
@@ -265,20 +265,20 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3d68158d4bb997049bdd0e04d104b951
-      internalID: -922394341
+      spriteID: 82f6c71e872e2f44b89b7dbf1186b52c
+      internalID: 924847214
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: police_1_Sheet_26
+      name: police_2_Sheet(1)_26
       rect:
         serializedVersion: 2
         x: 384
@@ -286,20 +286,20 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f67039888e0db9440b3fa780833542d0
-      internalID: -617352757
+      spriteID: 3a987fd811f2fea4a8fd5a60b60132ec
+      internalID: -1867126737
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: police_1_Sheet_27
+      name: police_2_Sheet(1)_27
       rect:
         serializedVersion: 2
         x: 448
@@ -307,20 +307,20 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e9d8860ab2fe2084db8d1703759252e6
-      internalID: -1544524621
+      spriteID: 5140507cfe4a7494383f981b89e28b64
+      internalID: 1516391865
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: police_1_Sheet_28
+      name: police_2_Sheet(1)_28
       rect:
         serializedVersion: 2
         x: 512
@@ -328,20 +328,20 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9ae4f831e1e841a49b265417a8165967
-      internalID: 1609408180
+      spriteID: 958d8a468187b98459213f172d162c7f
+      internalID: 1530618542
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: police_1_Sheet_29
+      name: police_2_Sheet(1)_29
       rect:
         serializedVersion: 2
         x: 576
@@ -349,20 +349,20 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 13c7c30773f78b24eb781f9a3b562e2e
-      internalID: -474009217
+      spriteID: e3bb425d92b0f494fadf128f14242a39
+      internalID: 2066913725
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: police_1_Sheet_30
+      name: police_2_Sheet(1)_30
       rect:
         serializedVersion: 2
         x: 0
@@ -370,20 +370,20 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0849fc6eb3cad9f4a89167d2b306fa73
-      internalID: -850332854
+      spriteID: 11f0df88e8d5ebd4abadb4cf60845f11
+      internalID: 603265967
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: police_1_Sheet_31
+      name: police_2_Sheet(1)_31
       rect:
         serializedVersion: 2
         x: 64
@@ -391,20 +391,20 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 187a4f5fa0f6cce4ea38e4eeeacd828b
-      internalID: 1658743519
+      spriteID: 7db752474085a5b409cb45608de08911
+      internalID: -1365246129
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: police_1_Sheet_32
+      name: police_2_Sheet(1)_32
       rect:
         serializedVersion: 2
         x: 128
@@ -412,20 +412,20 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5b487877f626d5447937a85b39d02463
-      internalID: -1336840050
+      spriteID: 4216b28c8fd6d7e46a4b13a77981c74b
+      internalID: 1944211269
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: police_1_Sheet_33
+      name: police_2_Sheet(1)_33
       rect:
         serializedVersion: 2
         x: 192
@@ -433,20 +433,20 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 39f8b3d31e8457f4aba1732c045bb637
-      internalID: -1556083436
+      spriteID: d5220d1b97ec62a4abd1625331b3967c
+      internalID: 1278361249
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: police_1_Sheet_34
+      name: police_2_Sheet(1)_34
       rect:
         serializedVersion: 2
         x: 256
@@ -454,20 +454,20 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 22a9b7413d59fb6419c49a214775f75e
-      internalID: -1167201024
+      spriteID: f47325d625d502f4d9b6488fce12fd32
+      internalID: -1372139412
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: police_1_Sheet_35
+      name: police_2_Sheet(1)_35
       rect:
         serializedVersion: 2
         x: 320
@@ -475,20 +475,20 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 804593d70b7fed548942c6fc1771cebb
-      internalID: -377058671
+      spriteID: e25a01f196f390e43b5efdfcebfb0c7b
+      internalID: 1319627454
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: police_1_Sheet_36
+      name: police_2_Sheet(1)_36
       rect:
         serializedVersion: 2
         x: 384
@@ -496,20 +496,20 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7e339cd07bc1dee4b8af863507862558
-      internalID: 188554843
+      spriteID: 491bc12129dbfc14cb89fe9d1943d420
+      internalID: -732614485
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: police_1_Sheet_37
+      name: police_2_Sheet(1)_37
       rect:
         serializedVersion: 2
         x: 448
@@ -517,20 +517,20 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ae6d386f340533c44a85f106104ffac1
-      internalID: -1564010764
+      spriteID: 22fd8e6313a301447a03cb8c793a3e0e
+      internalID: 282582431
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: police_1_Sheet_38
+      name: police_2_Sheet(1)_38
       rect:
         serializedVersion: 2
         x: 512
@@ -538,20 +538,20 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a6fca9d07df1adc4987b1d2938e0c90c
-      internalID: -1546453157
+      spriteID: f8d4fcdd20cecd745aaff7a5e6090cbf
+      internalID: 543302310
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: police_1_Sheet_39
+      name: police_2_Sheet(1)_39
       rect:
         serializedVersion: 2
         x: 576
@@ -559,20 +559,20 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bcfecceebdf70724daa13ca2f3d4fb8b
-      internalID: -1823563734
+      spriteID: de00bbe8a46a9ed4ab4594d20d821278
+      internalID: -2010117783
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: police_1_Sheet_40
+      name: police_2_Sheet(1)_40
       rect:
         serializedVersion: 2
         x: 0
@@ -580,20 +580,20 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8ca0e57fc0c8bab43a1e6643f1b4307e
-      internalID: -656481900
+      spriteID: d9135fcd8164d7a47b760ea469e133dd
+      internalID: 2025584516
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: police_1_Sheet_41
+      name: police_2_Sheet(1)_41
       rect:
         serializedVersion: 2
         x: 64
@@ -601,20 +601,20 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6ba499b084d59484fb23fdf8f62bbe40
-      internalID: 451122082
+      spriteID: 29f6823323dd89442b7c8a680c5d0377
+      internalID: -1133543038
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: police_1_Sheet_42
+      name: police_2_Sheet(1)_42
       rect:
         serializedVersion: 2
         x: 128
@@ -622,20 +622,20 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0087e7b7673ce454fb818892ce537ded
-      internalID: 916912161
+      spriteID: 4e50097083381f54289492d323ec6671
+      internalID: 484411412
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: police_1_Sheet_43
+      name: police_2_Sheet(1)_43
       rect:
         serializedVersion: 2
         x: 192
@@ -643,20 +643,20 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e13138a43cefd324689e474d5f2351c9
-      internalID: -1069716818
+      spriteID: d40bca45724094541af2a19abdb73898
+      internalID: -1079153360
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: police_1_Sheet_44
+      name: police_2_Sheet(1)_44
       rect:
         serializedVersion: 2
         x: 256
@@ -664,20 +664,20 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3b659c5b65520204a9cc4377d285f323
-      internalID: 339088966
+      spriteID: d1161dffa50d23649b86617373bd9ac0
+      internalID: -1577708719
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: police_1_Sheet_45
+      name: police_2_Sheet(1)_45
       rect:
         serializedVersion: 2
         x: 320
@@ -685,20 +685,20 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 17ca6c060f9321b4ba3bfc58bdb35542
-      internalID: 1977356673
+      spriteID: 92f432c593acef747a9c809cbf01c1b3
+      internalID: -44681180
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: police_1_Sheet_46
+      name: police_2_Sheet(1)_46
       rect:
         serializedVersion: 2
         x: 384
@@ -706,20 +706,20 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 697f32558ab34b344b417821383cb415
-      internalID: 407695617
+      spriteID: 7a033eba6b1d95948b535cc5a5c81658
+      internalID: 111599431
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: police_1_Sheet_50
+      name: police_2_Sheet(1)_50
       rect:
         serializedVersion: 2
         x: 0
@@ -727,20 +727,20 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8efd761ed08ef1540b26893e95e98510
-      internalID: -1749111132
+      spriteID: f4ef14e07206c1a4180d475c7b0e5637
+      internalID: 1973567718
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: police_1_Sheet_51
+      name: police_2_Sheet(1)_51
       rect:
         serializedVersion: 2
         x: 64
@@ -748,20 +748,20 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3a14dbac2ffd317418152e7270dc65e3
-      internalID: -205524745
+      spriteID: 39d6759833f1e7e42b0345fed5352481
+      internalID: 1241414099
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: police_1_Sheet_52
+      name: police_2_Sheet(1)_52
       rect:
         serializedVersion: 2
         x: 128
@@ -769,20 +769,20 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 19979ab7d8f97ed4296639aad7709b71
-      internalID: -2066786585
+      spriteID: c154340570fb2ce4d9a21d80942b888e
+      internalID: -357344125
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: police_1_Sheet_53
+      name: police_2_Sheet(1)_53
       rect:
         serializedVersion: 2
         x: 192
@@ -790,20 +790,20 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 28780f1e34a854547aa54712d6522b22
-      internalID: 1127523799
+      spriteID: 56207973f1ab0154c99d32471f45401d
+      internalID: -310875133
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: police_1_Sheet_54
+      name: police_2_Sheet(1)_54
       rect:
         serializedVersion: 2
         x: 256
@@ -811,20 +811,20 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4bcffa5414bdd6c44908835dd30f32d1
-      internalID: -1218492916
+      spriteID: c38358affd542d14890d4f8fddd24f31
+      internalID: -1224366146
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: police_1_Sheet_55
+      name: police_2_Sheet(1)_55
       rect:
         serializedVersion: 2
         x: 320
@@ -832,20 +832,20 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 587772949b64e1c43a9965d234381b26
-      internalID: -1419682244
+      spriteID: 3c6aaad483c74074fbb33acd655f1860
+      internalID: 967729322
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: police_1_Sheet_56
+      name: police_2_Sheet(1)_56
       rect:
         serializedVersion: 2
         x: 384
@@ -853,14 +853,14 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d41564557acc6a6478533a0e950be2c6
-      internalID: 1368342500
+      spriteID: 405e29dff5743be43bedd242141125a0
+      internalID: 1798946029
       vertices: []
       indices: 
       edges: []
@@ -876,66 +876,66 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      police_1_Sheet_0: -19549732
-      police_1_Sheet_1: 1659012972
-      police_1_Sheet_10: -1623329265
-      police_1_Sheet_11: -493117652
-      police_1_Sheet_12: 672451167
-      police_1_Sheet_13: 159190397
-      police_1_Sheet_14: -875448670
-      police_1_Sheet_15: 433183346
-      police_1_Sheet_16: 1988939173
-      police_1_Sheet_17: 582280709
-      police_1_Sheet_18: -1149490499
-      police_1_Sheet_19: -290682479
-      police_1_Sheet_2: -654381229
-      police_1_Sheet_20: -1840482298
-      police_1_Sheet_21: -641862023
-      police_1_Sheet_22: -588197760
-      police_1_Sheet_23: -237614390
-      police_1_Sheet_24: 752084101
-      police_1_Sheet_25: -922394341
-      police_1_Sheet_26: -617352757
-      police_1_Sheet_27: -1544524621
-      police_1_Sheet_28: 1609408180
-      police_1_Sheet_29: -474009217
-      police_1_Sheet_3: -1381240307
-      police_1_Sheet_30: -850332854
-      police_1_Sheet_31: 1658743519
-      police_1_Sheet_32: -1336840050
-      police_1_Sheet_33: -1556083436
-      police_1_Sheet_34: -1167201024
-      police_1_Sheet_35: -377058671
-      police_1_Sheet_36: 188554843
-      police_1_Sheet_37: -1564010764
-      police_1_Sheet_38: -1546453157
-      police_1_Sheet_39: -1823563734
-      police_1_Sheet_4: -1692472975
-      police_1_Sheet_40: -656481900
-      police_1_Sheet_41: 451122082
-      police_1_Sheet_42: 916912161
-      police_1_Sheet_43: -1069716818
-      police_1_Sheet_44: 339088966
-      police_1_Sheet_45: 1977356673
-      police_1_Sheet_46: 407695617
-      police_1_Sheet_47: -1769575779
-      police_1_Sheet_48: 1286171302
-      police_1_Sheet_49: -813090922
-      police_1_Sheet_5: -1992805145
-      police_1_Sheet_50: -1749111132
-      police_1_Sheet_51: -205524745
-      police_1_Sheet_52: -2066786585
-      police_1_Sheet_53: 1127523799
-      police_1_Sheet_54: -1218492916
-      police_1_Sheet_55: -1419682244
-      police_1_Sheet_56: 1368342500
-      police_1_Sheet_57: 853246685
-      police_1_Sheet_58: 1093054589
-      police_1_Sheet_59: 389132943
-      police_1_Sheet_6: -1868176168
-      police_1_Sheet_7: 727976837
-      police_1_Sheet_8: -545196311
-      police_1_Sheet_9: -912586767
+      police_2_Sheet(1)_0: -1418606665
+      police_2_Sheet(1)_1: -656462091
+      police_2_Sheet(1)_10: 2078860381
+      police_2_Sheet(1)_11: 817599818
+      police_2_Sheet(1)_12: 877170542
+      police_2_Sheet(1)_13: 2132179114
+      police_2_Sheet(1)_14: 942372553
+      police_2_Sheet(1)_15: -955039493
+      police_2_Sheet(1)_16: -287424348
+      police_2_Sheet(1)_17: -1353223460
+      police_2_Sheet(1)_18: -117943045
+      police_2_Sheet(1)_19: 289859176
+      police_2_Sheet(1)_2: -1341702645
+      police_2_Sheet(1)_20: -1835138864
+      police_2_Sheet(1)_21: 501999582
+      police_2_Sheet(1)_22: -57532653
+      police_2_Sheet(1)_23: -1801187510
+      police_2_Sheet(1)_24: -1955347175
+      police_2_Sheet(1)_25: 924847214
+      police_2_Sheet(1)_26: -1867126737
+      police_2_Sheet(1)_27: 1516391865
+      police_2_Sheet(1)_28: 1530618542
+      police_2_Sheet(1)_29: 2066913725
+      police_2_Sheet(1)_3: -521378214
+      police_2_Sheet(1)_30: 603265967
+      police_2_Sheet(1)_31: -1365246129
+      police_2_Sheet(1)_32: 1944211269
+      police_2_Sheet(1)_33: 1278361249
+      police_2_Sheet(1)_34: -1372139412
+      police_2_Sheet(1)_35: 1319627454
+      police_2_Sheet(1)_36: -732614485
+      police_2_Sheet(1)_37: 282582431
+      police_2_Sheet(1)_38: 543302310
+      police_2_Sheet(1)_39: -2010117783
+      police_2_Sheet(1)_4: -1603703413
+      police_2_Sheet(1)_40: 2025584516
+      police_2_Sheet(1)_41: -1133543038
+      police_2_Sheet(1)_42: 484411412
+      police_2_Sheet(1)_43: -1079153360
+      police_2_Sheet(1)_44: -1577708719
+      police_2_Sheet(1)_45: -44681180
+      police_2_Sheet(1)_46: 111599431
+      police_2_Sheet(1)_47: 1714472732
+      police_2_Sheet(1)_48: 757896377
+      police_2_Sheet(1)_49: -743823756
+      police_2_Sheet(1)_5: -660239907
+      police_2_Sheet(1)_50: 1973567718
+      police_2_Sheet(1)_51: 1241414099
+      police_2_Sheet(1)_52: -357344125
+      police_2_Sheet(1)_53: -310875133
+      police_2_Sheet(1)_54: -1224366146
+      police_2_Sheet(1)_55: 967729322
+      police_2_Sheet(1)_56: 1798946029
+      police_2_Sheet(1)_57: -402937153
+      police_2_Sheet(1)_58: 570782252
+      police_2_Sheet(1)_59: 703226568
+      police_2_Sheet(1)_6: -1864048025
+      police_2_Sheet(1)_7: -995379934
+      police_2_Sheet(1)_8: -846283897
+      police_2_Sheet(1)_9: -2004736983
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
