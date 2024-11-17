@@ -31,7 +31,7 @@ AnimationClip:
     - time: 0.33333334
       value: {fileID: 1105495993, guid: f60b139feccf3104b9150841397db58c, type: 3}
     - time: 0.41666666
-      value: {fileID: -1174318929, guid: f60b139feccf3104b9150841397db58c, type: 3}
+      value: {fileID: 891082400, guid: f60b139feccf3104b9150841397db58c, type: 3}
     - time: 0.5
       value: {fileID: -191053290, guid: f60b139feccf3104b9150841397db58c, type: 3}
     - time: 0.5833333
@@ -69,7 +69,7 @@ AnimationClip:
     - {fileID: -274435154, guid: f60b139feccf3104b9150841397db58c, type: 3}
     - {fileID: 1194177426, guid: f60b139feccf3104b9150841397db58c, type: 3}
     - {fileID: 1105495993, guid: f60b139feccf3104b9150841397db58c, type: 3}
-    - {fileID: -1174318929, guid: f60b139feccf3104b9150841397db58c, type: 3}
+    - {fileID: 891082400, guid: f60b139feccf3104b9150841397db58c, type: 3}
     - {fileID: -191053290, guid: f60b139feccf3104b9150841397db58c, type: 3}
     - {fileID: -964844171, guid: f60b139feccf3104b9150841397db58c, type: 3}
     - {fileID: -164767544, guid: f60b139feccf3104b9150841397db58c, type: 3}
@@ -99,4 +99,11 @@ AnimationClip:
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
-  m_Events: []
+  m_Events:
+  - time: 0.5
+    functionName: DealDamageToPlayer
+    data: 
+    objectReferenceParameter: {fileID: 332902155409536799, guid: 8d294fd4962882845995cf1dad31dc34, type: 3}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
