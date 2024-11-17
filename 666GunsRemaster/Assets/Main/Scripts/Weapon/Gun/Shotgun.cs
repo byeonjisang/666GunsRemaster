@@ -22,6 +22,8 @@ namespace Gun
             }
             currentFireRate = fireRate;     //현재 발사 딜레이 시간 초기화
             isRate = true;                  //발사 딜레이 시작
+            //샷건 사운드
+
 
             //탄창 속 탄약이 없을 시 재장전
             if (currentMagazineCount == 0)
@@ -30,11 +32,15 @@ namespace Gun
                 if (currentBulletCount == 0)
                 {
                     WeaponManager.instance.ChangePossessionGuns("Pistol");
+                    //총기 변경 사운드
+
                     return;
                 }
 
                 //재장전
                 isReloading = true;
+                //재장전 사운드
+
                 StartCoroutine(Reload());
             }
         }

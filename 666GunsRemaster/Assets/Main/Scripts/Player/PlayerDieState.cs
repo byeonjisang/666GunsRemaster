@@ -31,6 +31,7 @@ namespace Character.Player
         {
             _playerController.CurrentSpeed = 0;
             anim.SetTrigger("Die");
+            //사망 사운드
         }
     }
 }

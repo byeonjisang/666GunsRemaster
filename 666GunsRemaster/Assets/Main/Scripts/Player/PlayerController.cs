@@ -29,6 +29,8 @@ namespace Character.Player
         public void SetHp(float damage) { 
             _health -= damage;
             UIManager.Instance.UpdatePlayerHealth(_maxHealth, _health);
+            //피격 사운드
+
             StartCoroutine(Unbeatable());
         }
         public float CurrentSpeed { get; set; }
@@ -238,6 +240,8 @@ namespace Character.Player
             if (_currentOverHitCount >= _overHitCount)
             {
                 IsOverHit = true;
+                //오버히트 사운드
+
                 overHit.gameObject.SetActive(true);
             }
             else
