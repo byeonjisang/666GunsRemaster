@@ -13,7 +13,7 @@ public class Police2Stats : MonoBehaviour
     public GameObject bulletPrefab;  // 발사할 총알 프리팹
     public LayerMask playerLayer;    // 플레이어가 속한 레이어
 
-    public float attackCooldown = 1f;    // 공격 간격
+    public float attackCooldown = 2f;    // 공격 간격
     private float lastAttackTime;
 
     private Transform player;
@@ -238,6 +238,9 @@ public class Police2Stats : MonoBehaviour
     {
         if (player != null && bulletPrefab != null)
         {
+            //총소리 재생
+            SoundManager.instance.PlayEffectSound(8);
+
             // 총알을 생성하고 플레이어를 향해 발사
             GameObject bullet = Instantiate(bulletPrefab, transform.position, transform.rotation);
             //Bullet bulletComponent = bullet.GetComponent<Bullet>();
@@ -268,8 +271,12 @@ public class Police2Stats : MonoBehaviour
         {
             if (police2.GetHp() <= 0f)
             {
+                //사망 소리 재생
+                //SoundManager.instance.PlayEffectSound(7);
+
                 //애니메이션
                 animator.SetBool("Walk", false);
+                animator.SetBool("IsAttack", false);
                 animator.SetBool("Die", true);
 
                 isDead = true;

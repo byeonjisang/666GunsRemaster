@@ -79,6 +79,8 @@ public class Police1Stats : MonoBehaviour
         {
             if (hit.gameObject.layer == LayerMask.NameToLayer("Player"))
             {
+                //소리 재생
+                SoundManager.instance.PlayEffectSound(9);
                 // 플레이어에게 데미지 전달
                 hit.GetComponent<PlayerController>().SetHp(police1.GetDamage());
                 Debug.Log("플레이어에게 근거리 공격을 가했습니다.");
@@ -124,6 +126,8 @@ public class Police1Stats : MonoBehaviour
         {
             if (police1.GetHp() <= 0f)
             {
+                //죽는 소리 재생
+                //SoundManager.instance.PlayEffectSound(7);
                 animator.SetBool("Walk", false);
                 animator.SetBool("Die", true);
                 isDead = true;

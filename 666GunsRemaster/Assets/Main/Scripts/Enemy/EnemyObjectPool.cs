@@ -37,9 +37,9 @@ public class EnemyObjectPool : MonoBehaviour
     {
         GameObject select = null;
 
-        foreach(GameObject items in pools[index])
+        foreach (GameObject items in pools[index])
         {
-            if(!items.activeSelf)
+            if (items != null && !items.activeSelf)
             {
                 select = items;
                 select.SetActive(true);
@@ -47,7 +47,8 @@ public class EnemyObjectPool : MonoBehaviour
             }
         }
 
-        if(!select)
+
+        if (!select)
         {
             select = Instantiate(prefabs[index], transform);
             pools[index].Add(select);
