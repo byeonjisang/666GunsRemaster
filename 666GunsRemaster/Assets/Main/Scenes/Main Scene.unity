@@ -221,7 +221,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponChangeImage: {fileID: 593346888}
   weaponChangeText: {fileID: 626613709}
-  weaponGetButton: {fileID: 0}
+  weaponGetButton: {fileID: 1060066789}
   PlayerHealthSlider: {fileID: 1669713878}
   DashBackgroundImages:
   - {fileID: 2046897373}
@@ -3733,7 +3733,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5409216494466805741, guid: aa0d3c28003cf5b48bb294bf4c782c89, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5485253298694903466, guid: aa0d3c28003cf5b48bb294bf4c782c89, type: 3}
       propertyPath: bulletObjectPool
@@ -9922,7 +9922,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2402573527254086114, guid: 32d1fae523ed44b48a6ea491f57f8f5c, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4492988030688876871, guid: 32d1fae523ed44b48a6ea491f57f8f5c, type: 3}
       propertyPath: m_FlipX
@@ -11194,7 +11194,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 53782171311184286, guid: 62c8f240eaebbd244ab4180ae7a680af, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 619820225751351250, guid: 62c8f240eaebbd244ab4180ae7a680af, type: 3}
       propertyPath: m_FlipX
@@ -12696,7 +12696,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   possessionGuns:
   - {fileID: 1710499320}
-  - {fileID: 1307622238}
+  - {fileID: 1419454652}
   guns:
   - {fileID: 477714997}
   - {fileID: 443574785}
@@ -13607,7 +13607,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7873446880753087265, guid: 3780da2ba3910504982872edbf143429, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8609100639548074223, guid: 3780da2ba3910504982872edbf143429, type: 3}
       propertyPath: m_LocalPosition.x
