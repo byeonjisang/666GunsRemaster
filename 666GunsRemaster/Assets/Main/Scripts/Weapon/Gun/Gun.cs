@@ -119,6 +119,7 @@ namespace Gun
             currentFireRate = fireRate;     //현재 발사 딜레이 시간 초기화
             isRate = true;                  //발사 딜레이 시작
             UIManager.Instance.UpdateBulletCount(currentBulletCount, currentMagazineCount); //UI 갱신
+            PlayFireSound();                //총기 사운드 재생
 
             //총기 발사 사운드
 
@@ -129,7 +130,6 @@ namespace Gun
                 if (currentBulletCount == 0)
                 {
                     WeaponManager.instance.ChangePossessionGuns("Pistol");
-
                     //총기 변경 사운드
 
                     return;
@@ -143,6 +143,13 @@ namespace Gun
                 StartCoroutine(Reload());
             }
         }
+        //총기 발사 사운드 재생
+        protected virtual void PlayFireSound()
+        {
+            //총기 발사 소리
+            Debug.Log("총기 발사 소리 재생");
+        }
+
         protected virtual IEnumerator Reload()
         {
             yield return new WaitForSeconds(reloadTime);

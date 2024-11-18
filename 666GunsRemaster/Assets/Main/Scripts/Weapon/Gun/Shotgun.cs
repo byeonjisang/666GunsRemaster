@@ -22,6 +22,7 @@ namespace Gun
             }
             currentFireRate = fireRate;     //현재 발사 딜레이 시간 초기화
             isRate = true;                  //발사 딜레이 시작
+            UIManager.Instance.UpdateBulletCount(currentMagazineCount, currentBulletCount); //UI 갱신
             
             //샷건 사운드
             SoundManager.instance.PlayEffectSoundOnce(4);
