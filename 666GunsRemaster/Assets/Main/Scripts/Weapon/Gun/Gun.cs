@@ -1,4 +1,5 @@
-﻿using Gun.Bullet;
+﻿using Character.Player;
+using Gun.Bullet;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -111,6 +112,7 @@ namespace Gun
             if (isRate || isReloading)
                 return;
 
+            PlayerController.Instance.OverHit();
             bulletPoint.transform.localScale = new Vector3(playerSprite.flipX ? -1 : 1, 1, 1); //총알 발사 방향 설정
 
             //총 발사
@@ -124,7 +126,7 @@ namespace Gun
             //총기 발사 사운드
 
             //탄창 속 탄약이 없을 시 재장전
-            if (currentMagazineCount == 0)
+            if (currentMagazineCount <= 0)
             {
                 //총알이 없으면 기본 권총으로 변경
                 if (currentBulletCount == 0)
@@ -139,7 +141,6 @@ namespace Gun
                 isReloading = true;
                 //재장전 사운드
 
-
                 StartCoroutine(Reload());
             }
         }
@@ -153,6 +154,7 @@ namespace Gun
         protected virtual IEnumerator Reload()
         {
             yield return new WaitForSeconds(reloadTime);
+
             //현재 소유한 탄약이 탄창 속 탄약보다 많을 시
             if (currentBulletCount >= maxMagazineCount - currentMagazineCount)
             {
@@ -169,6 +171,7 @@ namespace Gun
             }
             UIManager.Instance.UpdateBulletCount(currentBulletCount, currentMagazineCount); //UI 갱신
             isReloading = false;
+            Debug.Log(isReloading);
         }
     }
 }

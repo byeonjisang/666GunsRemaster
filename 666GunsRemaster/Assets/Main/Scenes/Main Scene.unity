@@ -12696,7 +12696,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   possessionGuns:
   - {fileID: 1710499320}
-  - {fileID: 1419454652}
+  - {fileID: 1307622238}
   guns:
   - {fileID: 477714997}
   - {fileID: 443574785}

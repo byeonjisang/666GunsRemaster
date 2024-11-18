@@ -95,7 +95,6 @@ namespace Gun
                 else if (currentGun != null)
                 {
                     currentGun.Fire();
-                    PlayerController.Instance.OverHit();
                 }
                 yield return new WaitForSeconds(fireRate);
             }

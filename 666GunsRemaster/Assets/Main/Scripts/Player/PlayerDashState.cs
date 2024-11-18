@@ -82,7 +82,7 @@ namespace Character.Player
                 anim.SetBool("IsDash", true);
 
                 //대쉬 소리 재생
-                SoundManager.instance.PlayEffectSoundOnce(6);
+                //SoundManager.instance.PlayEffectSoundOnce(6);
 
                 //대쉬 지속시간
                 if(_currentDashDuration <= 0)
