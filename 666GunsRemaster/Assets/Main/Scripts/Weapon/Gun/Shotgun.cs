@@ -27,7 +27,7 @@ namespace Gun
             UIManager.Instance.UpdateBulletCount(currentBulletCount, currentMagazineCount); //UI 갱신
             
             //샷건 사운드
-            //SoundManager.instance.PlayEffectSoundOnce(4);
+            SoundManager.instance.PlayEffectSoundOnce(4);
 
 
             //탄창 속 탄약이 없을 시 재장전
