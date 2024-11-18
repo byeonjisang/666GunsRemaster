@@ -19,6 +19,7 @@ public class BlinkingText : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0)) // 터치 또는 마우스 클릭
         {
+            SoundManager.instance.PlayEffectSound(0);
             StartCoroutine(FadeOutObjects());
         }
     }
