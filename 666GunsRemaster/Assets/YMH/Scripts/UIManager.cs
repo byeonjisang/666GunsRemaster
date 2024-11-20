@@ -64,6 +64,7 @@ public class UIManager : MonoBehaviour
     {
         PlayerHealthSlider.value = health / maxHealth;
     }
+    //플레이어 대쉬 초기 UI 설정
     public void PlayerDashUiInit(int dashCount)
     {
         for(int i = 0; i < DashBackgroundImages.Count; i++)
@@ -78,6 +79,7 @@ public class UIManager : MonoBehaviour
             DashImages[i].gameObject.SetActive(true);
         }
     }
+    //플레이어 대쉬 UI 업데이트
     public void UpdatePlayerDash(int dashCount, int dashNumber)
     {
         for (int i = 0; i < dashCount; i++)
@@ -90,4 +92,6 @@ public class UIManager : MonoBehaviour
             DashImages[i].gameObject.SetActive(true);
         }
     }
+
+    
 }

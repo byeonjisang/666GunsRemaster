@@ -1,5 +1,7 @@
 using Character.Player.State;
 using Gun;
+using System;
+using System.CodeDom.Compiler;
 using System.Collections;
 using UniRx;
 using UnityEngine;
@@ -55,19 +57,21 @@ namespace Character.Player
         private bool _isCooldown = false;   //대쉬쿨타임 여부
 
         [Header("OverHit")]
+        private float _overHitTime;             //오버히트 시간
+        [NonSerialized]
+        public bool[] IsOverHit;
+        private float[] _currentOverHitTime;    //현재 오버히트 시간
+        private float _overHitCount;            //오버히트 카운트
         [SerializeField]
-        private float _overHitTime;         //오버히트 시간
-        public bool IsOverHit;
-        [SerializeField]
-        private float _currentOverHitTime;  //현재 오버히트 시간
-        private float _overHitCount;        //오버히트 카운트
-        [SerializeField]
-        private float _currentOverHitCount; //현재 오버히트 카운트
-        private float _startDecreaseTime;   //오버히트 감소 시작 시간
-        private bool _isDecrease = false;  //오버히트 감소 여부
+        private float[] _currentOverHitCount;   //현재 오버히트 카운트
+        private float[] _startDecreaseTime;     //오버히트 감소하기 시작하는 시간
+        private bool[] _isDecrease;             //오버히트 감소 여부
+        private float[] _lastFireTime;          //마지막 발사 시간
 
-        private bool _isFire = false;       //총 발사 여부
-        private bool _isUnbeatable = false; //무적 여부
+        public int CurrentWeaponIndex { private get; set; }
+        //private bool _isFire = false;       //총 발사 여부
+        //private bool _isFire = false;       //총 발사 여부
+        private bool _isUnbeatable = false;   //무적 여부
         private Color hitEffect = new Color(1, 0, 0, 1); //피격시 색상
 
         private BoolReactiveProperty isDie = new BoolReactiveProperty(false); // 사망 상태를 ReactiveProperty로
@@ -121,7 +125,8 @@ namespace Character.Player
             dashButton.onClick.AddListener(StartDash);
 
             //오버히트 비활성화
-            StartCoroutine(DecreaseGaugeOverHit());
+            StartCoroutine(DecreaseGaugeOverHit(0));
+            StartCoroutine(DecreaseGaugeOverHit(1));
             overHit.gameObject.SetActive(false);
         }
 
@@ -139,8 +144,15 @@ namespace Character.Player
             _dashCooldown = playerData.dashCooldown;
             _dashFillInTime = playerData.fillInTime;
 
+            //오버히트 관련
             _overHitTime = playerData.overHitTime;
             _overHitCount = playerData.overHitCount;
+            CurrentWeaponIndex = 0;
+            IsOverHit = new bool[2] { false, false };
+            _currentOverHitCount = new float[2] { 0, 0 };
+            _startDecreaseTime = new float[2] { 5, 5 };
+            _isDecrease = new bool[2] { false, false };
+            _lastFireTime = new float[2] { 0, 0 };
 
             UIManager.Instance.PlayerDashUiInit(_dashCount);
         }
@@ -151,23 +163,24 @@ namespace Character.Player
             if (isDie.Value)
                 return;
 
-            if (Input.GetKeyDown(KeyCode.Space))
-                StartDash();
-
-            //오버히트 시간 계산
-            if (IsOverHit)
+            //Left 오버히트 감소 시간 계산
+            if (!_isDecrease[0] && Time.time >= _lastFireTime[0] + _startDecreaseTime[0])
             {
-                _currentOverHitTime += Time.deltaTime;
-                if (_currentOverHitTime >= _overHitTime)
-                {
-                    IsOverHit = false;
-                    _currentOverHitTime = 0;
-                    _currentOverHitCount = 0;
-                }
+                _isDecrease[0] = true;
+            }
+            //Right 오버히트 감소 시간 계산
+            if (!_isDecrease[1] && Time.time >= _lastFireTime[1] + _startDecreaseTime[1])
+            {
+                _isDecrease[1] = true;
             }
 
+            //Left 오버히트 시간 계산
+            DecreaseOverHitTime(0);
+            //Right 오버히트 시간 계산
+            DecreaseOverHitTime(1);
+
             //사망 판단
-            if(_health <= 0 && !isDie.Value)
+            if (_health <= 0 && !isDie.Value)
             {
                 Die();
                 _playerStateContext.Transition(_dieState);
@@ -236,34 +249,43 @@ namespace Character.Player
 
         public void OverHit()
         {
-            _currentOverHitCount += 1f;
-            if (_currentOverHitCount >= _overHitCount)
+            _currentOverHitCount[CurrentWeaponIndex] += 1f;
+            if (_currentOverHitCount[CurrentWeaponIndex] >= _overHitCount)
             {
-                IsOverHit = true;
+                IsOverHit[CurrentWeaponIndex] = true;
                 //오버히트 사운드
 
                 overHit.gameObject.SetActive(true);
             }
             else
             {
-                _isDecrease = false;
-                StartCoroutine(ResetOverHitFlag());
+                _isDecrease[CurrentWeaponIndex] = false;
+                _lastFireTime[CurrentWeaponIndex] = Time.time;
             }
         }
-        private IEnumerator ResetOverHitFlag()
-        {
-            yield return new WaitForSeconds(2f);
-            _isDecrease = true;
-        }
-        private IEnumerator DecreaseGaugeOverHit()
+        private IEnumerator DecreaseGaugeOverHit(int index)
         {
             while (true)
             {
-                if (_isDecrease && _currentOverHitCount > 0)
+                if (_isDecrease[index] && _currentOverHitCount[index] > 0)
                 {
-                    _currentOverHitCount = Mathf.Max(_currentOverHitCount - 1f, 0);
+                    _currentOverHitCount[index] = Mathf.Max(_currentOverHitCount[index] - 1f, 0);
                 }
                 yield return new WaitForSeconds(1f);
+            }
+        }
+
+        private void DecreaseOverHitTime(int index)
+        {
+            if (IsOverHit[index])
+            {
+                _currentOverHitTime[index] += Time.deltaTime;
+                if (_currentOverHitTime[index] >= _overHitTime)
+                {
+                    IsOverHit[index] = false;
+                    _currentOverHitTime[index] = 0;
+                    _currentOverHitCount[index] = 0;
+                }
             }
         }
 

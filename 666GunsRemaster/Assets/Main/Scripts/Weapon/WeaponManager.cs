@@ -88,7 +88,7 @@ namespace Gun
             float fireRate = currentGun.FireRate;
             while (isFiring)
             {
-                if (PlayerController.Instance.IsOverHit)
+                if (PlayerController.Instance.IsOverHit[currentGunIndex])
                 {
                     yield return null;
                 }
@@ -111,6 +111,8 @@ namespace Gun
             possessionGuns[currentGunIndex].SetActive(true);
             currentGun = possessionGuns[currentGunIndex].GetComponent<Gun>();
             possessionGuns[1 - currentGunIndex].SetActive(false);
+            //플레이어컨트롤러에 현재 무기 인덱스 저장
+            PlayerController.Instance.CurrentWeaponIndex = currentGunIndex;
 
             //임팩트 효과
 

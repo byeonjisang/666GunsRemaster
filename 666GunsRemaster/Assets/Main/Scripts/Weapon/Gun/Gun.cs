@@ -149,6 +149,7 @@ namespace Gun
         {
             //총기 발사 소리
             Debug.Log("총기 발사 소리 재생");
+            //여기는 코드 작성 안함
         }
 
         protected virtual IEnumerator Reload()
@@ -171,7 +172,6 @@ namespace Gun
             }
             UIManager.Instance.UpdateBulletCount(currentBulletCount, currentMagazineCount); //UI 갱신
             isReloading = false;
-            Debug.Log(isReloading);
         }
     }
 }
