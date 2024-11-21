@@ -16,18 +16,27 @@ public class UIManager : MonoBehaviour
     }
 
     //무기 교체 관련 UI
+    [Header("무기")]
     [SerializeField]
     private Image weaponChangeImage;
     [SerializeField]
     private Text weaponChangeText;
     [SerializeField]
     private Image weaponGetButton;
+    //체력 관련 UI
+    [Header("체력")]
     [SerializeField]
     private Slider PlayerHealthSlider;
+    //대쉬 관련 UI
+    [Header("대쉬")]
     [SerializeField]
     private List<Image> DashBackgroundImages;
     [SerializeField]
     private List<Image> DashImages;
+    //오버히트 관련 UI
+    [Header("오버히트")]
+    [SerializeField]
+    private List<Slider> OverhitSliders;
 
     //총알 개수 UI 업데이트
     public void UpdateBulletCount(int currentBulletCount, int magazineCount)
@@ -93,5 +102,9 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    
+    //오버히트 게이지 UI 업데이트
+    public void UpdateOverhitSlider(int weaponIndex, float maxOverhit, float currentOverhit)
+    {
+        OverhitSliders[weaponIndex].value = maxOverhit / currentOverhit;
+    }
 }

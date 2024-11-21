@@ -237,6 +237,9 @@ MonoBehaviour:
   - {fileID: 366172356}
   - {fileID: 1724374850}
   - {fileID: 860126500}
+  OverhitSliders:
+  - {fileID: 782343153}
+  - {fileID: 1188468496}
 --- !u!4 &55654768
 Transform:
   m_ObjectHideFlags: 0

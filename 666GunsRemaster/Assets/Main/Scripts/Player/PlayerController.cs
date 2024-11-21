@@ -153,6 +153,8 @@ namespace Character.Player
             _startDecreaseTime = new float[2] { 5, 5 };
             _isDecrease = new bool[2] { false, false };
             _lastFireTime = new float[2] { 0, 0 };
+            UIManager.Instance.UpdateOverhitSlider(0, _currentOverHitCount[0], _overHitCount);
+            UIManager.Instance.UpdateOverhitSlider(1, _currentOverHitCount[1], _overHitCount);
 
             UIManager.Instance.PlayerDashUiInit(_dashCount);
         }
@@ -250,6 +252,7 @@ namespace Character.Player
         public void OverHit()
         {
             _currentOverHitCount[CurrentWeaponIndex] += 1f;
+            UIManager.Instance.UpdateOverhitSlider(CurrentWeaponIndex, _currentOverHitCount[CurrentWeaponIndex], _overHitCount);
             if (_currentOverHitCount[CurrentWeaponIndex] >= _overHitCount)
             {
                 IsOverHit[CurrentWeaponIndex] = true;
@@ -270,6 +273,7 @@ namespace Character.Player
                 if (_isDecrease[index] && _currentOverHitCount[index] > 0)
                 {
                     _currentOverHitCount[index] = Mathf.Max(_currentOverHitCount[index] - 1f, 0);
+                    UIManager.Instance.UpdateOverhitSlider(index, _currentOverHitCount[index], _overHitCount);
                 }
                 yield return new WaitForSeconds(1f);
             }
@@ -285,6 +289,7 @@ namespace Character.Player
                     IsOverHit[index] = false;
                     _currentOverHitTime[index] = 0;
                     _currentOverHitCount[index] = 0;
+                    UIManager.Instance.UpdateOverhitSlider(index, _currentOverHitCount[index], _overHitCount);
                 }
             }
         }
