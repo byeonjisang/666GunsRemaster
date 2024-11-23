@@ -148,6 +148,7 @@ namespace Character.Player
             _overHitTime = playerData.overHitTime;
             _overHitCount = playerData.overHitCount;
             CurrentWeaponIndex = 0;
+            _currentOverHitTime = new float[2] { 0, 0 };
             IsOverHit = new bool[2] { false, false };
             _currentOverHitCount = new float[2] { 0, 0 };
             _startDecreaseTime = new float[2] { 5, 5 };
@@ -292,6 +293,13 @@ namespace Character.Player
                     UIManager.Instance.UpdateOverhitSlider(index, _currentOverHitCount[index], _overHitCount);
                 }
             }
+        }
+        
+        //오버히트 리셋
+        public void OverhitReset(int index)
+        {
+            _currentOverHitCount[index] = 0;
+            UIManager.Instance.UpdateOverhitSlider(index, _currentOverHitCount[index], _overHitCount);
         }
 
         public void ReversePlayer(bool reverse)

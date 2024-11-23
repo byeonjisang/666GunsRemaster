@@ -132,6 +132,8 @@ namespace Gun
             currentGun = possessionGuns[currentGunIndex].GetComponent<Gun>();
             //UI 변경
             UIManager.Instance.UpdateGetWeaponImage(null);
+            //OverHit 초기화
+            PlayerController.Instance.OverhitReset(currentGunIndex);
 
             if (gunName != "Pistol")
                 keepGunName = null;
