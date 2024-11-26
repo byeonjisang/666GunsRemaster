@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-[CreateAssetMenu(fileName = "PlayerData", menuName = "PlayerData")]
+[CreateAssetMenu(fileName = "Datas", menuName = "Datas/PlayerData")]
 public class PlayerData : ScriptableObject
 {
     public int playerId;

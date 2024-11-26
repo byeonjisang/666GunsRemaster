@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Gun
 {
-    [CreateAssetMenu(fileName = "GunData", menuName = "GunData", order = 0)]
+    [CreateAssetMenu(fileName = "Datas", menuName = "Datas/GunData", order = 0)]
     public class GunData : ScriptableObject
     {
         public int index;                   // 총의 인덱스
