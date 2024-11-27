@@ -53,7 +53,7 @@ public class Pointer2D : MonoBehaviour
         else
         {
             // 목표가 화면 안에 있을 때 화살표 숨김
-            arrowUI.gameObject.SetActive(false);
+            //arrowUI.gameObject.SetActive(false);
         }
     }
 
