@@ -13,6 +13,9 @@ public class Police1Stats : MonoBehaviour
     private SpriteRenderer sprite;
     private Animator animator;
 
+    public GameObject[] gunPrefabs; // ÃÑ±â ÇÁ¸®ÆÕ ¹è¿­
+    [Range(0f, 1f)] public float dropChance = 0.1f; // µå¶ø È®·ü
+
     [SerializeField]
     private bool isInAttackRange = false;
 
@@ -144,6 +147,17 @@ public class Police1Stats : MonoBehaviour
     private IEnumerator DieAndDestroy()
     {
         yield return new WaitForSeconds(1f);
+
+        if (gunPrefabs.Length > 0 && Random.value <= dropChance)
+        {
+            // ·£´ýÀ¸·Î ÃÑ±â ¼±ÅÃ
+            int randomIndex = Random.Range(0, gunPrefabs.Length);
+            GameObject selectedGun = gunPrefabs[randomIndex];
+
+            // ÃÑ±â µå¶ø
+            Instantiate(selectedGun, this.transform.position, Quaternion.identity);
+        }
+
         Destroy(gameObject);
     }
 

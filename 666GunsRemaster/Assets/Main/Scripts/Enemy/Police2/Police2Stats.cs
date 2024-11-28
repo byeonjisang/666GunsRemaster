@@ -23,6 +23,9 @@ public class Police2Stats : MonoBehaviour
 
     private Animator animator;
 
+    public GameObject[] gunPrefabs; // 총기 프리팹 배열
+    [Range(0f, 1f)] public float dropChance = 0.1f; // 드랍 확률
+
     [SerializeField]
     private bool isInAttackRange = false;
 
@@ -297,6 +300,16 @@ public class Police2Stats : MonoBehaviour
 
         // 사망 애니메이션이 재생되는 시간만큼 대기
         yield return new WaitForSeconds(1f);  // 애니메이션 길이에 맞게 조정
+
+        if (gunPrefabs.Length > 0 && Random.value <= dropChance)
+        {
+            // 랜덤으로 총기 선택
+            int randomIndex = Random.Range(0, gunPrefabs.Length);
+            GameObject selectedGun = gunPrefabs[randomIndex];
+
+            // 총기 드랍
+            Instantiate(selectedGun, this.transform.position, Quaternion.identity);
+        }
 
         // 오브젝트 삭제
         Destroy(gameObject);

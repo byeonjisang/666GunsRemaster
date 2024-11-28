@@ -186,6 +186,11 @@ MonoBehaviour:
     m_Bits: 264
   attackCooldown: 1
   gunSprite: {fileID: 1104452762859027284}
+  gunPrefabs:
+  - {fileID: 303032878506601073, guid: 6818077958acb1c479b7d2c591b62dde, type: 3}
+  - {fileID: 6548241210021057951, guid: 3aa014573e0b2a34eac23aa83b1445b7, type: 3}
+  - {fileID: 2722216704178923559, guid: e8e1806e285cdf44ba540d2e439ae799, type: 3}
+  - {fileID: 6550256836657194970, guid: e98a884e88587f04faa17a7a00ccdc69, type: 3}
   isInAttackRange: 0
 --- !u!1001 &2547228106575115613
 PrefabInstance:
