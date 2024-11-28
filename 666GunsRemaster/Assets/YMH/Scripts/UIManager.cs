@@ -1,6 +1,5 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -39,6 +38,8 @@ public class UIManager : MonoBehaviour
     private List<Slider> OverhitSliders;
     //버프 관련 UI
     [Header("버프")]
+    [SerializeField]
+    private List<Button> buffButtons;
     [SerializeField]    
     private List<Image> BuffIcons;
     [SerializeField]
@@ -122,5 +123,10 @@ public class UIManager : MonoBehaviour
         BuffIcons[index].sprite = buffImage;
         BuffNames[index].text = buffName;
         BuffContents[index].text = BuffContent;
+    }
+    //버프 버튼 설정
+    public void OnButtonBuff(int index, Action applyBuff)
+    {
+        buffButtons[index].onClick.AddListener(() => applyBuff());
     }
 }

@@ -21,10 +21,18 @@ public class BuffManager : MonoBehaviour
     private void Start()
     {
         buffList.Add(new Heal());
-        //buffList.Add(new SpeedUp());
+        buffList.Add(new SpeedUp());
         //buffList.Add(new BulletUp());
         //buffList.Add(new ViewUp());
         //buffList.Add(new DashCountUp());
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.U))
+        {
+            SelectBuff();
+        }
     }
 
     public void SelectBuff()
@@ -48,6 +56,8 @@ public class BuffManager : MonoBehaviour
         {
             buffsToSelect[index] = buffList[selectBuffNum[index]];
             buffsToSelect[index].ShowBuff(index);
+
+            UIManager.Instance.OnButtonBuff(index, () => buffsToSelect[index].ApplyBuff());
         }
     }
 }

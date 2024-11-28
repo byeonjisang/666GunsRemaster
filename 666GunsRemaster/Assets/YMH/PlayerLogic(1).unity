@@ -240,8 +240,15 @@ MonoBehaviour:
   OverhitSliders:
   - {fileID: 782343153}
   - {fileID: 1188468496}
-  BuffIcons: []
-  BuffNames: []
+  buffButtons:
+  - {fileID: 744840923}
+  - {fileID: 898449244}
+  BuffIcons:
+  - {fileID: 2068776143}
+  - {fileID: 350680832}
+  BuffNames:
+  - {fileID: 394519500}
+  - {fileID: 664429573}
   BuffContents:
   - {fileID: 401635345}
   - {fileID: 799406785}
@@ -424,7 +431,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9545b32f995859a42a69b6e1a0336e91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BuffObject: {fileID: 0}
+  BuffObject: {fileID: 1157415027}
 --- !u!1 &121253643
 GameObject:
   m_ObjectHideFlags: 0
@@ -9189,7 +9196,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1157415028
 RectTransform:
   m_ObjectHideFlags: 0
