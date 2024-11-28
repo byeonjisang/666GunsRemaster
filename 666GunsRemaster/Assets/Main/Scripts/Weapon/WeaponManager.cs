@@ -143,10 +143,12 @@ namespace Gun
         //보관 무기 획득
         public void KeepGun(string keepGunName)
         {
-            this.keepGunName = keepGunName + "(Clone)";
+            Debug.Log(keepGunName);
+            this.keepGunName = keepGunName.Replace("(Clone)", "");
+            Debug.Log(this.keepGunName);
 
             //이미지 변경
-            Gun gunObject = guns.Find(gun => gun.name == keepGunName).GetComponent<Gun>();
+            Gun gunObject = guns.Find(gun => gun.name == this.keepGunName).GetComponent<Gun>();
             Sprite gunImage = gunObject.gunUiImage;
             UIManager.Instance.UpdateGetWeaponImage(gunImage);
         }
