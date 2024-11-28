@@ -37,6 +37,14 @@ public class UIManager : MonoBehaviour
     [Header("오버히트")]
     [SerializeField]
     private List<Slider> OverhitSliders;
+    //버프 관련 UI
+    [Header("버프")]
+    [SerializeField]    
+    private List<Image> BuffIcons;
+    [SerializeField]
+    private List<Text> BuffNames;
+    [SerializeField]
+    private List<Text> BuffContents;
 
     //총알 개수 UI 업데이트
     public void UpdateBulletCount(int currentBulletCount, int magazineCount)
@@ -106,5 +114,13 @@ public class UIManager : MonoBehaviour
     public void UpdateOverhitSlider(int weaponIndex, float maxOverhit, float currentOverhit)
     {
         OverhitSliders[weaponIndex].value = maxOverhit / currentOverhit;
+    }
+
+    //버프 출력
+    public void ShowBuff(int index, Sprite buffImage, string buffName, string BuffContent)
+    {
+        BuffIcons[index].sprite = buffImage;
+        BuffNames[index].text = buffName;
+        BuffContents[index].text = BuffContent;
     }
 }

@@ -3,5 +3,6 @@ using UnityEngine;
 
 interface IBuff 
 {
-    void ApplyBuff();
+    public void ShowBuff(int index);
+    public void ApplyBuff();
 }

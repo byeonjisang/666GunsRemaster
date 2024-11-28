@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82b7067b46ab2004e88ffe629fb6217c, type: 3}
   m_Name: Heal
   m_EditorClassIdentifier: 
+  BuffImage: {fileID: 927338625, guid: d71a3dc7aa20fad4f9a99fc76a9254ba, type: 3}
   BuffName: Heal
   BuffContent: "\uCCB4\uB825\uC744 \uC18C\uD3ED \uD68C\uBCF5\uD569\uB2C8\uB2E4."

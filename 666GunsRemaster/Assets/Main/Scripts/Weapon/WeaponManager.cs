@@ -1,4 +1,5 @@
 using Character.Player;
+using Gun.Bullet;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -142,7 +143,7 @@ namespace Gun
         //보관 무기 획득
         public void KeepGun(string keepGunName)
         {
-            this.keepGunName = keepGunName;
+            this.keepGunName = keepGunName + "(Clone)";
 
             //이미지 변경
             Gun gunObject = guns.Find(gun => gun.name == keepGunName).GetComponent<Gun>();
