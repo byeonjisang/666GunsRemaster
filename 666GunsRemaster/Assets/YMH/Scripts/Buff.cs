@@ -8,8 +8,15 @@ public class Buff : MonoBehaviour, IBuff
     protected string buffName;
     protected string BuffContent;
 
+    protected virtual void Start()
+    {
+        buffData = Resources.Load("Datas/BuffData/" + this.GetType().Name) as BuffData;
+        BuffInit();
+    }
+
     protected void BuffInit()
     {
+        Debug.Log("BuffInit");
         buffIcon = buffData.BuffImage;
         buffName = buffData.BuffName;
         BuffContent = buffData.BuffContent;
@@ -17,6 +24,8 @@ public class Buff : MonoBehaviour, IBuff
 
     public virtual void ShowBuff(int index)
     {
+        Debug.Log("Show Buff");
+        Debug.Log(buffName);
         UIManager.Instance.ShowBuff(index, buffIcon, buffName, BuffContent);
     }
 

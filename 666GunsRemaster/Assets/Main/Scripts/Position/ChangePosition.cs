@@ -42,6 +42,9 @@ public class ChangePosition : MonoBehaviour
             // 이전 위치 비활성화
             posList[currentPosIndex].SetActive(false);
 
+            //버프 선택
+            BuffManager.Instance.SelectBuff();
+
             // 새로운 위치 활성화
             posList[index].SetActive(true);
             currentPosIndex = index;
