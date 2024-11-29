@@ -240,6 +240,10 @@ MonoBehaviour:
   OverhitSliders:
   - {fileID: 1891696993}
   - {fileID: 1244100653}
+  buffButtons: []
+  BuffIcons: []
+  BuffNames: []
+  BuffContents: []
 --- !u!4 &55654768
 Transform:
   m_ObjectHideFlags: 0
@@ -942,7 +946,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c18516804dbd924da1362f2af2ebc3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 143509294907000942, guid: 8bf11ff903c7e3747b016419649b3b60, type: 3}
+  bulletPrefab: {fileID: 7790308078639347159, guid: 6b8c5fd7397af6146a5d92c86a3f07d7, type: 3}
   poolSize: 50
   gunData: {fileID: 11400000, guid: 5ccc8ba2a9458824685d7bf84471e663, type: 2}
 --- !u!4 &200729153
@@ -4485,7 +4489,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c18516804dbd924da1362f2af2ebc3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 7790308078639347159, guid: 6b8c5fd7397af6146a5d92c86a3f07d7, type: 3}
+  bulletPrefab: {fileID: 143509294907000942, guid: 8bf11ff903c7e3747b016419649b3b60, type: 3}
   poolSize: 50
   gunData: {fileID: 11400000, guid: 50dcdb02909242942abd92dd3c200358, type: 2}
 --- !u!4 &560041581
