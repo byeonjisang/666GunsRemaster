@@ -80,17 +80,7 @@ namespace Character.Player
         private float _dashFillInTime;      //대쉬가 다시 차는 시간
         private bool _isCooldown = false;   //대쉬쿨타임 여부
 
-        [Header("OverHit")]
-        private float _overHitTime;             //오버히트 시간
-        [NonSerialized]
-        public bool[] IsOverHit;
-        private float[] _currentOverHitTime;    //현재 오버히트 시간
-        private float _overHitCount;            //오버히트 카운트
-        [SerializeField]
-        private float[] _currentOverHitCount;   //현재 오버히트 카운트
-        private float[] _startDecreaseTime;     //오버히트 감소하기 시작하는 시간
-        private bool[] _isDecrease;             //오버히트 감소 여부
-        private float[] _lastFireTime;          //마지막 발사 시간
+        public bool[] IsOverHit { get { return overhitManager._isOverhit; } }
 
         public int CurrentWeaponIndex { private get; set; }
         //private bool _isFire = false;       //총 발사 여부
@@ -132,6 +122,7 @@ namespace Character.Player
             weaponManager = GetComponentInChildren<WeaponManager>();
             monsterScannerTest = GetComponent<MonsterScannerTest>();
             overHit = GetComponentInChildren<OverHit>();
+            overhitManager = gameObject.AddComponent<OverhitManager>();
 
             StateInit();    //데이터 초기화
         }
@@ -150,11 +141,6 @@ namespace Character.Player
 
             //대쉬 버튼 이벤트 등록
             dashButton.onClick.AddListener(StartDash);
-
-            //오버히트 비활성화
-            StartCoroutine(DecreaseGaugeOverHit(0));
-            StartCoroutine(DecreaseGaugeOverHit(1));
-            overHit.gameObject.SetActive(false);
         }
 
         //데이터 초기화
@@ -172,17 +158,7 @@ namespace Character.Player
             _dashFillInTime = playerData.fillInTime;
 
             //오버히트 관련
-            _overHitTime = playerData.overHitTime;
-            _overHitCount = playerData.overHitCount;
-            CurrentWeaponIndex = 0;
-            _currentOverHitTime = new float[2] { 0, 0 };
-            IsOverHit = new bool[2] { false, false };
-            _currentOverHitCount = new float[2] { 0, 0 };
-            _startDecreaseTime = new float[2] { 5, 5 };
-            _isDecrease = new bool[2] { false, false };
-            _lastFireTime = new float[2] { 0, 0 };
-            UIManager.Instance.UpdateOverhitSlider(0, _currentOverHitCount[0], _overHitCount);
-            UIManager.Instance.UpdateOverhitSlider(1, _currentOverHitCount[1], _overHitCount);
+            overhitManager.OverhitInit(playerData, overHit);
 
             //대쉬 UI 초기화
             UIManager.Instance.PlayerDashUiInit(_dashCount);
@@ -196,22 +172,6 @@ namespace Character.Player
             //죽었을 경우
             if (isDie.Value)
                 return;
-
-            //Left 오버히트 감소 시간 계산
-            if (!_isDecrease[0] && Time.time >= _lastFireTime[0] + _startDecreaseTime[0])
-            {
-                _isDecrease[0] = true;
-            }
-            //Right 오버히트 감소 시간 계산
-            if (!_isDecrease[1] && Time.time >= _lastFireTime[1] + _startDecreaseTime[1])
-            {
-                _isDecrease[1] = true;
-            }
-
-            //Left 오버히트 시간 계산
-            DecreaseOverHitTime(0);
-            //Right 오버히트 시간 계산
-            DecreaseOverHitTime(1);
 
             //사망 판단
             if (_health <= 0 && !isDie.Value)
@@ -313,54 +273,13 @@ namespace Character.Player
 
         public void OverHit()
         {
-            _currentOverHitCount[CurrentWeaponIndex] += 1f;
-            UIManager.Instance.UpdateOverhitSlider(CurrentWeaponIndex, _currentOverHitCount[CurrentWeaponIndex], _overHitCount);
-            if (_currentOverHitCount[CurrentWeaponIndex] >= _overHitCount)
-            {
-                IsOverHit[CurrentWeaponIndex] = true;
-                //오버히트 사운드
-
-                overHit.gameObject.SetActive(true);
-            }
-            else
-            {
-                _isDecrease[CurrentWeaponIndex] = false;
-                _lastFireTime[CurrentWeaponIndex] = Time.time;
-            }
-        }
-        private IEnumerator DecreaseGaugeOverHit(int index)
-        {
-            while (true)
-            {
-                if (_isDecrease[index] && _currentOverHitCount[index] > 0)
-                {
-                    _currentOverHitCount[index] = Mathf.Max(_currentOverHitCount[index] - 1f, 0);
-                    UIManager.Instance.UpdateOverhitSlider(index, _currentOverHitCount[index], _overHitCount);
-                }
-                yield return new WaitForSeconds(1f);
-            }
-        }
-
-        private void DecreaseOverHitTime(int index)
-        {
-            if (IsOverHit[index])
-            {
-                _currentOverHitTime[index] += Time.deltaTime;
-                if (_currentOverHitTime[index] >= _overHitTime)
-                {
-                    IsOverHit[index] = false;
-                    _currentOverHitTime[index] = 0;
-                    _currentOverHitCount[index] = 0;
-                    UIManager.Instance.UpdateOverhitSlider(index, _currentOverHitCount[index], _overHitCount);
-                }
-            }
+            overhitManager.IncreaseOverhitGauge(CurrentWeaponIndex);
         }
         
         //오버히트 리셋
         public void OverhitReset(int index)
         {
-            _currentOverHitCount[index] = 0;
-            UIManager.Instance.UpdateOverhitSlider(index, _currentOverHitCount[index], _overHitCount);
+            overhitManager.OverhitReset(index);
         }
 
         public void ReversePlayer(bool reverse)
