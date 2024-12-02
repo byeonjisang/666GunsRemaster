@@ -34,7 +34,7 @@ public class BuffManager : MonoBehaviour
         buffList.Add(gameObject.AddComponent<Heal>());
         buffList.Add(gameObject.AddComponent<SpeedUp>());
         buffList.Add(gameObject.AddComponent<BulletUp>());
-        buffList.Add(gameObject.AddComponent<ViewUp>());
+        //buffList.Add(gameObject.AddComponent<ViewUp>());
         buffList.Add(gameObject.AddComponent<DashCountUp>());
     }
 
