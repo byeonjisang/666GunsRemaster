@@ -20,6 +20,7 @@ namespace Character.Player
         private MonsterScannerTest monsterScannerTest;
         public OverHit overHit;
         private WeaponManager weaponManager;
+        private OverhitManager overhitManager;
         public FloatingJoystick Joystick;
         [SerializeField]
         private Button dashButton;
