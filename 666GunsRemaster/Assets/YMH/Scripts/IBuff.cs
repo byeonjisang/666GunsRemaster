@@ -1,8 +1,8 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-interface IBuff 
+public interface IBuff 
 {
-    public void ShowBuff(int index);
-    public void ApplyBuff();
+    void ShowBuff(int index);
+    void ApplyBuff(int index);
 }

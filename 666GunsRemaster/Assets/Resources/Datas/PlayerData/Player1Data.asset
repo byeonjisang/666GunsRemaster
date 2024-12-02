@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b713d5c0b0591384f9b7bda838a97876, type: 3}
   m_Name: Player1Data
   m_EditorClassIdentifier: 
-  playerId: 101
-  maxHealth: 10
-  maxShield: 0
+  playerId: 0
+  maxHealth: 100
+  maxShield: 10
   moveSpeed: 5
   dashCount: 2
   dashSpeed: 10

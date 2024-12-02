@@ -24,10 +24,8 @@ namespace Gun
         protected int gunIndex;               // 총의 인덱스
         protected int maxMagazineCount;       // 최대 탄창 속 탄약 크기
         [Header("남은 총알의 갯수들")]
-        [SerializeField]
         protected int currentMagazineCount;   // 현재 남은 탄창 속 탄약
         protected int maxBullet;              // 최대 탄약량
-        [SerializeField]
         protected int currentBulletCount;     // 현재 소유한 탄약량
         protected float reloadTime;           // 재장전 시간
         protected float currentFireRate;      // 남은 딜레이 시간
@@ -172,6 +170,12 @@ namespace Gun
             }
             UIManager.Instance.UpdateBulletCount(currentBulletCount, currentMagazineCount); //UI 갱신
             isReloading = false;
+        }
+
+        public void BulletCountUp(int value)
+        {
+            currentBulletCount += value;
+            UIManager.Instance.UpdateBulletCount(currentBulletCount, currentMagazineCount);
         }
     }
 }

@@ -26,7 +26,13 @@ namespace Character.Player
         private Collider2D playerCollider;
 
         //플레이어 데이터
-        public float Health { get { return _health; } }
+        public float Health {
+            get { return _health; }
+            set {
+                _health = value;
+                UIManager.Instance.UpdatePlayerHealth(_maxHealth, _health);
+            } 
+        }
         public float GetHp() { return _health; }
         public void SetHp(float damage) { 
             _health -= damage;
@@ -36,8 +42,25 @@ namespace Character.Player
             StartCoroutine(Unbeatable());
         }
         public float CurrentSpeed { get; set; }
-        public float MoveSpeed { get { return _moveSpeed; } }
-        public int DashCount { get { return _dashCount; } }
+        public float MoveSpeed { get { return _moveSpeed; } set { } }
+        public int DashCount {
+            get { return _dashCount; } 
+            set
+            {
+                _dashCount = value;
+            }
+        }
+        public int CurrentDashCount
+        {
+            get { return _currentDashCount; }
+            set
+            {
+                _currentDashCount = value;
+                Debug.Log(_dashCount + " " + _currentDashCount);
+                UIManager.Instance.PlayerDashUiInit(_dashCount);
+                UIManager.Instance.UpdatePlayerDash(_dashCount, _currentDashCount);
+            }
+        }
         public float DashSpeed { get { return _dashSpeed; } }
         public float DashDuration { get { return _dashDuration; } }
         public float DashCooldown { get { return _dashCooldown; } }
@@ -79,6 +102,9 @@ namespace Character.Player
 
         //public bool GetIsDie() { return isDie; }
         //public void SetIsDie(bool die) {  isDie = die; }
+
+        //플레이어 버프 관련
+        private int[] _buffLevel;
 
         //플레이어 컴포넌트
         private Rigidbody2D rigid;
@@ -157,7 +183,11 @@ namespace Character.Player
             UIManager.Instance.UpdateOverhitSlider(0, _currentOverHitCount[0], _overHitCount);
             UIManager.Instance.UpdateOverhitSlider(1, _currentOverHitCount[1], _overHitCount);
 
+            //대쉬 UI 초기화
             UIManager.Instance.PlayerDashUiInit(_dashCount);
+
+            //버프 초기화
+            _buffLevel = new int[System.Enum.GetValues(typeof(BuffType)).Length];
         }
 
         private void Update()
@@ -189,6 +219,36 @@ namespace Character.Player
                 _playerStateContext.Transition(_dieState);
                 weaponManager.DeleteAllWeapon();
             }
+        }
+
+        public void ApplyBuff(string buffType)
+        {
+            IBuff buff = BuffManager.Instance.CreateBuff(buffType);
+
+            int buffIndex = -1;
+            switch (buffType)
+            {
+                case "Heal":
+                    buffIndex = (int)BuffType.Heal;
+                    break;
+                case "SpeedUp":
+                    buffIndex = (int)BuffType.SpeedUp;
+                    break;
+                case "BulletUp":
+                    buffIndex = (int)BuffType.BulletUp;
+                    break;
+                case "ViewUp":
+                    buffIndex = (int)BuffType.ViewUp;
+                    break;
+                case "DashCountUp":
+                    buffIndex = (int)BuffType.DashCountUp;
+                    PlayerDashState dashState = gameObject.GetComponent<PlayerDashState>();
+                    dashState.DashCount += 1;
+                    dashState.CurrentDashCount += 1;
+                    break;
+            }
+
+            buff.ApplyBuff(_buffLevel[buffIndex]++);
         }
 
         private IEnumerator Unbeatable()

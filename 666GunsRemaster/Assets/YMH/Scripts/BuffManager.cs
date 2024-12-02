@@ -1,5 +1,8 @@
+using Character.Player;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 
 enum BuffType
@@ -7,7 +10,7 @@ enum BuffType
     Heal = 0,
     SpeedUp,
     BulletUp,
-    VeiwUp,
+    ViewUp,
     DashCountUp,
 }
 
@@ -23,7 +26,6 @@ public class BuffManager : MonoBehaviour
     }
 
     [SerializeField]
-    private GameObject BuffObject;
     private List<IBuff> buffList = new List<IBuff>();
     private IBuff[] buffsToSelect = new IBuff[2];
 
@@ -31,16 +33,16 @@ public class BuffManager : MonoBehaviour
     {
         buffList.Add(gameObject.AddComponent<Heal>());
         buffList.Add(gameObject.AddComponent<SpeedUp>());
-        //buffList.Add(new BulletUp());
-        //buffList.Add(new ViewUp());
-        //buffList.Add(new DashCountUp());
+        buffList.Add(gameObject.AddComponent<BulletUp>());
+        buffList.Add(gameObject.AddComponent<ViewUp>());
+        buffList.Add(gameObject.AddComponent<DashCountUp>());
     }
 
     //버프 선택
     public void SelectBuff()
     {
         Time.timeScale = 0;
-        BuffObject.SetActive(true);
+        UIManager.Instance.BuffWindowOnOff(true);
         SettingSelect();
     }
 
@@ -48,22 +50,32 @@ public class BuffManager : MonoBehaviour
     {
         int[] selectBuffNum = new int[2];
         selectBuffNum[0] = Random.Range(0, buffList.Count);
-        Debug.Log(selectBuffNum[0]);
         while (true)
         {
             selectBuffNum[1] = Random.Range(0, buffList.Count);
             if (selectBuffNum[0] != selectBuffNum[1])
                 break;
-
-            Debug.Log(selectBuffNum[1]);
         }
 
-        for(int index = 0; index < buffsToSelect.Length; index++)
+        for (int index = 0; index < buffsToSelect.Length; index++)
         {
             buffsToSelect[index] = buffList[selectBuffNum[index]];
             buffsToSelect[index].ShowBuff(index);
 
-            UIManager.Instance.OnButtonBuff(index, () => buffsToSelect[index].ApplyBuff());
+            string buffType = buffsToSelect[index].GetType().Name;
+            UIManager.Instance.OnButtonBuff(index, (buffType) => PlayerController.Instance.ApplyBuff(buffType), buffType);
+        }
+    }
+
+    public IBuff CreateBuff(string buffType)
+    {
+        try
+        {
+            return buffList.FirstOrDefault(buff => buff.GetType().Name == buffType);
+        }
+        catch
+        {
+            throw new System.ArgumentException("Unkown buff type : " + buffType);
         }
     }
 }

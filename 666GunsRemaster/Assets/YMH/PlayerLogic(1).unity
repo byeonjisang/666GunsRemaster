@@ -240,6 +240,7 @@ MonoBehaviour:
   OverhitSliders:
   - {fileID: 782343153}
   - {fileID: 1188468496}
+  buffObject: {fileID: 1157415027}
   buffButtons:
   - {fileID: 744840923}
   - {fileID: 898449244}
@@ -431,7 +432,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9545b32f995859a42a69b6e1a0336e91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BuffObject: {fileID: 1157415027}
 --- !u!1 &121253643
 GameObject:
   m_ObjectHideFlags: 0
@@ -4142,7 +4142,7 @@ Transform:
   m_GameObject: {fileID: 476964176}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 95.24363, y: 17.461548, z: 8.436573}
+  m_LocalPosition: {x: 5, y: 17.461548, z: 8.436573}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -11809,7 +11809,6 @@ GameObject:
   - component: {fileID: 1385139784}
   - component: {fileID: 1385139783}
   - component: {fileID: 1385139781}
-  - component: {fileID: 1385139780}
   - component: {fileID: 1385139779}
   - component: {fileID: 1385139778}
   m_Layer: 3
@@ -11871,18 +11870,6 @@ MonoBehaviour:
   dashButton: {fileID: 1278087736}
   _maxHealth: 0
   _currentOverHitCount: []
---- !u!114 &1385139780
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1385139776}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 99d94025811dffc44a2af167fdab0a55, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!95 &1385139781
 Animator:
   serializedVersion: 5

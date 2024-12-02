@@ -12,8 +12,9 @@ namespace Character.Player
         private Rigidbody2D rigid;
         private Animator anim;
 
+        public int DashCount { get { return _dashCount; } set { _dashCount = value; } }
         private int _dashCount;
-        [SerializeField]
+        public int CurrentDashCount { get { return _currentDashCount; } set { _currentDashCount = value; } }
         private int _currentDashCount;
         private float _dashSpeed;
         private float _dashDuration;
@@ -104,7 +105,7 @@ namespace Character.Player
             _isCooldown = false;
         }
 
-        private IEnumerator FillInDash()
+        public IEnumerator FillInDash()
         {
             if (_isFillIn)
                 yield break;

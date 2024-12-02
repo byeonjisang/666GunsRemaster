@@ -39,6 +39,8 @@ public class UIManager : MonoBehaviour
     //버프 관련 UI
     [Header("버프")]
     [SerializeField]
+    private GameObject buffObject;
+    [SerializeField]
     private List<Button> buffButtons;
     [SerializeField]    
     private List<Image> BuffIcons;
@@ -124,9 +126,15 @@ public class UIManager : MonoBehaviour
         BuffNames[index].text = buffName;
         BuffContents[index].text = BuffContent;
     }
-    //버프 버튼 설정
-    public void OnButtonBuff(int index, Action applyBuff)
+    
+    //버프 창 온/오프
+    public void BuffWindowOnOff(bool isOn)
     {
-        buffButtons[index].onClick.AddListener(() => applyBuff());
+        buffObject.gameObject.SetActive(isOn);
+    }
+    //버프 버튼 설정
+    public void OnButtonBuff(int index, Action<string> applyBuff, string buffType)
+    {
+        buffButtons[index].onClick.AddListener(() => applyBuff(buffType));
     }
 }

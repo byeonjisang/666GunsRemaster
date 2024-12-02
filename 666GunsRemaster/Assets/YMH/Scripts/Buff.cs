@@ -1,12 +1,13 @@
-﻿using System.Collections;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
-public class Buff : MonoBehaviour, IBuff
+public class Buff : MonoBehaviour
 {
     protected BuffData buffData;
     protected Sprite buffIcon;
-    protected string buffName;
-    protected string BuffContent;
+    public string buffName;
+    protected string buffContent;
+    protected List<float> buffValue;
 
     protected virtual void Start()
     {
@@ -16,21 +17,23 @@ public class Buff : MonoBehaviour, IBuff
 
     protected void BuffInit()
     {
-        Debug.Log("BuffInit");
         buffIcon = buffData.BuffImage;
         buffName = buffData.BuffName;
-        BuffContent = buffData.BuffContent;
+        buffContent = buffData.BuffContent;
+        buffValue = buffData.BuffValue;
     }
 
     public virtual void ShowBuff(int index)
     {
         Debug.Log("Show Buff");
         Debug.Log(buffName);
-        UIManager.Instance.ShowBuff(index, buffIcon, buffName, BuffContent);
+        UIManager.Instance.ShowBuff(index, buffIcon, buffName, buffContent);
     }
 
-    public virtual void ApplyBuff()
+    public virtual void ApplyBuff(int index)
     {
-
+        Debug.Log("Apply Buff");
+        Time.timeScale = 1;
+        UIManager.Instance.BuffWindowOnOff(false);
     }
 }
