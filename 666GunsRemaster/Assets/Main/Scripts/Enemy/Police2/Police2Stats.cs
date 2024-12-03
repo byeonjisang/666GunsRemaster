@@ -275,7 +275,7 @@ public class Police2Stats : MonoBehaviour
             if (police2.GetHp() <= 0f)
             {
                 //사망 소리 재생
-                //SoundManager.instance.PlayEffectSound(7);
+                SoundManager.instance.PlayEffectSound(10);
 
                 //애니메이션
                 animator.SetBool("Walk", false);

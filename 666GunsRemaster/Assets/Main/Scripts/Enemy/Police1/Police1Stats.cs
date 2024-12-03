@@ -130,7 +130,7 @@ public class Police1Stats : MonoBehaviour
             if (police1.GetHp() <= 0f)
             {
                 //죽는 소리 재생
-                //SoundManager.instance.PlayEffectSound(7);
+                SoundManager.instance.PlayEffectSound(10);
                 animator.SetBool("Walk", false);
                 animator.SetBool("Die", true);
                 isDead = true;
