@@ -82,8 +82,6 @@ public class Police1Stats : MonoBehaviour
         {
             if (hit.gameObject.layer == LayerMask.NameToLayer("Player"))
             {
-                //소리 재생
-                SoundManager.instance.PlayEffectSound(9);
                 // 플레이어에게 데미지 전달
                 hit.GetComponent<PlayerController>().SetHp(police1.GetDamage());
                 Debug.Log("플레이어에게 근거리 공격을 가했습니다.");
@@ -92,6 +90,12 @@ public class Police1Stats : MonoBehaviour
                 break; // 첫 번째 플레이어에게만 데미지를 전달한 후 종료
             }
         }
+    }
+
+    public void PlayAttackSound()
+    {
+        //소리 재생
+        SoundManager.instance.PlayEffectSound(9);
     }
 
     private void DetectPlayer()
