@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour
 
     //제한시간은 6분 고정.
     public Text timerText;
-    float timer = 305f;
+    float timer = 360f;
 
     private float deathTime = 0f;
 
@@ -81,7 +81,7 @@ public class GameManager : MonoBehaviour
             Debug.Log("인게임 브금 재생");
         }
 
-        timer = 305;
+        timer = 360;
         deathTime = 0f;
     }
     void GameOver()
@@ -106,6 +106,17 @@ public class GameManager : MonoBehaviour
 
                 //Restart();
             }
+        }
+    }
+
+    public void GameClear()
+    {
+        if(timer <= 0)
+        {
+            SoundManager.instance.StopAllSound();
+
+            //일단 씬만 이동하는걸로 설정
+            SceneManager.LoadScene("Ending Scene");
         }
     }
 
@@ -195,7 +206,7 @@ public class GameManager : MonoBehaviour
         }).AddTo(this); // 구독을 GameManager에 추가하여 게임 오브젝트가 파괴될 때 자동으로 구독 해제
 
         //타이머들 초기화
-        timer = 305;
+        timer = 360;
         deathTime = 0f;
     }
 
@@ -211,8 +222,8 @@ public class GameManager : MonoBehaviour
         //테스트를 위한 치트
         if(Input.GetKey(KeyCode.O))
         {
-            timer -= Time.deltaTime * 9;
             Debug.Log("치트키 사용 중");
+            timer -= Time.deltaTime * 9;
         }
 
         GameOver();
