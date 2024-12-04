@@ -80,6 +80,7 @@ namespace Character.Player
             {
                 _isOverhit[weaponIndex] = true;
                 //오버히트 사운드
+                SoundManager.instance.PlayEffectSound(11);
 
                 _currentOverhitTime[weaponIndex] = _overhitTimeLimit;
                 overhit.gameObject.SetActive(true);
@@ -117,7 +118,7 @@ namespace Character.Player
                     _currentOverhitGauge[weaponIndex] = Mathf.Max(_currentOverhitGauge[weaponIndex] - _overhitGaugeDecrease, 0);
                     UIManager.Instance.UpdateOverhitSlider(weaponIndex, _currentOverhitGauge[weaponIndex], _overhitGaugeLimit);
 
-                    _currentOverhitGaugeDecreaseTime[weaponIndex] -= _overhitGaugeDecreaseTime;
+                    _currentOverhitGaugeDecreaseTime[weaponIndex] = _overhitGaugeDecreaseTime;
                 }
             }
         }

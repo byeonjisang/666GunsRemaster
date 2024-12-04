@@ -235,6 +235,7 @@ namespace Character.Player
             if (playerCollider != null)
             {
                 playerCollider.enabled = false; // 사망 시 Collider 비활성화
+                _playerStateContext.Transition(_dieState);
             }
         }
 

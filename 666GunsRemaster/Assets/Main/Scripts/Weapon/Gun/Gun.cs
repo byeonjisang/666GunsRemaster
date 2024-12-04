@@ -79,6 +79,13 @@ namespace Gun
         protected virtual void OnEnable()
         {
             StartCoroutine(UpdateWeaponUI());
+            StartCoroutine(Reload());
+        }
+        protected virtual void OnDisable()
+        {
+            if(isReloading)
+                StopCoroutine(Reload());
+            isRate = false;
         }
         protected virtual IEnumerator UpdateWeaponUI()
         {
@@ -86,23 +93,18 @@ namespace Gun
             UIManager.Instance.UpdateBulletCount(currentBulletCount, currentMagazineCount); //UI 총알 갱신
             UIManager.Instance.UpdateWeaponImage(gunUiImage);                            //UI 총 이미지 갱신
         }
-        protected virtual void FixedUpdate()
+        protected virtual void Update()
         {
             //총 발사 딜레이 시간 계산
             if (isRate)
             {
-                currentFireRate -= Time.fixedDeltaTime;
+                currentFireRate -= Time.deltaTime;
 
                 if (currentFireRate <= 0)
                 {
                     isRate = false;
                 }
             }
-        }
-        private void OnDisable()
-        {
-            isRate = false;
-            isReloading = false;
         }
 
         public virtual void Fire()

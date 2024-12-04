@@ -8,11 +8,13 @@ namespace Character.Player
     {
         private PlayerController _playerController;
 
+        private Rigidbody2D rigid;
         private Animator anim;
 
         private void Awake()
         {
             anim = GetComponent<Animator>();
+            rigid = GetComponent<Rigidbody2D>();
 
             _playerController = GetComponent<PlayerController>();
         }
@@ -30,6 +32,8 @@ namespace Character.Player
         private void PlayerDie()
         {
             _playerController.CurrentSpeed = 0;
+            rigid.velocity = Vector2.zero;
+
             anim.SetTrigger("Die");
             //사망 사운드
         }

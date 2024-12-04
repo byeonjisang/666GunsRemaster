@@ -10,7 +10,7 @@ namespace Gun
 {
     public class WeaponManager : MonoBehaviour
     {
-        public static WeaponManager instance;
+        public static WeaponManager instance { get; private set; }
         private void Awake()
         {
             if (instance == null)
@@ -62,7 +62,6 @@ namespace Gun
 
             //무기 변경 버튼 이벤트 추가
             WeaponChangeButton.onClick.AddListener(ChangeGun);
-
             WeaponGetButton.onClick.AddListener(() => ChangePossessionGuns(keepGunName));
             WeaponDeleteButton.onClick.AddListener(DeleteKeepGun);
         }
@@ -104,6 +103,7 @@ namespace Gun
         public void OnPointerUp()
         {
             isFiring = false;
+            StopCoroutine(FireContinuously());
         }
         private IEnumerator FireContinuously()
         {
@@ -165,9 +165,7 @@ namespace Gun
         //보관 무기 획득
         public void KeepGun(string keepGunName)
         {
-            Debug.Log(keepGunName);
             this.keepGunName = keepGunName.Replace("(Clone)", "");
-            Debug.Log(this.keepGunName);
 
             //이미지 변경
             Gun gunObject = guns.Find(gun => gun.name == this.keepGunName).GetComponent<Gun>();

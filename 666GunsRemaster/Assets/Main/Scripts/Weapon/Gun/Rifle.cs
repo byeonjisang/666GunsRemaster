@@ -9,7 +9,6 @@ namespace Gun
     {
         protected override void PlayFireSound()
         {
-            Debug.Log("라이플 소리 재생");
             //라이플 총기 소리 재생
             SoundManager.instance.PlayEffectSound(3);
         }
