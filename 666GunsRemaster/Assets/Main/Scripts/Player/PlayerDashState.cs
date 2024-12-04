@@ -77,6 +77,8 @@ namespace Character.Player
             if (_isDashing)
             {
                 Vector2 tmpDir = new Vector2(_playerController.Joystick.Horizontal, _playerController.Joystick.Vertical);
+                Vector2 keyDir = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+                tmpDir += keyDir;
 
                 rigid.velocity = tmpDir.normalized * _dashSpeed;
                 _currentDashDuration -= Time.deltaTime;

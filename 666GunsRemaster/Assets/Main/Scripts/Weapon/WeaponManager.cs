@@ -67,6 +67,28 @@ namespace Gun
             WeaponDeleteButton.onClick.AddListener(DeleteKeepGun);
         }
 
+        //Å° ÀÔ·Â
+        private void Update()
+        {
+            if (Input.GetButton("Fire1"))
+            {
+                StartCoroutine(FireContinuously());
+            }
+            else
+            {
+                isFiring = false;
+            }
+
+            if (Input.GetKeyDown(KeyCode.LeftShift))
+            {
+                ChangeGun();
+            }
+            if (Input.GetKeyDown(KeyCode.F))
+            {
+                ChangePossessionGuns(keepGunName);
+            }
+        }
+
         private void FixedUpdate()
         {
             RotateWeaponTowardsTarget();

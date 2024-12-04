@@ -6,6 +6,7 @@ using System.Collections;
 using UniRx;
 using UnityEngine;
 using UnityEngine.UI;
+using static UnityEditor.Searcher.SearcherWindow.Alignment;
 
 namespace Character.Player
 {
@@ -259,9 +260,19 @@ namespace Character.Player
             {
                 _playerStateContext.Transition(_moveState);
             }
+            else if (Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0)
+            {
+                _playerStateContext.Transition(_moveState);
+            }
             else
             {
                 _playerStateContext.Transition(_stopState);
+            }
+
+            if (Input.GetButtonDown("Jump"))
+            {
+                //´ë½¬
+                _playerStateContext.Transition(_dashState);
             }
         }
 
