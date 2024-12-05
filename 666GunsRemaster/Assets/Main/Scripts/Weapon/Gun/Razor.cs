@@ -1,6 +1,4 @@
-﻿using Gun.Bullet;
-using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Gun
 {

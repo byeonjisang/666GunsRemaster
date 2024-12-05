@@ -69,7 +69,7 @@ namespace Gun
         //е╟ ют╥б
         private void Update()
         {
-            if (Input.GetButton("Fire1"))
+            if (Input.GetMouseButton(0))
             {
                 StartCoroutine(FireContinuously());
             }

@@ -79,7 +79,8 @@ namespace Gun
         protected virtual void OnEnable()
         {
             StartCoroutine(UpdateWeaponUI());
-            StartCoroutine(Reload());
+            if(isReloading)
+                StartCoroutine(Reload());
         }
         protected virtual void OnDisable()
         {
@@ -112,6 +113,7 @@ namespace Gun
             if (isRate || isReloading)
                 return;
 
+            Debug.Log(currentBulletCount);
             PlayerController.Instance.OverHit();
             bulletPoint.transform.localScale = new Vector3(playerSprite.flipX ? -1 : 1, 1, 1); //총알 발사 방향 설정
 
@@ -123,7 +125,9 @@ namespace Gun
             UIManager.Instance.UpdateBulletCount(currentBulletCount, currentMagazineCount); //UI 갱신
             PlayFireSound();                //총기 사운드 재생
 
-            //총기 발사 사운드
+            //권총일 경우 탄약 계산을 하지 않음
+            if (gameObject.name == "Pistol")
+                return;
 
             //탄창 속 탄약이 없을 시 재장전
             if (currentMagazineCount <= 0)
