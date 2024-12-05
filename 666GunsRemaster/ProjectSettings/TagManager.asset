@@ -9,6 +9,7 @@ TagManager:
   - Weapon
   - Position
   - EnemyBullet
+  - Wall
   layers:
   - Default
   - TransparentFX
