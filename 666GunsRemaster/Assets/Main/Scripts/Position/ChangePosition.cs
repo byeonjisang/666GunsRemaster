@@ -27,7 +27,7 @@ public class ChangePosition : MonoBehaviour
         // 남은 시간을 분 단위로 확인
         int minutesRemaining = Mathf.FloorToInt(GameManager.instance.GetTimer() / 60f);
 
-        if (minutesRemaining != lastMinute)
+        if (minutesRemaining != lastMinute && minutesRemaining != 4)
         {
             // 분이 줄어들면 다음 거점을 활성화
             SetPosition(currentPosIndex + 1);

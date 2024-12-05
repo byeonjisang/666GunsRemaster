@@ -38,7 +38,8 @@ public class SceneTester : MonoBehaviour
             yield return null; // 한 프레임 대기
         }
 
-        //씬 바뀔 때 모든 소리 다 중지
+        //씬 바뀔 때 일시정지 풀고 모든 소리 다 중지
+        Time.timeScale = 1f;
         SoundManager.instance.StopAllSound();
         LoadScene.LoadGameScene(loadSceneName); // alpha가 1이 되었을 때 씬 변경
     }
