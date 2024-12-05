@@ -36,6 +36,11 @@ namespace Gun.Bullet
                     Destroy(gameObject);
                 }
             }
+
+            if (collision.CompareTag("Wall"))
+            {
+                Destroy(gameObject);
+            }
         }
     }
 }

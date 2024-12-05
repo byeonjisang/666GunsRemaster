@@ -73,10 +73,10 @@ namespace Gun.Bullet
             }
 
             //맵 밖으로 나갈 시 총알 반환
-            //if (collision.CompareTag("Wall")) 
-            //{
-            //    bulletObjectPool.ReturnBullet(this.gameObject);
-            //}
+            if (collision.CompareTag("Wall"))
+            {
+                bulletObjectPool.ReturnBullet(this.gameObject);
+            }
         }
     }
 }

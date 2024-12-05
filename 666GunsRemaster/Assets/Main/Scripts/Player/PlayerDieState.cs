@@ -10,11 +10,13 @@ namespace Character.Player
 
         private Rigidbody2D rigid;
         private Animator anim;
+        private Collider2D collider;
 
         private void Awake()
         {
             anim = GetComponent<Animator>();
             rigid = GetComponent<Rigidbody2D>();
+            collider = GetComponent<Collider2D>();
 
             _playerController = GetComponent<PlayerController>();
         }
