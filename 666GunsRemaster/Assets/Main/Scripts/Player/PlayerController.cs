@@ -6,7 +6,6 @@ using System.Collections;
 using UniRx;
 using UnityEngine;
 using UnityEngine.UI;
-using static UnityEditor.Searcher.SearcherWindow.Alignment;
 
 namespace Character.Player
 {
