@@ -6998,7 +6998,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPoint: []
-  spawnTime: 1
+  spawnTime: 4
 --- !u!1 &860126499
 GameObject:
   m_ObjectHideFlags: 0

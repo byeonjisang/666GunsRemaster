@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyName: Police2
   hp: 10
-  currentHp: 10
-  damage: 1
+  currentHp: 100
+  damage: 20
   sightRange: 1000
   moveSpeed: 2
   attackRange: 5
