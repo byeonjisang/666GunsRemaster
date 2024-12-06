@@ -3807,6 +3807,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe1dafd02a04dbc4683ea99f4dfc7ccb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pointerImage: {fileID: 2059178018}
 --- !u!1 &412213728
 GameObject:
   m_ObjectHideFlags: 0
@@ -4281,6 +4282,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe1dafd02a04dbc4683ea99f4dfc7ccb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pointerImage: {fileID: 2059178018}
 --- !u!95 &476964180
 Animator:
   serializedVersion: 5
@@ -8300,6 +8302,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe1dafd02a04dbc4683ea99f4dfc7ccb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pointerImage: {fileID: 2059178018}
 --- !u!1 &1067682756
 GameObject:
   m_ObjectHideFlags: 0
@@ -8465,6 +8468,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe1dafd02a04dbc4683ea99f4dfc7ccb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pointerImage: {fileID: 2059178018}
 --- !u!1 &1070327168
 GameObject:
   m_ObjectHideFlags: 0
@@ -15510,6 +15514,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe1dafd02a04dbc4683ea99f4dfc7ccb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pointerImage: {fileID: 2059178018}
 --- !u!1 &1797099390
 GameObject:
   m_ObjectHideFlags: 0
