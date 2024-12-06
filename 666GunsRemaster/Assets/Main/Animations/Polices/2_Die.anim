@@ -87,4 +87,18 @@ AnimationClip:
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
-  m_Events: []
+  m_Events:
+  - time: 0.083333336
+    functionName: GunDelete
+    data: 
+    objectReferenceParameter: {fileID: 3676557131654973235, guid: dace92d9a9c68a34295f1d51004f45e3, type: 3}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.083333336
+    functionName: StopMovement
+    data: 
+    objectReferenceParameter: {fileID: 3676557131654973235, guid: dace92d9a9c68a34295f1d51004f45e3, type: 3}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0

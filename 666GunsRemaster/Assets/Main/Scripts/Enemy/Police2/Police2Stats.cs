@@ -85,6 +85,8 @@ public class Police2Stats : MonoBehaviour
         sprite = GetComponent<SpriteRenderer>();
 
         animator = GetComponent<Animator>();
+
+        gunSprite.gameObject.SetActive(true);
     }
 
     void Update()
@@ -259,6 +261,12 @@ public class Police2Stats : MonoBehaviour
 
             Debug.Log("총을 발사했습니다!");
         }
+    }
+
+    public void GunDelete()
+    {
+        //총기 사라짐
+        gunSprite.gameObject.SetActive(false);
     }
 
     // 감지 범위를 그려 디버깅

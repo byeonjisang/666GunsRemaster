@@ -47,16 +47,6 @@ public class Pointer2D : MonoBehaviour
 
         // 화살표 표시
         arrowUI.gameObject.SetActive(true);
-
-        //if (!isOnScreen)
-        //{
-           
-        //}
-        //else
-        //{
-        //    // 목표가 화면 안에 있을 때 화살표 숨김
-        //    //arrowUI.gameObject.SetActive(false);
-        //}
     }
 
     //활성화된 타겟을 찾는 메서드
