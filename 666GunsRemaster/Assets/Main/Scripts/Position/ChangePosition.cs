@@ -42,6 +42,9 @@ public class ChangePosition : MonoBehaviour
             //사운드 재생
             SoundManager.instance.PlayEffectSoundOnce(12);
 
+            ///버프 선택 시에도 플레이어 이동 사운드가 재생되어 강제로 중지
+            SoundManager.instance.StopEffectSound(1);
+
             // 이전 위치 비활성화
             posList[currentPosIndex].SetActive(false);
 
