@@ -14,7 +14,7 @@ public class Police1Stats : MonoBehaviour
     private Animator animator;
 
     public GameObject[] gunPrefabs; // ÃÑ±â ÇÁ¸®ÆÕ ¹è¿­
-    [Range(0f, 1f)] public float dropChance = 0.1f; // µå¶ø È®·ü
+    [Range(0f, 1f)] public float dropChance = 0.05f; // µå¶ø È®·ü
 
     [SerializeField]
     private bool isInAttackRange = false;
