@@ -148,7 +148,8 @@ namespace Gun
             if (gunName == null)
                 return;
 
-            GameObject gunObject = guns.Find(gun => gun.name == gunName);
+            GameObject gunObject = guns.Find(gun => gun.name == gunName && !possessionGuns.Contains(gun));
+
             possessionGuns[currentGunIndex].SetActive(false);
             possessionGuns[currentGunIndex] = gunObject;
             possessionGuns[currentGunIndex].SetActive(true);
