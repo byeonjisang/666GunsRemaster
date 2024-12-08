@@ -16,11 +16,12 @@ MonoBehaviour:
   maxMagazineCount: -1
   maxBullet: -1
   reloadTime: 1.2
-  fireRate: 0.25
+  fireRate: 0.35
   bulletSpeed: 22
-  damage: 1
-  range: 13
+  damage: 20
+  range: 10
   penetration: 1
+  shotgunSpread: 0
   blockObject:
     serializedVersion: 2
     m_Bits: 192

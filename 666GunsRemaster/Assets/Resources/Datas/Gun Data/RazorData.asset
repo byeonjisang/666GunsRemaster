@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: RazorData
   m_EditorClassIdentifier: 
   index: 1
-  maxMagazineCount: 12
-  maxBullet: 200
+  maxMagazineCount: 15
+  maxBullet: 75
   reloadTime: 1.2
-  fireRate: 0.25
+  fireRate: 0.35
   bulletSpeed: 25
-  damage: 1
-  range: 25
+  damage: 14
+  range: 12
   penetration: 100
   shotgunSpread: 0
   blockObject:

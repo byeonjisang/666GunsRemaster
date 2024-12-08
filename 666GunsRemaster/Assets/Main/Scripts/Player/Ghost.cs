@@ -29,6 +29,7 @@ public class Ghost : MonoBehaviour
                 Sprite currentSprite = GetComponent<SpriteRenderer>().sprite;
                 currentGhost.transform.localScale = transform.localScale;
                 currentGhost.GetComponent<SpriteRenderer>().sprite = currentSprite;
+                currentGhost.GetComponent<SpriteRenderer>().flipX = true;
                 this.ghostDelayTime = ghostDelay;
                 Destroy(currentGhost, 0.3f);
             }

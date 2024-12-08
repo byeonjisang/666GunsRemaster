@@ -14,12 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   index: 3
   maxMagazineCount: 9
-  maxBullet: 180
+  maxBullet: 48
   reloadTime: 1.8
-  fireRate: 0.6
+  fireRate: 1
   bulletSpeed: 23
-  damage: 5
-  range: 10
+  damage: 10
+  range: 7
   penetration: 1
   shotgunSpread: 20
   blockObject:

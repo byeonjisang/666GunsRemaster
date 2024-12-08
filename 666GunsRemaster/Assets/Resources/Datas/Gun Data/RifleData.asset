@@ -13,14 +13,15 @@ MonoBehaviour:
   m_Name: RifleData
   m_EditorClassIdentifier: 
   index: 2
-  maxMagazineCount: 15
-  maxBullet: 250
+  maxMagazineCount: 30
+  maxBullet: 150
   reloadTime: 1.2
-  fireRate: 0.25
+  fireRate: 0.15
   bulletSpeed: 35
-  damage: 2
-  range: 15
+  damage: 10
+  range: 10
   penetration: 1
+  shotgunSpread: 0
   blockObject:
     serializedVersion: 2
     m_Bits: 192
