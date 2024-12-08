@@ -179,6 +179,9 @@ namespace Gun
 
         public void BulletCountUp(int value)
         {
+            if (gameObject.name == "Pistol")
+                return;
+
             currentBulletCount += value;
             UIManager.Instance.UpdateBulletCount(currentBulletCount, currentMagazineCount);
         }
