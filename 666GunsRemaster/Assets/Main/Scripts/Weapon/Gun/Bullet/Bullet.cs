@@ -33,6 +33,7 @@ namespace Gun.Bullet
             speed = gunData.bulletSpeed;
             range = gunData.range;
             penetration = gunData.penetration;
+            currentPenetration = penetration;
             blockObject = gunData.blockObject;
         }
         protected virtual void OnEnable()

@@ -113,7 +113,6 @@ namespace Gun
             if (isRate || isReloading)
                 return;
 
-            Debug.Log(currentBulletCount);
             PlayerController.Instance.OverHit();
             bulletPoint.transform.localScale = new Vector3(playerSprite.flipX ? -1 : 1, 1, 1); //총알 발사 방향 설정
 
