@@ -39,6 +39,7 @@ namespace Character.Player
             _health -= damage;
             UIManager.Instance.UpdatePlayerHealth(_maxHealth, _health);
             //피격 사운드
+            SoundManager.instance.PlayEffectSoundOnce(7);
 
             StartCoroutine(Unbeatable());
         }

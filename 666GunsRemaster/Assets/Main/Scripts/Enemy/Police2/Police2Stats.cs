@@ -35,6 +35,8 @@ public class Police2Stats : MonoBehaviour
     //길찾기 적용
     NavMeshAgent agent;
 
+    private Color hitEffect = new Color(1, 0, 0, 1); //피격시 색상
+
     // 외부에서 Police2 데이터를 받아서 설정하는 메서드
     public void SetData(Police2 data)
     {
@@ -52,28 +54,6 @@ public class Police2Stats : MonoBehaviour
         //Debug.Log("몬스터 사정거리 :: " + police2.GetAttackRange);
     }
 
-    //// 복사 메서드
-    //public Police2Stats Clone(GameObject newObject)
-    //{
-    //    Police2Stats clone = newObject.AddComponent<Police2Stats>();
-    //    clone.animator = this.animator;
-
-    //    // NavMeshAgent 재설정
-    //    NavMeshAgent agent = newObject.GetComponent<NavMeshAgent>();
-
-    //    if (agent == null)
-    //    {
-    //        agent = newObject.AddComponent<NavMeshAgent>();  // NavMeshAgent가 없으면 추가
-    //    }
-
-    //    // 기존 agent 설정 복사
-    //    agent.speed = police2.GetMoveSpeed;
-    //    agent.updateRotation = false;
-    //    agent.updateUpAxis = false;
-    //    agent.isStopped = false;
-
-    //    return clone;
-    //}
     void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -298,6 +278,7 @@ public class Police2Stats : MonoBehaviour
             else
             {
                 police2.SetHp(police2.GetHp() - WeaponManager.instance.GetDamage());
+                StartCoroutine(Unbeatable());
             }
             Debug.Log("몬스터 체력 :: " + police2.GetHp());
         }
@@ -321,5 +302,13 @@ public class Police2Stats : MonoBehaviour
 
         // 오브젝트 삭제
         Destroy(gameObject);
+    }
+
+    private IEnumerator Unbeatable()
+    {
+        Color saveColor = sprite.color;
+        sprite.color = hitEffect;
+        yield return new WaitForSeconds(0.5f);
+        sprite.color = saveColor;
     }
 }

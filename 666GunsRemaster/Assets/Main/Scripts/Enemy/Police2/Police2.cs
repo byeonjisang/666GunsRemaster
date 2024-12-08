@@ -10,7 +10,7 @@ public class Police2 : ScriptableObject
     private string enemyName;
     public string GetMonsterName { get { return enemyName; } }
     [SerializeField]
-    private float hp = 10f;
+    private float hp = 100f;
     public float GetHp() { return hp; }
     public void SetHp(float damage) { hp = damage; }
 

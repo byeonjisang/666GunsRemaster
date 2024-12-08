@@ -24,6 +24,8 @@ public class Police1Stats : MonoBehaviour
     [SerializeField] private float attackCooldown = 0.8f; // 공격 쿨다운 시간 (초)
     private float lastAttackTime = 0f; // 마지막 공격 시간을 기록
 
+    private Color hitEffect = new Color(1, 0, 0, 1); //피격시 색상
+
     // 길찾기 적용
     private NavMeshAgent agent;
 
@@ -143,6 +145,7 @@ public class Police1Stats : MonoBehaviour
             else
             {
                 police1.SetHp(police1.GetHp() - WeaponManager.instance.GetDamage());
+                StartCoroutine(Unbeatable());
             }
             Debug.Log("몬스터 체력 :: " + police1.GetHp());
         }
@@ -163,6 +166,14 @@ public class Police1Stats : MonoBehaviour
         }
 
         Destroy(gameObject);
+    }
+
+    private IEnumerator Unbeatable()
+    {
+        Color saveColor = sprite.color;
+        sprite.color = hitEffect;
+        yield return new WaitForSeconds(0.5f);
+        sprite.color = saveColor;
     }
 
     private void OnDrawGizmosSelected()
