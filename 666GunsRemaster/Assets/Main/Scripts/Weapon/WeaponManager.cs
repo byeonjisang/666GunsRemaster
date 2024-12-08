@@ -47,6 +47,7 @@ namespace Gun
         private Button WeaponGetButton;
         [SerializeField]
         private Button WeaponDeleteButton;
+        bool isDie = false;
 
         private void Start()
         {
@@ -107,6 +108,9 @@ namespace Gun
         }
         private IEnumerator FireContinuously()
         {
+            if (isDie)
+                yield return null;
+
             isFiring = true;
             float fireRate = currentGun.FireRate;
             while (isFiring)
@@ -126,7 +130,7 @@ namespace Gun
         //무기 변경
         private void ChangeGun()
         {
-            if (theNumberOfGun < 2)
+            if (theNumberOfGun < 2 && isDie)
                 return;
 
             currentGunIndex = 1 - currentGunIndex;
@@ -145,7 +149,7 @@ namespace Gun
         //소지한 무기 교체
         public void ChangePossessionGuns(string gunName)
         {
-            if (gunName == null)
+            if (gunName == null && isDie)
                 return;
 
             GameObject gunObject = guns.Find(gun => gun.name == gunName && !possessionGuns.Contains(gun));
@@ -177,7 +181,7 @@ namespace Gun
         //보관 무기 삭제
         private void DeleteKeepGun()
         {
-            if (keepGunName == null)
+            if (keepGunName == null && isDie)
                 return;
 
             keepGunName = null;
@@ -198,7 +202,11 @@ namespace Gun
 
         public void DeleteAllWeapon()
         {
-            gameObject.SetActive(false);
+            isDie = true;
+            foreach(GameObject gun in possessionGuns)
+            {
+                gun.SetActive(false);
+            }
         }
 
         private void RotateWeaponTowardsTarget()
