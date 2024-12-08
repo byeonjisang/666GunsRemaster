@@ -9,9 +9,17 @@ public class EnemySpawner: MonoBehaviour
 
     float time;
 
+    public static EnemySpawner instance;
+
     void Awake()
     {
+        if (instance == null)
+        {
+            instance = this;
+        }
+
         spawnPoint = GetComponentsInChildren<Transform>();
+        spawnTime = 3.5f;
     }
 
     void Update()

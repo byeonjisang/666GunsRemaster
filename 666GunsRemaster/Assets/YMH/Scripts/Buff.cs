@@ -35,5 +35,6 @@ public class Buff : MonoBehaviour
         Debug.Log("Apply Buff");
         Time.timeScale = 1;
         UIManager.Instance.BuffWindowOnOff(false);
+        EnemySpawner.instance.spawnTime -= 0.25f;
     }
 }

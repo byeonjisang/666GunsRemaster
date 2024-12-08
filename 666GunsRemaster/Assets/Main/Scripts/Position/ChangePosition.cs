@@ -39,6 +39,9 @@ public class ChangePosition : MonoBehaviour
     {
         if (index < posList.Count)
         {
+            //사운드 재생
+            SoundManager.instance.PlayEffectSoundOnce(12);
+
             // 이전 위치 비활성화
             posList[currentPosIndex].SetActive(false);
 
