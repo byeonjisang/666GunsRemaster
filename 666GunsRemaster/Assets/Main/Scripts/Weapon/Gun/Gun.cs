@@ -22,6 +22,7 @@ namespace Gun
         protected GunData gunData;          // 총의 데이터   
 
         protected int gunIndex;               // 총의 인덱스
+        public int MaxMagazineCount { get { return maxMagazineCount; } }
         protected int maxMagazineCount;       // 최대 탄창 속 탄약 크기
         [Header("남은 총알의 갯수들")]
         protected int currentMagazineCount;   // 현재 남은 탄창 속 탄약
@@ -113,7 +114,8 @@ namespace Gun
             if (isRate || isReloading)
                 return;
 
-            PlayerController.Instance.OverHit();
+            if (gameObject.name != "Pistol")
+                PlayerController.Instance.OverHit();
             bulletPoint.transform.localScale = new Vector3(playerSprite.flipX ? -1 : 1, 1, 1); //총알 발사 방향 설정
 
             //총 발사
