@@ -1,13 +1,13 @@
-﻿using System;
+﻿using Gun;
+using System;
 using System.Collections;
 using UnityEngine;
-using UnityEngine.Rendering;
 
 namespace Character.Player
 {
     public class OverhitManager : MonoBehaviour
     {
-        private OverHit overhit;
+        private Overhit overhit;
 
         public bool[] _isOverhit = new bool[2] { false, false };   //오버히트 상태
 
@@ -18,10 +18,11 @@ namespace Character.Player
         private float _overhitGaugeLimit;                                 //오버히트 게이지 최대값
 
         //오버히트 증가 관련 변수
-        private float _overhitGaugeIncrease = 4;        //오버히트 게이지 증가량
+        //private float _overhitGaugeIncrease = 4;        //오버히트 게이지 증가량
+        private float[] _overhitGaugeIncrease = { 0.0f, 0.0f };        //오버히트 게이지 증가량
 
         //오버히트 감소 관련 변수
-        private float _overhitGaugeDecrease = 4;            //오버히트 게이지 감소량
+        private float _overhitGaugeDecrease = 10;            //오버히트 게이지 감소량
         private float[] _currentOverhitGaugeDecreaseStartTime = new float[2] { 0, 0 };   //현재 오버히트 게이지 감소 시작까지 남은 시간
         private float _overhitGauseDecreaseStartTime = 5f;  //오버히트 게이지 감소 시작 시간
         private float[] _currentOverhitGaugeDecreaseTime;   //현재 오버히트 게이지 감소 시간
@@ -45,40 +46,43 @@ namespace Character.Player
         }
 
         //오버히트 초기화
-        public void OverhitInit(PlayerData playerData, OverHit overhit)
+        public void OverhitInit(float overhitCount, float overhitTime)
         {
-            _overhitTimeLimit = playerData.overHitTime;
-            _overhitGaugeLimit = playerData.overHitCount;
+            _overhitTimeLimit = overhitTime;
+            _overhitGaugeLimit = overhitCount;
             _currentOverhitGaugeDecreaseTime = new float[2] { _overhitGaugeDecreaseTime, _overhitGaugeDecreaseTime };
 
-            //오버히트 UI 초기화
-            UIManager.Instance.UpdateOverhitSlider(0, _currentOverhitGauge[0], _overhitGaugeLimit);
-            UIManager.Instance.UpdateOverhitSlider(1, _currentOverhitGauge[1], _overhitGaugeLimit);
-
-            this.overhit = overhit;
+            overhit = GetComponentInChildren<Overhit>();
             this.overhit.gameObject.SetActive(false);
         }
 
-        public void OverhitReset(int weaponIndex)
+        public void OverhitReset(int weaponIndex, float increaseValue)
         {
+            //오버히트 수치 초기화
             _currentOverhitGauge[weaponIndex] = 0f;
             _isOverhit[weaponIndex] = false;
             _currentOverhitTime[weaponIndex] = 0f;
             _isDereeaseOverhitGauge[weaponIndex] = false;
             _currentOverhitGaugeDecreaseStartTime[weaponIndex] = _overhitGauseDecreaseStartTime;
             _currentOverhitGaugeDecreaseTime[weaponIndex] = _overhitGaugeDecreaseTime;
+
+            //오버히트 감소량 초기화
+            _overhitGaugeIncrease[weaponIndex] = increaseValue;
+
+            //오버히트 UI 초기화
             UIManager.Instance.UpdateOverhitSlider(weaponIndex, _currentOverhitGauge[weaponIndex], _overhitGaugeLimit);
         }
 
         //오버히트 게이지 증가
-        public void IncreaseOverhitGauge(int weaponIndex)
+        public void IncreaseOverhitGauge(int weaponIndex, float increaseValue)
         {
-            _currentOverhitGauge[weaponIndex] = Mathf.Min(_currentOverhitGauge[weaponIndex] + _overhitGaugeIncrease, _overhitGaugeLimit);
+            _currentOverhitGauge[weaponIndex] = Mathf.Min(_currentOverhitGauge[weaponIndex] + increaseValue, _overhitGaugeLimit);
             UIManager.Instance.UpdateOverhitSlider(weaponIndex, _currentOverhitGauge[weaponIndex], _overhitGaugeLimit);
 
             if (_currentOverhitGauge[weaponIndex] >= _overhitGaugeLimit)
             {
                 _isOverhit[weaponIndex] = true;
+                WeaponManager.instance.SetIsOverhit(weaponIndex, _isOverhit[weaponIndex]);
                 //오버히트 사운드
                 SoundManager.instance.PlayEffectSound(11);
 
@@ -123,6 +127,7 @@ namespace Character.Player
             }
         }
 
+        //오버히트로 인한 총 발사 제한 시간 측정
         private void DecreaseOverhitTime(int weaponIndex)
         {
             if (_isOverhit[weaponIndex])
@@ -131,6 +136,7 @@ namespace Character.Player
                 if (_currentOverhitTime[weaponIndex] <= 0)
                 {
                     _isOverhit[weaponIndex] = false;
+                    WeaponManager.instance.SetIsOverhit(weaponIndex, _isOverhit[weaponIndex]);
                     _currentOverhitTime[weaponIndex] = _overhitTimeLimit;
                     _currentOverhitGauge[weaponIndex] = 0;
 

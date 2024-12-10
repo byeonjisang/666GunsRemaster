@@ -18,9 +18,7 @@ namespace Character.Player
         [SerializeField]
         private PlayerData playerData;
         private MonsterScannerTest monsterScannerTest;
-        public OverHit overHit;
         private WeaponManager weaponManager;
-        private OverhitManager overhitManager;
         public FloatingJoystick Joystick;
         [SerializeField]
         private Button dashButton;
@@ -79,9 +77,7 @@ namespace Character.Player
         private float _dashCooldown;        //대쉬쿨타임
         private float _cooldownTimeLeft;    //남은 대쉬쿨타임 시간
         private float _dashFillInTime;      //대쉬가 다시 차는 시간
-        private bool _isCooldown = false;   //대쉬쿨타임 여부
-
-        public bool[] IsOverHit { get { return overhitManager._isOverhit; } }
+        private bool _isCooldown = false;   //대쉬쿨타임 여부}
 
         public int CurrentWeaponIndex { private get; set; }
         //private bool _isFire = false;       //총 발사 여부
@@ -122,8 +118,6 @@ namespace Character.Player
 
             weaponManager = GetComponentInChildren<WeaponManager>();
             monsterScannerTest = GetComponent<MonsterScannerTest>();
-            overHit = GetComponentInChildren<OverHit>();
-            overhitManager = gameObject.AddComponent<OverhitManager>();
 
             StateInit();    //데이터 초기화
         }
@@ -157,9 +151,6 @@ namespace Character.Player
             _dashDuration = playerData.dashDuration;
             _dashCooldown = playerData.dashCooldown;
             _dashFillInTime = playerData.fillInTime;
-
-            //오버히트 관련
-            overhitManager.OverhitInit(playerData, overHit);
 
             //대쉬 UI 초기화
             UIManager.Instance.PlayerDashUiInit(_dashCount);
@@ -281,17 +272,6 @@ namespace Character.Player
         private void StartDash()
         {
             _playerStateContext.Transition(_dashState);
-        }
-
-        public void OverHit()
-        {
-            overhitManager.IncreaseOverhitGauge(CurrentWeaponIndex);
-        }
-        
-        //오버히트 리셋
-        public void OverhitReset(int index)
-        {
-            overhitManager.OverhitReset(index);
         }
 
         public void ReversePlayer(bool reverse)

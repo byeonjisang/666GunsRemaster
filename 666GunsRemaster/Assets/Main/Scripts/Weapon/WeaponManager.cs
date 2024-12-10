@@ -49,10 +49,18 @@ namespace Gun
         private Button WeaponDeleteButton;
         bool isDie = false;
 
+        //오버히트
+        private OverhitManager overhitManager;
+        private bool[] isOverhit = new bool[2] { false, false };
+        [SerializeField]
+        private float overhitCount = 100;
+        [SerializeField]
+        private float overhitTime = 3;
+
         private void Start()
         {
             //총 전체 비활성화
-            foreach(GameObject gun in guns)
+            foreach (GameObject gun in guns)
             {
                 gun.SetActive(false);
             }
@@ -65,6 +73,14 @@ namespace Gun
             WeaponChangeButton.onClick.AddListener(ChangeGun);
             WeaponGetButton.onClick.AddListener(() => ChangePossessionGuns(keepGunName));
             WeaponDeleteButton.onClick.AddListener(DeleteKeepGun);
+
+            //오버히트 초기화
+            overhitManager = transform.parent.GetComponentInChildren<OverhitManager>();
+            overhitManager.OverhitInit(overhitCount, overhitTime);
+            float increaseValue = (100.0f / possessionGuns[0].GetComponent<Gun>().MaxMagazineCount);
+            overhitManager.OverhitReset(0, increaseValue);
+            increaseValue = (100.0f / possessionGuns[1].GetComponent<Gun>().MaxMagazineCount);
+            overhitManager.OverhitReset(1, increaseValue);
         }
 
         //키 입력
@@ -115,7 +131,7 @@ namespace Gun
             float fireRate = currentGun.FireRate;
             while (isFiring)
             {
-                if (PlayerController.Instance.IsOverHit[currentGunIndex])
+                if (isOverhit[currentGunIndex])
                 {
                     yield return null;
                 }
@@ -125,6 +141,11 @@ namespace Gun
                 }
                 yield return new WaitForSeconds(fireRate);
             }
+        }
+
+        public void SetIsOverhit(int weaponIndex, bool isOverhit)
+        {
+            this.isOverhit[weaponIndex] = isOverhit;
         }
 
         //무기 변경
@@ -160,8 +181,11 @@ namespace Gun
             currentGun = possessionGuns[currentGunIndex].GetComponent<Gun>();
             //UI 변경
             UIManager.Instance.UpdateGetWeaponImage(null);
-            //OverHit 초기화
-            PlayerController.Instance.OverhitReset(currentGunIndex);
+
+            //Overhit 증가량 계산
+            float increaseValue = (100.0f / currentGun.MaxMagazineCount);
+            //Overhit 초기화
+            overhitManager.OverhitReset(currentGunIndex, increaseValue);
 
             if (gunName != "Pistol")
                 keepGunName = null;
@@ -203,7 +227,7 @@ namespace Gun
         public void DeleteAllWeapon()
         {
             isDie = true;
-            foreach(GameObject gun in possessionGuns)
+            foreach (GameObject gun in possessionGuns)
             {
                 gun.SetActive(false);
             }
@@ -211,14 +235,14 @@ namespace Gun
 
         private void RotateWeaponTowardsTarget()
         {
-            if(monsterScanner.nearestTarget != null)
+            if (monsterScanner.nearestTarget != null)
             {
                 Debug.Log("몬스터 감지");
 
                 Vector3 targetDirection = monsterScanner.nearestTarget.position - transform.position;
 
                 float angle = Mathf.Atan2(targetDirection.y, targetDirection.x) * Mathf.Rad2Deg + 270;
-                if(targetDirection.x < 0)
+                if (targetDirection.x < 0)
                 {
                     PlayerController.Instance.ReversePlayer(false);
                     transform.localScale = new Vector3(1, 1, 1);
@@ -236,7 +260,7 @@ namespace Gun
             }
             else
             {
-                if(transform.localScale.x == -1)
+                if (transform.localScale.x == -1)
                     transform.rotation = Quaternion.Euler(0, 0, -90);
                 else
                     transform.rotation = Quaternion.Euler(0, 0, 90);
@@ -246,6 +270,11 @@ namespace Gun
         public void BulletCountUp(int value)
         {
             currentGun.BulletCountUp(value);
+        }
+
+        public void IncreaseOverhit(float increaseValue)
+        {
+            overhitManager.IncreaseOverhitGauge(currentGunIndex, increaseValue);
         }
     }
 }

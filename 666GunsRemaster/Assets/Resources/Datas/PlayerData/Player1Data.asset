@@ -23,4 +23,4 @@ MonoBehaviour:
   fillInTime: 10
   maxExp: 0
   overHitTime: 3
-  overHitCount: 30
+  overHitCount: 100

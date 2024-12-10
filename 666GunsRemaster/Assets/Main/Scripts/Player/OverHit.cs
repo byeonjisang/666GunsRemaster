@@ -2,28 +2,31 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class OverHit : MonoBehaviour
+namespace Character.Player
 {
-    private Animator anim;
-    private float damage = 5;
-
-    private void Awake()
+    public class Overhit : MonoBehaviour
     {
-        anim = GetComponent<Animator>();
-    }
+        private Animator anim;
+        private float damage = 5;
 
-    private void OnEnable()
-    {
-        anim.SetTrigger("OverHit");
-    }
+        private void Awake()
+        {
+            anim = GetComponent<Animator>();
+        }
 
-    public void OffOverHit()
-    {
-        gameObject.SetActive(false);
-    }
+        private void OnEnable()
+        {
+            anim.SetTrigger("OverHit");
+        }
 
-    public float GetDamage()
-    {
-        return damage;
+        public void OffOverHit()
+        {
+            gameObject.SetActive(false);
+        }
+
+        public float GetDamage()
+        {
+            return damage;
+        }
     }
 }
