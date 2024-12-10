@@ -69,6 +69,11 @@ public class Police2Stats : MonoBehaviour
         gunSprite.gameObject.SetActive(true);
     }
 
+    private void Start()
+    {
+        police2.SetHp(100f);
+    }
+
     void Update()
     {
         DetectPlayer();
@@ -134,6 +139,8 @@ public class Police2Stats : MonoBehaviour
 
         // 경로 재초기화
         agent.ResetPath();      // 경로 초기화
+
+        police2.SetHp(100f);
     }
 
     // CircleCast2D를 이용하여 플레이어 감지

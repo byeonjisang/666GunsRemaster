@@ -34,6 +34,11 @@ public class Police1Stats : MonoBehaviour
         police1 = data;
     }
 
+    private void OnEnable()
+    {
+        police1.SetHp(120f);
+    }
+
     void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -44,6 +49,11 @@ public class Police1Stats : MonoBehaviour
 
         sprite = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
+    }
+
+    private void Start()
+    {
+        police1.SetHp(120f);
     }
 
     void Update()
