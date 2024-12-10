@@ -39,7 +39,7 @@ namespace Gun
         //무기 발사 관련
         private bool isFiring = false;
         //무기 줍기 기능 관련
-        private string keepGunName;
+        private string keepGunName = null;
 
         [SerializeField]
         private Button WeaponChangeButton;
@@ -170,25 +170,32 @@ namespace Gun
         //소지한 무기 교체
         public void ChangePossessionGuns(string gunName)
         {
-            if (gunName == null && isDie)
+            //보관 중인 무기가 없을 시
+            if (gunName == null || isDie)
                 return;
 
-            GameObject gunObject = guns.Find(gun => gun.name == gunName && !possessionGuns.Contains(gun));
+            //현재 들고 있는 총과 보관 중인 총이 똑같을 시
+            if(gunName != currentGun.name)
+            {
+                GameObject gunObject = guns.Find(gun => gun.name == gunName && !possessionGuns.Contains(gun));
 
-            possessionGuns[currentGunIndex].SetActive(false);
-            possessionGuns[currentGunIndex] = gunObject;
-            possessionGuns[currentGunIndex].SetActive(true);
-            currentGun = possessionGuns[currentGunIndex].GetComponent<Gun>();
+                possessionGuns[currentGunIndex].SetActive(false);
+                possessionGuns[currentGunIndex] = gunObject;
+                possessionGuns[currentGunIndex].SetActive(true);
+                currentGun = possessionGuns[currentGunIndex].GetComponent<Gun>();
+            }
+
             //UI 변경
             UIManager.Instance.UpdateGetWeaponImage(null);
-
+            //총의 데이터 초기화
+            currentGun.GunDataInit();
             //Overhit 증가량 계산
             float increaseValue = (100.0f / currentGun.MaxMagazineCount);
             //Overhit 초기화
             overhitManager.OverhitReset(currentGunIndex, increaseValue);
 
-            if (gunName != "Pistol")
-                keepGunName = null;
+            this.keepGunName = null;
+            Debug.Log(keepGunName);
         }
 
         //보관 무기 획득

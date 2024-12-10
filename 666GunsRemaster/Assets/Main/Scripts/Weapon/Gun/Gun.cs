@@ -56,7 +56,7 @@ namespace Gun
         {
             GunDataInit();
         }
-        protected virtual void GunDataInit()
+        public virtual void GunDataInit()
         {
             string gunName = gameObject.name;
             gunData = Resources.Load<GunData>("Datas/Gun Data/"+gunName + "Data");
@@ -76,6 +76,8 @@ namespace Gun
             isReloading = false;
             isRate = false;
             isBullet = true;
+
+            UIManager.Instance.UpdateBulletCount(currentBulletCount, currentMagazineCount); //UI 총알 갱신
         }
         protected virtual void OnEnable()
         {
