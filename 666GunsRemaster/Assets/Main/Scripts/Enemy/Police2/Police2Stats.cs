@@ -249,6 +249,11 @@ public class Police2Stats : MonoBehaviour
             Debug.Log("총을 발사했습니다!");
         }
     }
+    public void PlayDieSound()
+    {
+        //죽는 소리 재생
+        SoundManager.instance.PlayEffectSound(10);
+    }
 
     public void GunDelete()
     {
@@ -269,9 +274,6 @@ public class Police2Stats : MonoBehaviour
         {
             if (police2.GetHp() <= 0f)
             {
-                //사망 소리 재생
-                SoundManager.instance.PlayEffectSound(10);
-
                 //애니메이션
                 animator.SetBool("Walk", false);
                 animator.SetBool("IsAttack", false);
@@ -285,6 +287,7 @@ public class Police2Stats : MonoBehaviour
             else
             {
                 police2.SetHp(police2.GetHp() - WeaponManager.instance.GetDamage());
+                SoundManager.instance.PlayEffectSound(13);
                 StartCoroutine(Unbeatable());
             }
             Debug.Log("몬스터 체력 :: " + police2.GetHp());

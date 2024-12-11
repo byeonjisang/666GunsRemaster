@@ -110,6 +110,12 @@ public class Police1Stats : MonoBehaviour
         SoundManager.instance.PlayEffectSound(9);
     }
 
+    public void PlayDieSound()
+    {
+        //죽는 소리 재생
+        SoundManager.instance.PlayEffectSound(10);
+    }
+
     private void DetectPlayer()
     {
         RaycastHit2D hit = Physics2D.CircleCast(transform.position, police1.GetSightRange, Vector2.zero, 0, playerLayer);
@@ -145,8 +151,6 @@ public class Police1Stats : MonoBehaviour
         {
             if (police1.GetHp() <= 0f)
             {
-                //죽는 소리 재생
-                SoundManager.instance.PlayEffectSound(10);
                 animator.SetBool("Walk", false);
                 animator.SetBool("Die", true);
                 isDead = true;
@@ -155,6 +159,7 @@ public class Police1Stats : MonoBehaviour
             else
             {
                 police1.SetHp(police1.GetHp() - WeaponManager.instance.GetDamage());
+                SoundManager.instance.PlayEffectSound(13);
                 StartCoroutine(Unbeatable());
             }
             Debug.Log("몬스터 체력 :: " + police1.GetHp());
