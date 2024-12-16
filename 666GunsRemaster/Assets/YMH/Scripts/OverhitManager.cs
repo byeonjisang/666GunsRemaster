@@ -79,10 +79,13 @@ namespace Character.Player
             _currentOverhitGauge[weaponIndex] = Mathf.Min(_currentOverhitGauge[weaponIndex] + increaseValue, _overhitGaugeLimit);
             UIManager.Instance.UpdateOverhitSlider(weaponIndex, _currentOverhitGauge[weaponIndex], _overhitGaugeLimit);
 
+            //오버히트가 가득 찼는지 체크
             if (_currentOverhitGauge[weaponIndex] >= _overhitGaugeLimit)
             {
                 _isOverhit[weaponIndex] = true;
                 WeaponManager.instance.SetIsOverhit(weaponIndex, _isOverhit[weaponIndex]);
+                //오버히트 이미지 출력
+                UIManager.Instance.OnOverhitImage();
                 //오버히트 사운드
                 SoundManager.instance.PlayEffectSound(11);
 
@@ -141,6 +144,7 @@ namespace Character.Player
                     _currentOverhitGauge[weaponIndex] = 0;
 
                     UIManager.Instance.UpdateOverhitSlider(weaponIndex, _currentOverhitGauge[weaponIndex], _overhitGaugeLimit);
+                    UIManager.Instance.OffOverhitImage();
                 }
             }
         }

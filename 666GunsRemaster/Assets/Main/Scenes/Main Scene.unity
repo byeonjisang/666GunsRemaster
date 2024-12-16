@@ -256,9 +256,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23afeae86b9e2594b82489dad646654f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponChangeImage: {fileID: 593346888}
-  weaponChangeText: {fileID: 626613709}
-  weaponGetButton: {fileID: 1060066789}
+  WeaponChangeImage: {fileID: 593346888}
+  WeaponChangeText: {fileID: 626613709}
+  WeaponGetButton: {fileID: 1060066789}
   PlayerHealthSlider: {fileID: 1669713878}
   DashBackgroundImages:
   - {fileID: 2046897373}
@@ -277,10 +277,9 @@ MonoBehaviour:
   OverhitSliders:
   - {fileID: 1891696993}
   - {fileID: 1244100653}
-  buffObject: {fileID: 1235873953}
-  buffButtons:
-  - {fileID: 1801894474}
-  - {fileID: 1908650571}
+  OverhitImage: {fileID: 1177085347}
+  BuffObject: {fileID: 0}
+  BuffButtons: []
   BuffIcons:
   - {fileID: 110826271}
   - {fileID: 1092707068}
@@ -5568,6 +5567,7 @@ RectTransform:
   - {fileID: 1371017097}
   - {fileID: 1728568057}
   - {fileID: 1235873954}
+  - {fileID: 1177085345}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -9714,6 +9714,81 @@ MonoBehaviour:
   m_Area: 1
   m_IgnoreFromBuild: 0
   m_AffectedAgents: ffffffff
+--- !u!1 &1177085344
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1177085345}
+  - component: {fileID: 1177085346}
+  - component: {fileID: 1177085347}
+  m_Layer: 5
+  m_Name: Overhit
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &1177085345
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1177085344}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 669999104}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &1177085346
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1177085344}
+  m_CullTransparentMesh: 1
+--- !u!114 &1177085347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1177085344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.7058824}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 770f7cfcf55b0eb4592c8d5860f479b8, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &1185258438
 GameObject:
   m_ObjectHideFlags: 0
@@ -12326,7 +12401,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerData: {fileID: 11400000, guid: 3fbf75a4a1d21be4aa614df2f833b21f, type: 2}
-  overHit: {fileID: 277118030}
   Joystick: {fileID: 310465521}
   dashButton: {fileID: 1278087736}
   _maxHealth: 0
@@ -14227,6 +14301,8 @@ MonoBehaviour:
   WeaponChangeButton: {fileID: 1212246971}
   WeaponGetButton: {fileID: 1060066788}
   WeaponDeleteButton: {fileID: 1240493285}
+  overhitCount: 100
+  overhitTime: 3
 --- !u!4 &1599908834
 Transform:
   m_ObjectHideFlags: 0
