@@ -23,6 +23,6 @@ public class WeaponManager : Singleton<WeaponManager>
 
     public void Attack()
     {
-        currentWeapon.Fire():
+        currentWeapon.Fire();
     }
 }
