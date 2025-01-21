@@ -6,13 +6,23 @@ using UnityEngine.AI;
 //모든 몬스터의 기본적인 로직이 될 클래스
 public class Enemy : MonoBehaviour
 {
+    //몬스터의 종류를 구분할 enum
+    public enum EnemyType
+    {
+        A, B, C
+    };
+
+    public EnemyType enemyType;
+
     //체력 관련 변수
     public int maxHealth;
     public int currentHealth;
 
     bool _isChase = true;
+    bool _isAttack = false;
 
     public Transform target;
+    
 
     [SerializeField]
     private NavMeshAgent agent;
@@ -33,12 +43,7 @@ public class Enemy : MonoBehaviour
     }
     void FixedUpdate()
     {
-        if (_isChase && agent.enabled)
-        {
-            agent.SetDestination(target.position);
-            FreezeVelo();
-            animator.SetBool("isChase", true);
-        }
+        Chase();
     }
 
     void OnTriggerEnter(Collider other)
@@ -46,6 +51,29 @@ public class Enemy : MonoBehaviour
         if (other.tag == "PlayerBullet")
         {
             StartCoroutine(OnDamage());
+        }
+    }
+
+    void Targeting()
+    {
+        float rad = 0f;
+        float attackRange = 0f;
+
+        RaycastHit[] hit = Physics.SphereCastAll(transform.position, rad, transform.forward, attackRange, LayerMask.GetMask("Player"));
+
+        if (hit.Length > 0 && _isAttack)
+        {
+            StartCoroutine(Attack());
+        }
+    }
+
+    void Chase()
+    {
+        if (_isChase && agent.enabled)
+        {
+            agent.SetDestination(target.position);
+            FreezeVelo();
+            animator.SetBool("isChase", true);
         }
     }
 
@@ -62,5 +90,13 @@ public class Enemy : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
 
         material.color = Color.white;
+    }
+
+    IEnumerator Attack()
+    {
+        _isChase = false;
+        _isAttack = true;
+
+        yield return null;
     }
 }
