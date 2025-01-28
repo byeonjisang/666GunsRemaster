@@ -39,7 +39,7 @@ public class Enemy : MonoBehaviour
     }
     void Update()
     {
-        
+        Targeting();
     }
     void FixedUpdate()
     {
