@@ -8,8 +8,8 @@ public class Weapon : MonoBehaviour
     //총알 오브젝트
     protected GameObject bulletObject;
 
-    public void Fire()
+    public void Fire(GameObject bulletObject, Transform firePoint)
     {
-
+        GameObject bullet = Instantiate(bulletObject, firePoint.position, firePoint.rotation);
     }
 }

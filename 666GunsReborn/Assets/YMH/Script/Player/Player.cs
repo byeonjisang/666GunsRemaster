@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.IO.LowLevel.Unsafe;
 using UnityEngine;
 
 #region Player Enum
@@ -21,17 +22,18 @@ public enum PlayerType
 
 public class Player : MonoBehaviour
 {
+    // 플레이어 상태
+    protected PlayerState state;
+
     // 플레이어 스탯
     protected float maxHealth;
     protected float currentHealth;
     protected float moveSpeed;
-    protected int dashCount;
     protected int currentDashCount;
+    protected int maxDashCount;
     protected float dashDistance;
     protected float dashCooldown;
-
-    // 플레이어 상태
-    protected PlayerState state;
+    protected float currentDashCooldown;
 
     // 플레이어 컴포넌트
     protected PlayerData playerData;
@@ -44,50 +46,56 @@ public class Player : MonoBehaviour
         anim = GetComponent<Animator>();
     }
 
-    protected virtual void Start()
-    {
-        //초기화
-        Init();
-    }
-
-    protected virtual void Init()
+    public virtual void Init()
     {
         playerData = Resources.Load<PlayerData>($"Datas/Player/{this.GetType().ToString()}");
 
         maxHealth = playerData.health;
         currentHealth = maxHealth;
         moveSpeed = playerData.moveSpeed;
-        dashCount = playerData.dashCount;
-        currentDashCount = dashCount;
+        maxDashCount = playerData.dashCount;
+        currentDashCount = maxDashCount;
         dashDistance = playerData.dashDistance;
         dashCooldown = playerData.dashCooldown;
-
-        //상태 초기화
+        currentDashCooldown = 0;
         state = PlayerState.Idle;
+    }
+
+    protected virtual void Update()
+    {
+        //대쉬 쿨타임 계산
+        if(currentDashCount <= maxDashCount)
+        {
+            currentDashCooldown += Time.deltaTime;
+            if (currentDashCooldown >= dashCooldown)
+            {
+                currentDashCooldown = 0;
+                currentDashCount++;
+            }
+        }
     }
 
     public virtual void Move(Vector3 direction)
     {
+        //대쉬 상태에서는 이동 불가
+        if (state == PlayerState.Dash)
+            return;
+
         //입력값이 없을 경우
-        if(direction == Vector3.zero)
+        if (direction == Vector3.zero)
         {
-            if(state == PlayerState.Move)
+            if (state == PlayerState.Move)
             {
-                rigid.velocity = Vector3.zero;
-                anim.SetFloat("Speed", 0);
                 state = PlayerState.Idle;
             }
-            return;
         }
 
         //방향 전환
         LookAt(direction);
         //속도값 적용
         rigid.velocity = direction * moveSpeed;
-        //상태변경
-        state = PlayerState.Move;
         //애니메이션
-        anim.SetFloat("Speed", rigid.velocity.magnitude);
+        anim.SetFloat("Speed", direction.magnitude);
     }
     private void LookAt(Vector3 direction)
     {
@@ -100,6 +108,35 @@ public class Player : MonoBehaviour
 
     public virtual void Dash()
     {
+        //대쉬 상태에서 대쉬 안됨
+        if (state == PlayerState.Dash)
+            return;
 
+        //대쉬 개수 확인
+        if (currentDashCount <= 0)
+            return;
+
+        Debug.Log("대쉬");
+
+        StartCoroutine(DashCoroutine());
+    }
+
+    protected virtual IEnumerator DashCoroutine()
+    {
+        //상태 변경
+        state = PlayerState.Dash;
+        currentDashCount--;
+        anim.SetBool("IsDash", true);
+
+        //대쉬 이동
+        Vector3 direction = transform.forward.normalized;
+        rigid.velocity = direction * dashDistance * 2;
+
+        //대쉬 시간
+        yield return new WaitForSeconds(0.5f);
+
+        //대쉬 종료
+        state = PlayerState.Idle;
+        anim.SetBool("IsDash", false);
     }
 }
