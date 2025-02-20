@@ -17,10 +17,11 @@ public enum BulletType
 
 public class WeaponManager : Singleton<WeaponManager>
 {
+    [Header("Weapon Component")]
     [SerializeField]
     private GameObject bulletObject;
     [SerializeField]
-    private Transform firePoint;
+    private GameObject playerObject;
 
     private WeaponType weaponType;
     private Weapon currentWeapon;
@@ -40,10 +41,15 @@ public class WeaponManager : Singleton<WeaponManager>
                 currentWeapon = gameObject.AddComponent<Shotgun>();
                 break;
         }
+
+        currentWeapon.Init(weaponType);
     }
 
     public void Attack()
     {
-        currentWeapon.Fire(bulletObject, firePoint);
+        Transform bulletPos = playerObject.GetComponent<Animator>().GetBoneTransform(HumanBodyBones.Hips);
+        Quaternion bulletRot = playerObject.transform.rotation;
+
+        currentWeapon.Fire(bulletObject, bulletPos, bulletRot);
     }
 }

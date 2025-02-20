@@ -63,14 +63,12 @@ public class PlayerController : Singleton<PlayerController>
 
     public void Attack()
     {
-        Debug.Log("Player Attack");
+        player.Attack();
         WeaponManager.Instance.Attack();
     }
 
     public void Dash()
     {
-        Debug.Log("Player Dash");
-
         player.Dash();
     }
 }

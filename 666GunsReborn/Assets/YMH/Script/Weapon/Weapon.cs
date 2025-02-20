@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 
 public class Weapon : MonoBehaviour
@@ -8,8 +9,15 @@ public class Weapon : MonoBehaviour
     //총알 오브젝트
     protected GameObject bulletObject;
 
-    public void Fire(GameObject bulletObject, Transform firePoint)
+    public void Init(WeaponType weaponType)
     {
-        GameObject bullet = Instantiate(bulletObject, firePoint.position, firePoint.rotation);
+        string path = "Datas/Weapon/" + weaponType.ToString();
+        weaponData = Resources.Load<WeaponData>(path);
+    }
+
+    public void Fire(GameObject bulletObject, Transform bulletPos, Quaternion bulletRot)
+    {
+        GameObject bullet = Instantiate(bulletObject, bulletPos.position, bulletRot);
+        bullet.GetComponent<Bullet>().SetSpeed(weaponData.damage, weaponData.bulletSpeed);
     }
 }

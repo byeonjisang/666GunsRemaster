@@ -13,5 +13,6 @@ public class UIManager : MonoBehaviour
     {
         fireButton.onClick.AddListener(() => PlayerController.Instance.Attack());
         dashButton.onClick.AddListener(() => PlayerController.Instance.Dash());
+        
     }
 }

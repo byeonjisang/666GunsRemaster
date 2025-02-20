@@ -106,6 +106,11 @@ public class Player : MonoBehaviour
         }
     }
 
+    public virtual void Attack()
+    {
+        anim.SetTrigger("Attack");
+    }
+
     public virtual void Dash()
     {
         //대쉬 상태에서 대쉬 안됨
