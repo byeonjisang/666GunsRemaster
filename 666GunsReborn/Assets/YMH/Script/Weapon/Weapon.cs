@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Assets.YMH.Script;
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -17,7 +18,10 @@ public class Weapon : MonoBehaviour
 
     public void Fire(GameObject bulletObject, Transform bulletPos, Quaternion bulletRot)
     {
-        GameObject bullet = Instantiate(bulletObject, bulletPos.position, bulletRot);
+        //GameObject bullet = Instantiate(bulletObject, bulletPos.position, bulletRot);
+        GameObject bullet = ObjectPool.Instance.GetBullet();
+        bullet.transform.position = bulletPos.position;
+        bullet.transform.rotation = bulletRot;
         bullet.GetComponent<Bullet>().SetSpeed(weaponData.damage, weaponData.bulletSpeed);
     }
 }

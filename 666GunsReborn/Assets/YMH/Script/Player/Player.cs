@@ -96,6 +96,12 @@ public class Player : MonoBehaviour
         rigid.velocity = direction * moveSpeed;
         //애니메이션
         anim.SetFloat("Speed", direction.magnitude);
+
+        //경사면 이동
+        if (OnSlope())
+        {
+            rigid.AddForce(Vector3.down * 10, ForceMode.Acceleration);
+        }
     }
     private void LookAt(Vector3 direction)
     {
@@ -104,6 +110,16 @@ public class Player : MonoBehaviour
             Quaternion targetAngle = Quaternion.LookRotation(direction);
             rigid.rotation = targetAngle;
         }
+    }
+    private bool OnSlope()
+    {
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, Vector3.down, out hit, 1.5f))
+        {
+            float angle = Vector3.Angle(hit.normal, Vector3.up);
+            return angle > 0 && angle < 45;  // 45도 이하의 경사만 이동 가능
+        }
+        return false;
     }
 
     public virtual void Attack()
