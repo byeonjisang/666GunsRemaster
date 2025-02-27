@@ -504,53 +504,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 935660354}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &319465470
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 319465472}
-  - component: {fileID: 319465471}
-  m_Layer: 0
-  m_Name: Bullet Objectpool
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &319465471
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 319465470}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 49eccde7a41c9574facecc142a34c79e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 4724720043867078303, guid: 833286949982909429b591899cd91002,
-    type: 3}
-  poolSize: 20
---- !u!4 &319465472
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 319465470}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -21.503487, y: -11.112645, z: -8.701778}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &321878856 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7072444061591351698, guid: 910177ec26b76c14996c2d53627a6def,
@@ -867,6 +820,56 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &690599118
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 690599119}
+  - component: {fileID: 690599120}
+  m_Layer: 0
+  m_Name: ObectPool Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &690599119
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 690599118}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1868304365}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &690599120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 690599118}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49eccde7a41c9574facecc142a34c79e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pools:
+  - tag: Bullet
+    prefab: {fileID: 4724720043867078303, guid: 833286949982909429b591899cd91002,
+      type: 3}
+    defaultCapacity: 10
+    maxSize: 50
 --- !u!1 &716392727
 GameObject:
   m_ObjectHideFlags: 0
@@ -1251,7 +1254,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 1
-  m_Constraints: 16
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!114 &935660357
 MonoBehaviour:
@@ -2260,6 +2263,7 @@ Transform:
   m_Children:
   - {fileID: 78179866}
   - {fileID: 1062968891}
+  - {fileID: 690599119}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1886404385
@@ -2617,4 +2621,3 @@ SceneRoots:
   - {fileID: 763912414}
   - {fileID: 716392730}
   - {fileID: 604500208}
-  - {fileID: 319465472}
