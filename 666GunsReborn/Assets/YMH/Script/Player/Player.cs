@@ -40,6 +40,9 @@ public class Player : MonoBehaviour
     protected Rigidbody rigid;
     protected Animator anim;
 
+    // 플레이어 게임 중 획득 내용
+    protected int coin = 0;
+
     protected virtual void Awake()
     {
         rigid = GetComponent<Rigidbody>();
@@ -75,6 +78,7 @@ public class Player : MonoBehaviour
         }
     }
 
+#region Player Move
     public virtual void Move(Vector3 direction)
     {
         //대쉬 상태에서는 이동 불가
@@ -93,16 +97,34 @@ public class Player : MonoBehaviour
         //방향 전환
         LookAt(direction);
         //속도값 적용
-        rigid.velocity = direction * moveSpeed;
-        //애니메이션
-        anim.SetFloat("Speed", direction.magnitude);
-
-        //경사면 이동
+        // 경사면 이동 보정 추가
         if (OnSlope())
         {
-            rigid.AddForce(Vector3.down * 10, ForceMode.Acceleration);
+            Vector3 slopeDirection = Vector3.ProjectOnPlane(direction, GetSlopeNormal());
+            rigid.velocity = slopeDirection * moveSpeed;
         }
+        else
+        {
+            Vector3 currentVelocity = rigid.velocity;  
+            Vector3 moveVelocity = direction * moveSpeed;
+
+            //rigid.velocity = direction * moveSpeed;
+            rigid.velocity = new Vector3(moveVelocity.x, currentVelocity.y, moveVelocity.z);
+        }
+        //애니메이션
+        anim.SetFloat("Speed", direction.magnitude);
     }
+    //플레이어 이동시 경사면 보정
+    private Vector3 GetSlopeNormal()
+    {
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, Vector3.down, out hit, 1.5f))
+        {
+            return hit.normal;
+        }
+        return Vector3.up;
+    }
+    //플레이어 회전
     private void LookAt(Vector3 direction)
     {
         if (direction != Vector3.zero)
@@ -121,6 +143,7 @@ public class Player : MonoBehaviour
         }
         return false;
     }
+#endregion
 
     public virtual void Attack()
     {
@@ -159,5 +182,17 @@ public class Player : MonoBehaviour
         //대쉬 종료
         state = PlayerState.Idle;
         anim.SetBool("IsDash", false);
+    }
+
+    // 물리 충돌 처리
+    protected virtual void OnTriggerEnter(Collider other)
+    {
+        //코인 획득
+        if (other.CompareTag("Coin"))
+        {
+            Coin coin = other.GetComponent<Coin>();
+            this.coin += coin.GetAmount();
+            Destroy(other.gameObject);
+        }
     }
 }
