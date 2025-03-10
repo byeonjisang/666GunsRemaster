@@ -2429,6 +2429,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30d816ef8130ccb42857fd59b2d39d8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  armorInventory:
+    keys: 
 --- !u!4 &829091054 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7072444061591351788, guid: 910177ec26b76c14996c2d53627a6def,

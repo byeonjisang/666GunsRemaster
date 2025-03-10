@@ -3,7 +3,11 @@ using UnityEngine;
 
 public class ArmorManager : Singleton<ArmorManager>
 {
-    private Dictionary<ArmorType, List<Armor>> armorInventory = new Dictionary<ArmorType, List<Armor>>();
+    //private Dictionary<ArmorType, List<Armor>> armorInventory = new Dictionary<ArmorType, List<Armor>>();
+    [SerializeField]
+    private SerializableDictionary<ArmorType, List<Armor>> armorInventory = new SerializableDictionary<ArmorType, List<Armor>>();
+
+    private PlayerEquipment playerEquipment;
 
     public void EquipArmor(ArmorType type, int armorIndex)
     {
@@ -11,7 +15,7 @@ public class ArmorManager : Singleton<ArmorManager>
 
         if(armorInventory.TryGetValue(type, out armors))
         {
-
+            playerEquipment.EquipArmor(armors[armorIndex]);
         }
         else
         {
