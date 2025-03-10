@@ -2429,8 +2429,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30d816ef8130ccb42857fd59b2d39d8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  armorInventory:
-    keys: 
+  armorDatas:
+  - {fileID: 11400000, guid: cbd7a9e66529bab419362a7e39d959c6, type: 2}
+  - {fileID: 11400000, guid: 7a8e72dd512c7704ea68d7df0b1573d5, type: 2}
+  - {fileID: 11400000, guid: 33791438389ed434b8d5193c9791a0f1, type: 2}
+  - {fileID: 11400000, guid: 77a0de36abb85cd429b598c88ac758ed, type: 2}
+  - {fileID: 11400000, guid: 8caa10de0216eae48a4da2d47785ce91, type: 2}
+  - {fileID: 11400000, guid: fef2be89a5a4f2543a53f8204592fc54, type: 2}
+  - {fileID: 11400000, guid: 3fe7beb9c2a945940a72c855cb4d4d10, type: 2}
+  - {fileID: 11400000, guid: b0d6df74ba8933b4f8bedf4d3c7f81c2, type: 2}
+  - {fileID: 11400000, guid: 9c39925b504fceb4b860d92b734849fb, type: 2}
 --- !u!4 &829091054 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7072444061591351788, guid: 910177ec26b76c14996c2d53627a6def,

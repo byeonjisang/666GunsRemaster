@@ -3,24 +3,34 @@ using UnityEngine;
 
 public class ArmorManager : Singleton<ArmorManager>
 {
-    //private Dictionary<ArmorType, List<Armor>> armorInventory = new Dictionary<ArmorType, List<Armor>>();
     [SerializeField]
-    private SerializableDictionary<ArmorType, List<Armor>> armorInventory = new SerializableDictionary<ArmorType, List<Armor>>();
+    private List<ArmorData> armorDatas = new List<ArmorData>();
+
+    //전체 방어구 딕셔너리
+    private Dictionary<string, ArmorData> armorInventory = new Dictionary<string, ArmorData>();
 
     private PlayerEquipment playerEquipment;
 
-    public void EquipArmor(ArmorType type, int armorIndex)
+    private void Start()
     {
-        List<Armor> armors = null;
-
-        if(armorInventory.TryGetValue(type, out armors))
+        foreach (ArmorData armorData in armorDatas)
         {
-            playerEquipment.EquipArmor(armors[armorIndex]);
+            armorInventory.Add(armorData.armorName, armorData);
+        }
+    }
+
+    public void EquipArmor(string armorName)
+    {
+        ArmorData armorData = null;
+
+        if(armorInventory.TryGetValue(armorName, out armorData))
+        {
+            playerEquipment.EquipArmor(armorData);
         }
         else
         {
             //해당 타입의 방어구 리스트가 없을 경우
-            Debug.LogError("No armor list for " + type);
+            Debug.LogError($"{armorName}은 존재하지 않는 방어구 입니다.");
         }
     }
 }
