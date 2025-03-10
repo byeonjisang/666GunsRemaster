@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerEquipment : MonoBehaviour
+public class PlayerEquipment
 {
     private Dictionary<ArmorType, Armor> equippedArmor = new Dictionary<ArmorType, Armor>();
 
