@@ -176,7 +176,7 @@ public class Player : MonoBehaviour
         Vector3 direction = transform.forward.normalized;
         rigid.velocity = direction * dashDistance * 2;
 
-        //대쉬 시간
+        //대쉬 시간(하드 코딩 나중에 재구현 해야함)
         yield return new WaitForSeconds(0.5f);
 
         //대쉬 종료
