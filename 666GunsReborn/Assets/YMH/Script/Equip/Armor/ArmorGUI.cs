@@ -24,20 +24,21 @@ public class ArmorGUI : MonoBehaviour
     public void EquipHeadArmor(int index)
     {
         Debug.Log("Equip Head Armor: " + index);
-        //ArmorManager.Instance.EquipArmor("Head" + (index + 1));
-        EquipManager.Instance.EquipArmor(ArmorType.Head, "Head" + (index + 1));
+        ArmorManager.Instance.Equip(ArmorType.Head, "Head" + (index + 1));
+        //EquipManager.Instance.EquipArmor(ArmorType.Head, "Head" + (index + 1));
     }
 
     public void EquipBodyArmor(int index)
     {
         Debug.Log("Equip Body Armor: " + index);
-        //ArmorManager.Instance.EquipArmor("Body" + (index + 1));
-        EquipManager.Instance.EquipArmor(ArmorType.Body, "Body" + (index + 1));
+        ArmorManager.Instance.Equip(ArmorType.Body, "Body" + (index + 1));
+        //EquipManager.Instance.EquipArmor(ArmorType.Body, "Body" + (index + 1));
     }
 
     public void EquipLegArmor(int index)
     {
         Debug.Log("Equip Leg Armor: " + index);
-        EquipManager.Instance.EquipArmor(ArmorType.Leg, "Leg" + (index + 1));
+        ArmorManager.Instance.Equip(ArmorType.Leg, "Leg" + (index + 1));
+        //EquipManager.Instance.EquipArmor(ArmorType.Leg, "Leg" + (index + 1));
     }
 }
