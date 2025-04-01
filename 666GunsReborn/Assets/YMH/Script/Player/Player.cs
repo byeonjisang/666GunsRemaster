@@ -24,19 +24,10 @@ public class Player : MonoBehaviour
 {
     // 플레이어 상태
     protected PlayerState state;
-
-    // 플레이어 스탯
-    protected float maxHealth;
-    protected float currentHealth;
-    protected float moveSpeed;
-    protected int currentDashCount;
-    protected int maxDashCount;
-    protected float dashDistance;
-    protected float dashCooldown;
-    protected float currentDashCooldown;
+    // 플레이어 스텟
+    protected PlayerStats stats;
 
     // 플레이어 컴포넌트
-    protected PlayerData playerData;
     protected Rigidbody rigid;
     protected Animator anim;
 
@@ -47,38 +38,26 @@ public class Player : MonoBehaviour
     {
         rigid = GetComponent<Rigidbody>();
         anim = GetComponent<Animator>();
+
+        stats = gameObject.AddComponent<PlayerStats>();
     }
 
     public virtual void Init()
     {
-        playerData = Resources.Load<PlayerData>($"Datas/Player/{this.GetType().ToString()}");
-
-        maxHealth = playerData.health;
-        currentHealth = maxHealth;
-        moveSpeed = playerData.moveSpeed;
-        maxDashCount = playerData.dashCount;
-        currentDashCount = maxDashCount;
-        dashDistance = playerData.dashDistance;
-        dashCooldown = playerData.dashCooldown;
-        currentDashCooldown = 0;
+        PlayerData playerData = Resources.Load<PlayerData>($"Datas/Player/{this.GetType().ToString()}");
+        
+        //스텟 초기화
+        stats.Init(playerData);
         state = PlayerState.Idle;
     }
 
     protected virtual void Update()
     {
         //대쉬 쿨타임 계산
-        if(currentDashCount <= maxDashCount)
-        {
-            currentDashCooldown += Time.deltaTime;
-            if (currentDashCooldown >= dashCooldown)
-            {
-                currentDashCooldown = 0;
-                currentDashCount++;
-            }
-        }
+        stats.DashCountCoolDown();
     }
 
-#region Player Move
+    #region Player Move
     public virtual void Move(Vector3 direction)
     {
         //대쉬 상태에서는 이동 불가
@@ -101,12 +80,12 @@ public class Player : MonoBehaviour
         if (OnSlope())
         {
             Vector3 slopeDirection = Vector3.ProjectOnPlane(direction, GetSlopeNormal());
-            rigid.velocity = slopeDirection * moveSpeed;
+            rigid.velocity = slopeDirection * stats.CurrentMoveSpeed;
         }
         else
         {
             Vector3 currentVelocity = rigid.velocity;  
-            Vector3 moveVelocity = direction * moveSpeed;
+            Vector3 moveVelocity = direction * stats.CurrentMoveSpeed;
 
             //rigid.velocity = direction * moveSpeed;
             rigid.velocity = new Vector3(moveVelocity.x, currentVelocity.y, moveVelocity.z);
@@ -143,13 +122,16 @@ public class Player : MonoBehaviour
         }
         return false;
     }
-#endregion
+    #endregion
 
+    #region Player Attack
     public virtual void Attack()
     {
         anim.SetTrigger("Attack");
     }
+    #endregion
 
+    #region Player Dash
     public virtual void Dash()
     {
         //대쉬 상태에서 대쉬 안됨
@@ -157,7 +139,7 @@ public class Player : MonoBehaviour
             return;
 
         //대쉬 개수 확인
-        if (currentDashCount <= 0)
+        if (stats.CurrentDashCount <= 0)
             return;
 
         Debug.Log("대쉬");
@@ -169,12 +151,12 @@ public class Player : MonoBehaviour
     {
         //상태 변경
         state = PlayerState.Dash;
-        currentDashCount--;
+        stats.CurrentDashCount--;
         anim.SetBool("IsDash", true);
 
         //대쉬 이동
         Vector3 direction = transform.forward.normalized;
-        rigid.velocity = direction * dashDistance * 2;
+        rigid.velocity = direction * stats.CurrentDashDistance * 2;
 
         //대쉬 시간(하드 코딩 나중에 재구현 해야함)
         yield return new WaitForSeconds(0.5f);
@@ -183,6 +165,7 @@ public class Player : MonoBehaviour
         state = PlayerState.Idle;
         anim.SetBool("IsDash", false);
     }
+    #endregion
 
     // 물리 충돌 처리
     protected virtual void OnTriggerEnter(Collider other)
