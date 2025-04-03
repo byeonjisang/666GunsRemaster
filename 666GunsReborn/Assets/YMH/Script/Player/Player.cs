@@ -20,6 +20,13 @@ public enum PlayerType
 }
 #endregion
 
+public struct SlopeInfo
+{
+    public bool onSlope;
+    public float angle;
+    public Vector3 normal;
+}
+
 public class Player : MonoBehaviour
 {
     // 플레이어 상태
@@ -60,34 +67,32 @@ public class Player : MonoBehaviour
     #region Player Move
     public virtual void Move(Vector3 direction)
     {
-        //대쉬 상태에서는 이동 불가
         if (state == PlayerState.Dash)
             return;
 
-        //입력값이 없을 경우
-        if (direction == Vector3.zero)
+        var slopeInfo = GetSlopeInfo(direction);
+
+        if (direction.sqrMagnitude < 0.001f)
         {
-            if (OnSlope())
-            {
-                // 경사면에서 정지 시 미끄럼 방지
+            if (slopeInfo.onSlope)
                 rigid.velocity = Vector3.zero;
-            }
-            else
-            {
-                // 평지에서 정지
-            }
+
             state = PlayerState.Idle;
         }
         else
         {
-            //방향 전환
-            LookAt(direction);
-            //속도값 적용
-            // 경사면 이동 보정 추가
-            if (OnSlope())
+            if (slopeInfo.angle > 45f)
             {
-                Vector3 slopeDirection = Vector3.ProjectOnPlane(direction, GetSlopeNormal());
-                rigid.velocity = slopeDirection * stats.CurrentMoveSpeed;
+                Debug.Log("경사면 너무 가파름");
+                return;
+            }
+
+            LookAt(direction);
+
+            if (slopeInfo.onSlope)
+            {
+                Vector3 slopeDir = Vector3.ProjectOnPlane(direction, slopeInfo.normal);
+                rigid.velocity = slopeDir * stats.CurrentMoveSpeed;
             }
             else
             {
@@ -96,19 +101,32 @@ public class Player : MonoBehaviour
             }
         }
 
-        //애니메이션
         anim.SetFloat("Speed", direction.magnitude);
     }
     //플레이어 이동시 경사면 보정
-    private Vector3 GetSlopeNormal()
+    private SlopeInfo GetSlopeInfo(Vector3 direction)
     {
         RaycastHit hit;
-        if (Physics.Raycast(transform.position, Vector3.down, out hit, 1.5f))
+        SlopeInfo info = new SlopeInfo
         {
-            return hit.normal;
+            onSlope = false,
+            angle = 0f,
+            normal = Vector3.up
+        };
+
+        Vector3 rayDir = Vector3.down + direction.normalized * 0.5f;
+
+        if (Physics.Raycast(transform.position, rayDir.normalized, out hit, 1.5f))
+        {
+            float angle = Vector3.Angle(hit.normal, Vector3.up);
+            info.onSlope = angle > 0 && angle < 45f;
+            info.angle = angle;
+            info.normal = hit.normal;
         }
-        return Vector3.up;
+
+        return info;
     }
+
     //플레이어 회전
     private void LookAt(Vector3 direction)
     {
@@ -117,16 +135,6 @@ public class Player : MonoBehaviour
             Quaternion targetAngle = Quaternion.LookRotation(direction);
             rigid.rotation = targetAngle;
         }
-    }
-    private bool OnSlope()
-    {
-        RaycastHit hit;
-        if (Physics.Raycast(transform.position, Vector3.down, out hit, 1.5f))
-        {
-            float angle = Vector3.Angle(hit.normal, Vector3.up);
-            return angle > 0 && angle < 45;  // 45도 이하의 경사만 이동 가능
-        }
-        return false;
     }
     #endregion
 
