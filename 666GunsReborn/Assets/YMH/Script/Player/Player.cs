@@ -67,29 +67,29 @@ public class Player : MonoBehaviour
         //입력값이 없을 경우
         if (direction == Vector3.zero)
         {
-            if (state == PlayerState.Move)
-            {
-                state = PlayerState.Idle;
-            }
-        }
-
-        //방향 전환
-        LookAt(direction);
-        //속도값 적용
-        // 경사면 이동 보정 추가
-        if (OnSlope())
-        {
-            Vector3 slopeDirection = Vector3.ProjectOnPlane(direction, GetSlopeNormal());
-            rigid.velocity = slopeDirection * stats.CurrentMoveSpeed;
+            Debug.Log("정지");
+            state = PlayerState.Idle;
         }
         else
         {
-            Vector3 currentVelocity = rigid.velocity;  
-            Vector3 moveVelocity = direction * stats.CurrentMoveSpeed;
-
-            //rigid.velocity = direction * moveSpeed;
-            rigid.velocity = new Vector3(moveVelocity.x, currentVelocity.y, moveVelocity.z);
+            //방향 전환
+            LookAt(direction);
+            //속도값 적용
+            // 경사면 이동 보정 추가
+            if (OnSlope())
+            {
+                Debug.Log("경사면 이동");
+                Vector3 slopeDirection = Vector3.ProjectOnPlane(direction, GetSlopeNormal());
+                rigid.velocity = slopeDirection * stats.CurrentMoveSpeed;
+            }
+            else
+            {
+                Debug.Log("이동");
+                Vector3 moveVelocity = new Vector3(direction.x, 0f, direction.z) * stats.CurrentMoveSpeed;
+                rigid.velocity = new Vector3(moveVelocity.x, rigid.velocity.y, moveVelocity.z);
+            }
         }
+
         //애니메이션
         anim.SetFloat("Speed", direction.magnitude);
     }

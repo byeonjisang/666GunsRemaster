@@ -18,7 +18,7 @@ public class PlayerController : Singleton<PlayerController>
     private Joystick joystick;
     #endregion
 
-    private Vector3 direction = Vector3.zero;
+    public Vector3 direction = Vector3.zero;
 
     private Player player;
 
