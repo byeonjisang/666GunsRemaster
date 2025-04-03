@@ -67,7 +67,15 @@ public class Player : MonoBehaviour
         //입력값이 없을 경우
         if (direction == Vector3.zero)
         {
-            Debug.Log("정지");
+            if (OnSlope())
+            {
+                // 경사면에서 정지 시 미끄럼 방지
+                rigid.velocity = Vector3.zero;
+            }
+            else
+            {
+                // 평지에서 정지
+            }
             state = PlayerState.Idle;
         }
         else
@@ -78,13 +86,11 @@ public class Player : MonoBehaviour
             // 경사면 이동 보정 추가
             if (OnSlope())
             {
-                Debug.Log("경사면 이동");
                 Vector3 slopeDirection = Vector3.ProjectOnPlane(direction, GetSlopeNormal());
                 rigid.velocity = slopeDirection * stats.CurrentMoveSpeed;
             }
             else
             {
-                Debug.Log("이동");
                 Vector3 moveVelocity = new Vector3(direction.x, 0f, direction.z) * stats.CurrentMoveSpeed;
                 rigid.velocity = new Vector3(moveVelocity.x, rigid.velocity.y, moveVelocity.z);
             }
