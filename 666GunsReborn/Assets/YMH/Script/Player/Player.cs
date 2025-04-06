@@ -67,6 +67,7 @@ public class Player : MonoBehaviour
     #region Player Move
     public virtual void Move(Vector3 direction)
     {
+        Debug.Log(rigid.velocity.y);
         if (state == PlayerState.Dash)
             return;
 
@@ -74,14 +75,17 @@ public class Player : MonoBehaviour
 
         if (direction.sqrMagnitude < 0.001f)
         {
-            if (slopeInfo.onSlope)
+            if (slopeInfo.onSlope && IsGrounded())
                 rigid.velocity = Vector3.zero;
 
             state = PlayerState.Idle;
+
+            Debug.Log("정지");
         }
         else
         {
-            if (slopeInfo.angle > 45f)
+            Debug.Log("이동");
+            if (slopeInfo.angle > 45f && IsGrounded())
             {
                 Debug.Log("경사면 너무 가파름");
                 return;
@@ -89,7 +93,7 @@ public class Player : MonoBehaviour
 
             LookAt(direction);
 
-            if (slopeInfo.onSlope)
+            if (slopeInfo.onSlope && IsGrounded())
             {
                 Vector3 slopeDir = Vector3.ProjectOnPlane(direction, slopeInfo.normal);
                 rigid.velocity = slopeDir * stats.CurrentMoveSpeed;
@@ -103,6 +107,13 @@ public class Player : MonoBehaviour
 
         anim.SetFloat("Speed", direction.magnitude);
     }
+
+    //땅 위에 있는지 체크
+    private bool IsGrounded()
+    {
+        return Physics.Raycast(transform.position, Vector3.down, 1.1f);
+    }
+
     //플레이어 이동시 경사면 보정
     private SlopeInfo GetSlopeInfo(Vector3 direction)
     {
