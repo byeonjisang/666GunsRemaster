@@ -67,7 +67,6 @@ public class Player : MonoBehaviour
     #region Player Move
     public virtual void Move(Vector3 direction)
     {
-        Debug.Log(rigid.velocity.y);
         if (state == PlayerState.Dash)
             return;
 
