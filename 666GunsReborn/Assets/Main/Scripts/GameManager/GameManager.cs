@@ -9,11 +9,17 @@ public enum GameMode
     GAMESTART,
     INGAME
 }
-public class GameManager : MonoBehaviour
+public class GameManager : Singleton<GameManager>
 {
+    //게임 모드 변경
+    public GameMode gameMode;
+
+    public GameObject gameStartUI;
+
     void Awake()
     {
-        
+        //처음 입장 시 로비
+        gameMode = GameMode.LOBBY;
     }
     // Start is called before the first frame update
     void Start()
@@ -25,5 +31,19 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         
+    }
+
+    void ChangeGameMode(GameMode gameMode)
+    {
+        switch (gameMode)
+        {
+            case GameMode.LOBBY:
+                break;
+            case GameMode.GAMESTART:
+                gameStartUI.SetActive(true);
+                break;
+            case GameMode.INGAME:
+                break;
+        }
     }
 }
