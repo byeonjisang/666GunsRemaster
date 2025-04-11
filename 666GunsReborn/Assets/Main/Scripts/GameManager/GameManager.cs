@@ -12,14 +12,12 @@ public enum GameMode
 public class GameManager : Singleton<GameManager>
 {
     //게임 모드 변경
-    public GameMode gameMode;
-
-    public GameObject gameStartUI;
+    public GameMode _gameMode;
 
     void Awake()
     {
         //처음 입장 시 로비
-        gameMode = GameMode.LOBBY;
+        _gameMode = GameMode.LOBBY;
     }
     // Start is called before the first frame update
     void Start()
@@ -33,17 +31,9 @@ public class GameManager : Singleton<GameManager>
         
     }
 
-    void ChangeGameMode(GameMode gameMode)
+    public void ChangeGameMode(GameMode gameMode)
     {
-        switch (gameMode)
-        {
-            case GameMode.LOBBY:
-                break;
-            case GameMode.GAMESTART:
-                gameStartUI.SetActive(true);
-                break;
-            case GameMode.INGAME:
-                break;
-        }
+        _gameMode = gameMode;
+        Debug.Log("현재 게임 모드 : " +  _gameMode);
     }
 }
