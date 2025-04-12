@@ -6,6 +6,7 @@ using UnityEngine;
 public enum GameMode
 {
     LOBBY,
+    SHOP,
     GAMESTART,
     INGAME
 }
