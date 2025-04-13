@@ -23,6 +23,9 @@ public class PlayerStats : MonoBehaviour
     public float DashCooldown;
     public float CurrentDashCooldown;
 
+    // 현재 공격 중인지 여부
+    public bool isAttacking = false;
+
     public void Init(PlayerData playerData)
     {
         baseHealth = playerData.health;

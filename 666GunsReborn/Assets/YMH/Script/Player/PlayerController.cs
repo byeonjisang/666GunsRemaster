@@ -61,11 +61,22 @@ public class PlayerController : Singleton<PlayerController>
         player.Move(direction);
     }
 
-    public void Attack()
+    #region Player Attack
+    public void OnClickAttack()
     {
-        player.Attack();
+        player.StartAttack();
+    }
+
+    public void OffClickAttakc()
+    {
+        player.StopAttack();
+    }
+
+    public void FireBullet()
+    {
         WeaponManager.Instance.Attack();
     }
+    #endregion
 
     public void Dash()
     {

@@ -152,9 +152,32 @@ public class Player : MonoBehaviour
     #endregion
 
     #region Player Attack
-    public virtual void Attack()
+    public virtual void StartAttack()
     {
-        anim.SetTrigger("Attack");
+        state = PlayerState.Attack;
+        anim.SetBool("IsAttack", true);
+
+        //적을 바라보게 함
+        LookAtEnemy();
+    }
+
+    public virtual void StopAttack()
+    {
+        state = PlayerState.Idle;
+        anim.SetBool("IsAttack", false);
+    }
+
+    protected virtual void LookAtEnemy()
+    {
+        //가장 가까운 적이 없을 경우
+        if (scanner.NearestEnemy == null)
+            return;
+
+        //적의 위치로 회전
+        Vector3 direction = scanner.NearestEnemy.transform.position - transform.position;
+        direction.y = 0f;
+
+        LookAt(direction);
     }
     #endregion
 
