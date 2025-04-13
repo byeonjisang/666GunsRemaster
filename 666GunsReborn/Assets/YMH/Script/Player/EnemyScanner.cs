@@ -4,9 +4,10 @@ using UnityEngine;
 public class EnemyScanner : MonoBehaviour
 {
     [SerializeField]
-    private float distance;
+    private float distance = 10;
 
     private GameObject nearestEnemy;
+    public GameObject NearestEnemy { get { return nearestEnemy; } }
 
     private void Update()
     {
@@ -51,5 +52,11 @@ public class EnemyScanner : MonoBehaviour
         {
             nearestEnemy = enemyObject;
         }
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, distance);
     }
 }

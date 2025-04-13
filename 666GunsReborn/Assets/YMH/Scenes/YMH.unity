@@ -2794,8 +2794,8 @@ PrefabInstance:
         by Humanoid clips.\n\tTransform 'Headgear_Right'\n\tTransform 'Headgear_Left'\n\tTransform
         'Headgear_Right'\n\tTransform 'Headgear_Left'\n\tTransform 'Headgear_Right'\n\tTransform
         'Headgear_Left'\n\tFrom animation clip 'Idle_Guard_AR'\n\tFrom animation
-        clip 'Run_guard_AR'\n\tFrom animation clip 'Shoot_SingleShot_AR'\n\tFrom
-        animation clip 'Run_guard_AR'"
+        clip 'Run_guard_AR'\n\tFrom animation clip 'Run_guard_AR'\n\tFrom animation
+        clip 'Shoot_SingleShot_AR'"
       objectReference: {fileID: 0}
     - target: {fileID: 7072444061591351740, guid: 910177ec26b76c14996c2d53627a6def,
         type: 3}
@@ -2887,10 +2887,6 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 935660358}
-    - targetCorrespondingSourceObject: {fileID: 7072444061591711186, guid: 910177ec26b76c14996c2d53627a6def,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 935660361}
   m_SourcePrefab: {fileID: 100100000, guid: 910177ec26b76c14996c2d53627a6def, type: 3}
 --- !u!1 &935660355 stripped
 GameObject:
@@ -2969,19 +2965,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 935660354}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &935660361
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 935660355}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b76a1496ac1068b4e9f9d8ca1ff4c50b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  distance: 2
 --- !u!4 &950412804 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7072444061591351768, guid: 910177ec26b76c14996c2d53627a6def,

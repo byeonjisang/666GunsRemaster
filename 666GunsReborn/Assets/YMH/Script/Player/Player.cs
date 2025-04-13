@@ -33,6 +33,8 @@ public class Player : MonoBehaviour
     protected PlayerState state;
     // 플레이어 스텟
     protected PlayerStats stats;
+    // 플레이어 스캐너
+    protected EnemyScanner scanner;
 
     // 플레이어 컴포넌트
     protected Rigidbody rigid;
@@ -47,6 +49,7 @@ public class Player : MonoBehaviour
         anim = GetComponent<Animator>();
 
         stats = gameObject.AddComponent<PlayerStats>();
+        scanner = gameObject.AddComponent<EnemyScanner>();
     }
 
     public virtual void Init()
