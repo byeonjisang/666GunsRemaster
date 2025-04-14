@@ -15,7 +15,7 @@ public abstract class PortalBase : MonoBehaviour
     {
         if (!other.CompareTag("Player")) return;
 
-        portalManager.ClearDelegates();  //중복 방지
+        portalManager.ClearDelegates(); //중복 방지
         portalManager.onAccept += OnAccept;
         portalManager.onReject += OnReject;
 

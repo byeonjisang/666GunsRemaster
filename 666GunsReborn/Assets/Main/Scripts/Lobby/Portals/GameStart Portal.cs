@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameStartPortal : PortalBase
 {
@@ -9,6 +10,7 @@ public class GameStartPortal : PortalBase
         uiPanel.SetActive(false);
 
         //여기다가 수락 시 필요한 추가 기능 넣으면 됨
+        FadeManager.Instance.FadeOut();
     }
 
     protected override void OnReject()
