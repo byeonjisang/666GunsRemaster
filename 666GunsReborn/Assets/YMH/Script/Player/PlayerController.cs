@@ -58,7 +58,8 @@ public class PlayerController : Singleton<PlayerController>
         //정규화
         direction.Normalize();
 
-        player.Move(direction);
+        //플레이어 이동
+        player.HandleInput(direction);
     }
 
     #region Player Attack
@@ -80,6 +81,6 @@ public class PlayerController : Singleton<PlayerController>
 
     public void Dash()
     {
-        player.Dash();
+        player.Dash(direction);
     }
 }

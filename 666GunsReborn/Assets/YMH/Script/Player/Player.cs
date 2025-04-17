@@ -1,10 +1,9 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
-using Unity.IO.LowLevel.Unsafe;
 using UnityEngine;
 
 #region Player Enum
-public enum PlayerState 
+public enum PlayerStateType
 {
     Idle,
     Move,
@@ -13,7 +12,7 @@ public enum PlayerState
     Dead
 }
 
-public enum PlayerType 
+public enum PlayerType
 {
     Player1,
     Player2
@@ -29,19 +28,24 @@ public struct SlopeInfo
 
 public class Player : MonoBehaviour
 {
-    // ÇÃ·¹ÀÌ¾î »óÅÂ
-    protected PlayerState state;
-    // ÇÃ·¹ÀÌ¾î ½ºÅİ
+    #region Player State
+    // í”Œë ˆì´ì–´ ìƒíƒœ ë”•ì…”ë„ˆë¦¬
+    private Dictionary<PlayerStateType, PlayerStateBase> stateMap;
+    // í”Œë ˆì´ì–´ ê³µê²© Aciton
+    private PlayerAttack attackSystem;
+    // í”Œë ˆì´ì–´ ìƒíƒœ(ìƒíƒœ íŒ¨í„´)
+    private PlayerStateBase currentState;
+    #endregion Player State
+
+    // í”Œë ˆì´ì–´ ìŠ¤í…Ÿ
     protected PlayerStats stats;
-    // ÇÃ·¹ÀÌ¾î ½ºÄ³³Ê
+    // ì  ìŠ¤ìºë„ˆ
     protected EnemyScanner scanner;
 
-    // ÇÃ·¹ÀÌ¾î ÄÄÆ÷³ÍÆ®
+    // í”Œë ˆì´ì–´ ì»´í¬ë„ŒíŠ¸
     protected Rigidbody rigid;
+    // ì• ë‹ˆë©”ì´í„°
     protected Animator anim;
-
-    // ÇÃ·¹ÀÌ¾î °ÔÀÓ Áß È¹µæ ³»¿ë
-    protected int coin = 0;
 
     protected virtual void Awake()
     {
@@ -52,31 +56,59 @@ public class Player : MonoBehaviour
         scanner = gameObject.AddComponent<EnemyScanner>();
     }
 
+    // í”Œë ˆì´ì–´ ìŠ¤í…Ÿ ì´ˆê¸°í™”
     public virtual void Init()
     {
+        // í”Œë ˆì´ì–´ íƒ€ì…ì— ë”°ë¥¸ ë°ì´í„° ë¡œë“œ
         PlayerData playerData = Resources.Load<PlayerData>($"Datas/Player/{this.GetType().ToString()}");
-        
-        //½ºÅİ ÃÊ±âÈ­
+
+        // ìŠ¤í…Ÿ ì´ˆê¸°í™”
         stats.Init(playerData);
-        state = PlayerState.Idle;
+
+        // ìƒíƒœ ì´ˆê¸°í™”
+        stateMap = new Dictionary<PlayerStateType, PlayerStateBase>
+        {
+            { PlayerStateType.Idle, new IdleState(this) },
+            { PlayerStateType.Move, new MoveState(this) },
+            { PlayerStateType.Dash, new DashState(this) },
+        };
+        SetState(PlayerStateType.Idle);
+
+        // ê³µê²© ì‹œìŠ¤í…œ ì´ˆê¸°í™”
+        attackSystem = new PlayerAttack(this);
+    }
+
+    //ìƒíƒœ ì„¤ì •
+    public void SetState(PlayerStateType type)
+    {
+        currentState?.ExitState();
+        currentState = stateMap[type];
+        currentState.EnterState();
     }
 
     protected virtual void Update()
     {
-        //´ë½¬ ÄğÅ¸ÀÓ °è»ê
+        // í˜„ì¬ ìƒíƒœ ì—…ë°ì´íŠ¸
+        currentState?.Update();
+
+        // ëŒ€ì‰¬ ì¿¨íƒ€ì„ ê³„ì‚°
         stats.DashCountCoolDown();
     }
 
-    //ÇÃ·¹ÀÌ¾î È¸Àü
+    public void HandleInput(Vector3 direction)
+    {
+        currentState?.HandleInput(direction);
+    }
+
     private void LookAt(Vector3 direction)
     {
         if (direction != Vector3.zero)
         {
-            if (scanner.NearestEnemy != null && state == PlayerState.Attack)
+            if (scanner.NearestEnemy != null && attackSystem.IsAttacking)
             {
-                Debug.Log("ÇÃ·¹ÀÌ¾î°¡ ÀûÀ» ½ºÄµÇÔ");
+                Debug.Log("í”Œë ˆì´ì–´ê°€ ì ì„ ìŠ¤ìº”í•¨");
 
-                //ÀûÀÇ À§Ä¡·Î È¸Àü
+                //ì ì˜ ìœ„ì¹˜ë¡œ íšŒì „
                 direction = scanner.NearestEnemy.transform.position - transform.position;
                 direction.y = 0f;
             }
@@ -86,56 +118,55 @@ public class Player : MonoBehaviour
         }
     }
 
-    #region Player Move
-    public virtual void Move(Vector3 direction)
+    #region Player Idle
+    public void Idle(Vector3 direction)
     {
-        if (state == PlayerState.Dash)
-            return;
-
         var slopeInfo = GetSlopeInfo(direction);
 
-        if (direction.sqrMagnitude < 0.001f)
+        if (slopeInfo.onSlope && IsGrounded())
+            rigid.velocity = Vector3.zero;
+    }
+    #endregion
+
+    #region Player Move
+    public void MoveDirectly(Vector3 direction)
+    {
+        var slopeInfo = GetSlopeInfo(direction);
+
+        Debug.Log("ì´ë™");
+
+        // ê²½ì‚¬ë©´ ê°€íŒŒë¥¸ ê²½ìš° ëª»ì˜¬ë¼ê°
+        if (slopeInfo.angle > 45f && IsGrounded())
         {
-            if (slopeInfo.onSlope && IsGrounded())
-                rigid.velocity = Vector3.zero;
-
-            state = PlayerState.Idle;
-
-            Debug.Log("Á¤Áö");
+            Debug.Log("ê²½ì‚¬ë©´ ë„ˆë¬´ ê°€íŒŒë¦„");
+            return;
         }
-        else
+
+        LookAt(direction);
+
+        // ê²½ì‚¬ë©´ ì†ë„ ë³´ì •
+        if (slopeInfo.onSlope && IsGrounded())
         {
-            Debug.Log("ÀÌµ¿");
-            if (slopeInfo.angle > 45f && IsGrounded())
-            {
-                Debug.Log("°æ»ç¸é ³Ê¹« °¡ÆÄ¸§");
-                return;
-            }
-
-            LookAt(direction);
-
-            if (slopeInfo.onSlope && IsGrounded())
-            {
-                Vector3 slopeDir = Vector3.ProjectOnPlane(direction, slopeInfo.normal);
-                rigid.velocity = slopeDir * stats.CurrentMoveSpeed;
-            }
-            else
-            {
-                Vector3 moveVelocity = new Vector3(direction.x, 0f, direction.z) * stats.CurrentMoveSpeed;
-                rigid.velocity = new Vector3(moveVelocity.x, rigid.velocity.y, moveVelocity.z);
-            }
+            Vector3 slopeDir = Vector3.ProjectOnPlane(direction, slopeInfo.normal);
+            rigid.velocity = slopeDir * stats.CurrentMoveSpeed;
+        }
+        else   
+        {
+            //í‰ì†Œ ë•… ìœ„
+            Vector3 moveVelocity = new Vector3(direction.x, 0f, direction.z) * stats.CurrentMoveSpeed;
+            rigid.velocity = new Vector3(moveVelocity.x, rigid.velocity.y, moveVelocity.z);
         }
 
         anim.SetFloat("Speed", direction.magnitude);
     }
 
-    //¶¥ À§¿¡ ÀÖ´ÂÁö Ã¼Å©
+    // ë•… ìœ„ì— ìˆëŠ”ì§€ ì²´í¬
     private bool IsGrounded()
     {
         return Physics.Raycast(transform.position, Vector3.down, 1.1f);
     }
 
-    //ÇÃ·¹ÀÌ¾î ÀÌµ¿½Ã °æ»ç¸é º¸Á¤
+    // í”Œë ˆì´ì–´ ì´ë™ì‹œ ê²½ì‚¬ë©´ ë³´ì •
     private SlopeInfo GetSlopeInfo(Vector3 direction)
     {
         RaycastHit hit;
@@ -160,83 +191,53 @@ public class Player : MonoBehaviour
     }
     #endregion
 
-    #region Player Attack
-    public virtual void StartAttack()
-    {
-        state = PlayerState.Attack;
-        anim.SetBool("IsAttack", true);
-
-        //ÀûÀ» ¹Ù¶óº¸°Ô ÇÔ
-        //LookAt();
-    }
-
-    public virtual void StopAttack()
-    {
-        state = PlayerState.Idle;
-        anim.SetBool("IsAttack", false);
-    }
-
-    protected virtual void LookAtEnemy()
-    {
-        //°¡Àå °¡±î¿î ÀûÀÌ ¾øÀ» °æ¿ì
-        if (scanner.NearestEnemy == null)
-            return;
-
-        Debug.Log("ÇÃ·¹ÀÌ¾î°¡ ÀûÀ» ½ºÄµÇÔ");
-
-        //ÀûÀÇ À§Ä¡·Î È¸Àü
-        Vector3 direction = scanner.NearestEnemy.transform.position - transform.position;
-        direction.y = 0f;
-
-        LookAt(direction);
-    }
-    #endregion
-
     #region Player Dash
-    public virtual void Dash()
+    public void Dash(Vector3 direction)
     {
-        //´ë½¬ »óÅÂ¿¡¼­ ´ë½¬ ¾ÈµÊ
-        if (state == PlayerState.Dash)
+        // ëŒ€ì‰¬ ìƒíƒœì¼ ê²½ìš° ëŒ€ì‰¬ ë¶ˆê°€
+        if (currentState is DashState)
             return;
 
-        //´ë½¬ °³¼ö È®ÀÎ
+        //ëŒ€ì‰¬ ê°œìˆ˜ ë¶€ì¡±í•  ê²½ìš° ëŒ€ì‰¬ ë¶ˆê°€
         if (stats.CurrentDashCount <= 0)
             return;
 
-        Debug.Log("´ë½¬");
-
-        StartCoroutine(DashCoroutine());
+        StartCoroutine(DashCoroutine(direction));
     }
 
-    protected virtual IEnumerator DashCoroutine()
+    private IEnumerator DashCoroutine(Vector3 direction)
     {
-        //»óÅÂ º¯°æ
-        state = PlayerState.Dash;
+        // ëŒ€ì‰¬ ìƒíƒœ ë³€í™˜
+        SetState(PlayerStateType.Dash);
+        // ëŒ€ì‰¬ ê°œìˆ˜ ê°ì†Œ
         stats.CurrentDashCount--;
+        // ì• ë‹ˆë©”ì´ì…˜
         anim.SetBool("IsDash", true);
 
-        //´ë½¬ ÀÌµ¿
-        Vector3 direction = transform.forward.normalized;
-        rigid.velocity = direction * stats.CurrentDashDistance * 2;
+        // ì´ë™ì„ í•˜ê³  ìˆì§€ ì•Šë‹¤ë©´ ë°”ë¼ë³´ëŠ” ë°©í–¥ìœ¼ë¡œ ëŒ€ì‰¬
+        if (direction.sqrMagnitude < 0.1f)
+            direction = transform.forward.normalized;
+        // ëŒ€ì‰¬ ì´ë™
+        rigid.velocity = direction * stats.CurrentDashDistance;
 
-        //´ë½¬ ½Ã°£(ÇÏµå ÄÚµù ³ªÁß¿¡ Àç±¸Çö ÇØ¾ßÇÔ)
         yield return new WaitForSeconds(0.5f);
 
-        //´ë½¬ Á¾·á
-        state = PlayerState.Idle;
+        SetState(PlayerStateType.Idle);
         anim.SetBool("IsDash", false);
     }
     #endregion
 
-    // ¹°¸® Ãæµ¹ Ã³¸®
-    protected virtual void OnTriggerEnter(Collider other)
+    #region Attack Action
+    public virtual void StartAttack()
     {
-        //ÄÚÀÎ È¹µæ
-        if (other.CompareTag("Coin"))
-        {
-            Coin coin = other.GetComponent<Coin>();
-            this.coin += coin.GetAmount();
-            Destroy(other.gameObject);
-        }
+        anim.SetBool("IsAttack", true);
+        attackSystem.StartAttack();
     }
+
+    public virtual void StopAttack()
+    {
+        anim.SetBool("IsAttack", false);
+        attackSystem.StopAttack();
+    }
+    #endregion
 }

@@ -16,7 +16,7 @@ MonoBehaviour:
   weaponName: Rife
   damage: 5
   maxAmmo: 120
-  bulletSpeed: 5
+  bulletSpeed: 10
   defense: 1
   sheld: 1
   bulletType: 0
