@@ -67,6 +67,25 @@ public class Player : MonoBehaviour
         stats.DashCountCoolDown();
     }
 
+    //플레이어 회전
+    private void LookAt(Vector3 direction)
+    {
+        if (direction != Vector3.zero)
+        {
+            if (scanner.NearestEnemy != null && state == PlayerState.Attack)
+            {
+                Debug.Log("플레이어가 적을 스캔함");
+
+                //적의 위치로 회전
+                direction = scanner.NearestEnemy.transform.position - transform.position;
+                direction.y = 0f;
+            }
+
+            Quaternion targetAngle = Quaternion.LookRotation(direction);
+            rigid.rotation = targetAngle;
+        }
+    }
+
     #region Player Move
     public virtual void Move(Vector3 direction)
     {
@@ -139,16 +158,6 @@ public class Player : MonoBehaviour
 
         return info;
     }
-
-    //플레이어 회전
-    private void LookAt(Vector3 direction)
-    {
-        if (direction != Vector3.zero)
-        {
-            Quaternion targetAngle = Quaternion.LookRotation(direction);
-            rigid.rotation = targetAngle;
-        }
-    }
     #endregion
 
     #region Player Attack
@@ -158,7 +167,7 @@ public class Player : MonoBehaviour
         anim.SetBool("IsAttack", true);
 
         //적을 바라보게 함
-        LookAtEnemy();
+        //LookAt();
     }
 
     public virtual void StopAttack()
@@ -172,6 +181,8 @@ public class Player : MonoBehaviour
         //가장 가까운 적이 없을 경우
         if (scanner.NearestEnemy == null)
             return;
+
+        Debug.Log("플레이어가 적을 스캔함");
 
         //적의 위치로 회전
         Vector3 direction = scanner.NearestEnemy.transform.position - transform.position;
