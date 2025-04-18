@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using static GameManager;
 
 
 //전체 GameManager이기 떄문에 현재 어떤 상태인지 구분.
@@ -15,6 +16,11 @@ public enum GameMode
 }
 public class GameManager : Singleton<GameManager>
 {
+    /// <summary>
+    /// DontDestroy 필요한 싱글턴 매니저들은 무조건 호출!
+    /// </summary>
+    protected override bool IsPersistent => true;
+
     //게임 모드 변경
     public GameMode _gameMode;
 
@@ -23,31 +29,13 @@ public class GameManager : Singleton<GameManager>
 
     public Button _settingButton;
 
-    void Awake()
+    protected override void Awake()
     {
+        base.Awake();
+
         //처음 입장 시 로비
         _gameMode = GameMode.LOBBY;
-
-        //GameManager는 파괴되면 안됨. 항상 씬 관리 및 유지
-        if (Instance != null)
-        {
-            Destroy(gameObject);
-        }
-
-        DontDestroyOnLoad(gameObject);
     }
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void ChangeGameMode(GameMode gameMode)
     {
         _gameMode = gameMode;

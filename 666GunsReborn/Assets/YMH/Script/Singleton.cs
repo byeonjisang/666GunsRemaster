@@ -5,13 +5,6 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
 {
     protected static T _instance;
     public static bool HasInstance => _instance != null;
-    public static T TryGetInstance() => HasInstance ? _instance : null;
-    public static T Current => _instance;
-
-    /// <summary>
-    /// 싱글톤 디자인 패턴
-    /// </summary>
-    /// <value>인스턴스</value>
     public static T Instance
     {
         get
@@ -21,21 +14,35 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
                 _instance = FindObjectOfType<T>();
                 if (_instance == null)
                 {
-                    GameObject obj = new GameObject();
-                    obj.name = typeof(T).Name + "_AutoCreated";
+                    GameObject obj = new GameObject(typeof(T).Name + "_AutoCreated");
                     _instance = obj.AddComponent<T>();
                 }
+
+                // 여기선 DontDestroy 안 해도 됨 (Awake에서 할 거니까)
             }
+
             return _instance;
         }
     }
 
     /// <summary>
-    /// Awake에서 인스턴스를 초기화합니다. 만약 awake를 override해서 사용해야 한다면 base.Awake()를 호출해야 합니다.
+    /// 싱글톤이 씬 전환 시 유지되어야 하는지 여부 (false면 Destroy됨)
     /// </summary>
+    protected virtual bool IsPersistent => false;
+
     protected virtual void Awake()
     {
-        InitializeSingleton();
+        if (_instance == null)
+        {
+            _instance = this as T;
+
+            if (IsPersistent)
+                DontDestroyOnLoad(gameObject);
+        }
+        else if (_instance != this)
+        {
+            Destroy(gameObject);
+        }
     }
 
     /// <summary>

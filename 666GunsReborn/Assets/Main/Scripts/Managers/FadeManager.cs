@@ -1,21 +1,28 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using static FadeManager;
 
 public class FadeManager : Singleton<FadeManager>
 {
+    [SerializeField] private CanvasGroup fadeCanvasGroup;
     [SerializeField] private CanvasGroup canvasGroup;
     [SerializeField] private float fadeDuration = 1f;
 
-    void Awake()
-    {
-        if (Instance != null)
-        {
-            Destroy(gameObject);
-        }
+    /// <summary>
+    /// DontDestroy 필요한 싱글턴 매니저들은 무조건 호출!
+    /// </summary>
+    protected override bool IsPersistent => true;
 
-        //씬 전환할 때 마다 사용하기에 파괴되면 안 됨.
-        DontDestroyOnLoad(gameObject);
+    protected override void Awake()
+    {
+        base.Awake();
+
+        // 자동으로 canvasGroup 찾아오기 (혹시 연결 안됐을 때 대비)
+        if (fadeCanvasGroup == null)
+        {
+            Debug.Log("FadeManager 없음!");
+        }
     }
 
     public void FadeIn(System.Action onComplete = null)
@@ -37,18 +44,20 @@ public class FadeManager : Singleton<FadeManager>
     {
         float time = 0f;
         canvasGroup.blocksRaycasts = true;
+        canvasGroup.interactable = false;
 
         while (time < fadeDuration)
         {
             time += Time.deltaTime;
 
             //점점 어두워진다.
-            canvasGroup.alpha = Mathf.Lerp(startAlpha, endAlpha, time / fadeDuration);
+            fadeCanvasGroup.alpha = Mathf.Lerp(startAlpha, endAlpha, time / fadeDuration);
             yield return null;
         }
 
-        canvasGroup.alpha = endAlpha;
+        fadeCanvasGroup.alpha = endAlpha;
         canvasGroup.blocksRaycasts = false;
+        canvasGroup.interactable = true;
 
         onComplete?.Invoke();
     }
