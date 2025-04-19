@@ -13,6 +13,9 @@ public class FadeManager : Singleton<FadeManager>
     {
         base.Awake();
 
+        //가려진 페이드 무조건 아웃시키고 시작
+        FadeOut();
+
         // 자동으로 canvasGroup 찾아오기 (혹시 연결 안됐을 때 대비)
         if (fadeCanvasGroup == null)
         {
@@ -52,7 +55,10 @@ public class FadeManager : Singleton<FadeManager>
     private IEnumerator FadeCoroutine(float startAlpha, float endAlpha)
     {
         float time = 0f;
-        canvasGroup.blocksRaycasts = true;
+
+        //페이드 캔버스만 입력을 막는다
+        fadeCanvasGroup.blocksRaycasts = true;
+        fadeCanvasGroup.interactable = false;
 
         while (time < fadeDuration)
         {
@@ -62,6 +68,9 @@ public class FadeManager : Singleton<FadeManager>
         }
 
         fadeCanvasGroup.alpha = endAlpha;
-        canvasGroup.blocksRaycasts = endAlpha != 0;
+
+        // 페이드가 완료되면 입력 허용 여부 설정
+        fadeCanvasGroup.blocksRaycasts = endAlpha != 0;
+        fadeCanvasGroup.interactable = false; // 보통 페이드는 클릭 대상이 아니니까
     }
 }
