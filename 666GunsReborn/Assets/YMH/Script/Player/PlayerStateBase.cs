@@ -4,11 +4,11 @@ using UnityEngine;
 // 상태 패턴 베이스
 public abstract class PlayerStateBase
 {
-    protected Player players;
+    protected Player player;
 
-    public PlayerStateBase(Player players)
+    public PlayerStateBase(Player player)
     {
-        this.players = players;
+        this.player = player;
     }
 
     public virtual void EnterState() { }
@@ -26,25 +26,25 @@ public class IdleState : PlayerStateBase
     {
         if (direction.sqrMagnitude > 0.01f)
         {
-            players.SetState(PlayerStateType.Move);
+            player.SetState(PlayerStateType.Move);
         }
 
-        players.Idle(direction);
+        player.Idle(direction);
     }
 }
 // 이동 상태
 public class MoveState : PlayerStateBase
 {
-    public MoveState(Player players) : base(players) { }
+    public MoveState(Player player) : base(player) { }
 
     public override void HandleInput(Vector3 direction)
     {
         if (direction.sqrMagnitude < 0.01f)
         {
-            players.SetState(PlayerStateType.Idle);
+            player.SetState(PlayerStateType.Idle);
         }
 
-        players.MoveDirectly(direction);
+        player.MoveDirectly(direction);
     }
 }
 // 대쉬 상태

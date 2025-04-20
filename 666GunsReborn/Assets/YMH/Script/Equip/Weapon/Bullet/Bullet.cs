@@ -39,4 +39,13 @@ public class Bullet : MonoBehaviour, IPooledObject
     {
         rigid.velocity = transform.forward * speed;
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Enemy"))
+        {
+            other.GetComponent<EnemyTest>().OnDamge((int)damage);
+            ReturnToPool();
+        }
+    }
 }

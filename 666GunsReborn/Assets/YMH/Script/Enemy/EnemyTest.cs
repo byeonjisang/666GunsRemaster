@@ -4,11 +4,24 @@ using UnityEngine;
 
 public class EnemyTest : MonoBehaviour
 {
+    private Color color;
     private Material enemyMaterial;
+    private int health = 1;
 
     private void Awake()
     {
         enemyMaterial = GetComponent<Renderer>().material;
+        color = enemyMaterial.color;
+    }
+
+    public void OnDamge(int damage)
+    {
+        health -= damage;
+
+        if (health <= 0)
+        {
+            gameObject.SetActive(false);
+        }
     }
 
     public void CheckedFromPlayer(bool isCheck)
@@ -19,7 +32,7 @@ public class EnemyTest : MonoBehaviour
         }
         else
         {
-            enemyMaterial.color = Color.white;
+            enemyMaterial.color = color;
         }
     }
 }

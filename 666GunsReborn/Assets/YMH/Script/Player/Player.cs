@@ -133,8 +133,6 @@ public class Player : MonoBehaviour
     {
         var slopeInfo = GetSlopeInfo(direction);
 
-        Debug.Log("이동");
-
         // 경사면 가파른 경우 못올라감
         if (slopeInfo.angle > 45f && IsGrounded())
         {
