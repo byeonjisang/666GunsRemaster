@@ -8,28 +8,29 @@ public class StageManager : Singleton<StageManager>
     [SerializeField]
     private GameObject portal;
 
-    [Header("Enemy")]
-    [SerializeField]
-    private GameObject enemyPrefab;
-    [SerializeField]
-    private List<Transform> enemySpawnTransforms;
+    private StageController stageController;
 
     // 현재 스테이지 인덱스
-    private int currentStageIndex = 0;
+    private int currentStageIndex = 1;
 
-    // 살아있는 적들
-    private List<GameObject> aliveEnemies = new List<GameObject>();
+    protected override void Awake()
+    {
+        base.Awake();
+        stageController = GetComponent<StageController>();
+    }
 
     private void Start()
     {
-        SpawnEnemy();
+        StartStage();
     }
 
-    public void SpawnEnemy()
+    public void StartStage()
     {
-        foreach(Transform enemySpawnTransform in enemySpawnTransforms)
-        {
-            Instantiate(enemyPrefab, enemySpawnTransform.position, enemySpawnTransform.rotation);
-        }
+        stageController.StartStage(currentStageIndex);
+    }
+
+    public void DeadEnemy(GameObject enemyObject) 
+    {
+        stageController.DeadEnemy(enemyObject);
     }
 }

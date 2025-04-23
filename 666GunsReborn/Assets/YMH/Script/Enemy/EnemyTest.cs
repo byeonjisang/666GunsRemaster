@@ -20,6 +20,8 @@ public class EnemyTest : MonoBehaviour
 
         if (health <= 0)
         {
+            // 적이 죽었을 때의 처리
+            StageManager.Instance.DeadEnemy(gameObject);
             gameObject.SetActive(false);
         }
     }
