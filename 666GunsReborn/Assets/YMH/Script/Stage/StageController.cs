@@ -46,6 +46,7 @@ public class StageController : MonoBehaviour
         isSpawning = false;
     }
 
+    // 적이 죽었을 때 호출되는 메서드
     public void DeadEnemy(GameObject enemyObject)
     {
         aliveEnemies.Remove(enemyObject);
@@ -53,8 +54,8 @@ public class StageController : MonoBehaviour
         //임시 삭제(나중에 오브젝트풀로 구현)
         Destroy(enemyObject);
 
-        // 모든 적이 죽었는지 확인
-        if(!isSpawning && aliveEnemies.Count <= 0)
+        // 모든 적이 죽었는지 확인 후 스테이지 클리어 체크
+        if (!isSpawning && aliveEnemies.Count <= 0)
         {
             Debug.Log("스테이지 클리어");
             isStageClear = true;
