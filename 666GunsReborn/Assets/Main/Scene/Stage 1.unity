@@ -1381,78 +1381,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 325641969}
   m_CullTransparentMesh: 1
---- !u!1 &339970390
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 339970391}
-  - component: {fileID: 339970392}
-  - component: {fileID: 339970393}
-  m_Layer: 0
-  m_Name: StageManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &339970391
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 339970390}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1868304365}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &339970392
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 339970390}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a389125973d49541aeacb66f5a6c85f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  portal: {fileID: 0}
-  enemyPrefab: {fileID: 1386194952325411249, guid: 77c93d1769fb23d43b3beb42a735bfdb,
-    type: 3}
-  enemySpawnTransforms:
-  - {fileID: 1518111737}
-  - {fileID: 2060047809}
-  - {fileID: 188342467}
-  - {fileID: 2074604417}
-  - {fileID: 594574518}
---- !u!114 &339970393
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 339970390}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b46917567272a7f479f14ced06488b4a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  stageDatas:
-  - {fileID: 11400000, guid: 3d8e8f4ef5b0c8d4fb5cdc439d4011d1, type: 2}
-  - {fileID: 11400000, guid: 253ce70daad13c840becb2b8ced6fc41, type: 2}
-  - {fileID: 11400000, guid: ba3ce37176b03c843a9d81e024ceeed7, type: 2}
-  - {fileID: 11400000, guid: 1cec8ed7f903f75499ddc73c39e33a17, type: 2}
-  monsterSpawnWaves: []
 --- !u!4 &356815575 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7072444061591351722, guid: 910177ec26b76c14996c2d53627a6def,
@@ -5628,7 +5556,6 @@ Transform:
   - {fileID: 1062968891}
   - {fileID: 690599119}
   - {fileID: 558908893}
-  - {fileID: 339970391}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1886404385
