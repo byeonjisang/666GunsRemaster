@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 using static GameManager;
@@ -29,6 +31,9 @@ public class GameManager : Singleton<GameManager>
 
     public Button _settingButton;
 
+    public Action _onAccept;
+    public Action _onReject;
+
     protected override void Awake()
     {
         base.Awake();
@@ -41,4 +46,28 @@ public class GameManager : Singleton<GameManager>
         _gameMode = gameMode;
         Debug.Log("현재 게임 모드 : " +  _gameMode);
     }
+
+    public void Accept()
+    {
+        Debug.Log("PortalManager: Accept called");
+        _onAccept?.Invoke();
+    }
+
+    public void Reject()
+    {
+        Debug.Log("PortalManager: Reject called");
+        _onReject?.Invoke();
+    }
+
+    public void ClearDelegates()
+    {
+        _onAccept = null;
+        _onReject = null;
+    }
+
+    /// <summary>
+    /// 로비 및 각종 구역에서의 버튼 이벤트는 전부 GameManager의 Action을 통해 호출한다.
+    /// </summary>
+    public void OnAcceptButtonClicked() => Accept();
+    public void OnRejectButtonClicked() => Reject();
 }
