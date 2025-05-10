@@ -5,14 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class StageManager : Singleton<StageManager>
 {
-    [Header("Portal")]
     [SerializeField]
-    //private GameObject portal;
+    private List<StageData> stageDatas;
 
     private StageController stageController;
 
-    // ÇöÀç ½ºÅ×ÀÌÁö ÀÎµ¦½º
+    // í˜„ì¬ ìŠ¤í…Œì´ì§€ ë²ˆí˜¸
     private int currentStageIndex;
+    // ìŠ¤í…Œì´ì§€ í´ë¦¬ì–´ í–ˆëŠ”ì§€ ê¸°ë¡
+    private bool[] isStageClear = {false, false, false, false};
 
     protected override void Awake()
     {
@@ -23,13 +24,23 @@ public class StageManager : Singleton<StageManager>
 
     public void StartStage(int stageIndex)
     {
-        currentStageIndex = stageIndex;
+        currentStageIndex = stageIndex - 1;
         SceneManager.LoadScene("Stage " + stageIndex.ToString());
-        stageController.StartStage(currentStageIndex);
+        stageController.StartStage(stageDatas[currentStageIndex]);
     }
 
     public void DeadEnemy(GameObject enemyObject) 
     {
         stageController.DeadEnemy(enemyObject);
+    }
+
+    public void StageClear()
+    {
+        isStageClear[currentStageIndex] = true;
+        SceneManager.LoadScene("Stage Select");
+    }
+
+    public bool[] GetStageClearState(){
+        return isStageClear;
     }
 }

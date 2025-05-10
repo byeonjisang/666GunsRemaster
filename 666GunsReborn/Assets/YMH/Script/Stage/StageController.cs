@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class StageController : MonoBehaviour
 {
-    [SerializeField]
-    private List<StageData> stageDatas;
-
     private StageData currentStageData;
 
     // 살아있는 적들
@@ -15,10 +12,10 @@ public class StageController : MonoBehaviour
     private bool isStageClear = false;
     private bool isSpawning = false;
 
-    public void StartStage(int stageIndex)
+    public void StartStage(StageData currentStageData)
     {
-        currentStageData = stageDatas[stageIndex - 1];
-        StartCoroutine(SpawnMonsterRoutine(currentStageData.spawnWaveData));
+        this.currentStageData = currentStageData;
+        StartCoroutine(SpawnMonsterRoutine(this.currentStageData.spawnWaveData));
     }
 
     private IEnumerator SpawnMonsterRoutine(SpawnWaveData spawnWaveData)
@@ -59,6 +56,7 @@ public class StageController : MonoBehaviour
         {
             Debug.Log("스테이지 클리어");
             isStageClear = true;
+            StageManager.Instance.StageClear();
         }
     }
 }
