@@ -5,17 +5,17 @@ public class GameStartPortal : PortalBase
 {
     protected override void OnAccept()
     {
-        Debug.Log("°ÔÀÓ ½ÃÀÛ Æ÷Å» ¼ö¶ôµÊ");
+        Debug.Log("ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å» ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
         GameManager.Instance.ChangeGameMode(GameMode.GAMESTART);
         uiPanel.SetActive(false);
 
-        //¿©±â´Ù°¡ ¼ö¶ô ½Ã ÇÊ¿äÇÑ Ãß°¡ ±â´É ³ÖÀ¸¸é µÊ
-        FadeManager.Instance.FadeIn();
+        //ï¿½ï¿½ï¿½ï¿½Ù°ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ê¿ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
+        FadeManager.Instance.FadeAndLoadScene("Stage Select");
     }
 
     protected override void OnReject()
     {
-        Debug.Log("°ÔÀÓ ½ÃÀÛ Æ÷Å» °ÅÀýµÊ");
+        Debug.Log("ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å» ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
         uiPanel.SetActive(false);
     }
 }

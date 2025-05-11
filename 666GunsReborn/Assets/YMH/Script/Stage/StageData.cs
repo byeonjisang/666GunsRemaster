@@ -15,5 +15,6 @@ public class StageData : ScriptableObject
     public int stageIndex; // 스테이지 인덱스
     public string stageName; // 스테이지 이름
     public StageType stageType; // 스테이지 타입
+    public float stageTime; // 스테이지 시간
     public SpawnWaveData spawnWaveData;
 }

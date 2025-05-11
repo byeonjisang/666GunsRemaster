@@ -15,4 +15,5 @@ MonoBehaviour:
   stageIndex: 2
   stageName: Stage 2
   stageType: 1
+  stageTime: 200
   spawnWaveData: {fileID: 11400000, guid: 0ceb37e044862d04a98381d6806a094f, type: 2}

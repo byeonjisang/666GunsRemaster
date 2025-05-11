@@ -1,36 +1,47 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class StageManager : Singleton<StageManager>
 {
-    [Header("Portal")]
     [SerializeField]
-    private GameObject portal;
+    private List<StageData> stageDatas;
 
     private StageController stageController;
 
-    // ÇöÀç ½ºÅ×ÀÌÁö ÀÎµ¦½º
-    private int currentStageIndex = 1;
+    // í˜„ì¬ ìŠ¤í…Œì´ì§€ ë²ˆí˜¸
+    private int currentStageIndex;
+    // ìŠ¤í…Œì´ì§€ í´ë¦¬ì–´ í–ˆëŠ”ì§€ ê¸°ë¡
+    private bool[] isStageClear = {false, false, false, false};
 
     protected override void Awake()
     {
         base.Awake();
+        DontDestroyOnLoad(gameObject);
         stageController = GetComponent<StageController>();
     }
 
-    private void Start()
+    public void StartStage(int stageIndex)
     {
-        StartStage();
-    }
-
-    public void StartStage()
-    {
-        stageController.StartStage(currentStageIndex);
+        currentStageIndex = stageIndex - 1;
+        SceneManager.LoadScene("Stage " + stageIndex.ToString());
+        stageController.StartStage(stageDatas[currentStageIndex]);
     }
 
     public void DeadEnemy(GameObject enemyObject) 
     {
         stageController.DeadEnemy(enemyObject);
+    }
+
+    public void StageClear(float clearTime)
+    {
+        isStageClear[currentStageIndex] = true;
+        UIManager.Instance.ShowStageClearUI(clearTime);
+        //SceneManager.LoadScene("Stage Select");
+    }
+
+    public bool[] GetStageClearState(){
+        return isStageClear;
     }
 }
