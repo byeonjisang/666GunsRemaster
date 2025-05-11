@@ -9,12 +9,31 @@ public class StageController : MonoBehaviour
     // 살아있는 적들
     private List<GameObject> aliveEnemies = new List<GameObject>();
 
+    private float stageTimer = 0;
+    private bool isStageStart = false;
     private bool isStageClear = false;
     private bool isSpawning = false;
 
+    private void Update()
+    {
+        if(isStageStart){
+            stageTimer -= Time.deltaTime;
+            UIManager.Instance.UpdateTimer(stageTimer);
+            if (stageTimer <= 0)
+            {
+                isStageStart = false;
+                isSpawning = false;
+                Debug.Log("스테이지 실패");
+                //StageManager.Instance.StageClear();
+            }
+        }
+    }
+
     public void StartStage(StageData currentStageData)
     {
+        isStageStart = true;
         this.currentStageData = currentStageData;
+        stageTimer = this.currentStageData.stageTime;
         StartCoroutine(SpawnMonsterRoutine(this.currentStageData.spawnWaveData));
     }
 
@@ -55,8 +74,9 @@ public class StageController : MonoBehaviour
         if (!isSpawning && aliveEnemies.Count <= 0)
         {
             Debug.Log("스테이지 클리어");
+            isStageStart = false;
             isStageClear = true;
-            StageManager.Instance.StageClear();
+            StageManager.Instance.StageClear(currentStageData.stageTime - stageTimer);
         }
     }
 }

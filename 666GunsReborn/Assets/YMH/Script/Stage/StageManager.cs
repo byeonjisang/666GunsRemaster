@@ -34,10 +34,11 @@ public class StageManager : Singleton<StageManager>
         stageController.DeadEnemy(enemyObject);
     }
 
-    public void StageClear()
+    public void StageClear(float clearTime)
     {
         isStageClear[currentStageIndex] = true;
-        SceneManager.LoadScene("Stage Select");
+        UIManager.Instance.ShowStageClearUI(clearTime);
+        //SceneManager.LoadScene("Stage Select");
     }
 
     public bool[] GetStageClearState(){
