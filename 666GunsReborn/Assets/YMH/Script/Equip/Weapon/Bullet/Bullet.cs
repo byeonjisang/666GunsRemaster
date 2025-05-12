@@ -54,6 +54,23 @@ public class Bullet : MonoBehaviour, IPooledObject
 
     private void OnTriggerEnter(Collider other)
     {
+        switch(GameManager.Instance._gameMode){
+            case GameMode.WEAPONTEST:
+                OnCollisionBulletInWeaponTest(other);
+                break;
+            case GameMode.INGAME:
+                OnCollisionBulletInIngame(other);
+                break;
+            default:
+                break;
+        }
+    }
+
+    private void OnCollisionBulletInWeaponTest(Collider other){
+
+    }
+
+    private void OnCollisionBulletInIngame(Collider other){
         if (other.CompareTag("Enemy"))
         {
             other.GetComponent<EnemyTest>().OnDamge((int)damage);
