@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Weapon : MonoBehaviour
@@ -19,6 +20,6 @@ public class Weapon : MonoBehaviour
     {
         //GameObject bullet = Instantiate(bulletObject, bulletPos.position, bulletRot);
         GameObject bullet = ObjectPoolManager.Instance.GetFromPool("Bullet", bulletPos.position, bulletRot);
-        bullet.GetComponent<Bullet>().SetSpeed(weaponData.damage, weaponData.bulletSpeed);
+        bullet.GetComponent<Bullet>().SetInfo(weaponData.damage, weaponData.bulletSpeed, bullet.transform.position);
     }
 }

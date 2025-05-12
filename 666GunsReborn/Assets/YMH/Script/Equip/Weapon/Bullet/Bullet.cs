@@ -9,6 +9,8 @@ public class Bullet : MonoBehaviour, IPooledObject
 
     private float damage;
     private float speed;
+    private float maxDistance = 50f;
+    private Vector3 spawnPosition;
 
     private void Awake()
     {
@@ -19,10 +21,11 @@ public class Bullet : MonoBehaviour, IPooledObject
         this.pool = pool;
     }
 
-    public void SetSpeed(float damage, float speed)
+    public void SetInfo(float damage, float speed, Vector3 spawnPosition)
     {
         this.damage = damage;
         this.speed = speed;
+        this.spawnPosition = spawnPosition;
     }
 
     public void ReturnToPool()
@@ -33,6 +36,15 @@ public class Bullet : MonoBehaviour, IPooledObject
     public void ResetObject()
     {
         rigid.velocity = Vector3.zero;
+    }
+
+    public void Update()
+    {
+        float traveledDistance = Vector3.Distance(spawnPosition, transform.position);
+        if(traveledDistance >= maxDistance)
+        {
+            ReturnToPool(); // 최대 비행 거리 도달 시 풀로 반환
+        }
     }
 
     private void FixedUpdate()
