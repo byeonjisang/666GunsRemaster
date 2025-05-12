@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public enum WeaponType
@@ -23,33 +24,36 @@ public class WeaponManager : Singleton<WeaponManager>
     [SerializeField]
     private GameObject playerObject;
 
-    private WeaponType weaponType;
-    private Weapon currentWeapon;
+    private int currentWeaponIndex = 0;
+    private Weapon[] equipedWeapons = new Weapon[2];
+    private Weapon currentWeapon => equipedWeapons[currentWeaponIndex];
 
+    // Weapon 
     private void Start()
     {
-        weaponType = WeaponType.Rifle;
-        switch (weaponType)
-        {
-            case WeaponType.Pistol:
-                currentWeapon = gameObject.AddComponent<Pistol>();
-                break;
-            case WeaponType.Rifle:
-                currentWeapon = gameObject.AddComponent<Rifle>();
-                break;
-            case WeaponType.Shotgun:
-                currentWeapon = gameObject.AddComponent<Shotgun>();
-                break;
-        }
+        currentWeaponIndex = 0;
+        
+        //임시 총 초기화
+        equipedWeapons[0] = playerObject.GetComponent<Pistol>();
+        equipedWeapons[1] = playerObject.GetComponent<Rifle>();
 
-        currentWeapon.Init(weaponType);
+        equipedWeapons[0].Init(WeaponType.Pistol);
+        equipedWeapons[1].Init(WeaponType.Rifle);
     }
 
+    // Fire Bullet
     public void Attack()
     {
         Transform bulletPos = playerObject.GetComponent<Animator>().GetBoneTransform(HumanBodyBones.Hips);
         Quaternion bulletRot = playerObject.transform.rotation;
 
         currentWeapon.Fire(bulletObject, bulletPos, bulletRot);
+    }
+
+    // Change Weapon
+    public void SwitchWeapon(){
+        currentWeaponIndex = 1 - currentWeaponIndex;
+
+        //무기 교체 추가 작업칸
     }
 }

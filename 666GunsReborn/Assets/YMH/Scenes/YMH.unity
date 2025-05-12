@@ -1294,6 +1294,24 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 935660354}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &301608393 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7072444061591711132, guid: 910177ec26b76c14996c2d53627a6def,
+    type: 3}
+  m_PrefabInstance: {fileID: 935660354}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &301608396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 301608393}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8ec53059c59a3f42b9b8908dbe8e0de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &316416746 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7072444061591351786, guid: 910177ec26b76c14996c2d53627a6def,
@@ -2979,6 +2997,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7072444061591711132, guid: 910177ec26b76c14996c2d53627a6def,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7072444061591711186, guid: 910177ec26b76c14996c2d53627a6def,
         type: 3}
       propertyPath: m_Name
@@ -3004,6 +3027,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 935660358}
+    - targetCorrespondingSourceObject: {fileID: 7072444061591711132, guid: 910177ec26b76c14996c2d53627a6def,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 301608396}
   m_SourcePrefab: {fileID: 100100000, guid: 910177ec26b76c14996c2d53627a6def, type: 3}
 --- !u!1 &935660355 stripped
 GameObject:
@@ -3564,6 +3591,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fireButton: {fileID: 219023169}
   dashButton: {fileID: 1646501978}
+  timerText: {fileID: 0}
+  resultUI: {fileID: 0}
+  clearTimeText: {fileID: 0}
 --- !u!1 &1070849544
 GameObject:
   m_ObjectHideFlags: 0
