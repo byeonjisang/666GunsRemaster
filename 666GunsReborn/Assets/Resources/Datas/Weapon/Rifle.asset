@@ -15,6 +15,9 @@ MonoBehaviour:
   weaponType: 1
   weaponName: Rife
   damage: 5
+  fireDistance: 10
+  reloadTime: 4
+  maxMagazine: 30
   maxAmmo: 120
   bulletSpeed: 10
   defense: 1

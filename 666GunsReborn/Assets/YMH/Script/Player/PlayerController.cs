@@ -1,10 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Xml;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
-using UnityEngine.InputSystem;
-using static UnityEngine.UI.CanvasScaler;
+
 
 public class PlayerController : Singleton<PlayerController>
 {
@@ -18,7 +13,7 @@ public class PlayerController : Singleton<PlayerController>
     private Joystick joystick;
     #endregion
 
-    public Vector3 direction = Vector3.zero;
+    private Vector3 direction = Vector3.zero;
 
     private Player player;
 
@@ -42,7 +37,7 @@ public class PlayerController : Singleton<PlayerController>
         if (Input.GetKeyDown(KeyCode.Space))
             Dash();
     }
-
+#region Player Move
     private void FixedUpdate()
     {
         Move();
@@ -50,37 +45,41 @@ public class PlayerController : Singleton<PlayerController>
 
     private void Move()
     {
-        //Á¶ÀÌ½ºÆ½ °ª ¹Þ¾Æ¿À±â
+        //ï¿½ï¿½ï¿½Ì½ï¿½Æ½ ï¿½ï¿½ ï¿½Þ¾Æ¿ï¿½ï¿½ï¿½
         direction = new Vector3(joystick.Horizontal, 0f, joystick.Vertical);
-        //Å°º¸µå ÀÔ·Â °ª ¹Þ¾Æ¿À±â
+        //Å°ï¿½ï¿½ï¿½ï¿½ ï¿½Ô·ï¿½ ï¿½ï¿½ ï¿½Þ¾Æ¿ï¿½ï¿½ï¿½
         direction += new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical"));
 
-        //Á¤±ÔÈ­
+        //ï¿½ï¿½ï¿½ï¿½È­
         direction.Normalize();
 
-        //ÇÃ·¹ÀÌ¾î ÀÌµ¿
+        //ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ ï¿½Ìµï¿½
         player.HandleInput(direction);
     }
+#endregion
 
-    #region Player Attack
+#region Player Attack
     public void OnClickAttack()
     {
-        player.StartAttack();
+        //player.StartAttack();
+        player.attackSystem.RequestAttack();
     }
 
     public void OffClickAttakc()
     {
-        player.StopAttack();
+        //player.StopAttack();
+        player.attackSystem.CancelAttackRequest();
     }
 
-    public void FireBullet()
-    {
+    public void FireBullet(){
         WeaponManager.Instance.Attack();
     }
-    #endregion
+#endregion
 
+#region Player Dash
     public void Dash()
     {
         player.Dash(direction);
     }
+#endregion
 }

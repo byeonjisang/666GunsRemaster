@@ -32,7 +32,7 @@ public class Player : MonoBehaviour
     // 플레이어 상태 딕셔너리
     private Dictionary<PlayerStateType, PlayerStateBase> stateMap;
     // 플레이어 공격 Aciton
-    private PlayerAttack attackSystem;
+    public PlayerAttack attackSystem;
     // 플레이어 상태(상태 패턴)
     private PlayerStateBase currentState;
     #endregion Player State
@@ -75,7 +75,8 @@ public class Player : MonoBehaviour
         SetState(PlayerStateType.Idle);
 
         // 공격 시스템 초기화
-        attackSystem = new PlayerAttack(this);
+        attackSystem = gameObject.AddComponent<PlayerAttack>();
+        attackSystem.Initialize(this);
     }
 
     //상태 설정
@@ -229,13 +230,13 @@ public class Player : MonoBehaviour
     public virtual void StartAttack()
     {
         anim.SetBool("IsAttack", true);
-        attackSystem.StartAttack();
+        //attackSystem.StartAttack();
     }
 
     public virtual void StopAttack()
     {
         anim.SetBool("IsAttack", false);
-        attackSystem.StopAttack();
+        //attackSystem.StopAttack();
     }
     #endregion
 }

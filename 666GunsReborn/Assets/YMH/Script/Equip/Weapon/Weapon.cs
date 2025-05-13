@@ -6,20 +6,31 @@ using UnityEngine;
 public class Weapon : MonoBehaviour
 {
     //무기 데이터
-    protected WeaponData weaponData;
+    protected WeaponStats weaponStats;
     //총알 오브젝트
     protected GameObject bulletObject;
 
-    public void Init(WeaponType weaponType)
+    // 무기 데이터 초기화
+    public void Initialized(WeaponType weaponType)
     {
         string path = "Datas/Weapon/" + weaponType.ToString();
-        weaponData = Resources.Load<WeaponData>(path);
+        WeaponData weaponData = Resources.Load<WeaponData>(path);
+        weaponStats = gameObject.AddComponent<WeaponStats>();
+        weaponStats.Initialized(weaponData);
     }
 
-    public void Fire(GameObject bulletObject, Transform bulletPos, Quaternion bulletRot)
+    // 무기가 현재 발사 가능한지 체크
+    public bool CanFire(){
+        if(weaponStats.IsReloading())
+            return false;
+        return true;
+    }
+
+    // Default 총알 발사
+    public virtual void Fire(GameObject bulletObject, Transform bulletPos, Quaternion bulletRot)
     {
-        //GameObject bullet = Instantiate(bulletObject, bulletPos.position, bulletRot);
         GameObject bullet = ObjectPoolManager.Instance.GetFromPool("Bullet", bulletPos.position, bulletRot);
-        bullet.GetComponent<Bullet>().SetInfo(weaponData.damage, weaponData.bulletSpeed, bullet.transform.position);
+        bullet.GetComponent<Bullet>().SetInfo(weaponStats.Damage, weaponStats.BulletSpeed, bullet.transform.position);
+        weaponStats.Fire();
     }
 }

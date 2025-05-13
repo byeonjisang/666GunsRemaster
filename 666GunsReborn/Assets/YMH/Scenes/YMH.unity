@@ -3000,7 +3000,7 @@ PrefabInstance:
     - target: {fileID: 7072444061591711132, guid: 910177ec26b76c14996c2d53627a6def,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7072444061591711186, guid: 910177ec26b76c14996c2d53627a6def,
         type: 3}
@@ -3079,7 +3079,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerType: 0
   joystick: {fileID: 1210365723}
-  direction: {x: 0, y: 0, z: 0}
 --- !u!136 &935660358
 CapsuleCollider:
   m_ObjectHideFlags: 0

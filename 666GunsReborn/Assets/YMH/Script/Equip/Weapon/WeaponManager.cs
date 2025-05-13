@@ -34,14 +34,22 @@ public class WeaponManager : Singleton<WeaponManager>
         currentWeaponIndex = 0;
         
         //임시 총 초기화
-        equipedWeapons[0] = playerObject.GetComponent<Pistol>();
-        equipedWeapons[1] = playerObject.GetComponent<Rifle>();
+        equipedWeapons[0] = playerObject.AddComponent<Pistol>();
+        equipedWeapons[1] = playerObject.AddComponent<Rifle>();
 
-        equipedWeapons[0].Init(WeaponType.Pistol);
-        equipedWeapons[1].Init(WeaponType.Rifle);
+        equipedWeapons[0].Initialized(WeaponType.Pistol);
+        equipedWeapons[1].Initialized(WeaponType.Rifle);
     }
 
     // Fire Bullet
+    public bool CanAttack(){
+        if(!currentWeapon.CanFire()){
+            Debug.Log("재장전 중입니다.");
+            return false;
+        }
+        return true;
+    }
+
     public void Attack()
     {
         Transform bulletPos = playerObject.GetComponent<Animator>().GetBoneTransform(HumanBodyBones.Hips);
@@ -53,7 +61,7 @@ public class WeaponManager : Singleton<WeaponManager>
     // Change Weapon
     public void SwitchWeapon(){
         currentWeaponIndex = 1 - currentWeaponIndex;
-
+        Debug.Log("무기 교체 : " + equipedWeapons[currentWeaponIndex].name);
         //무기 교체 추가 작업칸
     }
 }

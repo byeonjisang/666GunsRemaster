@@ -15,7 +15,9 @@ MonoBehaviour:
   weaponType: 0
   weaponName: Pistol
   damage: 10
-  maxMagazine: 0
+  fireDistance: 10
+  reloadTime: 5
+  maxMagazine: 19
   maxAmmo: 50
   bulletSpeed: 5
   defense: 1
