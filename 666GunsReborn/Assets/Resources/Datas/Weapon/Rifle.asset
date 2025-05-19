@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Rifle
   m_EditorClassIdentifier: 
   weaponType: 1
+  weaponSprite: {fileID: 21300000, guid: 364eccac494de714d84a43b20fc715d2, type: 3}
   weaponName: Rife
   damage: 5
   fireDistance: 10

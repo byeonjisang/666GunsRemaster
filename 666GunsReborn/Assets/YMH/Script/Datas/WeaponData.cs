@@ -5,6 +5,7 @@ using UnityEngine;
 public class WeaponData : ScriptableObject
 {
     public WeaponType weaponType;
+    public Sprite weaponSprite;
     public string weaponName;
     public float damage;
     public float fireDistance;
