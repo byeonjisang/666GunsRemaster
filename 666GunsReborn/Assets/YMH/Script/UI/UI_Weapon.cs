@@ -8,19 +8,28 @@ public class UI_Weapon : MonoBehaviour
     [SerializeField]
     private Text weaponAmmoText;
 
+    [SerializeField]
+    private Slider reloadCooldownSlider;
+
     private void Awake()
     {
         WeaponManager.Instance.OnUpdateAmmoUI += UpdateAmmoUI;
         WeaponManager.Instance.OnUpdateWeaponImage += UpdateWeaponImage;
+        WeaponManager.Instance.OnUpdateReLoadCooldownUI += UpdateReloadCooldownUI;
     }
 
-    public void UpdateAmmoUI(int currentAmmo, int currentMagazine)
+    private void UpdateAmmoUI(int currentAmmo, int currentMagazine)
     {
         weaponAmmoText.text = currentMagazine + " / " + currentAmmo;
     }
 
-    public void UpdateWeaponImage(Sprite weaponSprite)
+    private void UpdateWeaponImage(Sprite weaponSprite)
     {
         weaponImage.sprite = weaponSprite;
+    }
+
+    private void UpdateReloadCooldownUI(float cooldown)
+    {
+        reloadCooldownSlider.value = cooldown;
     }
 }

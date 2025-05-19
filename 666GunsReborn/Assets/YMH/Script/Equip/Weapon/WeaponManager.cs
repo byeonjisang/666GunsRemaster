@@ -26,10 +26,11 @@ public class WeaponManager : Singleton<WeaponManager>
     private int currentWeaponIndex = 0;
     private Weapon[] equipedWeapons = new Weapon[2];
     private Weapon currentWeapon => equipedWeapons[currentWeaponIndex];
-    
-    
+
+
     public Action<int, int> OnUpdateAmmoUI;
     public Action<Sprite> OnUpdateWeaponImage;
+    public Action<float> OnUpdateReLoadCooldownUI;
 
     // Weapon test initialization
     private void Start()
@@ -50,8 +51,10 @@ public class WeaponManager : Singleton<WeaponManager>
     }
 
     // Check if can attack
-    public bool CanAttack(){
-        if(!currentWeapon.CanFire()){
+    public bool CanAttack()
+    {
+        if (!currentWeapon.CanFire())
+        {
             Debug.Log("재장전 중입니다.");
             return false;
         }
@@ -70,11 +73,18 @@ public class WeaponManager : Singleton<WeaponManager>
     }
 
     // Change Weapon
-    public void SwitchWeapon(){
+    public void SwitchWeapon()
+    {
         currentWeaponIndex = 1 - currentWeaponIndex;
         OnUpdateWeaponImage?.Invoke(currentWeapon.GetWeaponSprite());
         OnUpdateAmmoUI?.Invoke(currentWeapon.GetAmmo()[0], currentWeapon.GetAmmo()[1]);
+        OnUpdateReLoadCooldownUI?.Invoke(0);
         Debug.Log("무기 교체 : " + equipedWeapons[currentWeaponIndex].name);
         //무기 교체 추가 작업칸
+    }
+
+    public bool IsSameWeapon(Weapon weapon)
+    {
+        return currentWeapon == weapon;
     }
 }

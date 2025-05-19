@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering;
 
@@ -40,10 +41,18 @@ public class WeaponStats : MonoBehaviour
 
     private void Update()
     {
-        if(currentReloadTime > 0)
+        // 재장전
+        if (currentReloadTime > 0)
         {
             currentReloadTime -= Time.deltaTime;
-            if(currentReloadTime <= 0){
+
+            if (WeaponManager.Instance.IsSameWeapon(gameObject.GetComponent<Weapon>()))
+            {
+                WeaponManager.Instance.OnUpdateReLoadCooldownUI?.Invoke(currentReloadTime / reloadTime);
+            }
+
+            if (currentReloadTime <= 0)
+            {
                 Reload();
             }
         }
@@ -63,8 +72,20 @@ public class WeaponStats : MonoBehaviour
 
     private void Reload()
     {
-        currentMagazine = maxMagazine;
-        currentAmmo -= maxMagazine;
-        WeaponManager.Instance.OnUpdateAmmoUI?.Invoke(currentAmmo, currentMagazine);
+        if (currentAmmo < maxMagazine)
+        {
+            currentMagazine = currentAmmo;
+            currentAmmo = 0;
+        }
+        else
+        {
+            currentAmmo -= maxMagazine - currentMagazine;
+            currentMagazine = maxMagazine;
+        }
+
+        if (WeaponManager.Instance.IsSameWeapon(gameObject.GetComponent<Weapon>()))
+        {
+            WeaponManager.Instance.OnUpdateAmmoUI?.Invoke(currentAmmo, currentMagazine);
+        }
     }
 }
