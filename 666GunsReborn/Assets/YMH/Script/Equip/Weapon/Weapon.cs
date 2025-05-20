@@ -15,6 +15,7 @@ public class Weapon : MonoBehaviour
         string path = "Datas/Weapon/" + weaponType.ToString();
         WeaponData weaponData = Resources.Load<WeaponData>(path);
 
+        //weaponStats = gameObject.AddComponent<WeaponStats>();
         weaponStats = gameObject.AddComponent<WeaponStats>();
         weaponStats.Initialized(weaponData);
     }

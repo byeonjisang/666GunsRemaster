@@ -23,6 +23,10 @@ public class WeaponManager : Singleton<WeaponManager>
     [SerializeField]
     private GameObject playerObject;
 
+    [Header("Weapon Object")]
+    [SerializeField]
+    private GameObject[] weaponObject = new GameObject[2];
+
     private int currentWeaponIndex = 0;
     private Weapon[] equipedWeapons = new Weapon[2];
     private Weapon currentWeapon => equipedWeapons[currentWeaponIndex];
@@ -38,8 +42,8 @@ public class WeaponManager : Singleton<WeaponManager>
         currentWeaponIndex = 0;
 
         //임시 총 초기화
-        equipedWeapons[0] = playerObject.AddComponent<Pistol>();
-        equipedWeapons[1] = playerObject.AddComponent<Rifle>();
+        equipedWeapons[0] = weaponObject[0].AddComponent<Pistol>();
+        equipedWeapons[1] = weaponObject[1].AddComponent<Rifle>();
 
         equipedWeapons[0].Initialized(WeaponType.Pistol);
         equipedWeapons[1].Initialized(WeaponType.Rifle);
