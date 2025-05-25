@@ -13,13 +13,12 @@ MonoBehaviour:
   m_Name: Rifle
   m_EditorClassIdentifier: 
   weaponType: 1
-  weaponSprite: {fileID: 21300000, guid: 364eccac494de714d84a43b20fc715d2, type: 3}
+  weaponSprite: {fileID: 21300000, guid: 11e31a093200615449584643b3ebbcae, type: 3}
   weaponName: Rife
   damage: 5
   fireDistance: 10
   reloadTime: 4
   maxMagazine: 30
-  maxAmmo: 120
   bulletSpeed: 10
   defense: 1
   sheld: 1

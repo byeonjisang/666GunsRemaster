@@ -11,7 +11,6 @@ public class WeaponData : ScriptableObject
     public float fireDistance;
     public float reloadTime;
     public int maxMagazine;
-    public int maxAmmo;
     public float bulletSpeed;
     public float defense;
     public float sheld;

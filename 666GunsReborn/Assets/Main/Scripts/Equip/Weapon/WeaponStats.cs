@@ -4,6 +4,8 @@ using UnityEngine.Rendering;
 
 public class WeaponStats : MonoBehaviour
 {
+    private int index;
+
     private Sprite weaponSprite;
     public Sprite WeaponSprite { get {return weaponSprite; } private set { } }
     private float damage;
@@ -17,24 +19,22 @@ public class WeaponStats : MonoBehaviour
     private int currentMagazine;
     public int CurrentMagazine { get {return currentMagazine; } private set { } }
     private int maxMagazine;
-    private int currentAmmo;
-    public int CurrentAmmo { get {return currentAmmo; } private set { } }
-    private int maxAmmo;
+    public int MaxMagazine { get {return maxMagazine; } private set { } }
     private BulletType bulletType;
 
-    public void Initialized(WeaponData weaponData)
+    public void Initialized(int index, WeaponData weaponData)
     {
+        this.index = index;
         weaponSprite = weaponData.weaponSprite;
         damage = weaponData.damage;
         bulletSpeed = weaponData.bulletSpeed;
         fireDistance = weaponData.fireDistance;
         reloadTime = weaponData.reloadTime;
         maxMagazine = weaponData.maxMagazine;
-        maxAmmo = weaponData.maxAmmo;
+
         bulletType = weaponData.bulletType;
 
         currentMagazine = maxMagazine;
-        currentAmmo = maxAmmo;
         currentReloadTime = 0f;
     }
 
@@ -43,7 +43,9 @@ public class WeaponStats : MonoBehaviour
         if(currentReloadTime > 0)
         {
             currentReloadTime -= Time.deltaTime;
-            if(currentReloadTime <= 0){
+            WeaponManager.Instance.OnUpdateReloadSlider?.Invoke(index, reloadTime, currentReloadTime);
+            if (currentReloadTime <= 0)
+            {
                 Reload();
             }
         }
@@ -64,7 +66,6 @@ public class WeaponStats : MonoBehaviour
     private void Reload()
     {
         currentMagazine = maxMagazine;
-        currentAmmo -= maxMagazine;
-        WeaponManager.Instance.OnUpdateAmmoUI?.Invoke(currentAmmo, currentMagazine);
+        WeaponManager.Instance.OnUpdateBulletUI?.Invoke(index, maxMagazine, currentMagazine);
     }
 }

@@ -10,13 +10,13 @@ public class Weapon : MonoBehaviour
 
 
     // 무기 데이터 초기화
-    public void Initialized(WeaponType weaponType)
+    public void Initialized(int index, WeaponType weaponType)
     {
         string path = "Datas/Weapon/" + weaponType.ToString();
         WeaponData weaponData = Resources.Load<WeaponData>(path);
 
         weaponStats = gameObject.AddComponent<WeaponStats>();
-        weaponStats.Initialized(weaponData);
+        weaponStats.Initialized(index, weaponData);
     }
 
     // 무기가 현재 발사 가능한지 체크
@@ -40,11 +40,11 @@ public class Weapon : MonoBehaviour
         return weaponStats.WeaponSprite;
     }
 
-    public int[] GetAmmo()
+    public int[] GetBullet()
     {
-        int[] ammo = new int[2];
-        ammo[0] = weaponStats.CurrentAmmo;
-        ammo[1] = weaponStats.CurrentMagazine;
-        return ammo;
+        int[] bullet = new int[2];
+        bullet[0] = weaponStats.MaxMagazine;
+        bullet[1] = weaponStats.CurrentMagazine;
+        return bullet;
     }
 }

@@ -20,11 +20,11 @@ public class PlayerStats : MonoBehaviour
     public float CurrentDashDistance;
 
     // 대쉬 쿨타임
-    public float DashCooldown;
-    public float CurrentDashCooldown;
+    private float dashCooldown;
+    private float currentDashCooldown;
 
     // 현재 공격 중인지 여부
-    public bool isAttacking = false;
+    public bool IsAttacking = false;
 
     public void Init(PlayerData playerData)
     {
@@ -40,8 +40,8 @@ public class PlayerStats : MonoBehaviour
         baseDashDistance = playerData.dashDistance;
         CurrentDashDistance = baseDashDistance;
 
-        DashCooldown = playerData.dashCooldown;
-        CurrentDashCooldown = 0.0f;
+        dashCooldown = playerData.dashCooldown;
+        currentDashCooldown = 0.0f;
 
         //방어구 장착 이벤트 등록
         ArmorManager.Instance.onEquipArmor += HandleArmorChanaged;
@@ -51,10 +51,10 @@ public class PlayerStats : MonoBehaviour
     {
         if (CurrentDashCount <= baseDashCount)
         {
-            CurrentDashCooldown += Time.deltaTime;
-            if (CurrentDashCooldown >= DashCooldown)
+            currentDashCooldown += Time.deltaTime;
+            if (currentDashCooldown >= dashCooldown)
             {
-                CurrentDashCooldown = 0;
+                currentDashCooldown = 0;
                 CurrentDashCount++;
             }
         }
