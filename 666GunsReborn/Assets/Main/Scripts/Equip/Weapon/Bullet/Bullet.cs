@@ -38,6 +38,11 @@ public class Bullet : MonoBehaviour, IPooledObject
         rigid.velocity = Vector3.zero;
     }
 
+    /// <summary>
+    /// 2025.5.25
+    /// 총알은 인스턴싱되는 객체이기에, Update 돌면 안됨.
+    /// Player내부에서 전달받아 처리 필요.
+    /// </summary>
     public void Update()
     {
         float traveledDistance = Vector3.Distance(spawnPosition, transform.position);

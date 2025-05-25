@@ -21,6 +21,7 @@ public class EnemyScanner : MonoBehaviour
                 // 그 중 적들을 탐색
                 case "Enemy":
                     //가장 가까운 적 찾기
+                    Debug.Log(h.collider.gameObject.name);
                     GetNearestEnemy(h.collider.gameObject);
                     break;
             }
@@ -41,9 +42,9 @@ public class EnemyScanner : MonoBehaviour
 
            if (currentDistance < nearestDistance)
             {
-                nearestEnemy.GetComponent<EnemyTest>().CheckedFromPlayer(false);
-                nearestEnemy = enemyObject;
-                nearestEnemy.GetComponent<EnemyTest>().CheckedFromPlayer(true);
+                //nearestEnemy.GetComponent<EnemyTest>().CheckedFromPlayer(false);
+                //nearestEnemy = enemyObject;
+                //nearestEnemy.GetComponent<EnemyTest>().CheckedFromPlayer(true);
 
                 Debug.Log("가장 가까운 적: " + nearestEnemy.name);
             }
