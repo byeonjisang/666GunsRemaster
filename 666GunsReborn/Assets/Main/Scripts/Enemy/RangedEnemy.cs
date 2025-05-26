@@ -54,12 +54,14 @@ public class RangedEnemy : BaseEnemy
             if (currentBullet <= 0)
             {
                 state = EnemyState.Reload;
+                Debug.Log("재장전 중...");
             }
             else
             {
                 animator.SetBool("isRun", false);
                 animator.Play("Shoot");
-                Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+                FireBullet();
+                //Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
                 currentBullet--;
                 lastAttackTime = Time.time;
             }
