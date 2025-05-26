@@ -17,9 +17,9 @@ public class RangedEnemy : BaseEnemy
     {
         base.Start();
         currentBullet = bulletMax;
-        animator.Play("Ready");
         state = EnemyState.Chase;
 
+        //발사지점 설정
         if (firePoint != null)
         {
             firePoint.localPosition = new Vector3(0, 1.0f, 0.5f);
@@ -27,13 +27,16 @@ public class RangedEnemy : BaseEnemy
         }
     }
 
-    protected override void HandleIdle() { }
+    protected override void HandleIdle() 
+    {
+        //animator.Play("Idle");
+    }
 
     protected override void HandleChase()
     {
         float distance = Vector3.Distance(transform.position, player.position);
 
-        animator.SetBool("isRun", true);
+        
         if (distance <= attackRange)
         {
             state = EnemyState.Attack;
@@ -41,6 +44,7 @@ public class RangedEnemy : BaseEnemy
         else
         {
             agent.SetDestination(player.position);
+            animator.SetBool("isRun", true);
         }
     }
 
@@ -60,8 +64,6 @@ public class RangedEnemy : BaseEnemy
             {
                 animator.SetBool("isRun", false);
                 animator.Play("Shoot");
-                FireBullet();
-                //Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
                 currentBullet--;
                 lastAttackTime = Time.time;
             }
@@ -89,9 +91,11 @@ public class RangedEnemy : BaseEnemy
 
     protected override void HandleReload()
     {
-        animator.Play("Reload");
+        //재장전 애니메이션 필요 시 해제
+        //animator.Play("Reload");
         currentBullet = bulletMax;
         lastAttackTime = Time.time;
+
         state = EnemyState.Chase;
     }
 }
