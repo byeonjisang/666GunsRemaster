@@ -2,26 +2,44 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!21 &2100000
 Material:
-  serializedVersion: 6
+  serializedVersion: 8
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Parallax_Full_01
   m_Shader: {fileID: 4800000, guid: 2a33a166317493947a7be330dcc78a05, type: 3}
-  m_ShaderKeywords: _FACADETEXTURE1_ON _FACADETEXTURE2_ON _FACADETEXTURE_ON _GRUNGEDECALSWITCH_1_ON
-    _GRUNGEDECALSWITCH_2_ON _SHOWFACADE_ON _SMOOTHNESSTEXTURE_ON
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords:
+  - _SHOWFACADE_ON
+  m_InvalidKeywords:
+  - _ALBEDO_FLATCOLOURSWITCH_ON
+  - _EMISSIONMASK_FLATCOLOURSWITCH_ON
+  - _FACADETEXTURE1_ON
+  - _FACADETEXTURE2_ON
+  - _FACADETEXTURE_ON
+  - _GRUNGEDECALSWITCH_1_ON
+  - _GRUNGEDECALSWITCH_2_ON
+  - _LINKTILING_1USEXONLY_ON
+  - _LINKTILING_2USEXONLY_ON
+  - _SMOOTHNESSTEXTURE_ON
   m_LightmapFlags: 0
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
   stringTagMap: {}
   disabledShaderPasses: []
+  m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
     - _Albedo:
         m_Texture: {fileID: 2800000, guid: a28552de79d74f64398402b59a7befc8, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _AlbedoTexture:
+        m_Texture: {fileID: 2800000, guid: 18f698a95ab215742a622c214015079e, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Back:
@@ -38,6 +56,22 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _Ceiling1:
         m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Colour_Multiply:
+        m_Texture: {fileID: 2800000, guid: ffb54e2f1915d9e478300bdd2cef8fba, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _EmissionMask:
+        m_Texture: {fileID: 2800000, guid: 31993c12d00def94f877434602256422, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Emissive:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Emissive_01:
+        m_Texture: {fileID: 2800000, guid: 31993c12d00def94f877434602256422, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _FacadeAlbedo:
@@ -64,8 +98,20 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _HoloLines:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Normal:
+        m_Texture: {fileID: 2800000, guid: fd88a15ea6ea4ab4e89e62157e3e74ff, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _Normals:
         m_Texture: {fileID: 2800000, guid: 4fc1fe31c90b5b145ac2170c85978ba3, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _PolygonSciFiCyberCity_Texture:
+        m_Texture: {fileID: 2800000, guid: 18f698a95ab215742a622c214015079e, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Props:
@@ -93,7 +139,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _TriplanarTex_1:
-        m_Texture: {fileID: 2800000, guid: 83546a37408544d49b9426683268e616, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _TriplanarTex_2:
@@ -117,7 +163,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _WallMask_1:
-        m_Texture: {fileID: 2800000, guid: c8bc4546ad27b0244a3db2f011ba4f77, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _WallMask_2:
@@ -128,11 +174,17 @@ Material:
         m_Texture: {fileID: 2800000, guid: fbb7ec839ea98d54398069dcf788bc77, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _skin_Mask:
+        m_Texture: {fileID: 2800000, guid: 99bf8163a73647c4b9b93c57f58defca, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _texcoord:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    m_Ints: []
     m_Floats:
+    - _Albedo_FlatColourSwitch: 1
     - _BackWallTexTiling: 0.334
     - _BackWallTexTiling1: 0
     - _CeilingTexTiling: 0.3
@@ -140,6 +192,10 @@ Material:
     - _DecalTransparency_1: 0.081
     - _DecalTransparency_2: 1
     - _EmissionAmount: 1
+    - _EmissionMask_FlatColourSwitch: 1
+    - _EmissionMask_TintSwitch: 0
+    - _Emission_Power: 0
+    - _Emissive: 1
     - _FacadeExtrudeAmount: -0.002
     - _FacadeExtrudeAmount1: 0.002
     - _FacadeSmoothness: 0.2
@@ -157,6 +213,7 @@ Material:
     - _LinkTiling_2useXonly: 1
     - _Metallic: 0
     - _NormalAmount: 1
+    - _Opacity: 0.8
     - _PropsTexTiling: 2
     - _PropsTexTiling1: 0
     - _RoomEmission: 3.1
@@ -164,11 +221,14 @@ Material:
     - _RoomIntensity1: 1
     - _RoomTile: 2
     - _RoomTile1: 0
+    - _Scroll_Speed: 0.1
     - _ShowFacade: 1
     - _Smoothness: 1
     - _SmoothnessTexture: 1
     - _SmoothnessValue: 0.625
     - _SmoothnessValue1: 1
+    - _Spec_Metallic: 0
+    - _Spec_Smoothness: 0.2
     - _SwitchPlane: 0
     - _SwitchPlane1: 0
     - _SwitchPlane2: 0
@@ -188,6 +248,9 @@ Material:
     - _power: 2
     - _scale: 1.04
     m_Colors:
+    - _BaseColour: {r: 0.22169808, g: 0.7184748, b: 1, a: 0}
+    - _Colour_Skin: {r: 0.26038077, g: 0.22743526, b: 0.31764707, a: 0}
+    - _Neon_Colour_01: {r: 0.6965517, g: 1, b: 0, a: 0}
     - _PositionOffsetXYZroomsWprops: {r: 0.001, g: 0, b: 0.001, a: 0}
     - _PositionOffsetXYZroomsWprops1: {r: 0, g: 0, b: 0, a: 0}
     - _RoomColorTint: {r: 1, g: 1, b: 1, a: 0}

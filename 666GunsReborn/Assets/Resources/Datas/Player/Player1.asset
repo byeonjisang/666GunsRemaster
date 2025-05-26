@@ -15,5 +15,5 @@ MonoBehaviour:
   health: 10
   moveSpeed: 5
   dashCount: 2
-  dashDistance: 20
+  dashDistance: 15
   dashCooldown: 3
