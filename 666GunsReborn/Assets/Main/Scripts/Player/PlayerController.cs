@@ -17,6 +17,26 @@ public class PlayerController : Singleton<PlayerController>
 
     private Player player;
 
+    private void Start()
+    {
+        switch (PlayerManager.Instance.PlayerType)
+        {
+            case PlayerType.Attack:
+                player = gameObject.AddComponent<AttackPlayer>();
+                break;
+            case PlayerType.Defense:
+                player = gameObject.AddComponent<DefencePlayer>();
+                break;
+            case PlayerType.Balance:
+                player = gameObject.AddComponent<BalancePlayer>();
+                break;
+            default:
+                Debug.LogError("Invalid Player Type");
+                break;
+        }
+        player.Initialized();
+    }
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))

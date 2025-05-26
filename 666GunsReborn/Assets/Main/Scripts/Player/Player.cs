@@ -62,7 +62,8 @@ public class Player : MonoBehaviour
     public virtual void Initialized()
     {
         // 플레이어 타입에 따른 데이터 로드
-        PlayerData playerData = Resources.Load<PlayerData>($"Datas/Player/{this.GetType().ToString()}");
+        //PlayerData playerData = Resources.Load<PlayerData>($"Datas/Player/{this.GetType().ToString()}");
+        PlayerData playerData = Resources.Load<PlayerData>($"Datas/Player/Player1");
 
         // 스텟 초기화
         stats.Init(playerData);
