@@ -27,6 +27,7 @@ public class StageManager : Singleton<StageManager>
         currentStageIndex = stageIndex - 1;
         SceneManager.LoadScene("Stage " + stageIndex.ToString());
         stageController.StartStage(stageDatas[currentStageIndex]);
+        PlayerManager.Instance.InitializePlayer();
     }
 
     public void DeadEnemy(GameObject enemyObject) 

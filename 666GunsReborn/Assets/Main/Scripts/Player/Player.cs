@@ -15,8 +15,9 @@ public enum PlayerStateType
 
 public enum PlayerType
 {
-    Player1,
-    Player2
+    Attack,
+    Defense,
+    Balance,
 }
 #endregion
 
@@ -58,7 +59,7 @@ public class Player : MonoBehaviour
     }
 
     // 플레이어 스텟 초기화
-    public virtual void Init()
+    public virtual void Initialized()
     {
         // 플레이어 타입에 따른 데이터 로드
         PlayerData playerData = Resources.Load<PlayerData>($"Datas/Player/{this.GetType().ToString()}");

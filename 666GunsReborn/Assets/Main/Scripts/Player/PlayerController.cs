@@ -17,21 +17,6 @@ public class PlayerController : Singleton<PlayerController>
 
     private Player player;
 
-    private void Start()
-    {
-        switch (playerType)
-        {
-            case PlayerType.Player1:
-                player = gameObject.AddComponent<Player1>();
-                break;
-            case PlayerType.Player2:
-                player = gameObject.AddComponent<Player2>();
-                break;
-        }
-
-        player.Init();
-    }
-
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))

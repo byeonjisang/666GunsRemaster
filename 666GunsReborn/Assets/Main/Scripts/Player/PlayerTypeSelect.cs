@@ -10,12 +10,18 @@ public class PlayerTypeSelect : MonoBehaviour
         playerTypeDropdown = GetComponentInChildren<Dropdown>();
 
         playerTypeDropdown.onValueChanged.AddListener(OnPlayerTypeChanged);
-        //playerTypeDropdown.
+        InitializeDropdown();
+    }
+
+    private void InitializeDropdown()
+    {
+        playerTypeDropdown.value = (int)PlayerManager.Instance.PlayerType;
     }
 
     private void OnPlayerTypeChanged(int index)
     {
         PlayerType selectedType = (PlayerType)index;
+        PlayerManager.Instance.SetPlayerType(selectedType);
         Debug.Log("Selected Player Type: " + selectedType);
     }
 }
