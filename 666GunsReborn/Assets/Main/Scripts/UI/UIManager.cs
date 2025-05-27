@@ -23,9 +23,6 @@ public class UIManager : Singleton<UIManager>
 
     private void Start()
     {
-        //fireButton.onClick.AddListener(() => PlayerController.Instance.Attack());
-        dashButton.onClick.AddListener(() => PlayerController.Instance.Dash());
-
         resultUI.SetActive(false);
     }
 

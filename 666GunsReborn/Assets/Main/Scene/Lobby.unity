@@ -5183,8 +5183,8 @@ PrefabInstance:
         by Humanoid clips.\n\tTransform 'Headgear_Right'\n\tTransform 'Headgear_Left'\n\tTransform
         'Headgear_Right'\n\tTransform 'Headgear_Left'\n\tTransform 'Headgear_Right'\n\tTransform
         'Headgear_Left'\n\tFrom animation clip 'Idle_Guard_AR'\n\tFrom animation
-        clip 'Run_guard_AR'\n\tFrom animation clip 'Shoot_SingleShot_AR'\n\tFrom
-        animation clip 'Run_guard_AR'"
+        clip 'Run_guard_AR'\n\tFrom animation clip 'Run_guard_AR'\n\tFrom animation
+        clip 'Shoot_SingleShot_AR'"
       objectReference: {fileID: 0}
     - target: {fileID: 7072444061591351794, guid: 910177ec26b76c14996c2d53627a6def,
         type: 3}
@@ -13439,6 +13439,50 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a51b3eb4d82eb8543999357992e88896, type: 3}
+--- !u!1 &2012749852
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2012749853}
+  - component: {fileID: 2012749854}
+  m_Layer: 0
+  m_Name: SceneChangeListener
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2012749853
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2012749852}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 883.8655, y: 392.86493, z: -9.1914015}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2012749854
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2012749852}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ceea6c41e00cf54987c30ddfd744bb0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &2029871327 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5197459401149278872, guid: 08699b6177df42746ad5aa9818e718d2,
@@ -14313,3 +14357,4 @@ SceneRoots:
   - {fileID: 210054329}
   - {fileID: 2042903294}
   - {fileID: 1056739718}
+  - {fileID: 2012749853}

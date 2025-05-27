@@ -18,7 +18,6 @@ public class StageManager : Singleton<StageManager>
     protected override void Awake()
     {
         base.Awake();
-        DontDestroyOnLoad(gameObject);
         stageController = GetComponent<StageController>();
     }
 
@@ -27,7 +26,6 @@ public class StageManager : Singleton<StageManager>
         currentStageIndex = stageIndex - 1;
         SceneManager.LoadScene("Stage " + stageIndex.ToString());
         stageController.StartStage(stageDatas[currentStageIndex]);
-        PlayerManager.Instance.InitializePlayer();
     }
 
     public void DeadEnemy(GameObject enemyObject) 
