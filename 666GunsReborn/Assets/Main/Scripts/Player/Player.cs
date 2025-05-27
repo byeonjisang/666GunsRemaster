@@ -28,7 +28,7 @@ public struct SlopeInfo
     public Vector3 normal;
 }
 
-public class Player : MonoBehaviour
+public class Player : MonoBehaviour, IPlayer
 {
     #region Player State
     // 플레이어 상태 딕셔너리
@@ -48,6 +48,8 @@ public class Player : MonoBehaviour
     protected Rigidbody rigid;
     // 애니메이터
     protected Animator anim;
+
+    protected PlayerController controller;
 
     protected virtual void Awake()
     {
@@ -80,6 +82,24 @@ public class Player : MonoBehaviour
         // 공격 시스템 초기화
         attackSystem = gameObject.AddComponent<PlayerAttack>();
         attackSystem.Initialize(this);
+        AddControllerEvent();
+    }
+
+    private void AddControllerEvent()
+    {
+        // Get ther PlayerController component
+        controller = GetComponent<PlayerController>();
+        if (controller == null)
+        {
+            Debug.LogError("PlayerController component not found on Player GameObject.");
+            return;
+        }
+
+        // Add event listeners in the PlayerController
+        controller.OnMovePress.AddListener(HandleInput);
+        controller.OnAttackPress.AddListener(attackSystem.RequestAttack);
+        controller.OnAttackReleased.AddListener(attackSystem.CancelAttackRequest);
+        controller.OnDashPress.AddListener(Dash);
     }
 
     //상태 설정

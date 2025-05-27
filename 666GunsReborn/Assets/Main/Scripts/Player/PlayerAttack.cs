@@ -23,6 +23,7 @@ public class PlayerAttack : MonoBehaviour
     // 버튼에서 손 뗀 순간 호출
     public void CancelAttackRequest()
     {
+        Debug.Log("Attack request cancelled");
         attackRequested = false;
         if (IsAttacking)
             StopAttack();

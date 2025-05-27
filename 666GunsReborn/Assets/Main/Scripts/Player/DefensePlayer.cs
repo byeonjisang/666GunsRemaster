@@ -1,6 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class DefencePlayer : Player
+public class DefensePlayer : Player
 {
 }

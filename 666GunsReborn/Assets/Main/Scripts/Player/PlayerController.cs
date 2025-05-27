@@ -1,4 +1,6 @@
+using System;
 using UnityEngine;
+using UnityEngine.Events;
 
 
 public class PlayerController : Singleton<PlayerController>
@@ -15,6 +17,13 @@ public class PlayerController : Singleton<PlayerController>
 
     private Vector3 direction = Vector3.zero;
 
+    public UnityEvent<Vector3> OnMovePress;
+    public UnityEvent OnAttackPress;
+    public UnityEvent OnAttackReleased;
+    public UnityEvent<Vector3> OnDashPress;
+
+
+    // 지울 것것
     private Player player;
 
     private void Start()
@@ -25,7 +34,7 @@ public class PlayerController : Singleton<PlayerController>
                 player = gameObject.AddComponent<AttackPlayer>();
                 break;
             case PlayerType.Defense:
-                player = gameObject.AddComponent<DefencePlayer>();
+                player = gameObject.AddComponent<DefensePlayer>();
                 break;
             case PlayerType.Balance:
                 player = gameObject.AddComponent<BalancePlayer>();
@@ -42,7 +51,8 @@ public class PlayerController : Singleton<PlayerController>
         if (Input.GetKeyDown(KeyCode.Space))
             Dash();
     }
-#region Player Move
+
+    #region Player Move
     private void FixedUpdate()
     {
         Move();
@@ -59,32 +69,36 @@ public class PlayerController : Singleton<PlayerController>
         direction.Normalize();
 
         //�÷��̾� �̵�
-        player.HandleInput(direction);
+        //PlayerManager.Instance.player.HandleInput(direction);
+        OnMovePress?.Invoke(direction);
     }
-#endregion
+    #endregion
 
-#region Player Attack
+    #region Player Attack
     public void OnClickAttack()
     {
         //player.StartAttack();
-        player.attackSystem.RequestAttack();
+        //PlayerManager.Instance.player.attackSystem.RequestAttack();
+        OnAttackPress?.Invoke();
     }
 
-    public void OffClickAttakc()
+    public void OffClickAttack()
     {
         //player.StopAttack();
-        player.attackSystem.CancelAttackRequest();
+        //PlayerManager.Instance.player.attackSystem.CancelAttackRequest();
+        OnAttackReleased?.Invoke();
     }
 
     public void FireBullet(){
         WeaponManager.Instance.Attack();
     }
-#endregion
+    #endregion
 
-#region Player Dash
+    #region Player Dash
     public void Dash()
     {
-        player.Dash(direction);
+        //PlayerManager.Instance.player.Dash(direction);
+        OnDashPress?.Invoke(direction);
     }
 #endregion
 }
