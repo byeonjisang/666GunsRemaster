@@ -31,7 +31,7 @@ public class Weapon : MonoBehaviour
     public virtual void Fire(GameObject bulletObject, Transform bulletPos, Quaternion bulletRot)
     {
         GameObject bullet = ObjectPoolManager.Instance.GetFromPool("Bullet", bulletPos.position, bulletRot);
-        bullet.GetComponent<Bullet>().SetInfo(weaponStats.Damage, weaponStats.BulletSpeed, bullet.transform.position);
+        bullet.GetComponent<Bullet>().SetInfo(weaponStats.Damage, weaponStats.BulletSpeed);
         weaponStats.Fire();
     }
 

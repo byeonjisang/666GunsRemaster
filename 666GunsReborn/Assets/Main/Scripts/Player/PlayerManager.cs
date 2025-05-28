@@ -5,9 +5,9 @@ using UnityEngine;
 public class PlayerManager : Singleton<PlayerManager>
 {
     private Dictionary<PlayerType, Type> playerTypeMap = new Dictionary<PlayerType, Type>{
-        { PlayerType.Attack, typeof(AttackPlayer) },
-        { PlayerType.Defense, typeof(DefensePlayer) },
-        { PlayerType.Balance, typeof(BalancePlayer) }
+        { PlayerType.Attack, typeof(FormOfAttackPlayer) },
+        { PlayerType.Defense, typeof(FormOfDefensePlayer) },
+        { PlayerType.Balance, typeof(FormOfBalancePlayer) }
     };
 
     [Header("Player Type")]
@@ -19,7 +19,9 @@ public class PlayerManager : Singleton<PlayerManager>
 
     [Header("Player Variables")]
     [NonSerialized]
-    public Player player;
+    public Player Currentplayer;
+
+    protected override bool IsPersistent => true;
 
 #region Set Player Info Code
     /// <summary>
@@ -44,7 +46,7 @@ public class PlayerManager : Singleton<PlayerManager>
     #endregion
 
     #region Player Initialization Code
-    public void InitializePlayer()
+    public void InitializePlayer(GameObject playerObject)
     {
         // Player 초기화 로직
         Debug.Log("Player Initialized with Type: " + playerType);
@@ -56,14 +58,9 @@ public class PlayerManager : Singleton<PlayerManager>
             return;
         }
 
-        GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
         Component playerScript = playerObject.AddComponent(type);
         if (playerScript is IPlayer player)
-        {
-            player.Initialized();
-            this.player = player as Player;
-        }
-        
+            player.Initialized(type);
     }
 #endregion
 }

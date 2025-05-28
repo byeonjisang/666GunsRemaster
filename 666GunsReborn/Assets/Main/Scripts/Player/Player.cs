@@ -61,7 +61,7 @@ public class Player : MonoBehaviour, IPlayer
     }
 
     // 플레이어 스텟 초기화
-    public virtual void Initialized()
+    public virtual void Initialized(Type playerType)
     {
         // 플레이어 타입에 따른 데이터 로드
         //PlayerData playerData = Resources.Load<PlayerData>($"Datas/Player/{this.GetType().ToString()}");

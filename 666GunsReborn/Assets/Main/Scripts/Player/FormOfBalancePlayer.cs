@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class AttackPlayer : Player
+public class FormOfBalancePlayer : Player
 {
-
 }
