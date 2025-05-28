@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class EnemyScanner : MonoBehaviour
 {
@@ -42,10 +41,7 @@ public class EnemyScanner : MonoBehaviour
 
            if (currentDistance < nearestDistance)
             {
-                //nearestEnemy.GetComponent<EnemyTest>().CheckedFromPlayer(false);
-                //nearestEnemy = enemyObject;
-                //nearestEnemy.GetComponent<EnemyTest>().CheckedFromPlayer(true);
-
+                nearestEnemy = enemyObject;
                 Debug.Log("가장 가까운 적: " + nearestEnemy.name);
             }
         }

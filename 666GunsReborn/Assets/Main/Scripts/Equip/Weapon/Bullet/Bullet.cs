@@ -8,9 +8,7 @@ public class Bullet : MonoBehaviour, IPooledObject
     private Rigidbody rigid;
 
     private float damage;
-    private float speed;
     private float maxDistance = 50f;
-    private Vector3 spawnPosition;
 
     private void Awake()
     {
@@ -21,11 +19,13 @@ public class Bullet : MonoBehaviour, IPooledObject
         this.pool = pool;
     }
 
-    public void SetInfo(float damage, float speed, Vector3 spawnPosition)
+    public void SetInfo(float damage, float speed)
     {
         this.damage = damage;
-        this.speed = speed;
-        this.spawnPosition = spawnPosition;
+
+        rigid.velocity = Vector3.forward * speed;
+        float lifeTime = maxDistance / speed;
+        Invoke(nameof(ReturnToPool), lifeTime);
     }
 
     public void ReturnToPool()
@@ -38,23 +38,9 @@ public class Bullet : MonoBehaviour, IPooledObject
         rigid.velocity = Vector3.zero;
     }
 
-    /// <summary>
-    /// 2025.5.25
-    /// 총알은 인스턴싱되는 객체이기에, Update 돌면 안됨.
-    /// Player내부에서 전달받아 처리 필요.
-    /// </summary>
-    public void Update()
+    private void OnDisable()
     {
-        float traveledDistance = Vector3.Distance(spawnPosition, transform.position);
-        if(traveledDistance >= maxDistance)
-        {
-            ReturnToPool(); // 최대 비행 거리 도달 시 풀로 반환
-        }
-    }
-
-    private void FixedUpdate()
-    {
-        rigid.velocity = transform.forward * speed;
+        rigid.velocity = Vector3.zero;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -64,7 +50,7 @@ public class Bullet : MonoBehaviour, IPooledObject
                 OnCollisionBulletInWeaponTest(other);
                 break;
             case GameMode.INGAME:
-                OnCollisionBulletInIngame(other);
+                OnCollisionBulletInInGame(other);
                 break;
             default:
                 break;
@@ -75,7 +61,7 @@ public class Bullet : MonoBehaviour, IPooledObject
 
     }
 
-    private void OnCollisionBulletInIngame(Collider other){
+    private void OnCollisionBulletInInGame(Collider other){
         if (other.CompareTag("Enemy"))
         {
             other.GetComponent<EnemyTest>().OnDamge((int)damage);
