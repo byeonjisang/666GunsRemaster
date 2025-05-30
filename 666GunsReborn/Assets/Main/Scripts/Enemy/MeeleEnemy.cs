@@ -15,7 +15,7 @@ public class MeleeEnemy : BaseEnemy
     protected override void Start()
     {
         base.Start();
-        animator.Play("Ready");
+        animator.Play("Idle");
         state = EnemyState.Chase;
     }
 
@@ -24,6 +24,10 @@ public class MeleeEnemy : BaseEnemy
     protected override void HandleChase()
     {
         float distance = Vector3.Distance(transform.position, player.position);
+        //애니메이션 재생
+        animator.SetBool("isRun", true);
+        animator.SetBool("isAttack", false);
+        
         if (distance <= attackRange)
         {
             state = EnemyState.Attack;
@@ -41,10 +45,10 @@ public class MeleeEnemy : BaseEnemy
 
         if (Time.time - lastAttackTime >= attackCoolTime)
         {
-            animator.Play("Attack");
+            animator.SetBool("isAttack", true);
+            animator.SetBool("isRun", false);
             lastAttackTime = Time.time;
-            // 플레이어에 데미지 주기
-            TryDealDamage();
+            //TryDealDamage();
         }
 
         if (Vector3.Distance(transform.position, player.position) > attackRange)

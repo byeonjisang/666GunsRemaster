@@ -3776,7 +3776,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d3ceab96b52e714a8e5f157179754e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerType: 0
   joystick: {fileID: 1210365723}
   OnMovePress:
     m_PersistentCalls:
@@ -4090,7 +4089,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &991124956
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4308,7 +4307,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1062968891
 Transform:
   m_ObjectHideFlags: 0
@@ -7201,7 +7200,7 @@ PrefabInstance:
     - target: {fileID: 4818409387101529737, guid: d1820dd462c6c2e43acfca459a7522c3,
         type: 3}
       propertyPath: m_Height
-      value: 2
+      value: 1.7
       objectReference: {fileID: 0}
     - target: {fileID: 4818409387101529737, guid: d1820dd462c6c2e43acfca459a7522c3,
         type: 3}
