@@ -13,19 +13,35 @@ MonoBehaviour:
   m_Name: SpawnWave 1
   m_EditorClassIdentifier: 
   monsterSpawnWave:
-  - monsterPrefab: {fileID: 1386194952325411249, guid: 77c93d1769fb23d43b3beb42a735bfdb,
+  - monsterPrefab: {fileID: 3441954838697310922, guid: b183f8cba4d089448bec015aff2c79d5,
       type: 3}
-    spawnPosition: {x: 4, y: 1.5, z: 0}
-    spawnTime: 1
-  - monsterPrefab: {fileID: 1386194952325411249, guid: 77c93d1769fb23d43b3beb42a735bfdb,
-      type: 3}
-    spawnPosition: {x: -4, y: 1.5, z: 0}
+    spawnPosition: {x: -32.4, y: 1.5, z: -57}
     spawnTime: 2
-  - monsterPrefab: {fileID: 1386194952325411249, guid: f45efb9993d96a640817fcc61f094491,
+  - monsterPrefab: {fileID: 3441954838697310922, guid: b183f8cba4d089448bec015aff2c79d5,
       type: 3}
-    spawnPosition: {x: 0, y: 1.5, z: 4}
+    spawnPosition: {x: -32.4, y: 1.5, z: -50}
+    spawnTime: 2
+  - monsterPrefab: {fileID: 3441954838697310922, guid: b183f8cba4d089448bec015aff2c79d5,
+      type: 3}
+    spawnPosition: {x: -32.4, y: 1.5, z: -42}
+    spawnTime: 2
+  - monsterPrefab: {fileID: 3441954838697310922, guid: b183f8cba4d089448bec015aff2c79d5,
+      type: 3}
+    spawnPosition: {x: -9, y: 1.5, z: -41.5}
+    spawnTime: 2
+  - monsterPrefab: {fileID: 3441954838697310922, guid: b183f8cba4d089448bec015aff2c79d5,
+      type: 3}
+    spawnPosition: {x: -21, y: 1.5, z: -43}
+    spawnTime: 2
+  - monsterPrefab: {fileID: 3441954838697310922, guid: b183f8cba4d089448bec015aff2c79d5,
+      type: 3}
+    spawnPosition: {x: -7.1, y: 1.5, z: -55}
+    spawnTime: 2
+  - monsterPrefab: {fileID: 7796933507275571562, guid: 8b763ee90459b844687b4e954d8c690a,
+      type: 3}
+    spawnPosition: {x: 5.4, y: 3.5, z: -48}
     spawnTime: 4
-  - monsterPrefab: {fileID: 1386194952325411249, guid: f45efb9993d96a640817fcc61f094491,
+  - monsterPrefab: {fileID: 7796933507275571562, guid: 8b763ee90459b844687b4e954d8c690a,
       type: 3}
-    spawnPosition: {x: 4, y: 1.5, z: 4}
-    spawnTime: 6
+    spawnPosition: {x: 5.4, y: 3.5, z: -55}
+    spawnTime: 4

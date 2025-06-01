@@ -64,7 +64,8 @@ public class WeaponManager : Singleton<WeaponManager>
     // Weapon Attack
     public void Attack()
     {
-        Transform bulletPos = playerObject.GetComponent<Animator>().GetBoneTransform(HumanBodyBones.Hips);
+        Transform bulletPos = playerObject.transform.Find("Root/Hips/Spine_01/Spine_02/Spine_03/Clavicle_R/Shoulder_R/Elbow_R/Hand_R/Weapon Point/BulletSpawnPoint");
+        Debug.Log(bulletPos.position.x + " 위치에서 총알 발사");
         Quaternion bulletRot = playerObject.transform.rotation;
 
         currentWeapon.Fire(bulletObject, bulletPos, bulletRot);

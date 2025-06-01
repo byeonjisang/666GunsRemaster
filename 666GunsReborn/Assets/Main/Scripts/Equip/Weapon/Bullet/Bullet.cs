@@ -23,7 +23,8 @@ public class Bullet : MonoBehaviour, IPooledObject
     {
         this.damage = damage;
 
-        rigid.velocity = Vector3.forward * speed;
+        //rigid.velocity = Vector3.forward * speed;
+        rigid.velocity = transform.forward * speed;
         float lifeTime = maxDistance / speed;
         Invoke(nameof(ReturnToPool), lifeTime);
     }

@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class StageManager : Singleton<StageManager>
 {
+    protected override bool IsPersistent => true;
+
     [SerializeField]
     private List<StageData> stageDatas;
 
