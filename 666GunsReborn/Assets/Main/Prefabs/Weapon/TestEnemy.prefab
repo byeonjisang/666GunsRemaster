@@ -1251,7 +1251,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4f06afbb576143428aac6e6f48de790, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 100
+  hp: 10
   attackRange: 10
   attackCoolTime: 2
   bulletMax: 5

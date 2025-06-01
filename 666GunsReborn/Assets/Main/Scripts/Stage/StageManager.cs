@@ -25,6 +25,7 @@ public class StageManager : Singleton<StageManager>
 
     public void StartStage(int stageIndex)
     {
+        GameManager.Instance.ChangeGameMode(GameMode.INGAME);
         currentStageIndex = stageIndex - 1;
         SceneManager.LoadScene("Stage " + stageIndex.ToString());
         stageController.StartStage(stageDatas[currentStageIndex]);

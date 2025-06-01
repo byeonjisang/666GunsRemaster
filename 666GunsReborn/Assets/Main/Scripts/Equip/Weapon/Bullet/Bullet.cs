@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿using System.Linq;
 using UnityEngine;
 using UnityEngine.Pool;
 
@@ -23,7 +23,6 @@ public class Bullet : MonoBehaviour, IPooledObject
     {
         this.damage = damage;
 
-        //rigid.velocity = Vector3.forward * speed;
         rigid.velocity = transform.forward * speed;
         float lifeTime = maxDistance / speed;
         Invoke(nameof(ReturnToPool), lifeTime);
@@ -65,7 +64,12 @@ public class Bullet : MonoBehaviour, IPooledObject
     private void OnCollisionBulletInInGame(Collider other){
         if (other.CompareTag("Enemy"))
         {
-            other.GetComponent<EnemyTest>().OnDamge((int)damage);
+            Debug.Log("Bullet hit enemy: " + other.name);
+            BaseEnemy enemyScript = other.GetComponents<MonoBehaviour>().OfType<BaseEnemy>().FirstOrDefault();
+            if (enemyScript != null)
+            {
+                enemyScript.TakeDamage((int)damage);
+            }
             ReturnToPool();
         }
     }

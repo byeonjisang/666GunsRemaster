@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.AI;
 
 /// <summary>
-/// ¸ó½ºÅÍÀÇ Çàµ¿µé
+/// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½àµ¿ï¿½ï¿½
 /// </summary>
 public enum EnemyState
 {
@@ -61,7 +61,7 @@ public abstract class BaseEnemy : MonoBehaviour
     }
 
     /// <summary>
-    /// »ó¼Ó ÈÄ ÇÊ¿äÇÑ ÇÔ¼ö »ç¿ë.
+    /// ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ê¿ï¿½ï¿½ï¿½ ï¿½Ô¼ï¿½ ï¿½ï¿½ï¿½.
     /// </summary>
     protected abstract void HandleIdle();
     protected abstract void HandleChase();
@@ -72,11 +72,13 @@ public abstract class BaseEnemy : MonoBehaviour
     {
         isDead = true;
         agent.isStopped = true;
-        animator.Play("Die");
+        //animator.Play("Die");
+        StageManager.Instance.DeadEnemy(gameObject); // ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
+        gameObject.SetActive(false); // ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
     }
 
     /// <summary>
-    /// »ç¸Á
+    /// ï¿½ï¿½ï¿½
     /// </summary>
     /// <param name="damage"></param>
     public virtual void TakeDamage(int damage)
