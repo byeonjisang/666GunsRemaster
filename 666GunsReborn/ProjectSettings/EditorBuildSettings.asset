@@ -18,9 +18,6 @@ EditorBuildSettings:
     path: Assets/Main/Scene/WeaponTestScene.unity
     guid: 17e2285a8eadc1c429fdd596b4f1e06e
   - enabled: 1
-    path: Assets/Main/Scene/CostumePurchaseScene.unity
-    guid: 37917b87f9d40aa4eb46b5402d911b95
-  - enabled: 1
     path: Assets/Main/Scene/Stage Select.unity
     guid: 565de990a9813b746ba3b282afadda66
   - enabled: 1
