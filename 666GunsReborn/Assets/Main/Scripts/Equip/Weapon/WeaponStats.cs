@@ -43,7 +43,7 @@ public class WeaponStats : MonoBehaviour
         if(currentReloadTime > 0)
         {
             currentReloadTime -= Time.deltaTime;
-            WeaponManager.Instance.OnUpdateReloadSlider?.Invoke(index, reloadTime, currentReloadTime);
+            WeaponUIEvents.OnUpdateReloadSlider?.Invoke(index, reloadTime, currentReloadTime);
             if (currentReloadTime <= 0)
             {
                 Reload();
@@ -66,6 +66,6 @@ public class WeaponStats : MonoBehaviour
     private void Reload()
     {
         currentMagazine = maxMagazine;
-        WeaponManager.Instance.OnUpdateBulletUI?.Invoke(index, maxMagazine, currentMagazine);
+        WeaponUIEvents.OnUpdateBulletUI?.Invoke(index, maxMagazine, currentMagazine);
     }
 }
