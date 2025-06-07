@@ -28,11 +28,9 @@ public class GameManager : Singleton<GameManager>
 
     //플레이어 코인 재화 표시
     public Text _userCoinText;
+    public int _coin = 0;
 
     public Button _settingButton;
-
-    public Action _onAccept;
-    public Action _onReject;
 
     protected override void Awake()
     {
@@ -40,34 +38,30 @@ public class GameManager : Singleton<GameManager>
 
         //처음 입장 시 로비
         _gameMode = GameMode.LOBBY;
+
+        _coin = 1000;
     }
+
+    protected void Update()
+    {
+        ShowCoinText();
+    }
+
+    public void ShowCoinText()
+    {
+        _userCoinText.text = _coin.ToString() + " Coins";
+    }
+
+    public void SetCoinTextTarget(Text coinText)
+    {
+        _userCoinText = coinText;
+        ShowCoinText();
+    }
+
+
     public void ChangeGameMode(GameMode gameMode)
     {
         _gameMode = gameMode;
         Debug.Log("현재 게임 모드 : " +  _gameMode);
     }
-
-    public void Accept()
-    {
-        Debug.Log("PortalManager: Accept called");
-        _onAccept?.Invoke();
-    }
-
-    public void Reject()
-    {
-        Debug.Log("PortalManager: Reject called");
-        _onReject?.Invoke();
-    }
-
-    public void ClearDelegates()
-    {
-        _onAccept = null;
-        _onReject = null;
-    }
-
-    /// <summary>
-    /// 로비 및 각종 구역에서의 버튼 이벤트는 전부 GameManager의 Action을 통해 호출한다.
-    /// </summary>
-    public void OnAcceptButtonClicked() => Accept();
-    public void OnRejectButtonClicked() => Reject();
 }
