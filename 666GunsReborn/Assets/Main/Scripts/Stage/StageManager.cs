@@ -43,7 +43,14 @@ public class StageManager : Singleton<StageManager>
         //SceneManager.LoadScene("Stage Select");
     }
 
-    public bool[] GetStageClearState(){
+    public void StageFailed()
+    {
+        Debug.Log("Stage Failed");
+        UIManager.Instance.ShowFailedUI();
+    }
+
+    public bool[] GetStageClearState()
+    {
         return isStageClear;
     }
 }

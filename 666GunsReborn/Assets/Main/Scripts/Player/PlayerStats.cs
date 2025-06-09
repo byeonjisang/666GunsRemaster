@@ -4,8 +4,8 @@ using UnityEngine;
 public class PlayerStats : MonoBehaviour
 {
     // 체력
-    private float baseHealth;
-    public float CurrentHealth;
+    private int baseHealth;
+    public int CurrentHealth;
 
     // 이동속도
     private float baseMoveSpeed;
@@ -47,6 +47,21 @@ public class PlayerStats : MonoBehaviour
         ArmorManager.Instance.onEquipArmor += HandleArmorChanaged;
     }
 
+    #region Health 관련
+    public bool DecreaseHealth(int damaage)
+    {
+        CurrentHealth -= damaage;
+        if (CurrentHealth <= 0)
+        {
+            CurrentHealth = 0;
+            // 플레이어 사망 처리
+            return true;
+        }
+        return false;
+    }
+    #endregion
+
+    #region Dash CoolTime 계산
     public void DashCountCoolDown()
     {
         if (CurrentDashCount <= baseDashCount)
@@ -59,6 +74,7 @@ public class PlayerStats : MonoBehaviour
             }
         }
     }
+    #endregion
 
     #region Equip Armor
     //장비 착용 시 실행

@@ -6,7 +6,7 @@ public class MeleeEnemy : BaseEnemy
     public float attackCoolTime = 1.5f;
     private float lastAttackTime;
 
-    //±Ù°Å¸® °ø°Ý¿¡ °ü·ÃµÈ º¯¼ö
+    //ï¿½Ù°Å¸ï¿½ ï¿½ï¿½ï¿½Ý¿ï¿½ ï¿½ï¿½ï¿½Ãµï¿½ ï¿½ï¿½ï¿½ï¿½
     [SerializeField] private Transform attackPoint;
     [SerializeField] private float attackRadius = 1.5f;
     [SerializeField] private LayerMask playerLayer;
@@ -24,7 +24,7 @@ public class MeleeEnemy : BaseEnemy
     protected override void HandleChase()
     {
         float distance = Vector3.Distance(transform.position, player.position);
-        //¾Ö´Ï¸ÞÀÌ¼Ç Àç»ý
+        //ï¿½Ö´Ï¸ï¿½ï¿½Ì¼ï¿½ ï¿½ï¿½ï¿½
         animator.SetBool("isRun", true);
         animator.SetBool("isAttack", false);
         
@@ -63,7 +63,7 @@ public class MeleeEnemy : BaseEnemy
         {
             if (hit.CompareTag("Player"))
             {
-                //hit.GetComponent<PlayerHealth>()?.TakeDamage(damageAmount);
+                hit.GetComponent<Player>().Hit(damageAmount);
             }
         }
     }

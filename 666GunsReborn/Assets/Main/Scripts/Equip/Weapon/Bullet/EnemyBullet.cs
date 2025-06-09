@@ -6,8 +6,9 @@ public class EnemyBullet : MonoBehaviour
 { 
     private void OnTriggerEnter(Collider other)
     {
-        if (!other.CompareTag("Enemy")) // ÀÚ±â ÀÚ½Å°ú Ãæµ¹ ¹«½Ã
+        if (other.CompareTag("Player")) // ï¿½Ú±ï¿½ ï¿½Ú½Å°ï¿½ ï¿½æµ¹ ï¿½ï¿½ï¿½ï¿½
         {
+            other.GetComponent<Player>().Hit(1);
             //Destroy(gameObject);
         }
     }

@@ -15,15 +15,20 @@ public class UIManager : Singleton<UIManager>
     [SerializeField]
     private Text timerText;
 
-    [Header("Result UI")]
+    [Header("Claer UI")]
     [SerializeField]
-    private GameObject resultUI;
+    private GameObject clearUI;
     [SerializeField]
     private Text clearTimeText;
 
+    [Header("Failed UI")]
+    [SerializeField]
+    private GameObject failedUI;
+
     private void Start()
     {
-        resultUI.SetActive(false);
+        clearUI.SetActive(false);
+        failedUI.SetActive(false);
     }
 
     public void UpdateTimer(float time){
@@ -33,13 +38,19 @@ public class UIManager : Singleton<UIManager>
     }
 
     public void ShowStageClearUI(float clearTime){
-        resultUI.SetActive(true);
+        clearUI.SetActive(true);
         int clearTimeMin = (int)clearTime / 60;
         int clearTimeSec = (int)clearTime % 60;
         clearTimeText.text = "Clear Time : " + clearTimeMin.ToString("D2") + ":" + clearTimeSec.ToString("D2");
     }
 
-    public void ReturnToLobby(){
+    public void ShowFailedUI()
+    {
+        failedUI.SetActive(true);
+    }
+
+    public void ReturnToLobby()
+    {
         SceneManager.LoadScene("Lobby");
     }
 }

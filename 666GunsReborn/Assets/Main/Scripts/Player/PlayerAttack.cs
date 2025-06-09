@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.Animations.Rigging;
 
 public class PlayerAttack : MonoBehaviour
 {
@@ -8,7 +9,11 @@ public class PlayerAttack : MonoBehaviour
 
     public bool IsAttacking { get; private set; } = false;
 
-    public void Initialize(Player player){
+    public Rig attackRig;
+    private float attackDuration = 0.3f;
+
+    public void Initialize(Player player)
+    {
         this.player = player;
         attackRequested = false;
         IsAttacking = false;
@@ -51,7 +56,7 @@ public class PlayerAttack : MonoBehaviour
         player.StopAttack();
     }
 
-    
+
     private void Update()
     {
         // 1) 공격 요청이 켜져 있고, 아직 공격 중이 아니면서 발사 가능하면 발사 시작
@@ -65,5 +70,9 @@ public class PlayerAttack : MonoBehaviour
         {
             StopAttack();
         }
-    }   
+
+
+        // 공격 자세 취하기
+        attackRig.weight += (Time.deltaTime / attackDuration) * (IsAttacking ? 1 : -1);
+    }  
 }

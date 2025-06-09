@@ -83,6 +83,9 @@ public class Player : MonoBehaviour, IPlayer
         attackSystem = gameObject.AddComponent<PlayerAttack>();
         attackSystem.Initialize(this);
         AddControllerEvent();
+
+        //dd
+        anim.applyRootMotion = false;
     }
 
     private void AddControllerEvent()
@@ -172,7 +175,7 @@ public class Player : MonoBehaviour, IPlayer
             Vector3 slopeDir = Vector3.ProjectOnPlane(direction, slopeInfo.normal);
             rigid.velocity = slopeDir * stats.CurrentMoveSpeed;
         }
-        else   
+        else
         {
             //평소 땅 위
             Vector3 moveVelocity = new Vector3(direction.x, 0f, direction.z) * stats.CurrentMoveSpeed;
@@ -260,6 +263,23 @@ public class Player : MonoBehaviour, IPlayer
     {
         anim.SetBool("IsAttack", false);
         //attackSystem.StopAttack();
+    }
+    #endregion
+
+    #region Player Hit
+    public void Hit(int damage)
+    {
+        Debug.Log("Player Hit");
+        bool isDead = stats.DecreaseHealth(damage);
+
+        if (isDead)
+            Dead();
+    }
+
+    private void Dead()
+    {
+        Debug.Log("Player Dead");
+        StageManager.Instance.StageFailed();
     }
     #endregion
 }

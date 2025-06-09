@@ -23,8 +23,7 @@ public class StageController : MonoBehaviour
             {
                 isStageStart = false;
                 isSpawning = false;
-                Debug.Log("스테이지 실패");
-                //StageManager.Instance.StageClear();
+                StageManager.Instance.StageFailed();
             }
         }
     }
