@@ -6398,9 +6398,6 @@ MonoBehaviour:
   OnAttackReleased:
     m_PersistentCalls:
       m_Calls: []
-  OnDashPress:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!4 &1554227105 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2724932844365477667, guid: f551005aa7bf7c946a6d6bc99b49fa44,
@@ -6631,7 +6628,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2058344825}
+      - m_Target: {fileID: 1554227104}
         m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
         m_MethodName: Dash
         m_Mode: 1
@@ -8758,9 +8755,6 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   OnAttackReleased:
-    m_PersistentCalls:
-      m_Calls: []
-  OnDashPress:
     m_PersistentCalls:
       m_Calls: []
 --- !u!4 &2058344827 stripped

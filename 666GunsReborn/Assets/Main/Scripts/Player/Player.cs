@@ -102,7 +102,7 @@ public class Player : MonoBehaviour, IPlayer
         controller.OnMovePress.AddListener(HandleInput);
         controller.OnAttackPress.AddListener(attackSystem.RequestAttack);
         controller.OnAttackReleased.AddListener(attackSystem.CancelAttackRequest);
-        controller.OnDashPress.AddListener(Dash);
+        controller.OnDashPress += Dash;
     }
 
     //상태 설정
@@ -232,6 +232,7 @@ public class Player : MonoBehaviour, IPlayer
 
     private IEnumerator DashCoroutine(Vector3 direction)
     {
+        Debug.Log("Player Dash");
         // 대쉬 상태 변환
         SetState(PlayerStateType.Dash);
         // 대쉬 개수 감소
