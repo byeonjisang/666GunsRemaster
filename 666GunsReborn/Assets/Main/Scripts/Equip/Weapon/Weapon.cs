@@ -5,8 +5,6 @@ public class Weapon : MonoBehaviour
 {
     //무기 데이터
     protected WeaponStats weaponStats;
-    //총알 오브젝트
-    protected GameObject bulletObject;
 
 
     // 무기 데이터 초기화
