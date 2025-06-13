@@ -73,6 +73,6 @@ public class PlayerAttack : MonoBehaviour
 
 
         // 공격 자세 취하기
-        attackRig.weight += (Time.deltaTime / attackDuration) * (IsAttacking ? 1 : -1);
+        //attackRig.weight += (Time.deltaTime / attackDuration) * (IsAttacking ? 1 : -1);
     }  
 }
