@@ -14,9 +14,9 @@ public class PlayerController : MonoBehaviour
     private Vector3 direction = Vector3.zero;
 
     
-    public UnityEvent<Vector3> OnMovePress;
-    public UnityEvent OnAttackPress;
-    public UnityEvent OnAttackReleased;
+    public Action<Vector3> OnMovePress;
+    public Action OnAttackPress;
+    public Action OnAttackReleased;
     public Action<Vector3> OnDashPress;
 
     private void Update()
@@ -65,8 +65,6 @@ public class PlayerController : MonoBehaviour
     #region Player Dash
     public void Dash()
     {
-        Debug.Log("Dash Pressed");
-        Debug.Log($"{OnDashPress}");
         OnDashPress?.Invoke(direction);
     }
 #endregion

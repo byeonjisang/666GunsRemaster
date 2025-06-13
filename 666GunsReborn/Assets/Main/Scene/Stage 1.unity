@@ -581,6 +581,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a59d2adc35382b4f86ea1f4e128eb7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cameraControl: {fileID: 1417929590}
   bulletObject: {fileID: 4724720043867078303, guid: 833286949982909429b591899cd91002,
     type: 3}
   playerObject: {fileID: 1554227099}
@@ -6336,6 +6337,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1417929589}
   - component: {fileID: 1417929588}
+  - component: {fileID: 1417929590}
   m_Layer: 0
   m_Name: Virtual Camera
   m_TagString: Untagged
@@ -6398,6 +6400,18 @@ Transform:
   - {fileID: 2076890716}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1417929590
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1417929587}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f99c9d40e7e3ea94499776fd1b12a6b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1423838894
 GameObject:
   m_ObjectHideFlags: 0
@@ -7069,15 +7083,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   joystick: {fileID: 1210365723}
-  OnMovePress:
-    m_PersistentCalls:
-      m_Calls: []
-  OnAttackPress:
-    m_PersistentCalls:
-      m_Calls: []
-  OnAttackReleased:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!4 &1554227105 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2724932844365477667, guid: f551005aa7bf7c946a6d6bc99b49fa44,
@@ -9620,15 +9625,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   joystick: {fileID: 1210365723}
-  OnMovePress:
-    m_PersistentCalls:
-      m_Calls: []
-  OnAttackPress:
-    m_PersistentCalls:
-      m_Calls: []
-  OnAttackReleased:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!4 &2058344827 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2724932844365477667, guid: f551005aa7bf7c946a6d6bc99b49fa44,
@@ -9966,6 +9962,7 @@ GameObject:
   - component: {fileID: 2076890719}
   - component: {fileID: 2076890717}
   - component: {fileID: 2076890721}
+  - component: {fileID: 2076890722}
   m_Layer: 0
   m_Name: cm
   m_TagString: Untagged
@@ -10049,6 +10046,23 @@ MonoBehaviour:
   m_BiasX: 0
   m_BiasY: 0
   m_CenterOnActivate: 1
+--- !u!114 &2076890722
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2076890715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68bb026fafb42b14791938953eaace77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_NoiseProfile: {fileID: 11400000, guid: 69ce8388f6785dd4c8c39915efece2f4, type: 2}
+  m_PivotOffset: {x: 0, y: 0, z: 0}
+  m_AmplitudeGain: 0
+  m_FrequencyGain: 0
+  mNoiseOffsets: {x: 0, y: 0, z: 0}
 --- !u!4 &2109160766 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2667847841097224412, guid: f551005aa7bf7c946a6d6bc99b49fa44,
