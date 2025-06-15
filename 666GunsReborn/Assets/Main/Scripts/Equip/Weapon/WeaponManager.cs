@@ -17,6 +17,10 @@ public enum BulletType
 
 public class WeaponManager : Singleton<WeaponManager>
 {
+    [Header("Camera Component")]
+    [SerializeField]
+    private CameraControl cameraControl;
+
     [Header("Weapon Component")]
     [SerializeField]
     private GameObject bulletObject;
@@ -68,13 +72,16 @@ public class WeaponManager : Singleton<WeaponManager>
     // Weapon Attack
     public void Attack()
     {
-        Transform bulletPos = playerObject.transform.Find("Root/Hips/Spine_01/Spine_02/Spine_03/Clavicle_R/Shoulder_R/Elbow_R/Hand_R/Weapon Point/BulletSpawnPoint");
+        Transform bulletPos = playerObject.transform.Find("Root/Hips/Spine_01/Spine_02/Spine_03/Clavicle_R/SM_Wep_Rifle_Plasma_03/BulletSpawnPoint");
 
         Quaternion bulletRot = playerObject.transform.rotation;
 
         currentWeapon.Fire(bulletObject, bulletPos, bulletRot);
-        int[] bullet = currentWeapon.GetBullet();
-        WeaponUIEvents.OnUpdateBulletUI?.Invoke(currentWeaponIndex, bullet[0], bullet[1]);
+        int[] bulletCount = currentWeapon.GetBullet();
+        WeaponUIEvents.OnUpdateBulletUI?.Invoke(currentWeaponIndex, bulletCount[0], bulletCount[1]);
+
+        // 카메라 흔들기
+        cameraControl.ShakeCamera(0.2f, 0.2f, 0.2f);
     }
 
     // Change Weapon

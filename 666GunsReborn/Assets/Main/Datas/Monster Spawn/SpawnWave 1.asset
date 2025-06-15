@@ -12,36 +12,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8cebad88c2617c44cbb4dc390347ad12, type: 3}
   m_Name: SpawnWave 1
   m_EditorClassIdentifier: 
-  monsterSpawnWave:
-  - monsterPrefab: {fileID: 3441954838697310922, guid: b183f8cba4d089448bec015aff2c79d5,
-      type: 3}
-    spawnPosition: {x: -32.4, y: 1.5, z: -57}
-    spawnTime: 2
-  - monsterPrefab: {fileID: 3441954838697310922, guid: b183f8cba4d089448bec015aff2c79d5,
-      type: 3}
-    spawnPosition: {x: -32.4, y: 1.5, z: -50}
-    spawnTime: 2
-  - monsterPrefab: {fileID: 3441954838697310922, guid: b183f8cba4d089448bec015aff2c79d5,
-      type: 3}
-    spawnPosition: {x: -32.4, y: 1.5, z: -42}
-    spawnTime: 2
-  - monsterPrefab: {fileID: 3441954838697310922, guid: b183f8cba4d089448bec015aff2c79d5,
-      type: 3}
-    spawnPosition: {x: -9, y: 1.5, z: -41.5}
-    spawnTime: 2
-  - monsterPrefab: {fileID: 3441954838697310922, guid: b183f8cba4d089448bec015aff2c79d5,
-      type: 3}
-    spawnPosition: {x: -21, y: 1.5, z: -43}
-    spawnTime: 2
-  - monsterPrefab: {fileID: 3441954838697310922, guid: b183f8cba4d089448bec015aff2c79d5,
-      type: 3}
-    spawnPosition: {x: -7.1, y: 1.5, z: -55}
-    spawnTime: 2
-  - monsterPrefab: {fileID: 7796933507275571562, guid: 8b763ee90459b844687b4e954d8c690a,
-      type: 3}
-    spawnPosition: {x: 5.4, y: 3.5, z: -48}
-    spawnTime: 4
-  - monsterPrefab: {fileID: 7796933507275571562, guid: 8b763ee90459b844687b4e954d8c690a,
-      type: 3}
-    spawnPosition: {x: 5.4, y: 3.5, z: -55}
-    spawnTime: 4
+  roundSpawnDatas:
+  - roundIndex: 1
+    monsterSpanwWaves:
+    - monsterPrefab: {fileID: 7796933507275571562, guid: 8b763ee90459b844687b4e954d8c690a,
+        type: 3}
+      spawnPosition: {x: -32.4, y: 1.5, z: -57}
+      spawnTime: 1
+    - monsterPrefab: {fileID: 7796933507275571562, guid: 8b763ee90459b844687b4e954d8c690a,
+        type: 3}
+      spawnPosition: {x: -32.46, y: 1.5, z: -50.36}
+      spawnTime: 1
+    - monsterPrefab: {fileID: 7796933507275571562, guid: 8b763ee90459b844687b4e954d8c690a,
+        type: 3}
+      spawnPosition: {x: -31.4, y: 1.5, z: -42.1}
+      spawnTime: 5
+  - roundIndex: 2
+    monsterSpanwWaves:
+    - monsterPrefab: {fileID: 7796933507275571562, guid: 8b763ee90459b844687b4e954d8c690a,
+        type: 3}
+      spawnPosition: {x: -40.5, y: 1.5, z: -14.3}
+      spawnTime: 1
+    - monsterPrefab: {fileID: 7796933507275571562, guid: 8b763ee90459b844687b4e954d8c690a,
+        type: 3}
+      spawnPosition: {x: -35.2, y: 1.5, z: -10.1}
+      spawnTime: 1

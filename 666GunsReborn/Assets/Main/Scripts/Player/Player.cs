@@ -34,7 +34,7 @@ public class Player : MonoBehaviour, IPlayer
     // 플레이어 상태 딕셔너리
     private Dictionary<PlayerStateType, PlayerStateBase> stateMap;
     // 플레이어 공격 Aciton
-    public PlayerAttack attackSystem;
+    private PlayerAttack attackSystem;
     // 플레이어 상태(상태 패턴)
     private PlayerStateBase currentState;
     #endregion Player State
@@ -99,10 +99,10 @@ public class Player : MonoBehaviour, IPlayer
         }
 
         // Add event listeners in the PlayerController
-        controller.OnMovePress.AddListener(HandleInput);
-        controller.OnAttackPress.AddListener(attackSystem.RequestAttack);
-        controller.OnAttackReleased.AddListener(attackSystem.CancelAttackRequest);
-        controller.OnDashPress.AddListener(Dash);
+        controller.OnMovePress += HandleInput;
+        controller.OnAttackPress += attackSystem.RequestAttack;
+        controller.OnAttackReleased += attackSystem.CancelAttackRequest;
+        controller.OnDashPress += Dash;
     }
 
     //상태 설정
@@ -232,6 +232,7 @@ public class Player : MonoBehaviour, IPlayer
 
     private IEnumerator DashCoroutine(Vector3 direction)
     {
+        Debug.Log("Player Dash");
         // 대쉬 상태 변환
         SetState(PlayerStateType.Dash);
         // 대쉬 개수 감소

@@ -25,16 +25,24 @@ public class UIManager : Singleton<UIManager>
     [SerializeField]
     private GameObject failedUI;
 
+    bool isRead = false;
+
     private void Start()
     {
-        clearUI.SetActive(false);
-        failedUI.SetActive(false);
+        //clearUI.SetActive(false);
+        //failedUI.SetActive(false);
+
+        isRead = true;
     }
 
     public void UpdateTimer(float time){
-        int min = (int)time / 60;
-        int sec = (int)time % 60;
-        timerText.text = min.ToString("D2") + ":" + sec.ToString("D2");
+        if (isRead)
+        {
+            int min = (int)time / 60;
+            int sec = (int)time % 60;
+            timerText.text = min.ToString("D2") + ":" + sec.ToString("D2");
+        }
+        
     }
 
     public void ShowStageClearUI(float clearTime){
