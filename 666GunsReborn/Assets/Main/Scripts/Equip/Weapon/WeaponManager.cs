@@ -103,6 +103,59 @@ public class WeaponManager : Singleton<WeaponManager>
         //무기 교체 추가 작업칸
     }
 
+    /// <summary>
+    /// 특정 슬롯에 무기를 교체하는 함수
+    /// </summary>
+    /// <param name="slotIndex">0 또는 1</param>
+    /// <param name="weaponType">장착할 무기 타입</param>
+    public void ReplaceWeapon(int slotIndex, WeaponType weaponType)
+    {
+        //예외처리
+        if (slotIndex < 0 || slotIndex >= equipedWeapons.Length)
+        {
+            Debug.LogWarning("무기 슬롯 인덱스가 잘못됨");
+            return;
+        }
+
+        // 기존 무기 제거
+        if (equipedWeapons[slotIndex] != null)
+        {
+            Destroy(equipedWeapons[slotIndex]);
+        }
+
+        Weapon newWeapon = null;
+
+        // 무기 타입에 따라 AddComponent
+        switch (weaponType)
+        {
+            case WeaponType.Pistol:
+                newWeapon = playerObject.AddComponent<Pistol>();
+                break;
+            case WeaponType.Rifle:
+                newWeapon = playerObject.AddComponent<Rifle>();
+                break;
+            case WeaponType.Shotgun:
+                newWeapon = playerObject.AddComponent<Shotgun>();
+                break;
+            default:
+                Debug.LogWarning("해당 무기 타입이 없습니다.");
+                return;
+        }
+
+        newWeapon.Initialized(slotIndex, weaponType);
+        equipedWeapons[slotIndex] = newWeapon;
+
+        // UI 업데이트
+        WeaponUIEvents.OnUpdateWeaponImage?.Invoke(equipedWeapons[0].GetWeaponSprite(), equipedWeapons[1].GetWeaponSprite());
+        if (slotIndex == currentWeaponIndex)
+        {
+            int[] bullet = newWeapon.GetBullet();
+            WeaponUIEvents.OnUpdateBulletUI?.Invoke(currentWeaponIndex, bullet[0], bullet[1]);
+        }
+
+        Debug.Log($"[WeaponManager] {slotIndex}번 슬롯 무기 교체 완료: {weaponType}");
+    }
+
     private void Update()
     {
         if (currentChangeTime > 0)
