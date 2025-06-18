@@ -14,3 +14,29 @@ public abstract class QuestBase
 
     abstract public string GetFormatText();
 }
+
+[System.Serializable]
+public class StageClear_Quest : QuestBase
+{
+    public bool _isStageClear = false;
+
+    public override string GetFormatText()
+    {
+        throw new System.NotImplementedException();
+    }
+
+
+}
+
+//퀘스트 클리어 여부
+[System.Serializable]
+public enum QuestState
+{
+    NEVER_RECEIVED,
+
+    ONGOING,
+
+    CLEAR,
+
+    CLEARED_PAST
+}

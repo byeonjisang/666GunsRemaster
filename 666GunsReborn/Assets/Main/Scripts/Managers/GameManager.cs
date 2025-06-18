@@ -49,7 +49,7 @@ public class GameManager : Singleton<GameManager>
 
     public void ShowCoinText()
     {
-        _userCoinText.text = _coin.ToString() + " Coins";
+        //_userCoinText.text = _coin.ToString() + " Coins";
     }
 
     public void SetCoinTextTarget(Text coinText)
