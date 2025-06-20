@@ -32,6 +32,7 @@ public class SceneChangeListener : Singleton<SceneChangeListener>
 
             // PlayerManager 초기화
             PlayerManager.Instance.InitializePlayer(playerObject);
+            //WeaponManager.Instance.Initialized();
         }
     }
 }

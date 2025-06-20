@@ -31,7 +31,7 @@ public class StageManager : Singleton<StageManager>
         stageController.StartStage(stageDatas[currentStageIndex]);
     }
 
-    public void DeadEnemy(GameObject enemyObject) 
+    public void DeadEnemy(GameObject enemyObject)
     {
         stageController.DeadEnemy(enemyObject);
     }

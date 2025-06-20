@@ -43,16 +43,36 @@ public class WeaponManager : Singleton<WeaponManager>
     // Weapon test initialization
     private void Start()
     {
-        currentWeaponIndex = 0;
+        //currentWeaponIndex = 0;
 
         //임시 총 초기화
-        equipedWeapons[0] = playerObject.AddComponent<Pistol>();
-        equipedWeapons[1] = playerObject.AddComponent<Rifle>();
+        //equipedWeapons[0] = playerObject.AddComponent<Pistol>();
+        //equipedWeapons[1] = playerObject.AddComponent<Rifle>();
 
-        equipedWeapons[0].Initialized(0, WeaponType.Pistol);
-        equipedWeapons[1].Initialized(1, WeaponType.Rifle);
+        //equipedWeapons[0].Initialized(0, WeaponType.Pistol);
+        //equipedWeapons[1].Initialized(1, WeaponType.Rifle);
 
         //UI 초기화
+        // WeaponUIEvents.OnUpdateWeaponImage?.Invoke(equipedWeapons[0].GetWeaponSprite(), equipedWeapons[1].GetWeaponSprite());
+        // int[] bullet = currentWeapon.GetBullet();
+        // WeaponUIEvents.OnUpdateBulletUI?.Invoke(currentWeaponIndex, bullet[0], bullet[1]);
+    }
+
+    public void Initialized(int weapon1Index = 0, int weapon2Index = 1)
+    {
+        currentWeaponIndex = 0;
+
+        WeaponLoader weaponLoader = GameObject.FindObjectOfType<WeaponLoader>();
+        if (weaponLoader == null)
+        {
+            Debug.LogError("WeaponLoader not found in the scene.");
+            return;
+        }
+
+        // 무기 초기화
+        equipedWeapons[0] = weaponLoader.LoadWeapon(0, (WeaponType)weapon1Index);
+        equipedWeapons[1] = weaponLoader.LoadWeapon(1, (WeaponType)weapon2Index);
+
         WeaponUIEvents.OnUpdateWeaponImage?.Invoke(equipedWeapons[0].GetWeaponSprite(), equipedWeapons[1].GetWeaponSprite());
         int[] bullet = currentWeapon.GetBullet();
         WeaponUIEvents.OnUpdateBulletUI?.Invoke(currentWeaponIndex, bullet[0], bullet[1]);
@@ -72,11 +92,7 @@ public class WeaponManager : Singleton<WeaponManager>
     // Weapon Attack
     public void Attack()
     {
-        Transform bulletPos = playerObject.transform.Find("Root/Hips/Spine_01/Spine_02/Spine_03/Clavicle_R/SM_Wep_Rifle_Plasma_03/BulletSpawnPoint");
-
-        Quaternion bulletRot = playerObject.transform.rotation;
-
-        currentWeapon.Fire(bulletObject, bulletPos, bulletRot);
+        currentWeapon.Fire(bulletObject);
         int[] bulletCount = currentWeapon.GetBullet();
         WeaponUIEvents.OnUpdateBulletUI?.Invoke(currentWeaponIndex, bulletCount[0], bulletCount[1]);
 
@@ -94,7 +110,14 @@ public class WeaponManager : Singleton<WeaponManager>
             return;
         }
 
+        equipedWeapons[currentWeaponIndex].SetWeaponRig(false);
+        equipedWeapons[currentWeaponIndex].gameObject.SetActive(false);
+
         currentWeaponIndex = 1 - currentWeaponIndex;
+
+        equipedWeapons[currentWeaponIndex].gameObject.SetActive(true);
+        equipedWeapons[currentWeaponIndex].SetWeaponRig();        
+
         currentChangeTime = changeCooldown;
         WeaponUIEvents.OnSwitchWeaponUI?.Invoke();
         WeaponUIEvents.OnUpdateCooldownUI?.Invoke(changeCooldown);
