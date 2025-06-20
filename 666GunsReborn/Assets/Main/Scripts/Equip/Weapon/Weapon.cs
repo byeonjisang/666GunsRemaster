@@ -5,6 +5,7 @@ using UnityEngine;
 public class Weapon : MonoBehaviour
 {
     protected WeaponType weaponType;
+    public WeaponType Type => weaponType;
     //무기 데이터
     protected WeaponStats weaponStats;
 

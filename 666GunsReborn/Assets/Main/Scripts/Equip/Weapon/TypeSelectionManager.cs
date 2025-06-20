@@ -20,8 +20,6 @@ public class TypeSelectionManager : MonoBehaviour
 
         // Add listeners to handle changes
         playerTypeDropdown.onValueChanged.AddListener(OnPlayerTypeChanged);
-        weapon1TypeDropdown.onValueChanged.AddListener(OnWeapon1TypeChanged);
-        weapon2TypeDropdown.onValueChanged.AddListener(OnWeapon2TypeChanged);
 
         Time.timeScale = 0f; // Pause the game when the type selection panel is active
     }
@@ -29,20 +27,6 @@ public class TypeSelectionManager : MonoBehaviour
     private void OnPlayerTypeChanged(int index)
     {
 
-    }
-
-    private void OnWeapon1TypeChanged(int index)
-    {
-        WeaponType selectedType = (WeaponType)index;
-        PlayerManager.Instance.SetWeaponType(selectedType, 0);
-        Debug.Log("Selected Weapon 1 Type: " + selectedType);
-    }
-
-    private void OnWeapon2TypeChanged(int index)
-    {
-        WeaponType selectedType = (WeaponType)index;
-        PlayerManager.Instance.SetWeaponType(selectedType, 1);
-        Debug.Log("Selected Weapon 2 Type: " + selectedType);
     }
 
     public void StartGame()

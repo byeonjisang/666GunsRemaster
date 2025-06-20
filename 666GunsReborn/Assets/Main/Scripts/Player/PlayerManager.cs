@@ -14,8 +14,6 @@ public class PlayerManager : Singleton<PlayerManager>
     // 시작할 때 Default 값으로 설정
     private PlayerType playerType = PlayerType.Attack;
     public PlayerType PlayerType { get { return playerType; } private set { } }
-    private WeaponType[] equipWeaponType = new WeaponType[2] { WeaponType.Rifle, WeaponType.Rifle };
-    public WeaponType[] EquipWeaponType { get { return equipWeaponType; } private set { } }
 
     [Header("Player Variables")]
     [NonSerialized]
@@ -34,18 +32,6 @@ public class PlayerManager : Singleton<PlayerManager>
     {
         playerType = type;
         Debug.Log("Player Type Set: " + playerType);
-    }
-
-    /// <summary>
-    /// Sets the weapon type for a specific index.
-    /// <summary>
-    /// param name="type">The weapon type to set.</param>
-    /// param name="index">The index in the equipWeaponType array to set.</param>
-    /// /// <exception cref="System.ArgumentOutOfRangeException">Thrown when index is out of range.</exception>
-    public void SetWeaponType(WeaponType type, int index)
-    {
-        equipWeaponType[index] = type;
-        Debug.Log("Weapon Type Set: " + type + " at index " + index);
     }
     #endregion
 
