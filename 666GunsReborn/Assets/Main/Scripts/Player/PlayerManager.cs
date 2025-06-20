@@ -13,7 +13,7 @@ public class PlayerManager : Singleton<PlayerManager>
     [Header("Player Type")]
     // 시작할 때 Default 값으로 설정
     private PlayerType playerType = PlayerType.Attack;
-    public PlayerType PlayerType {get { return playerType;} private set { }}
+    public PlayerType PlayerType { get { return playerType; } private set { } }
     private WeaponType[] equipWeaponType = new WeaponType[2] { WeaponType.Rifle, WeaponType.Rifle };
     public WeaponType[] EquipWeaponType { get { return equipWeaponType; } private set { } }
 
@@ -21,9 +21,12 @@ public class PlayerManager : Singleton<PlayerManager>
     [NonSerialized]
     public Player Currentplayer;
 
+    private int holdCoins = 0;
+    public int HoldCoins { get { return holdCoins; } private set { } }
+
     protected override bool IsPersistent => true;
 
-#region Set Player Info Code
+    #region Set Player Info Code
     /// <summary>
     /// Sets the player type.
     /// <summary>
@@ -39,7 +42,8 @@ public class PlayerManager : Singleton<PlayerManager>
     /// param name="type">The weapon type to set.</param>
     /// param name="index">The index in the equipWeaponType array to set.</param>
     /// /// <exception cref="System.ArgumentOutOfRangeException">Thrown when index is out of range.</exception>
-    public void SetWeaponType(WeaponType type, int index){
+    public void SetWeaponType(WeaponType type, int index)
+    {
         equipWeaponType[index] = type;
         Debug.Log("Weapon Type Set: " + type + " at index " + index);
     }
@@ -51,6 +55,7 @@ public class PlayerManager : Singleton<PlayerManager>
         // Player 초기화 로직
         Debug.Log("Player Initialized with Type: " + playerType);
 
+        holdCoins = 0;
         // 플레이어 초기화
         if (!playerTypeMap.TryGetValue(playerType, out Type type))
         {
@@ -62,5 +67,10 @@ public class PlayerManager : Singleton<PlayerManager>
         if (playerScript is IPlayer player)
             player.Initialized(type);
     }
-#endregion
+    #endregion
+
+    public void AddCoins(int coins)
+    {
+        holdCoins += coins;
+    }
 }

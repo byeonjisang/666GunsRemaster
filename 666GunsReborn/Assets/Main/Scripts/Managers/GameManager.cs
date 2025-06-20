@@ -7,7 +7,7 @@ using UnityEngine.UI;
 using static GameManager;
 
 
-//ÀüÃ¼ GameManagerÀÌ±â ‹š¹®¿¡ ÇöÀç ¾î¶² »óÅÂÀÎÁö ±¸ºÐ.
+//ï¿½ï¿½Ã¼ GameManagerï¿½Ì±ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½î¶² ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 public enum GameMode
 {
     LOBBY,
@@ -19,14 +19,14 @@ public enum GameMode
 public class GameManager : Singleton<GameManager>
 {
     /// <summary>
-    /// DontDestroy ÇÊ¿äÇÑ ½Ì±ÛÅÏ ¸Å´ÏÀúµéÀº ¹«Á¶°Ç È£Ãâ!
+    /// DontDestroy ï¿½Ê¿ï¿½ï¿½ï¿½ ï¿½Ì±ï¿½ï¿½ï¿½ ï¿½Å´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ È£ï¿½ï¿½!
     /// </summary>
     protected override bool IsPersistent => true;
 
-    //°ÔÀÓ ¸ðµå º¯°æ
+    //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     public GameMode _gameMode;
 
-    //ÇÃ·¹ÀÌ¾î ÄÚÀÎ ÀçÈ­ Ç¥½Ã
+    //ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È­ Ç¥ï¿½ï¿½
     public Text _userCoinText;
     public int _coin = 0;
 
@@ -36,7 +36,7 @@ public class GameManager : Singleton<GameManager>
     {
         base.Awake();
 
-        //Ã³À½ ÀÔÀå ½Ã ·Îºñ
+        //Ã³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Îºï¿½
         _gameMode = GameMode.LOBBY;
 
         _coin = 1000;
@@ -62,6 +62,6 @@ public class GameManager : Singleton<GameManager>
     public void ChangeGameMode(GameMode gameMode)
     {
         _gameMode = gameMode;
-        Debug.Log("ÇöÀç °ÔÀÓ ¸ðµå : " +  _gameMode);
+        Debug.Log("ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ : " +  _gameMode);
     }
 }

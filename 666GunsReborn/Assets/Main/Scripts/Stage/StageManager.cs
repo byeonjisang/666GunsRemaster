@@ -40,7 +40,7 @@ public class StageManager : Singleton<StageManager>
     {
         isStageClear[currentStageIndex] = true;
         UIManager.Instance.ShowStageClearUI(clearTime);
-        //SceneManager.LoadScene("Stage Select");
+        GameManager.Instance._coin += PlayerManager.Instance.HoldCoins;
     }
 
     public void StageFailed()
