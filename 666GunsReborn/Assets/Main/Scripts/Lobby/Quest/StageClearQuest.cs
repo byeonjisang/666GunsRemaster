@@ -18,5 +18,3 @@ public class StageClear_Quest : QuestBase
         isPartClear = true;
     }
 }
-
-}
