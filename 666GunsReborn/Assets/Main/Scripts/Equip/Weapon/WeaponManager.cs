@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public enum WeaponType
@@ -31,6 +32,7 @@ public class WeaponManager : Singleton<WeaponManager>
     public int CurrentWeaponIndex => currentWeaponIndex;
     private Weapon[] equipedWeapons = new Weapon[2];
     private Weapon currentWeapon => equipedWeapons[currentWeaponIndex];
+    private List<Weapon> WeaponTestWeapons = new List<Weapon>();
 
     // 무기 교체 쿨타임 관련 변수
     [Header("Weapon Change Settings")]
@@ -40,19 +42,62 @@ public class WeaponManager : Singleton<WeaponManager>
 
     public bool IsChangeCooldownActive => currentChangeTime > 0;
 
-    // Weapon test initialization
-    private void Start()
+    // Weapon Initialization in WeaopnTestRoom
+    public void Initialized(int weaponIndex)
+    {
+        currentWeaponIndex = 0;
+        if (equipedWeapons[0] != null)
+        {
+            WeaponTestWeapons.Add(equipedWeapons[0]);
+            equipedWeapons[0].gameObject.SetActive(false);
+            equipedWeapons[currentWeaponIndex].SetWeaponRig(false);
+        }
+
+
+        bool isWeaponFound = false;
+        foreach (Weapon weapon in WeaponTestWeapons)
+        {
+            if (weapon.Type == (WeaponType)weaponIndex)
+            {
+                equipedWeapons[0] = weapon;
+                equipedWeapons[0].gameObject.SetActive(true);
+                equipedWeapons[0].SetWeaponRig();
+                isWeaponFound = true;
+                break;
+            }
+        }
+        if (!isWeaponFound)
+        {
+            WeaponLoader weaponLoader = GameObject.FindObjectOfType<WeaponLoader>();
+            if (weaponLoader == null)
+            {
+                Debug.LogError("WeaponLoader not found in the scene.");
+                return;
+            }
+            equipedWeapons[0] = weaponLoader.LoadWeapon(0, (WeaponType)weaponIndex);    
+        }
+
+        WeaponUIEvents.OnUpdateWeaponImage?.Invoke(equipedWeapons[0].GetWeaponSprite(), null);
+        int[] bullet = currentWeapon.GetBullet();
+        WeaponUIEvents.OnUpdateBulletUI?.Invoke(currentWeaponIndex, bullet[0], bullet[1]);
+    }
+
+    // Weapon Initialization in Stage Map
+    public void Initialized(int weapon1Index = 0, int weapon2Index = 1)
     {
         currentWeaponIndex = 0;
 
-        //임시 총 초기화
-        equipedWeapons[0] = playerObject.AddComponent<Pistol>();
-        equipedWeapons[1] = playerObject.AddComponent<Rifle>();
+        WeaponLoader weaponLoader = GameObject.FindObjectOfType<WeaponLoader>();
+        if (weaponLoader == null)
+        {
+            Debug.LogError("WeaponLoader not found in the scene.");
+            return;
+        }
 
-        equipedWeapons[0].Initialized(0, WeaponType.Pistol);
-        equipedWeapons[1].Initialized(1, WeaponType.Rifle);
+        // 무기 초기화
+        equipedWeapons[0] = weaponLoader.LoadWeapon(0, (WeaponType)weapon1Index);
+        equipedWeapons[1] = weaponLoader.LoadWeapon(1, (WeaponType)weapon2Index);
 
-        //UI 초기화
         WeaponUIEvents.OnUpdateWeaponImage?.Invoke(equipedWeapons[0].GetWeaponSprite(), equipedWeapons[1].GetWeaponSprite());
         int[] bullet = currentWeapon.GetBullet();
         WeaponUIEvents.OnUpdateBulletUI?.Invoke(currentWeaponIndex, bullet[0], bullet[1]);
@@ -72,11 +117,7 @@ public class WeaponManager : Singleton<WeaponManager>
     // Weapon Attack
     public void Attack()
     {
-        Transform bulletPos = playerObject.transform.Find("Root/Hips/Spine_01/Spine_02/Spine_03/Clavicle_R/SM_Wep_Rifle_Plasma_03/BulletSpawnPoint");
-
-        Quaternion bulletRot = playerObject.transform.rotation;
-
-        currentWeapon.Fire(bulletObject, bulletPos, bulletRot);
+        currentWeapon.Fire(bulletObject);
         int[] bulletCount = currentWeapon.GetBullet();
         WeaponUIEvents.OnUpdateBulletUI?.Invoke(currentWeaponIndex, bulletCount[0], bulletCount[1]);
 
@@ -94,7 +135,14 @@ public class WeaponManager : Singleton<WeaponManager>
             return;
         }
 
+        equipedWeapons[currentWeaponIndex].SetWeaponRig(false);
+        equipedWeapons[currentWeaponIndex].gameObject.SetActive(false);
+
         currentWeaponIndex = 1 - currentWeaponIndex;
+
+        equipedWeapons[currentWeaponIndex].gameObject.SetActive(true);
+        equipedWeapons[currentWeaponIndex].SetWeaponRig();        
+
         currentChangeTime = changeCooldown;
         WeaponUIEvents.OnSwitchWeaponUI?.Invoke();
         WeaponUIEvents.OnUpdateCooldownUI?.Invoke(changeCooldown);

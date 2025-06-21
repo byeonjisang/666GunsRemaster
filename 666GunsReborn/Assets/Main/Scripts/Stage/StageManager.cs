@@ -31,7 +31,7 @@ public class StageManager : Singleton<StageManager>
         stageController.StartStage(stageDatas[currentStageIndex]);
     }
 
-    public void DeadEnemy(GameObject enemyObject) 
+    public void DeadEnemy(GameObject enemyObject)
     {
         stageController.DeadEnemy(enemyObject);
     }
@@ -40,13 +40,24 @@ public class StageManager : Singleton<StageManager>
     {
         isStageClear[currentStageIndex] = true;
         UIManager.Instance.ShowStageClearUI(clearTime);
-        //SceneManager.LoadScene("Stage Select");
+        GameManager.Instance._coin += PlayerManager.Instance.HoldCoins;
+        OffWeaponUIEvents();
     }
 
     public void StageFailed()
     {
         Debug.Log("Stage Failed");
         UIManager.Instance.ShowFailedUI();
+        OffWeaponUIEvents();
+    }
+
+    private void OffWeaponUIEvents()
+    {
+        WeaponUIEvents.OnUpdateCooldownUI = null;
+        WeaponUIEvents.OnUpdateWeaponImage = null;
+        WeaponUIEvents.OnUpdateBulletUI = null;
+        WeaponUIEvents.OnSwitchWeaponUI = null;
+        WeaponUIEvents.OnUpdateReloadSlider = null;
     }
 
     public bool[] GetStageClearState()

@@ -89,10 +89,17 @@ public abstract class BaseEnemy : MonoBehaviour
         if (hp <= 0)
         {
             state = EnemyState.Die;
+            PlayerManager.Instance.AddCoins(DropCoins());
         }
         else
         {
             state = EnemyState.Hit;
         }
+    }
+
+    public virtual int DropCoins()
+    {
+        int coinCount = Random.Range(100, 150);
+        return coinCount;
     }
 }

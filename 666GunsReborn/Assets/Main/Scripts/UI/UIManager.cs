@@ -20,6 +20,8 @@ public class UIManager : Singleton<UIManager>
     private GameObject clearUI;
     [SerializeField]
     private Text clearTimeText;
+    [SerializeField]
+    private Text coinText;
 
     [Header("Failed UI")]
     [SerializeField]
@@ -45,11 +47,13 @@ public class UIManager : Singleton<UIManager>
         
     }
 
-    public void ShowStageClearUI(float clearTime){
+    public void ShowStageClearUI(float clearTime)
+    {
         clearUI.SetActive(true);
         int clearTimeMin = (int)clearTime / 60;
         int clearTimeSec = (int)clearTime % 60;
         clearTimeText.text = "Clear Time : " + clearTimeMin.ToString("D2") + ":" + clearTimeSec.ToString("D2");
+        coinText.text = "Coin : " + PlayerManager.Instance.HoldCoins.ToString();
     }
 
     public void ShowFailedUI()

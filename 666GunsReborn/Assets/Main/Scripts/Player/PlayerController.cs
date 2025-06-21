@@ -12,7 +12,6 @@ public class PlayerController : MonoBehaviour
     #endregion
 
     private Vector3 direction = Vector3.zero;
-
     
     public Action<Vector3> OnMovePress;
     public Action OnAttackPress;

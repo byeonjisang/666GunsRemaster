@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Animations.Rigging;
 
 #region Player Enum
 public enum PlayerStateType
@@ -48,6 +49,7 @@ public class Player : MonoBehaviour, IPlayer
     protected Rigidbody rigid;
     // 애니메이터
     protected Animator anim;
+    protected RigController rigController;
 
     protected PlayerController controller;
 
@@ -84,8 +86,9 @@ public class Player : MonoBehaviour, IPlayer
         attackSystem.Initialize(this);
         AddControllerEvent();
 
-        //dd
+        //애니메이션 초기화
         anim.applyRootMotion = false;
+        rigController = GetComponent<RigController>();
     }
 
     private void AddControllerEvent()

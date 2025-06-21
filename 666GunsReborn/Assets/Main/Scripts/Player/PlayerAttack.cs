@@ -9,7 +9,6 @@ public class PlayerAttack : MonoBehaviour
 
     public bool IsAttacking { get; private set; } = false;
 
-    public Rig attackRig;
     private float attackDuration = 0.3f;
 
     public void Initialize(Player player)
@@ -70,10 +69,5 @@ public class PlayerAttack : MonoBehaviour
         {
             StopAttack();
         }
-
-
-        // 공격 자세 취하기
-        if(attackRig != null)
-            attackRig.weight += (Time.deltaTime / attackDuration) * (IsAttacking ? 1 : -1);
     }  
 }
