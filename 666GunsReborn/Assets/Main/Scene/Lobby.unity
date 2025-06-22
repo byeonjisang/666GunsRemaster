@@ -3992,7 +3992,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &648195904
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4846,8 +4846,8 @@ MonoBehaviour:
   questData: {fileID: 11400000, guid: 0e95ca95896038940af7ca530997d68e, type: 2}
   questTextPrefab: {fileID: 7609581918563303317, guid: 390c4e9df38ec164886f90947cb50213,
     type: 3}
-  questTextParent: {fileID: 0}
-  questCanvas: {fileID: 0}
+  questTextParent: {fileID: 1891913470}
+  questCanvas: {fileID: 648195903}
 --- !u!4 &772272269
 Transform:
   m_ObjectHideFlags: 0
