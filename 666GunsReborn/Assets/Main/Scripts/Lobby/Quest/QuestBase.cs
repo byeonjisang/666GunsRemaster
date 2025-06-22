@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public abstract class QuestBase
+public abstract class QuestBase : ScriptableObject
 {
     [Header("이 값을 표현할 포맷 id번호")] public int formatId = -1;
 

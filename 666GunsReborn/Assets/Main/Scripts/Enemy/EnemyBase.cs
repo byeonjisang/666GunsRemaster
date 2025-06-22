@@ -17,6 +17,7 @@ public enum EnemyState
 
 public abstract class BaseEnemy : MonoBehaviour
 {
+    public int id = 0;
     public int hp = 100;
     protected Animator animator;
     protected NavMeshAgent agent;

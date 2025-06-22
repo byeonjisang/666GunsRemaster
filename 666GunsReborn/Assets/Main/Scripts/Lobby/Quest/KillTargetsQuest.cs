@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
+[CreateAssetMenu(fileName = "KillTargets_Quest", menuName = "Datas/KillTargets_Quest", order = 1)]
 public class KillTargets_Quest : QuestBase
 {
     [Header("贸摹秦具 且 利狼 ID")]
@@ -16,17 +17,14 @@ public class KillTargets_Quest : QuestBase
 
     public override string GetFormatText()
     {
-        return $"利(ID:{enemyId}) 贸摹: {currentKillCount}/{targetKillCount}";
+        return $"利 贸摹: {currentKillCount}/{targetKillCount}";
     }
 
     public void AddKill()
     {
         if (isPartClear) return;
-
         currentKillCount++;
-        if (currentKillCount >= targetKillCount)
-        {
-            isPartClear = true;
-        }
+
+        if (currentKillCount >= targetKillCount) isPartClear = true;
     }
 }
