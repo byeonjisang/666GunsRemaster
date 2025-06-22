@@ -6933,7 +6933,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _gameMode: 0
-  _userCoinText: {fileID: 1728273223}
+  _userCoinText: {fileID: 1728273221}
   _coin: 0
   _settingButton: {fileID: 741398468}
 --- !u!4 &1266149589
@@ -8628,7 +8628,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!225 &1741394126
 CanvasGroup:
   m_ObjectHideFlags: 0

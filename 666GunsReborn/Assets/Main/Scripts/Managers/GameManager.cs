@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using static GameManager;
 
@@ -26,7 +27,8 @@ public class GameManager : Singleton<GameManager>
     public GameMode _gameMode;
 
     //�÷��̾� ���� ��ȭ ǥ��
-    public Text _userCoinText;
+    public GameObject _userCoinText;
+    private Text _text;
     public int _coin = 0;
 
     public Button _settingButton;
@@ -39,6 +41,15 @@ public class GameManager : Singleton<GameManager>
         _gameMode = GameMode.LOBBY;
 
         _coin = 1000;
+
+        _text = _userCoinText.GetComponent<Text>();
+
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        _userCoinText = GameObject.Find("PlayerCoinText");
     }
 
     protected void Update()
@@ -55,11 +66,11 @@ public class GameManager : Singleton<GameManager>
         }
         else 
         {
-            _userCoinText.text = _coin.ToString() + " Coins";
+            _text.text = _coin.ToString() + " Coins";
         }
     }
 
-    public void SetCoinTextTarget(Text coinText)
+    public void SetCoinTextTarget(GameObject coinText)
     {
         _userCoinText = coinText;
         ShowCoinText();

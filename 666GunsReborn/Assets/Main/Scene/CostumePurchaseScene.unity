@@ -2673,7 +2673,7 @@ MonoBehaviour:
   - {fileID: 1569670453}
   - {fileID: 729801479}
   costumePrices: 64000000f4010000e8030000d0070000
-  lobbyCoinText: {fileID: 1038499990}
+  lobbyCoinText: {fileID: 1038499988}
 --- !u!4 &2038319605
 Transform:
   m_ObjectHideFlags: 0

@@ -7,7 +7,7 @@ public class PurchaseManager : Singleton<PurchaseManager>
     [SerializeField] private List<Button> costumeButtons;
     [SerializeField] private List<GameObject> lockCostumeImages;
     [SerializeField] private List<int> costumePrices;
-    [SerializeField] private Text lobbyCoinText;
+    [SerializeField] private GameObject lobbyCoinText;
 
     private List<bool> purchasedCostumes = new List<bool>(); // 구매 여부 저장
 
