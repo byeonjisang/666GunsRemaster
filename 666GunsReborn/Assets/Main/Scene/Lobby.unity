@@ -7824,8 +7824,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1584676737}
-  - component: {fileID: 1584676736}
-  - component: {fileID: 1584676735}
+  - component: {fileID: 1584676739}
+  - component: {fileID: 1584676738}
   m_Layer: 0
   m_Name: SoundManager
   m_TagString: Untagged
@@ -7833,28 +7833,39 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1584676735
+--- !u!4 &1584676737
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1584676734}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.593449, y: 3.908047, z: -2.8667712}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1584676738
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1584676734}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bfa55a3cca0f73f4eab5b3e586ea8be3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   audioList:
-  - name: BGM
-    clipList: []
-  - name: WALK
+  - name: 
     clipList:
     - {fileID: 8300000, guid: a18b97b6713006d4c88db7ae85f6599e, type: 3}
-  - name: SHOOT
-    clipList:
     - {fileID: 8300000, guid: d6900bc3d25aba64e9e68836a6e1f662, type: 3}
---- !u!82 &1584676736
+--- !u!82 &1584676739
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -7865,10 +7876,10 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 0
+  m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -7950,21 +7961,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!4 &1584676737
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1584676734}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.593449, y: 3.908047, z: -2.8667712}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1597962444
 GameObject:
   m_ObjectHideFlags: 0

@@ -53,6 +53,8 @@ public class Player : MonoBehaviour, IPlayer
 
     protected PlayerController controller;
 
+    private bool hasPlayedWalkSound = false;
+
     protected virtual void Awake()
     {
         rigid = GetComponent<Rigidbody>();
@@ -187,7 +189,17 @@ public class Player : MonoBehaviour, IPlayer
 
         anim.SetFloat("Speed", direction.magnitude);
 
-        SoundManager.instance.PlaySound(SoundType.WALK);
+
+        // 조건 추가: 일정 이상 이동할 때만 재생, 재생한 적 없을 때만
+        if (direction.magnitude > 0.1f && !hasPlayedWalkSound)
+        {
+            SoundManager.Instance.PlaySound(0);
+            hasPlayedWalkSound = true;
+        }
+        else if (direction.magnitude <= 0.1f)
+        {
+            hasPlayedWalkSound = false;
+        }
     }
 
     // 땅 위에 있는지 체크
