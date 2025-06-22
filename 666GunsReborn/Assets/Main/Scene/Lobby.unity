@@ -7860,11 +7860,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfa55a3cca0f73f4eab5b3e586ea8be3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioList:
-  - name: 
-    clipList:
-    - {fileID: 8300000, guid: a18b97b6713006d4c88db7ae85f6599e, type: 3}
-    - {fileID: 8300000, guid: d6900bc3d25aba64e9e68836a6e1f662, type: 3}
+  soundClips:
+  - {fileID: 8300000, guid: a18b97b6713006d4c88db7ae85f6599e, type: 3}
+  - {fileID: 8300000, guid: d6900bc3d25aba64e9e68836a6e1f662, type: 3}
 --- !u!82 &1584676739
 AudioSource:
   m_ObjectHideFlags: 0
@@ -7876,10 +7874,10 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -10955,6 +10953,7 @@ SceneRoots:
   - {fileID: 1266149589}
   - {fileID: 1285524518}
   - {fileID: 1584676737}
+  - {fileID: 511074359}
   - {fileID: 788846565}
   - {fileID: 772272269}
   - {fileID: 851511564}
@@ -10966,4 +10965,3 @@ SceneRoots:
   - {fileID: 210054329}
   - {fileID: 2012749853}
   - {fileID: 1313769239}
-  - {fileID: 511074359}
