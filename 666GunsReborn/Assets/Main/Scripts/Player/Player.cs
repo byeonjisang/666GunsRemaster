@@ -186,6 +186,8 @@ public class Player : MonoBehaviour, IPlayer
         }
 
         anim.SetFloat("Speed", direction.magnitude);
+
+        SoundManager.instance.PlaySound(SoundType.WALK);
     }
 
     // 땅 위에 있는지 체크

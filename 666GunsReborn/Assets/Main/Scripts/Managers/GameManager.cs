@@ -48,7 +48,15 @@ public class GameManager : Singleton<GameManager>
 
     public void ShowCoinText()
     {
-        //_userCoinText.text = _coin.ToString() + " Coins";
+        ///인게임에서는 재화 표시 X
+        if( _gameMode == GameMode.INGAME)
+        {
+            return;
+        }
+        else 
+        {
+            _userCoinText.text = _coin.ToString() + " Coins";
+        }
     }
 
     public void SetCoinTextTarget(Text coinText)

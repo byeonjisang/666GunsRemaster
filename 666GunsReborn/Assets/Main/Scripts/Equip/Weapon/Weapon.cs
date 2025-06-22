@@ -70,6 +70,8 @@ public class Weapon : MonoBehaviour
         if (disableCoroutine != null)
             StopCoroutine(disableCoroutine);
         disableCoroutine = StartCoroutine(DisableAttackRigAfterDelay(1.3f));
+
+        SoundManager.instance.PlaySound(SoundType.SHOOT);
     }
 
     private IEnumerator DisableAttackRigAfterDelay(float delay)
