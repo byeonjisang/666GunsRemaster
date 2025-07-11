@@ -69,7 +69,8 @@ public class Player : MonoBehaviour, IPlayer
     {
         // 플레이어 타입에 따른 데이터 로드
         //PlayerData playerData = Resources.Load<PlayerData>($"Datas/Player/{this.GetType().ToString()}");
-        PlayerData playerData = Resources.Load<PlayerData>($"Datas/Player/Player1");
+        Debug.Log($"Player Type: {playerType}");
+        PlayerData playerData = Resources.Load<PlayerData>($"Datas/Player/"+ playerType.ToString());
 
         // 스텟 초기화
         stats.Init(playerData);
