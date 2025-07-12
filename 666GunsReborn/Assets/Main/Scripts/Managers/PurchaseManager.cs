@@ -4,6 +4,8 @@ using UnityEngine.UI;
 
 public class PurchaseManager : Singleton<PurchaseManager>
 {
+
+    [SerializeField] private Canvas purchaseCanvas;
     [SerializeField] private List<Button> costumeButtons;
     [SerializeField] private List<GameObject> lockCostumeImages;
     [SerializeField] private List<int> costumePrices;
@@ -18,22 +20,44 @@ public class PurchaseManager : Singleton<PurchaseManager>
 
     private void Start()
     {
-        GameManager.Instance.SetCoinTextTarget(lobbyCoinText);
 
-        // 구매 여부 초기화 (모두 미구매로)
-        for (int i = 0; i < costumeButtons.Count; i++)
+        //GameManager.Instance.SetCoinTextTarget(lobbyCoinText);
+
+        //// 구매 여부 초기화 (모두 미구매로)
+        //for (int i = 0; i < costumeButtons.Count; i++)
+        //{
+        //    purchasedCostumes.Add(false);
+        //}
+
+        //// 버튼 클릭 이벤트 등록
+        //for (int i = 0; i < costumeButtons.Count; i++)
+        //{
+        //    int index = i;
+        //    costumeButtons[i].onClick.AddListener(() => TryPurchaseCostume(index));
+        //}
+
+        //UpdateCostumeButtons();
+    }
+
+    private void Update()
+    {
+        if(purchaseCanvas.gameObject.activeSelf)
         {
-            purchasedCostumes.Add(false);
-        }
+            // 구매 여부 초기화 (모두 미구매로)
+            for (int i = 0; i < costumeButtons.Count; i++)
+            {
+                purchasedCostumes.Add(false);
+            }
 
-        // 버튼 클릭 이벤트 등록
-        for (int i = 0; i < costumeButtons.Count; i++)
-        {
-            int index = i;
-            costumeButtons[i].onClick.AddListener(() => TryPurchaseCostume(index));
-        }
+            // 버튼 클릭 이벤트 등록
+            for (int i = 0; i < costumeButtons.Count; i++)
+            {
+                int index = i;
+                costumeButtons[i].onClick.AddListener(() => TryPurchaseCostume(index));
+            }
 
-        UpdateCostumeButtons();
+            UpdateCostumeButtons();
+        }
     }
 
     public void UpdateCostumeButtons()
