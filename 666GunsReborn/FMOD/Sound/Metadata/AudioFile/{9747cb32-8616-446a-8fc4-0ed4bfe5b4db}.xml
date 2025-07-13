@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{9747cb32-8616-446a-8fc4-0ed4bfe5b4db}">
+		<property name="assetPath">
+			<value>GunShot_1.ogg</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>0.9928541666666667</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{bc41e12d-5adf-4134-901d-c6e183cdf5aa}</destination>
+		</relationship>
+	</object>
+</objects>
