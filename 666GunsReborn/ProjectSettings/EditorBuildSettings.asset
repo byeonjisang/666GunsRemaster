@@ -12,13 +12,13 @@ EditorBuildSettings:
     path: Assets/Main/Scene/Loading Scene.unity
     guid: 6617855c868cdca408472d29381998f2
   - enabled: 1
-    path: Assets/Main/Scene/Lobby.unity
+    path: Assets/Main/Scene/LobbyScenes/Lobby.unity
     guid: 0b22be7862e1ac343bf4b4c3c4a7548f
   - enabled: 1
-    path: Assets/Main/Scene/WeaponTestScene.unity
+    path: Assets/Main/Scene/LobbyScenes/WeaponTestScene.unity
     guid: 17e2285a8eadc1c429fdd596b4f1e06e
   - enabled: 1
-    path: Assets/Main/Scene/CostumePurchaseScene.unity
+    path: Assets/Main/Scene/LobbyScenes/CostumePurchaseScene.unity
     guid: b58015a62e17dab43aba2e2004432131
   - enabled: 1
     path: Assets/Main/Scene/Stage Select.unity

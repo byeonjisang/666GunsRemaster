@@ -24,6 +24,15 @@ public class PlayerManager : Singleton<PlayerManager>
 
     protected override bool IsPersistent => true;
 
+    /// <summary>
+    /// 다른 씬에서 플레이어의 이동이 가능하게 하기 위해 추가.
+    /// </summary>
+    private void Start()
+    {
+        GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
+        InitializePlayer(playerObject);
+    }
+
     #region Set Player Info Code
     /// <summary>
     /// Sets the player type.

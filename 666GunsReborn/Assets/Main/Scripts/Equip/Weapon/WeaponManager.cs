@@ -20,7 +20,7 @@ public class WeaponManager : Singleton<WeaponManager>
 {
     [Header("Camera Component")]
     [SerializeField]
-    private CameraControl cameraControl;
+    private CameraController cameraControl;
 
     [Header("Weapon Component")]
     [SerializeField]
