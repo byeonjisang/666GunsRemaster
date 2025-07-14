@@ -453,6 +453,10 @@ sysinfo.txt
 *.unitypackage
 *.app
 
+# FMOD
+Assets/Plugins/FMOD/Cache/
+Assets/Plugins/FMOD/Cache.meta
+
 # Crashlytics generated file
 crashlytics-build.properties
 
