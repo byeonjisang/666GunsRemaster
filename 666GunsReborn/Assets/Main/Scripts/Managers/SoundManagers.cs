@@ -7,6 +7,21 @@ using Unity.VisualScripting;
 
 public class SoundManagers : Singleton<SoundManagers>
 {
+    [Header("Volume")]
+    [Range(0, 1)]
+    public float masterVolue = 1f;
+    [Range(0, 1)]
+    public float musicVolue = 1f;
+    [Range(0, 1)]
+    public float ambienceVolue = 1f;
+    [Range(0, 1)]
+    public float sfxVolue = 1f;
+
+    private Bus masterBus;
+    private Bus musicBus;
+    private Bus ambienceBus;
+    private Bus sfxBus;
+
     private List<EventInstance> eventInstances;
     //IsPersistent => true;
 
@@ -15,6 +30,20 @@ public class SoundManagers : Singleton<SoundManagers>
         base.Awake();
 
         eventInstances = new List<EventInstance>();
+
+        masterBus = RuntimeManager.GetBus("bus:/");
+        musicBus = RuntimeManager.GetBus("bus:/Music");
+        ambienceBus = RuntimeManager.GetBus("bus:/Ambience");
+        sfxBus = RuntimeManager.GetBus("bus:/SFX");
+    }
+
+    // 임시 볼륨 설정
+    private void Update()
+    {   
+        masterBus.setVolume(masterVolue);
+        musicBus.setVolume(musicVolue);
+        ambienceBus.setVolume(ambienceVolue);
+        sfxBus.setVolume(sfxVolue);
     }
 
     public void PlayOneShot(EventReference sound, Vector3 worldPos)
