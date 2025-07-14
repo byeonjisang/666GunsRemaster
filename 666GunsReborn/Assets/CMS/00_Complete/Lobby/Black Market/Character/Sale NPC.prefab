@@ -1868,7 +1868,7 @@ GameObject:
   - component: {fileID: 7426373938852076671}
   - component: {fileID: 3035068178556409971}
   m_Layer: 0
-  m_Name: SM_Chr_Robot_Female_01
+  m_Name: Sale NPC
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

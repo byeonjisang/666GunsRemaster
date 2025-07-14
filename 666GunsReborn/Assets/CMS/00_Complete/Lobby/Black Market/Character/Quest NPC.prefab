@@ -1606,7 +1606,7 @@ GameObject:
   - component: {fileID: 8380452181868108148}
   - component: {fileID: 2286552530146828478}
   m_Layer: 0
-  m_Name: SM_Chr_Mercenary_Male_01
+  m_Name: Quest NPC
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
