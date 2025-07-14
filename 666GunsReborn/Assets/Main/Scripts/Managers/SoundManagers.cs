@@ -1,18 +1,45 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using FMODUnity;
+using FMOD.Studio;
+using Unity.VisualScripting;
 
-public class SoundManager1 : MonoBehaviour
+public class SoundManagers : Singleton<SoundManagers>
 {
-    // Start is called before the first frame update
-    void Start()
+    private List<EventInstance> eventInstances;
+    //IsPersistent => true;
+
+    protected override void Awake()
     {
-        
+        base.Awake();
+
+        eventInstances = new List<EventInstance>();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void PlayOneShot(EventReference sound, Vector3 worldPos)
     {
-        
+        RuntimeManager.PlayOneShot(sound, worldPos);
+    }
+
+    public EventInstance CreateInstance(EventReference eventReference)
+    {
+        EventInstance instance = RuntimeManager.CreateInstance(eventReference);
+        eventInstances.Add(instance);
+        return instance;
+    }
+
+    private void ClaerUp()
+    {
+        foreach (EventInstance instance in eventInstances)
+        {
+            instance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+            instance.release();
+        }
+    }
+
+    private void Oestroy()
+    {
+        ClaerUp();
     }
 }
