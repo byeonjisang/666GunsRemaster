@@ -71,7 +71,8 @@ public class Weapon : MonoBehaviour
             StopCoroutine(disableCoroutine);
         disableCoroutine = StartCoroutine(DisableAttackRigAfterDelay(1.3f));
 
-        SoundManager.Instance.PlaySound(1);
+        //SoundManager.Instance.PlaySound(1);
+        SoundManagers.Instance.PlayOneShot(FMODEvents.Instance.GunShotSFX, bulletSpawnPoint.position);
     }
 
     private IEnumerator DisableAttackRigAfterDelay(float delay)
