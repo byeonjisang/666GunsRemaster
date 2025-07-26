@@ -262,7 +262,7 @@ GameObject:
   - component: {fileID: 5268583749190523191}
   - component: {fileID: 619958110}
   m_Layer: 0
-  m_Name: SM_Wep_Sniper_Rifle_01
+  m_Name: SM_Wep_Sniper_Rifle_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
