@@ -64,16 +64,19 @@ public class CameraController : Singleton<CameraController>
 
         moveCoroutine = StartCoroutine(MoveCameraCoroutine(pos, speed));
     }
-    public void StartCameraMoveToPlayer(Vector3 pos, float speed)
+    public void StartCameraMoveToPlayer(float speed)
     {
         if (moveCoroutine != null)
             StopCoroutine(moveCoroutine);
 
-        // Follow 해제
-        virtualCamera.Follow = player.transform;
+        // 카메라가 플레이어를 보는 위치를 수동으로 계산
+        Vector3 zoomOutOffset = new Vector3(0, 10, -10); // 필요에 따라 수정 가능
+        Vector3 targetPos = player.transform.position + zoomOutOffset;
 
-        moveCoroutine = StartCoroutine(MoveCameraCoroutine(pos, speed));
+        virtualCamera.Follow = null; // Follow 잠시 해제
+        moveCoroutine = StartCoroutine(MoveCameraToPlayerCoroutine(targetPos, speed));
     }
+
 
     private IEnumerator MoveCameraCoroutine(Vector3 pos, float speed)
     {
@@ -89,6 +92,25 @@ public class CameraController : Singleton<CameraController>
         isMove = false;
         moveCoroutine = null;
     }
+
+    private IEnumerator MoveCameraToPlayerCoroutine(Vector3 targetPos, float speed)
+    {
+        isMove = true;
+
+        while (Vector3.Distance(virtualCamera.transform.position, targetPos) > 0.5f)
+        {
+            virtualCamera.transform.position = Vector3.Lerp(virtualCamera.transform.position, targetPos, Time.deltaTime * speed);
+            yield return null;
+        }
+
+        virtualCamera.transform.position = targetPos;
+        isMove = false;
+        moveCoroutine = null;
+
+        // 보간 끝나고 Follow 다시 설정
+        virtualCamera.Follow = player.transform;
+    }
+
 
     public bool IsCameraAtTarget()
     {

@@ -6,6 +6,8 @@ public class InteractionTrigger : MonoBehaviour
     public Transform cameraTargetPosition;      // 카메라가 이동할 위치
     public float cameraMoveSpeed = 2f;
     public GameObject player;
+    public GameObject NpcCanvas;
+    public GameObject MainCanvas;
 
     [TextArea]
     public string dialogueText = "기본 대사입니다.";
@@ -18,16 +20,18 @@ public class InteractionTrigger : MonoBehaviour
         {
             hasTriggered = true;
             StartCoroutine(HandleInteraction());
+            NpcCanvas.SetActive(true);
+            MainCanvas.SetActive(false);
         }
     }
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            hasTriggered = false;
-            StartCoroutine(HandleInteraction());
-        }
-    }
+    //private void OnTriggerExit(Collider other)
+    //{
+    //    if (other.CompareTag("Player"))
+    //    {
+    //        hasTriggered = false;
+    //        StartCoroutine(HandleInteractionToPlayer());
+    //    }
+    //}
 
     private IEnumerator HandleInteraction()
     {
@@ -36,6 +40,8 @@ public class InteractionTrigger : MonoBehaviour
             Debug.Log("NPC 상호작용됨");
             CameraController.Instance.StartCameraMove(cameraTargetPosition.position, cameraMoveSpeed);
         }
+
+         hasTriggered = false;
 
         yield return new WaitUntil(() => CameraController.Instance.IsCameraAtTarget());
 
@@ -46,10 +52,10 @@ public class InteractionTrigger : MonoBehaviour
         if (CameraController.Instance != null)
         {
             Debug.Log("NPC 상호작용 해제됨");
-            CameraController.Instance.StartCameraMoveToPlayer(player.transform.position, cameraMoveSpeed);
+            CameraController.Instance.StartCameraMoveToPlayer(cameraMoveSpeed); // 파라미터 변경
         }
 
         yield return new WaitUntil(() => CameraController.Instance.IsCameraAtTarget());
-
     }
+
 }
