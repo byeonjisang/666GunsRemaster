@@ -9,5 +9,9 @@ public class FMODEvents : Singleton<FMODEvents>
     [field: SerializeField]
     public EventReference GunShotSFX { get; private set; }
 
+    [field: Header("BGM")]
+    [field: SerializeField]
+    public EventReference BGM { get; private set; }
+
     
 }

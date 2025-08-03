@@ -111,6 +111,17 @@ public class Player : MonoBehaviour, IPlayer
         controller.OnDashPress += Dash;
     }
 
+    private void OnDisable()
+    {
+        if (controller != null)
+        {
+            controller.OnMovePress -= HandleInput;
+            controller.OnAttackPress -= attackSystem.RequestAttack;
+            controller.OnAttackReleased -= attackSystem.CancelAttackRequest;
+            controller.OnDashPress -= Dash;
+        }
+    }
+
     //상태 설정
     public void SetState(PlayerStateType type)
     {

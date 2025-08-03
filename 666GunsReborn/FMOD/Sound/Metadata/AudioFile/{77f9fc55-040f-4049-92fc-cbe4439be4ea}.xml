@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{77f9fc55-040f-4049-92fc-cbe4439be4ea}">
+		<property name="assetPath">
+			<value>TestLobbyBGM.mp3</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>138.03102040816327</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{bc41e12d-5adf-4134-901d-c6e183cdf5aa}</destination>
+		</relationship>
+	</object>
+</objects>

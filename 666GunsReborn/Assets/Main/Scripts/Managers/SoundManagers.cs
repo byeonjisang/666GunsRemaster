@@ -7,13 +7,15 @@ using Unity.VisualScripting;
 
 public class SoundManagers : Singleton<SoundManagers>
 {
+    protected override bool IsPersistent => true;
+
     [Header("Volume")]
     [Range(0, 1)]
-    public float masterVolue = 1f;
+    public float masterVolume = 1f;
     [Range(0, 1)]
-    public float musicVolue = 1f;
+    public float musicVolume = 1f;
     [Range(0, 1)]
-    public float ambienceVolue = 1f;
+    public float ambienceVolume = 1f;
     [Range(0, 1)]
     public float sfxVolue = 1f;
 
@@ -23,7 +25,6 @@ public class SoundManagers : Singleton<SoundManagers>
     private Bus sfxBus;
 
     private List<EventInstance> eventInstances;
-    //IsPersistent => true;
 
     protected override void Awake()
     {
@@ -40,9 +41,9 @@ public class SoundManagers : Singleton<SoundManagers>
     // 임시 볼륨 설정
     private void Update()
     {   
-        masterBus.setVolume(masterVolue);
-        musicBus.setVolume(musicVolue);
-        ambienceBus.setVolume(ambienceVolue);
+        masterBus.setVolume(masterVolume);
+        musicBus.setVolume(musicVolume);
+        ambienceBus.setVolume(ambienceVolume);
         sfxBus.setVolume(sfxVolue);
     }
 
@@ -58,7 +59,7 @@ public class SoundManagers : Singleton<SoundManagers>
         return instance;
     }
 
-    private void ClaerUp()
+    private void ClearUp()
     {
         foreach (EventInstance instance in eventInstances)
         {
@@ -67,8 +68,8 @@ public class SoundManagers : Singleton<SoundManagers>
         }
     }
 
-    private void Oestroy()
+    private void OnDestroy()
     {
-        ClaerUp();
+        ClearUp();
     }
 }
