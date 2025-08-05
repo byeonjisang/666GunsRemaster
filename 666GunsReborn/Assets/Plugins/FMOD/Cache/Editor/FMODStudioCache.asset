@@ -1,5 +1,52 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-7743244466681131313
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Ambience.bank
+  m_EditorClassIdentifier: 
+  Path: FMOD/Sound/Build/Desktop/Ambience.bank
+  Name: Ambience
+  StudioPath: bank:/Ambience
+  lastModified: 638900111505103570
+  FileSizes:
+  - Name: Desktop
+    Value: 494
+  Exists: 1
+--- !u!114 &-7702714119311733680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/GunShot_1
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/GunShot_1
+  Guid:
+    Data1: -1777921643
+    Data2: 1326633187
+    Data3: 1895848834
+    Data4: 489367817
+  Banks:
+  - {fileID: -3477197488098346075}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 992
 --- !u!114 &-3477197488098346075
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15,7 +62,7 @@ MonoBehaviour:
   Path: FMOD/Sound/Build/Desktop/SFX.bank
   Name: SFX
   StudioPath: bank:/SFX
-  lastModified: 638881247914082772
+  lastModified: 638900111504991966
   FileSizes:
   - Name: Desktop
     Value: 15168
@@ -37,22 +84,26 @@ MonoBehaviour:
   - {fileID: 2132862423627283980}
   - {fileID: 3077586408848666524}
   - {fileID: -3477197488098346075}
+  - {fileID: -7743244466681131313}
   EditorEvents:
-  - {fileID: 1029866766244553112}
-  - {fileID: 3810106660598520365}
+  - {fileID: 235922499996866232}
+  - {fileID: -7702714119311733680}
+  - {fileID: 3437199692978338898}
   EditorParameters: []
   MasterBanks:
   - {fileID: 2132862423627283980}
   StringsBanks:
   - {fileID: 2505462675743362750}
   cacheVersion: 131848
-  cacheTime: 638898813623822657
+  cacheTime: 638900228713392703
   SerializableEventsDict:
-  - key: event:/LobbyBGM
+  - key: event:/Music/LobbyBGM
     index: 0
-  - key: event:/GunShot_1
+  - key: event:/SFX/GunShot_1
     index: 1
---- !u!114 &1029866766244553112
+  - key: event:/Music/InGameBGM
+    index: 2
+--- !u!114 &235922499996866232
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -62,9 +113,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/LobbyBGM
+  m_Name: event:/Music/LobbyBGM
   m_EditorClassIdentifier: 
-  Path: event:/LobbyBGM
+  Path: event:/Music/LobbyBGM
   Guid:
     Data1: -351008650
     Data2: 1231968363
@@ -94,7 +145,7 @@ MonoBehaviour:
   Path: FMOD/Sound/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638898813598907962
+  lastModified: 638900228691431763
   FileSizes:
   - Name: Desktop
     Value: 1486
@@ -114,10 +165,10 @@ MonoBehaviour:
   Path: FMOD/Sound/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638898813598956839
+  lastModified: 638900228691483618
   FileSizes:
   - Name: Desktop
-    Value: 1012
+    Value: 1112
   Exists: 1
 --- !u!114 &3077586408848666524
 MonoBehaviour:
@@ -134,12 +185,12 @@ MonoBehaviour:
   Path: FMOD/Sound/Build/Desktop/Music.bank
   Name: Music
   StudioPath: bank:/Music
-  lastModified: 638898813623822657
+  lastModified: 638900228713392703
   FileSizes:
   - Name: Desktop
-    Value: 1837248
+    Value: 3560704
   Exists: 1
---- !u!114 &3810106660598520365
+--- !u!114 &3437199692978338898
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -149,20 +200,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/GunShot_1
+  m_Name: event:/Music/InGameBGM
   m_EditorClassIdentifier: 
-  Path: event:/GunShot_1
+  Path: event:/Music/InGameBGM
   Guid:
-    Data1: -1777921643
-    Data2: 1326633187
-    Data3: 1895848834
-    Data4: 489367817
+    Data1: -1407218626
+    Data2: 1114651164
+    Data3: 605090179
+    Data4: -788690494
   Banks:
-  - {fileID: -3477197488098346075}
-  IsStream: 0
+  - {fileID: 3077586408848666524}
+  IsStream: 1
   Is3D: 1
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 992
+  Length: 130032

@@ -707,6 +707,7 @@ MonoBehaviour:
   MasterBanks:
   - Master
   Banks:
+  - Ambience
   - Music
   - SFX
   BanksToLoad: []
@@ -721,7 +722,7 @@ MonoBehaviour:
   SharedLibraryUpdateStage: 0
   SharedLibraryTimeSinceStart: 0
   CurrentVersion: 131848
-  HideSetupWizard: 0
+  HideSetupWizard: 1
   LastEventReferenceScanVersion: 131625
   Platforms:
   - {fileID: -7839898001805164776}
