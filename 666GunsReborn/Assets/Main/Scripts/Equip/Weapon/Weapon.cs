@@ -63,7 +63,7 @@ public class Weapon : MonoBehaviour
     public virtual void Fire(GameObject bulletObject)
     {
         GameObject bullet = ObjectPoolManager.Instance.GetFromPool("Bullet", bulletSpawnPoint.position, bulletSpawnPoint.rotation);
-        bullet.GetComponent<Bullet>().SetInfo(weaponStats.Damage, weaponStats.BulletSpeed);
+        bullet.GetComponent<Bullet>().Initialization(weaponStats.Power, weaponStats.BulletSpeed);
         weaponStats.Fire();
 
         rigController.SetAttackRigActive((int)weaponType, true);

@@ -10,16 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: af4876f9022ede54aabb669051c2b485, type: 3}
-  m_Name: Rifle
+  m_Name: Rifle_Base
   m_EditorClassIdentifier: 
-  weaponType: 1
   weaponSprite: {fileID: 21300000, guid: 11e31a093200615449584643b3ebbcae, type: 3}
-  weaponName: Rife
-  damage: 5
-  fireDistance: 10
-  reloadTime: 4
+  weaponName: Rife_Base
+  power: 5
+  fireSpeed: 10
+  fireDistance: 7
+  weight: 3
+  weaponType: 1
   maxMagazine: 30
-  bulletSpeed: 10
-  defense: 1
-  sheld: 1
-  bulletType: 0
+  reloadTime: 0.7
+  bulletSpeed: 5

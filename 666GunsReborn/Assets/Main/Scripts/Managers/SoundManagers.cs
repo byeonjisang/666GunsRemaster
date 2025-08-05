@@ -111,9 +111,9 @@ public class SoundManagers : Singleton<SoundManagers>
     #endregion
 
     #region SFX
-    public void PlayOneShot(EventReference sound, Vector3 worldPos)
+    public void PlayOneShot(SFX sfx, Vector3 worldPos)
     {
-        RuntimeManager.PlayOneShot(sound, worldPos);
+        RuntimeManager.PlayOneShot(FMODEvents.Instance.SFX[(int)sfx], worldPos);
     }
     #endregion
 

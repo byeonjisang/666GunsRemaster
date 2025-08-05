@@ -20,33 +20,6 @@ MonoBehaviour:
   - Name: Desktop
     Value: 494
   Exists: 1
---- !u!114 &-7702714119311733680
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/SFX/GunShot_1
-  m_EditorClassIdentifier: 
-  Path: event:/SFX/GunShot_1
-  Guid:
-    Data1: -1777921643
-    Data2: 1326633187
-    Data3: 1895848834
-    Data4: 489367817
-  Banks:
-  - {fileID: -3477197488098346075}
-  IsStream: 0
-  Is3D: 1
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 992
 --- !u!114 &-3477197488098346075
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62,11 +35,38 @@ MonoBehaviour:
   Path: FMOD/Sound/Build/Desktop/SFX.bank
   Name: SFX
   StudioPath: bank:/SFX
-  lastModified: 638900111504991966
+  lastModified: 638900558144050546
   FileSizes:
   - Name: Desktop
-    Value: 15168
+    Value: 28064
   Exists: 1
+--- !u!114 &-2396210713396931579
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Revolver
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Revolver
+  Guid:
+    Data1: -1960809142
+    Data2: 1111751583
+    Data3: 1549113219
+    Data4: -1716517981
+  Banks:
+  - {fileID: -3477197488098346075}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 900
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -87,22 +87,25 @@ MonoBehaviour:
   - {fileID: -7743244466681131313}
   EditorEvents:
   - {fileID: 235922499996866232}
-  - {fileID: -7702714119311733680}
   - {fileID: 3437199692978338898}
+  - {fileID: -2396210713396931579}
+  - {fileID: 7923911644654125145}
   EditorParameters: []
   MasterBanks:
   - {fileID: 2132862423627283980}
   StringsBanks:
   - {fileID: 2505462675743362750}
   cacheVersion: 131848
-  cacheTime: 638900228713392703
+  cacheTime: 638900558144050546
   SerializableEventsDict:
   - key: event:/Music/LobbyBGM
     index: 0
-  - key: event:/SFX/GunShot_1
-    index: 1
   - key: event:/Music/InGameBGM
+    index: 1
+  - key: event:/SFX/Revolver
     index: 2
+  - key: event:/SFX/Pistol_Slider
+    index: 3
 --- !u!114 &235922499996866232
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -145,7 +148,7 @@ MonoBehaviour:
   Path: FMOD/Sound/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638900228691431763
+  lastModified: 638900558142342600
   FileSizes:
   - Name: Desktop
     Value: 1486
@@ -165,10 +168,10 @@ MonoBehaviour:
   Path: FMOD/Sound/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638900228691483618
+  lastModified: 638900558142388877
   FileSizes:
   - Name: Desktop
-    Value: 1112
+    Value: 1168
   Exists: 1
 --- !u!114 &3077586408848666524
 MonoBehaviour:
@@ -217,3 +220,30 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 130032
+--- !u!114 &7923911644654125145
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Pistol_Slider
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Pistol_Slider
+  Guid:
+    Data1: -1777921643
+    Data2: 1326633187
+    Data3: 1895848834
+    Data4: 489367817
+  Banks:
+  - {fileID: -3477197488098346075}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 992

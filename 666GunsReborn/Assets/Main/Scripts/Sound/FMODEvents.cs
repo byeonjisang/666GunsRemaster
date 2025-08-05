@@ -6,7 +6,8 @@ using FMODUnity;
 #region Sound Enums
 public enum SFX
 {
-    GunShotSFX,
+    Pistol_Slide_Fire,
+    Reveolver_Fire,
 }
 
 public enum Music

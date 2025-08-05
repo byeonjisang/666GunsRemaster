@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.02.00">
-	<object class="AudioFile" id="{9747cb32-8616-446a-8fc4-0ed4bfe5b4db}">
+	<object class="AudioFile" id="{42c20748-302c-4d50-b0ee-5f6c924107a4}">
 		<property name="assetPath">
-			<value>Pistol_Slider.ogg</value>
+			<value>Revolver.ogg</value>
 		</property>
 		<property name="frequencyInKHz">
-			<value>48</value>
+			<value>44.0999985</value>
 		</property>
 		<property name="channelCount">
 			<value>2</value>
 		</property>
 		<property name="length">
-			<value>0.9928541666666667</value>
+			<value>0.90036281179138322</value>
 		</property>
 		<relationship name="masterAssetFolder">
 			<destination>{bc41e12d-5adf-4134-901d-c6e183cdf5aa}</destination>

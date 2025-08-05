@@ -7,13 +7,7 @@ public enum WeaponType
     Pistol,
     Rifle,
     Shotgun,
-}
-public enum BulletType 
-{
-    Normal,
-    Fire,
-    Ice,
-    Poison,
+    Sniper,
 }
 
 public class WeaponManager : Singleton<WeaponManager>

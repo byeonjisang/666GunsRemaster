@@ -7,7 +7,7 @@ public class Bullet : MonoBehaviour, IPooledObject
     private IObjectPool<GameObject> pool;
     private Rigidbody rigid;
 
-    private float damage;
+    private float power;
     private float maxDistance = 50f;
 
     private void Awake()
@@ -19,9 +19,9 @@ public class Bullet : MonoBehaviour, IPooledObject
         this.pool = pool;
     }
 
-    public void SetInfo(float damage, float speed)
+    public void Initialization(float power, float speed)
     {
-        this.damage = damage;
+        this.power = power;
 
         rigid.velocity = transform.forward * speed;
         float lifeTime = maxDistance / speed;
@@ -68,7 +68,7 @@ public class Bullet : MonoBehaviour, IPooledObject
             BaseEnemy enemyScript = other.GetComponents<MonoBehaviour>().OfType<BaseEnemy>().FirstOrDefault();
             if (enemyScript != null)
             {
-                enemyScript.TakeDamage((int)damage);
+                enemyScript.TakeDamage((int)power);
             }
             ReturnToPool();
         }

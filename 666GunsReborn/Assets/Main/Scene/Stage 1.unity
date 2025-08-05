@@ -7301,6 +7301,12 @@ MonoBehaviour:
       Data3: 523503031
       Data4: 1185301250
     Path: event:/Music/LobbyBGM
+  - Guid:
+      Data1: -1407218626
+      Data2: 1114651164
+      Data3: 605090179
+      Data4: -788690494
+    Path: event:/Music/InGameBGM
   <Ambience>k__BackingField: []
 --- !u!1 &1324267836
 GameObject:
