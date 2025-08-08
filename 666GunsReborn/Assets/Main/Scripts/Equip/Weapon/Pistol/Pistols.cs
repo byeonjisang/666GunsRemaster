@@ -43,9 +43,9 @@ namespace Weapons
 
         private bool IsReadyToFire()
         {
-            if (weaponStats.IsReloading())
+            if (!weaponStats.IsReadyToFire())
             {
-                Debug.Log("Weapon is reloading.");
+                Debug.Log("Weapon is not ready to fire.");
                 return false;
             }
             return true;

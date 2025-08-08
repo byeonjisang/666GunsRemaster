@@ -11,27 +11,48 @@ namespace Weapons
         public List<GameObject> weapons;
 
         public Button fireButton;
+        public Toggle toggle;
         private int index = 0;
+
+        private bool isFiring = false;
 
         private void Start()
         {
             foreach (var weapon in weapons)
             {
-                string path = $"Datas/Weapon/Pistol/{weapon.name}";
-                WeaponData weaponData = Resources.Load<WeaponData>(path);
-                Debug.Log($"{weapon.name} Initialization with data from {path}");
-                if (weaponData == null)
-                {
-                    Debug.LogError($"WeaponData not found at {path}");
-                    continue;
-                }
-                weapon.GetComponent<IWeapon>().Initialization(0, weaponData);
+                weapon.GetComponent<IWeapon>().Initialization(0, (WeaponID)index);
+            }
+        }
+
+        public void RequestFire()
+        {
+            if (toggle.isOn)
+            {
+                isFiring = true;
+            }
+            else
+            {
+                isFiring = false;
+                FireWeapon();
             }
         }
 
         public void FireWeapon()
         {
             weapons[index].GetComponent<IWeapon>().Fire();
+        }
+
+        public void StopFireWeapon()
+        {
+            isFiring = false;
+        }
+
+        private void Update()
+        {
+            if (isFiring)
+            {
+                FireWeapon();
+            }
         }
 
         public void SwitchWeapon(int index)

@@ -11,7 +11,7 @@ namespace Weapons
     public enum WeaponID
     {
         // Pistol
-        Pistol_Slidem,
+        Pistol_Slide,
         Revovler,
 
         // Rifle

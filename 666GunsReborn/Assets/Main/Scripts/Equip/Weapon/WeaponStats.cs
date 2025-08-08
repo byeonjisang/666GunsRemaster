@@ -12,6 +12,7 @@ public class WeaponStats : MonoBehaviour
     private float power;
     public float Power { get {return power; } private set { } }
     private float fireSpeed;
+    private float fireCooldown;
     private float fireDistance;
     public float FireDistance { get {return fireDistance; } private set { } }
     private float weight;
@@ -43,17 +44,27 @@ public class WeaponStats : MonoBehaviour
 
         currentMagazine = maxMagazine;
         currentReloadTime = 0f;
+        fireCooldown = 0f;
     }
 
     private void Update()
     {
-        if(currentReloadTime > 0)
+        if (currentReloadTime > 0)
         {
             currentReloadTime -= Time.deltaTime;
             WeaponUIEvents.OnUpdateReloadSlider?.Invoke(index, reloadTime, currentReloadTime);
             if (currentReloadTime <= 0)
             {
                 Reload();
+            }
+        }
+
+        if (fireCooldown > 0)
+        {
+            fireCooldown -= Time.deltaTime;
+            if (fireCooldown < 0)
+            {
+                fireCooldown = 0;
             }
         }
     }
@@ -63,9 +74,18 @@ public class WeaponStats : MonoBehaviour
         return currentReloadTime > 0;
     }
 
-    public void Fire(){
+    public bool IsReadyToFire()
+    {
+        Debug.Log($"IsReadyToFire: fireCooldown={fireCooldown}, currentReloadTime={currentReloadTime}");
+        return fireCooldown <= 0 && currentReloadTime <= 0;
+    }
+
+    public void Fire()
+    {
         currentMagazine--;
-        if(currentMagazine <= 0){
+        fireCooldown = 1.0f / fireSpeed;
+        if (currentMagazine <= 0)
+        {
             currentReloadTime = reloadTime;
         }
     }
