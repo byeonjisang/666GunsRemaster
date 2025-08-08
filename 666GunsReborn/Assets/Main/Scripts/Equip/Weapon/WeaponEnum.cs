@@ -12,7 +12,7 @@ namespace Weapons
     {
         // Pistol
         Pistol_Slide,
-        Revovler,
+        Revolver,
 
         // Rifle
         Rifle_Base,

@@ -32,7 +32,7 @@ namespace Weapons
             if (!IsReadyToFire())
                 return;
 
-            GameObject bullet = ObjectPoolManager.Instance.GetFromPool("Bullet", bulletspawnPoint.position, bulletspawnPoint.rotation);
+            GameObject bullet = ObjectPoolManager.Instance.GetFromPool("Bullet_Rifle", bulletspawnPoint.position, bulletspawnPoint.rotation);
             bullet.GetComponent<Bullet>().Initialization(weaponStats.Power, weaponStats.BulletSpeed);
             weaponStats.Fire();
 
@@ -43,7 +43,7 @@ namespace Weapons
 
         private bool IsReadyToFire()
         {
-            if (weaponStats.IsReloading())
+            if (!weaponStats.IsReadyToFire())
             {
                 Debug.Log("Weapon is reloading.");
                 return false;

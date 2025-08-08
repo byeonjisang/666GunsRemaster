@@ -76,7 +76,6 @@ public class WeaponStats : MonoBehaviour
 
     public bool IsReadyToFire()
     {
-        Debug.Log($"IsReadyToFire: fireCooldown={fireCooldown}, currentReloadTime={currentReloadTime}");
         return fireCooldown <= 0 && currentReloadTime <= 0;
     }
 

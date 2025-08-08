@@ -1,7 +1,9 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.UI;
 
 namespace Weapons
@@ -9,6 +11,11 @@ namespace Weapons
     public class WeaponFireController : MonoBehaviour
     {
         public List<GameObject> weapons;
+
+        public GameObject KeyGudie;
+        private bool isKeyGuideActive = false;
+
+        public Dropdown dropdown;
 
         public Button fireButton;
         public Toggle toggle;
@@ -18,9 +25,9 @@ namespace Weapons
 
         private void Start()
         {
-            foreach (var weapon in weapons)
+            for (int i = 0; i < weapons.Count; i++)
             {
-                weapon.GetComponent<IWeapon>().Initialization(0, (WeaponID)index);
+                weapons[i].GetComponent<IWeapon>().Initialization(0, (WeaponID)i);
             }
         }
 
@@ -53,12 +60,83 @@ namespace Weapons
             {
                 FireWeapon();
             }
+
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                isKeyGuideActive = !isKeyGuideActive;
+                KeyGudie.SetActive(isKeyGuideActive);
+            }
+
+            // Weapon Fire
+            if (Input.GetMouseButtonDown(0))
+            {
+                RequestFire();
+            }
+            if (Input.GetMouseButtonUp(0))
+            {
+                StopFireWeapon();
+            }
+
+            // Set Toggle
+            if (Input.GetMouseButtonDown(1))
+            {
+                toggle.isOn = !toggle.isOn;
+            }
+
+            // Weapon Switch
+            if (Input.GetKeyDown(KeyCode.Alpha1))
+            {
+                SwitchWeapon(0);
+            }
+            else if (Input.GetKeyDown(KeyCode.Alpha2))
+            {
+                SwitchWeapon(1);
+            }
+            else if (Input.GetKeyDown(KeyCode.Alpha3))
+            {
+                SwitchWeapon(2);
+            }
+            else if (Input.GetKeyDown(KeyCode.Alpha4))
+            {
+                SwitchWeapon(3);
+            }
+            else if (Input.GetKeyDown(KeyCode.Alpha5))
+            {
+                SwitchWeapon(4);
+            }
+            else if (Input.GetKeyDown(KeyCode.Alpha6))
+            {
+                SwitchWeapon(5);
+            }
+            else if (Input.GetKeyDown(KeyCode.Alpha7))
+            {
+                SwitchWeapon(6);
+            }
+            else if (Input.GetKeyDown(KeyCode.Alpha8))
+            {
+                SwitchWeapon(7);
+            }
+            else if (Input.GetKeyDown(KeyCode.Alpha9))
+            {
+                SwitchWeapon(8);
+            }
+            else if (Input.GetKeyDown(KeyCode.Alpha0))
+            {
+                SwitchWeapon(9);
+            }
         }
 
         public void SwitchWeapon(int index)
         {
+            if (weapons.Count <= index || index < 0)
+            {
+                Debug.LogWarning("Invalid weapon index: " + index);
+                return;
+            }
+
             Debug.Log("Switching to weapon index: " + index);
             this.index = index;
+            dropdown.value = index;
         }
     }
 }

@@ -32,7 +32,7 @@ namespace Weapons
             if (!IsReadyToFire())
                 return;
 
-            GameObject bullet = ObjectPoolManager.Instance.GetFromPool("Bullet", bulletSpawnPoint.position, bulletSpawnPoint.rotation);
+            GameObject bullet = ObjectPoolManager.Instance.GetFromPool("Bullet_Pistol", bulletSpawnPoint.position, bulletSpawnPoint.rotation);
             bullet.GetComponent<Bullet>().Initialization(weaponStats.Power, weaponStats.BulletSpeed);
             weaponStats.Fire();
 
