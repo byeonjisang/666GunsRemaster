@@ -1509,7 +1509,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraMoveSpeed: 2
-  canvas: {fileID: 856176975}
+  NpcCanvas: {fileID: 856176975}
+  MainCanvas: {fileID: 1037492528}
 --- !u!1 &327818813
 GameObject:
   m_ObjectHideFlags: 0
@@ -1558,7 +1559,8 @@ MonoBehaviour:
   cameraTargetPosition: {fileID: 1809854791}
   cameraMoveSpeed: 2
   player: {fileID: 1896289585}
-  canvas: {fileID: 856176975}
+  NpcCanvas: {fileID: 856176975}
+  MainCanvas: {fileID: 1037492528}
   dialogueText: "\uAE30\uBCF8 \uB300\uC0AC\uC785\uB2C8\uB2E4."
 --- !u!65 &327818816
 BoxCollider:
