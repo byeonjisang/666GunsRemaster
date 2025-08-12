@@ -5039,8 +5039,8 @@ MonoBehaviour:
   - {fileID: 568892725}
   - {fileID: 628727830}
   - {fileID: 1790376163}
-  - {fileID: 628727830}
-  - {fileID: 628727830}
+  - {fileID: 1012877180}
+  - {fileID: 1346221704}
   KeyGudie: {fileID: 1757674308}
   dropdown: {fileID: 471177508}
   fireButton: {fileID: 656356570}
