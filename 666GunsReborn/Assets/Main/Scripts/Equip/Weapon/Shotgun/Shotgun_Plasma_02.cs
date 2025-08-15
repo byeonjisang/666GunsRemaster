@@ -4,9 +4,9 @@ namespace Weapons
 {
     public class Shotgun_Plasma_02 : Shotgun
     {
-        protected override void PlayWeaponSound()
-        {
-            Debug.Log("Play plasma shotgun sound");
-        }
+        // protected override void PlayWeaponSound()
+        // {
+        //     Debug.Log("Play plasma shotgun sound");
+        // }
     }
 }

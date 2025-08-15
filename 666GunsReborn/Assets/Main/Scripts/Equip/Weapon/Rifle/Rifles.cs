@@ -41,6 +41,11 @@ namespace Weapons
             PlayWeaponSound();
         }
 
+        public void StopFire()
+        {
+            
+        }
+
         private bool IsReadyToFire()
         {
             if (!weaponStats.IsReadyToFire())

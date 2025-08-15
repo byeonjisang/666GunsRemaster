@@ -52,6 +52,7 @@ namespace Weapons
         public void StopFireWeapon()
         {
             isFiring = false;
+            weapons[index].GetComponent<IWeapon>().StopFire();
         }
 
         private void Update()

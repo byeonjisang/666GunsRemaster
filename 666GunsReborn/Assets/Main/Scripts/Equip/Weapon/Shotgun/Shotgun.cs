@@ -13,6 +13,7 @@ namespace Weapons
 
         private int bulletCount = 3; // 발사할 때 한 번에 나가는 총알 수
 
+        #region Weapon Initialization
         public void Initialization(int index, WeaponID weaponName)
         {
             weaponStats = gameObject.AddComponent<WeaponStats>();
@@ -25,6 +26,7 @@ namespace Weapons
             }
             weaponStats.Initialized(index, weaponData);
         }
+        #endregion
 
 
         #region Weapon Fire
@@ -46,6 +48,11 @@ namespace Weapons
             }
         }
 
+        public void StopFire()
+        {
+            
+        }
+
         private bool IsReadyToFire()
         {
             if (!weaponStats.IsReadyToFire())
@@ -59,6 +66,7 @@ namespace Weapons
         protected virtual void PlayWeaponSound()
         {
             Debug.Log("Play weapon sound");
+            SoundManagers.Instance.PlayOneShot(SFX.Shotgun_Fire, transform.position);
         }
         #endregion
     }    
