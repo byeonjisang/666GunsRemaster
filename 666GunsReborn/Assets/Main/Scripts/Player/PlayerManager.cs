@@ -22,6 +22,7 @@ public class PlayerManager : Singleton<PlayerManager>
     private int holdCoins = 0;
     public int HoldCoins { get { return holdCoins; } private set { } }
 
+    // 씬 이동해도 오브젝트는 유지
     protected override bool IsPersistent => true;
 
     /// <summary>
@@ -30,7 +31,7 @@ public class PlayerManager : Singleton<PlayerManager>
     private void Start()
     {
         GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
-        InitializePlayer(playerObject);
+        //InitializePlayer(playerObject);
     }
 
     #region Set Player Info Code
@@ -57,7 +58,7 @@ public class PlayerManager : Singleton<PlayerManager>
             Debug.LogError("Unsupported PlayerType: " + playerType);
             return;
         }
-
+        
         Component playerScript = playerObject.AddComponent(type);
         if (playerScript is IPlayer player)
             player.Initialized(type);

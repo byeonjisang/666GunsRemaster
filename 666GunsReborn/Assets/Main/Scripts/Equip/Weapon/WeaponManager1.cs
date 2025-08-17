@@ -1,0 +1,65 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+namespace Weapons
+{
+    public class WeaponManager1 : Singleton<WeaponManager1>
+    {
+        // 무기 관련 변수들
+        private IWeapon[] equipedWeapons = new IWeapon[2];
+        private int currentWeaponIndex = 0;
+        private IWeapon currentWeapon => equipedWeapons[currentWeaponIndex];
+
+        // 무기 교체 쿨타임 관련 변수
+        private float changeCooldonw = 5.0f;
+        private float currentChangeTime = 0.0f;
+
+        public void Initialization(int weapon1Index, int weapon2Index)
+        {
+            currentWeaponIndex = 0;
+
+            WeaponLoader weaponLoader = GameObject.FindObjectOfType<WeaponLoader>();
+            if (weaponLoader == null)
+            {
+                Debug.LogError("WeaponLoader not found in the scene.");
+                return;
+            }
+            
+            // 무기 불러오기
+            equipedWeapons[0] = weaponLoader.LoadWeapon(0, (WeaponID)weapon1Index);
+            equipedWeapons[1] = weaponLoader.LoadWeapon(1, (WeaponID)weapon2Index);
+        }
+
+        public void OnFire()
+        {
+            currentWeapon.Fire();
+        }
+
+        public void SwitchWeapon()
+        {
+            if (currentChangeTime > 0)
+            {
+                Debug.Log("무기 교체 쿨타임");
+                return;
+            }
+
+            // 무기 교체
+            equipedWeapons[currentWeaponIndex].GetGameObject().SetActive(false);
+            currentWeaponIndex = 1 - currentWeaponIndex;
+            equipedWeapons[currentWeaponIndex].GetGameObject().SetActive(true);
+
+            // 교체 쿨타임 적용
+            currentChangeTime = changeCooldonw;
+        }
+
+        private void Update()
+        {
+            if (currentChangeTime > 0)
+            {
+                currentChangeTime -= Time.deltaTime;
+            }   
+        }
+    }    
+}
+

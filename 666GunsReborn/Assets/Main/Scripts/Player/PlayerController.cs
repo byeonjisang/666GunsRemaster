@@ -12,14 +12,10 @@ public class PlayerController : MonoBehaviour
     #endregion
 
     private Vector3 direction = Vector3.zero;
-    
-    public Action<Vector3> OnMovePress;
-    public Action OnAttackPress;
-    public Action OnAttackReleased;
-    public Action<Vector3> OnDashPress;
 
     private void Update()
     {
+        // 컴퓨터 테스트용 코드
         if (Input.GetKeyDown(KeyCode.Space))
             Dash();
     }
@@ -32,28 +28,28 @@ public class PlayerController : MonoBehaviour
 
     private void Move()
     {
-        //���̽�ƽ �� �޾ƿ���
+        // 조이스틱 입력에 따른 방향 벡터
         direction = new Vector3(joystick.Horizontal, 0f, joystick.Vertical);
-        //Ű���� �Է� �� �޾ƿ���
+        // 키보드 입력에 따른 방향 벡터
         direction += new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical"));
 
-        //����ȭ
+        // 이동
         direction.Normalize();
 
-        //�÷��̾� �̵�
-        OnMovePress?.Invoke(direction);
+        // 이동 방향 전달
+        PlayerActionEvent.OnMovePress?.Invoke(direction);
     }
     #endregion
 
     #region Player Attack
     public void OnClickAttack()
     {
-        OnAttackPress?.Invoke();
+        PlayerActionEvent.OnAttackPress?.Invoke();
     }
 
     public void OffClickAttack()
     {
-        OnAttackReleased?.Invoke();
+        PlayerActionEvent.OnAttackReleased?.Invoke();
     }
 
     public void FireBullet(){
@@ -64,7 +60,7 @@ public class PlayerController : MonoBehaviour
     #region Player Dash
     public void Dash()
     {
-        OnDashPress?.Invoke(direction);
+        PlayerActionEvent.OnDashPress?.Invoke(direction);
     }
 #endregion
 }

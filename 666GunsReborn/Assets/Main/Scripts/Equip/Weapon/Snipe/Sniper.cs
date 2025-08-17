@@ -40,6 +40,13 @@ namespace Weapons
         }
         #endregion
 
+        #region Get GameObject
+        public GameObject GetGameObject()
+        {
+            return gameObject;
+        }
+        #endregion
+
         #region Weapon Fire
         public void Fire()
         {

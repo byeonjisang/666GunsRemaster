@@ -478,8 +478,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   typeSelectionPanel: {fileID: 314926274}
   playerTypeDropdown: {fileID: 1094978486}
-  weapon1TypeDropdown: {fileID: 1427208595}
-  weapon2TypeDropdown: {fileID: 495123045}
+  weaponTypeDropdowns:
+  - {fileID: 1427208595}
+  - {fileID: 495123045}
 --- !u!1 &132484822
 GameObject:
   m_ObjectHideFlags: 0
@@ -513,7 +514,7 @@ RectTransform:
   m_Father: {fileID: 1324267837}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -1515,7 +1516,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &314926275
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1569,7 +1570,7 @@ RectTransform:
   m_Father: {fileID: 1017729259}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -1933,7 +1934,7 @@ GameObject:
   - component: {fileID: 495123046}
   - component: {fileID: 495123045}
   m_Layer: 5
-  m_Name: Dropdown (Legacy) (1)
+  m_Name: Weapon2 Select Dropdown
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2182,53 +2183,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 805620204}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &558908892
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 558908893}
-  - component: {fileID: 558908894}
-  m_Layer: 0
-  m_Name: EquipManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &558908893
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 558908892}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1868304365}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &558908894
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 558908892}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a00eca1144a67b44873803d64faf84c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  slot0Dropdown: {fileID: 0}
-  slot1Dropdown: {fileID: 0}
-  weaponManager: {fileID: 0}
 --- !u!1 &568550211
 GameObject:
   m_ObjectHideFlags: 0
@@ -2389,9 +2343,9 @@ RectTransform:
   - {fileID: 1117462178}
   m_Father: {fileID: 1173382148}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 550, y: -265}
   m_SizeDelta: {x: 1100, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &594574517
@@ -2962,11 +2916,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pools:
-  - tag: Bullet
-    prefab: {fileID: 4724720043867078303, guid: 833286949982909429b591899cd91002,
+  - tag: Bullet_Pistol
+    prefab: {fileID: 6152012165266093810, guid: 11de8901a0ccc984290842589de56204,
       type: 3}
-    defaultCapacity: 10
-    maxSize: 50
+    defaultCapacity: 0
+    maxSize: 10
+  - tag: Bullet_Rifle
+    prefab: {fileID: 1276885512958874841, guid: 7f52ebb595f153247875c9d6bfbe0546,
+      type: 3}
+    defaultCapacity: 0
+    maxSize: 15
+  - tag: Bullet_Shotgun
+    prefab: {fileID: 2263241903360071504, guid: d251ad6ca171ef84fbbcdb9cbf314a3f,
+      type: 3}
+    defaultCapacity: 0
+    maxSize: 10
+  - tag: Bullet_Sniper
+    prefab: {fileID: 3747547390997080610, guid: 89dc1d49d9a711f4cbb9a3d04fca0ca6,
+      type: 3}
+    defaultCapacity: 0
+    maxSize: 10
 --- !u!1 &705315437
 GameObject:
   m_ObjectHideFlags: 0
@@ -4370,7 +4339,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &930151420
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5403,7 +5372,7 @@ RectTransform:
   m_Father: {fileID: 1814919519}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -6153,7 +6122,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Pistol
+  m_Text: Rifle
 --- !u!222 &1151827439
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7201,7 +7170,7 @@ RectTransform:
   m_Father: {fileID: 1392816925}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -7452,7 +7421,7 @@ RectTransform:
   m_Father: {fileID: 1287803936}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -7940,7 +7909,7 @@ RectTransform:
   m_Father: {fileID: 877051559}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -8623,7 +8592,7 @@ GameObject:
   - component: {fileID: 1427208596}
   - component: {fileID: 1427208595}
   m_Layer: 5
-  m_Name: Dropdown (Legacy)
+  m_Name: Weapon1 Select Dropdown
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8697,7 +8666,7 @@ MonoBehaviour:
   m_CaptionImage: {fileID: 0}
   m_ItemText: {fileID: 1809505752}
   m_ItemImage: {fileID: 0}
-  m_Value: 0
+  m_Value: 1
   m_Options:
     m_Options:
     - m_Text: Pistol
@@ -9460,7 +9429,7 @@ RectTransform:
   m_Father: {fileID: 1845437580}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -9534,9 +9503,9 @@ RectTransform:
   - {fileID: 296957185}
   m_Father: {fileID: 1173382148}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 550, y: -377.5}
   m_SizeDelta: {x: 1100, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1554227099 stripped
@@ -10515,7 +10484,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1650117962
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10678,7 +10647,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1687623457
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10939,9 +10908,9 @@ RectTransform:
   - {fileID: 1997691463}
   m_Father: {fileID: 1173382148}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 550, y: -152.5}
   m_SizeDelta: {x: 1100, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1771128320
@@ -11721,7 +11690,7 @@ RectTransform:
   m_Father: {fileID: 1681295533}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -11995,7 +11964,6 @@ Transform:
   - {fileID: 1006350476}
   - {fileID: 1062968891}
   - {fileID: 690599119}
-  - {fileID: 558908893}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1899448895
@@ -12227,7 +12195,7 @@ RectTransform:
   m_Father: {fileID: 2465306}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -12445,7 +12413,7 @@ RectTransform:
   m_Father: {fileID: 1846152508}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -12519,9 +12487,9 @@ RectTransform:
   - {fileID: 616625478}
   m_Father: {fileID: 1173382148}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 550, y: -40}
   m_SizeDelta: {x: 1100, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1997691462
@@ -13410,7 +13378,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2141015251
 RectTransform:
   m_ObjectHideFlags: 0
