@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.02.00">
-	<object class="AudioFile" id="{42c20748-302c-4d50-b0ee-5f6c924107a4}">
+	<object class="AudioFile" id="{c36ce46d-5d16-4870-956a-a92ae6ccb408}">
 		<property name="assetPath">
-			<value>Gun Sound/Revolver.ogg</value>
+			<value>Gun Sound/shotgun-146188.mp3</value>
 		</property>
 		<property name="frequencyInKHz">
-			<value>44.0999985</value>
+			<value>48</value>
 		</property>
 		<property name="channelCount">
 			<value>2</value>
 		</property>
 		<property name="length">
-			<value>0.90036281179138322</value>
+			<value>3.6720000000000002</value>
 		</property>
 		<relationship name="masterAssetFolder">
 			<destination>{bc41e12d-5adf-4134-901d-c6e183cdf5aa}</destination>

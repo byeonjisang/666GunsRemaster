@@ -19,10 +19,10 @@ public class WeaponStats : MonoBehaviour
     private WeaponType weaponType;
     private int currentMagazine;
     public int CurrentMagazine { get {return currentMagazine; } private set { } }
-    private int maxMagazine;
+    public int maxMagazine;
     public int MaxMagazine { get {return maxMagazine; } private set { } }
     
-    private float currentReloadTime;
+    public float currentReloadTime;
     private float reloadTime;
 
     private float bulletSpeed;

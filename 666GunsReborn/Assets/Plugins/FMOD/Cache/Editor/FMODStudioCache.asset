@@ -1,5 +1,32 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-9057971918670708399
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Pistol_Slider_Fire
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Pistol_Slider_Fire
+  Guid:
+    Data1: -1777921643
+    Data2: 1326633187
+    Data3: 1895848834
+    Data4: 489367817
+  Banks:
+  - {fileID: -3477197488098346075}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 992
 --- !u!114 &-7743244466681131313
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35,12 +62,16 @@ MonoBehaviour:
   Path: FMOD/Sound/Build/Desktop/SFX.bank
   Name: SFX
   StudioPath: bank:/SFX
+<<<<<<< HEAD
   lastModified: 638904478638080079
+=======
+  lastModified: 638908725949055839
+>>>>>>> origin/main
   FileSizes:
   - Name: Desktop
-    Value: 28064
+    Value: 95168
   Exists: 1
---- !u!114 &-2396210713396931579
+--- !u!114 &-2934838055610094050
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -50,9 +81,36 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/SFX/Revolver
+  m_Name: event:/SFX/Shotgun_Fire
   m_EditorClassIdentifier: 
-  Path: event:/SFX/Revolver
+  Path: event:/SFX/Shotgun_Fire
+  Guid:
+    Data1: -1590868912
+    Data2: 1197401110
+    Data3: 1382222210
+    Data4: -691590778
+  Banks:
+  - {fileID: -3477197488098346075}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 3672
+--- !u!114 &-1253292216234102597
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Revolver_Fire
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Revolver_Fire
   Guid:
     Data1: -1960809142
     Data2: 1111751583
@@ -88,24 +146,34 @@ MonoBehaviour:
   EditorEvents:
   - {fileID: 235922499996866232}
   - {fileID: 3437199692978338898}
-  - {fileID: -2396210713396931579}
-  - {fileID: 7923911644654125145}
+  - {fileID: -1253292216234102597}
+  - {fileID: -2934838055610094050}
+  - {fileID: -9057971918670708399}
+  - {fileID: 7132906271474745835}
   EditorParameters: []
   MasterBanks:
   - {fileID: 2132862423627283980}
   StringsBanks:
   - {fileID: 2505462675743362750}
   cacheVersion: 131848
+<<<<<<< HEAD
   cacheTime: 638904478638080079
+=======
+  cacheTime: 638908725949055839
+>>>>>>> origin/main
   SerializableEventsDict:
   - key: event:/Music/LobbyBGM
     index: 0
   - key: event:/Music/InGameBGM
     index: 1
-  - key: event:/SFX/Revolver
+  - key: event:/SFX/Revolver_Fire
     index: 2
-  - key: event:/SFX/Pistol_Slider
+  - key: event:/SFX/Shotgun_Fire
     index: 3
+  - key: event:/SFX/Pistol_Slider_Fire
+    index: 4
+  - key: event:/SFX/Sniper_Fire
+    index: 5
 --- !u!114 &235922499996866232
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -148,7 +216,11 @@ MonoBehaviour:
   Path: FMOD/Sound/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
+<<<<<<< HEAD
   lastModified: 638894106937150094
+=======
+  lastModified: 638908725947873715
+>>>>>>> origin/main
   FileSizes:
   - Name: Desktop
     Value: 1486
@@ -168,10 +240,14 @@ MonoBehaviour:
   Path: FMOD/Sound/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
+<<<<<<< HEAD
   lastModified: 638904478637767111
+=======
+  lastModified: 638908725947913890
+>>>>>>> origin/main
   FileSizes:
   - Name: Desktop
-    Value: 1168
+    Value: 1274
   Exists: 1
 --- !u!114 &3077586408848666524
 MonoBehaviour:
@@ -220,7 +296,7 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 130032
---- !u!114 &7923911644654125145
+--- !u!114 &7132906271474745835
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -230,14 +306,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/SFX/Pistol_Slider
+  m_Name: event:/SFX/Sniper_Fire
   m_EditorClassIdentifier: 
-  Path: event:/SFX/Pistol_Slider
+  Path: event:/SFX/Sniper_Fire
   Guid:
-    Data1: -1777921643
-    Data2: 1326633187
-    Data3: 1895848834
-    Data4: 489367817
+    Data1: 619757143
+    Data2: 1157892289
+    Data3: -1010229627
+    Data4: -1964106475
   Banks:
   - {fileID: -3477197488098346075}
   IsStream: 0
@@ -246,4 +322,4 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 992
+  Length: 1896

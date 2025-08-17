@@ -25,7 +25,7 @@ namespace Weapons
         Shotgun_Plasma_02,
 
         // Sniper
-        Snipe_Base,
-        Snipe_Plasma,
+        Sniper_Base,
+        Sniper_Plasma,
     }
 }

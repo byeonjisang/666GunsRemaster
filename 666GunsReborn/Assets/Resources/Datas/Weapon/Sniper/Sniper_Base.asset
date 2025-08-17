@@ -15,7 +15,7 @@ MonoBehaviour:
   weaponSprite: {fileID: 0}
   weaponName: Sniper_Base
   power: 100
-  fireSpeed: 0
+  fireSpeed: -1
   fireDistance: 100
   weight: 10
   weaponType: 3

@@ -8,6 +8,8 @@ public enum SFX
 {
     Pistol_Slide_Fire,
     Reveolver_Fire,
+    Shotgun_Fire,
+    Sniper_Fire,
 }
 
 public enum Music

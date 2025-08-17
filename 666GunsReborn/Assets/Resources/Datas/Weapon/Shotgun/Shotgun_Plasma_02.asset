@@ -15,7 +15,7 @@ MonoBehaviour:
   weaponSprite: {fileID: 0}
   weaponName: Shotgun_Plasma_02
   power: 25
-  fireSpeed: 2
+  fireSpeed: 0.9
   fireDistance: 10
   weight: 8
   weaponType: 2

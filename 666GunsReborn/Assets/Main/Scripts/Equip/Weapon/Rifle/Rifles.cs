@@ -9,7 +9,7 @@ namespace Weapons
         private WeaponStats weaponStats;
 
         [SerializeField]
-        private Transform bulletspawnPoint;
+        private Transform bulletSpawnPoint;
 
         #region Weapon Intialization
         public void Initialization(int index, WeaponID weaponName)
@@ -32,13 +32,18 @@ namespace Weapons
             if (!IsReadyToFire())
                 return;
 
-            GameObject bullet = ObjectPoolManager.Instance.GetFromPool("Bullet_Rifle", bulletspawnPoint.position, bulletspawnPoint.rotation);
+            GameObject bullet = ObjectPoolManager.Instance.GetFromPool("Bullet_Rifle", bulletSpawnPoint.position, bulletSpawnPoint.rotation);
             bullet.GetComponent<Bullet>().Initialization(weaponStats.Power, weaponStats.BulletSpeed);
             weaponStats.Fire();
 
             // 애니메이션
             // 사운드
             PlayWeaponSound();
+        }
+
+        public void StopFire()
+        {
+            
         }
 
         private bool IsReadyToFire()
