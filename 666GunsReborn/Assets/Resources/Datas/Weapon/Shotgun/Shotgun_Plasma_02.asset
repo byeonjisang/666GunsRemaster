@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponSprite: {fileID: 0}
   weaponName: Shotgun_Plasma_02
-  power: 25
+  power: 20
   fireSpeed: 0.9
   fireDistance: 10
-  weight: 8
+  weight: 7
   weaponType: 2
   maxMagazine: 12
   reloadTime: 0.7
