@@ -15,7 +15,7 @@ MonoBehaviour:
   weaponSprite: {fileID: 0}
   weaponName: Sniper_Plasma
   power: 80
-  fireSpeed: 1
+  fireSpeed: 0.65
   fireDistance: 20
   weight: 8
   weaponType: 3

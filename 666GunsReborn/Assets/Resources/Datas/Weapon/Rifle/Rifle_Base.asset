@@ -15,7 +15,7 @@ MonoBehaviour:
   weaponSprite: {fileID: 21300000, guid: 11e31a093200615449584643b3ebbcae, type: 3}
   weaponName: Rife_Base
   power: 5
-  fireSpeed: 7
+  fireSpeed: 6
   fireDistance: 7
   weight: 3
   weaponType: 1
