@@ -8,5 +8,5 @@ public static class PlayerActionEvent
     public static Action<Vector3> OnMovePress;
     public static Action OnAttackPress;
     public static Action OnAttackReleased;
-    public static Action<Vector3> OnDashPress;
+    public static Action OnDashPress;
 }

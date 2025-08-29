@@ -9,8 +9,6 @@ public class PlayerAttack : MonoBehaviour
 
     public bool IsAttacking { get; private set; } = false;
 
-    private float attackDuration = 0.3f;
-
     public void Initialize(Player player)
     {
         this.player = player;
@@ -39,11 +37,6 @@ public class PlayerAttack : MonoBehaviour
         if (IsAttacking)
             return;
 
-        if(!WeaponManager.Instance.CanAttack()){
-            player.StopAttack();
-            return;
-        }
-
         IsAttacking = true;
         player.StartAttack();  
     }
@@ -59,13 +52,13 @@ public class PlayerAttack : MonoBehaviour
     private void Update()
     {
         // 1) 공격 요청이 켜져 있고, 아직 공격 중이 아니면서 발사 가능하면 발사 시작
-        if (attackRequested && !IsAttacking && WeaponManager.Instance.CanAttack())
+        if (attackRequested && !IsAttacking)
         {
             StartAttack();
         }
 
         // 2) 공격 중인데 탄약이 떨어졌으면 멈추기
-        if (IsAttacking && !WeaponManager.Instance.CanAttack())
+        if (IsAttacking)
         {
             StopAttack();
         }

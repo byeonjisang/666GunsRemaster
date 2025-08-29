@@ -67,8 +67,10 @@ public class PlayerStats : MonoBehaviour
         if (CurrentDashCount <= baseDashCount)
         {
             currentDashCooldown += Time.deltaTime;
+            Debug.Log("Dash Cooldown: " + currentDashCooldown);
             if (currentDashCooldown >= dashCooldown)
             {
+                Debug.Log($"Dash Count Recovered : {CurrentDashCount}");
                 currentDashCooldown = 0;
                 CurrentDashCount++;
             }

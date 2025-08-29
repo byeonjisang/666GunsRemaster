@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class PlayerManager : Singleton<PlayerManager>
 {
-    private Dictionary<PlayerType, Type> playerTypeMap = new Dictionary<PlayerType, Type>{
-        { PlayerType.Attack, typeof(FormOfAttackPlayer) },
-        { PlayerType.Defense, typeof(FormOfDefensePlayer) },
-        { PlayerType.Balance, typeof(FormOfBalancePlayer) }
-    };
+    // private Dictionary<PlayerType, Type> playerTypeMap = new Dictionary<PlayerType, Type>{
+    //     { PlayerType.Attack, typeof(FormOfAttackPlayer) },
+    //     { PlayerType.Defense, typeof(FormOfDefensePlayer) },
+    //     { PlayerType.Balance, typeof(FormOfBalancePlayer) }
+    // };
 
     [Header("Player Type")]
     // 시작할 때 Default 값으로 설정
@@ -40,8 +40,12 @@ public class PlayerManager : Singleton<PlayerManager>
     /// <summary>
     public void SetPlayerType(PlayerType type)
     {
+        if (type == playerType)
+            return;
+
         playerType = type;
-        Debug.Log("Player Type Set: " + playerType);
+        Player playerScript = FindObjectOfType<Player>();
+        playerScript.InitStats(playerType);
     }
     #endregion
 
@@ -53,15 +57,18 @@ public class PlayerManager : Singleton<PlayerManager>
 
         holdCoins = 0;
         // 플레이어 초기화
-        if (!playerTypeMap.TryGetValue(playerType, out Type type))
-        {
-            Debug.LogError("Unsupported PlayerType: " + playerType);
-            return;
-        }
-        
-        Component playerScript = playerObject.AddComponent(type);
-        if (playerScript is IPlayer player)
-            player.Initialized(type);
+        // if (!playerTypeMap.TryGetValue(playerType, out Type type))
+        // {
+        //     Debug.LogError("Unsupported PlayerType: " + playerType);
+        //     return;
+        // }
+
+        Player playerScript = playerObject.GetComponent<Player>();
+        playerScript.Initialized(playerType);
+
+        // Component playerScript = playerObject.AddComponent(type);
+        // if (playerScript is IPlayer player)
+        //     player.Initialized(type);
     }
     #endregion
 

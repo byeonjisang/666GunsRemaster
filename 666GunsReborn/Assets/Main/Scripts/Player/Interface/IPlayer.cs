@@ -3,5 +3,5 @@ using UnityEngine;
 
 interface IPlayer
 {
-    public void Initialized(Type type);
+    public void Initialized(PlayerType playerType);
 }

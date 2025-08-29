@@ -60,7 +60,8 @@ public class PlayerController : MonoBehaviour
     #region Player Dash
     public void Dash()
     {
-        PlayerActionEvent.OnDashPress?.Invoke(direction);
+        Debug.Log("Dash");
+        PlayerActionEvent.OnDashPress?.Invoke();
     }
 #endregion
 }

@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 // 상태 패턴 베이스
@@ -180,12 +181,20 @@ public class DashState : PlayerStateBase
     {
         // 대쉬 개수 감소
         player.stats.CurrentDashCount--;
-        player.anim.SetBool("IsDash", true);
-        
+
         // 이동을 하고 있지 않다면 바라보는 방향으로 대쉬
         if (direction.sqrMagnitude < 0.1f)
             direction = player.transform.forward.normalized;
         // 대쉬 이동
         player.rigid.velocity = direction * player.stats.CurrentDashDistance;
+    }
+    public override void EnterState()
+    {
+        player.anim.SetBool("IsDash", true);
+    }
+
+    public override void ExitState()
+    {
+        player.anim.SetBool("IsDash", false);
     }
 }

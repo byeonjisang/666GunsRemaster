@@ -31,7 +31,7 @@ public class SceneChangeListener : Singleton<SceneChangeListener>
             Debug.Log("씬 전환 후 Player 오브젝트가 존재합니다.");
 
             // PlayerManager 초기화
-            //PlayerManager.Instance.InitializePlayer(playerObject);
+            PlayerManager.Instance.InitializePlayer(playerObject);
             //WeaponManager.Instance.Initialized();
         }
     }

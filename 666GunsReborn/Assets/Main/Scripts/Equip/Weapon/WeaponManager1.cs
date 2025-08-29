@@ -25,7 +25,7 @@ namespace Weapons
                 Debug.LogError("WeaponLoader not found in the scene.");
                 return;
             }
-            
+
             // 무기 불러오기
             equipedWeapons[0] = weaponLoader.LoadWeapon(0, (WeaponID)weapon1Index);
             equipedWeapons[1] = weaponLoader.LoadWeapon(1, (WeaponID)weapon2Index);

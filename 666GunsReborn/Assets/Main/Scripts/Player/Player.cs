@@ -34,19 +34,24 @@ public class Player : MonoBehaviour, IPlayer
     #region Player 변수
     // 플레이어 상태 딕셔너리
     private Dictionary<PlayerStateType, PlayerStateBase> stateMap;
-    // 플레이어 공격 Aciton
+    // 플레이어 공격 시스템
+    [NonSerialized]
     public PlayerAttack attackSystem;
     // 플레이어 상태(상태 패턴)
     private PlayerStateBase currentState;
 
     // 플레이어 스텟
+    [NonSerialized]
     public PlayerStats stats;
     // 적 스캐너
+    [NonSerialized]
     public EnemyScanner scanner;
 
     // 플레이어 컴포넌트
+    [NonSerialized]
     public Rigidbody rigid;
     // 애니메이터
+    [NonSerialized]
     public Animator anim;
     protected RigController rigController;
 
@@ -63,20 +68,18 @@ public class Player : MonoBehaviour, IPlayer
 
     #region Player Initialization
     // 플레이어 스텟 초기화
-    public virtual void Initialized(Type playerType)
+    public virtual void Initialized(PlayerType playerType)
     {
         // 플레이어 타입에 따른 데이터 로드
         //PlayerData playerData = Resources.Load<PlayerData>($"Datas/Player/{this.GetType().ToString()}");
         Debug.Log($"Player Type: {playerType}");
-        PlayerData playerData = Resources.Load<PlayerData>($"Datas/Player/" + playerType.ToString());
 
         if(!gameObject.TryGetComponent<PlayerStats>(out stats))
             stats = gameObject.AddComponent<PlayerStats>();
         if(!gameObject.TryGetComponent<EnemyScanner>(out scanner))
             scanner = gameObject.AddComponent<EnemyScanner>();
 
-        // 스텟 초기화
-        stats.Init(playerData);
+        InitStats(playerType);
 
         // 상태 초기화
         stateMap = new Dictionary<PlayerStateType, PlayerStateBase>
@@ -98,17 +101,26 @@ public class Player : MonoBehaviour, IPlayer
         rigController = GetComponent<RigController>();
     }
 
+    public void InitStats(PlayerType playerType)
+    {
+        PlayerData playerData = Resources.Load<PlayerData>($"Datas/Player/" + "FormOf" + playerType.ToString() + "Player");
+        stats.Init(playerData);
+    }
+
     private void AddControllerEvent()
     {
-        // Add event listeners in the PlayerController
+        // 행동에 대한 이벤트 등록
         PlayerActionEvent.OnMovePress += HandleInput;
         PlayerActionEvent.OnAttackPress += attackSystem.RequestAttack;
         PlayerActionEvent.OnAttackReleased += attackSystem.CancelAttackRequest;
         PlayerActionEvent.OnDashPress += Dash;
+
+        Debug.Log("[Player] 이벤트 등록 완료");
     }
 
     private void OnDisable()
     {
+        // 이벤트 해체
         PlayerActionEvent.OnMovePress -= HandleInput;
         PlayerActionEvent.OnAttackPress -= attackSystem.RequestAttack;
         PlayerActionEvent.OnAttackReleased -= attackSystem.CancelAttackRequest;
@@ -136,12 +148,15 @@ public class Player : MonoBehaviour, IPlayer
 
     public void HandleInput(Vector3 direction)
     {
+        if (currentState is DashState)
+            return;
+            
         currentState?.HandleInput(direction);
     }
     #endregion
 
     #region Player Dash
-    public void Dash(Vector3 direction)
+    public void Dash()
     {
         // 대쉬 상태일 경우 대쉬 불가
         if (currentState is DashState)
@@ -150,25 +165,24 @@ public class Player : MonoBehaviour, IPlayer
             return;
         }
 
-
         //대쉬 개수 부족할 경우 대쉬 불가
         if (stats.CurrentDashCount <= 0)
         {
             Debug.Log("Not enough dash count.");
             return;
         }
-            
 
-        DashCoroutine(direction);
+        StartCoroutine(DashCoroutine());
     }
 
-    private IEnumerator DashCoroutine(Vector3 direction)
+    private IEnumerator DashCoroutine()
     {
         Debug.Log("Player Dash");
         // 대쉬 상태 변환
         SetState(PlayerStateType.Dash);
 
-        float dashTime = stats.CurrentDashDistance / 10f;
+        float dashTime = stats.CurrentDashDistance / 50f;
+        currentState?.HandleInput(gameObject.transform.forward);
         yield return new WaitForSeconds(dashTime);
 
         SetState(PlayerStateType.Idle);

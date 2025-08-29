@@ -121,8 +121,9 @@ public class TypeSelectionManager : MonoBehaviour
     {
         Time.timeScale = 1f;
         GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
+        //PlayerManager.Instance.SetPlayerType((PlayerType)playerTypeDropdown.value);
+        //PlayerManager.Instance.InitializePlayer(playerObject);
         PlayerManager.Instance.SetPlayerType((PlayerType)playerTypeDropdown.value);
-        PlayerManager.Instance.InitializePlayer(playerObject);
 
         //WeaponManager.Instance.Initialized(weapon1TypeDropdown.value, weapon2TypeDropdown.value);
         WeaponManager1.Instance.Initialization(weaponTypeDropdowns[0].value, weaponTypeDropdowns[1].value);
