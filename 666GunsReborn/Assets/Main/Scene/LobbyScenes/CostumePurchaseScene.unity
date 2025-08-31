@@ -1509,7 +1509,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraMoveSpeed: 2
-  canvas: {fileID: 856176975}
+  NpcCanvas: {fileID: 0}
+  MainCanvas: {fileID: 0}
 --- !u!1 &327818813
 GameObject:
   m_ObjectHideFlags: 0
@@ -1558,7 +1559,8 @@ MonoBehaviour:
   cameraTargetPosition: {fileID: 1809854791}
   cameraMoveSpeed: 2
   player: {fileID: 1896289585}
-  canvas: {fileID: 856176975}
+  NpcCanvas: {fileID: 0}
+  MainCanvas: {fileID: 0}
   dialogueText: "\uAE30\uBCF8 \uB300\uC0AC\uC785\uB2C8\uB2E4."
 --- !u!65 &327818816
 BoxCollider:
@@ -5452,6 +5454,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1896289586}
+    - targetCorrespondingSourceObject: {fileID: 3358338766212345241, guid: f551005aa7bf7c946a6d6bc99b49fa44,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1896289591}
   m_SourcePrefab: {fileID: 100100000, guid: f551005aa7bf7c946a6d6bc99b49fa44, type: 3}
 --- !u!1 &1432156397
 GameObject:
@@ -7451,6 +7457,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1431580977}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1896289591
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1896289585}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e5d2750653f375498c58b18d8cf7c58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1917870286
 GameObject:
   m_ObjectHideFlags: 0
