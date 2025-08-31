@@ -12,7 +12,7 @@ namespace Weapons
         private IWeapon currentWeapon => equipedWeapons[currentWeaponIndex];
 
         // 무기 교체 쿨타임 관련 변수
-        private float changeCooldonw = 5.0f;
+        private float changeCooldown = 5.0f;
         private float currentChangeTime = 0.0f;
 
         public void Initialization(int weapon1Index, int weapon2Index)
@@ -50,7 +50,7 @@ namespace Weapons
             equipedWeapons[currentWeaponIndex].GetGameObject().SetActive(true);
 
             // 교체 쿨타임 적용
-            currentChangeTime = changeCooldonw;
+            currentChangeTime = changeCooldown;
         }
 
         private void Update()
