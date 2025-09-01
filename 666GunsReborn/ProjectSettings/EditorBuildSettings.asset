@@ -21,6 +21,9 @@ EditorBuildSettings:
     path: Assets/Main/Scene/LobbyScenes/CostumePurchaseScene.unity
     guid: b58015a62e17dab43aba2e2004432131
   - enabled: 1
+    path: Assets/Main/Scene/LobbyScenes/BuyCostumeScene.unity
+    guid: fe8d4466ad3fa75418cf8710694fd281
+  - enabled: 1
     path: Assets/Main/Scene/Stage Select.unity
     guid: 565de990a9813b746ba3b282afadda66
   - enabled: 1
