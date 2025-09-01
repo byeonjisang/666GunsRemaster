@@ -36,25 +36,61 @@ public class GameManager : Singleton<GameManager>
     protected override void Awake()
     {
         base.Awake();
-
-        //ó�� ���� �� �κ�
         _gameMode = GameMode.LOBBY;
-
         _coin = 1000;
-
-        _text = _userCoinText.GetComponent<Text>();
-
         SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        _userCoinText = GameObject.Find("PlayerCoinText");
+        var coinObj = GameObject.Find("PlayerCoinText");
+        if (coinObj != null)
+        {
+            _userCoinText = coinObj;
+            _text = _userCoinText.GetComponent<Text>();
+            Debug.Log($"[GameManager] UserCoinText initialized in scene {scene.name}");
+        }
+        else
+        {
+            _userCoinText = null;
+            _text = null;
+            Debug.LogWarning($"[GameManager] No PlayerCoinText in scene {scene.name}");
+        }
     }
+
+    //IEnumerator InitCoinText()
+    //{
+    //    yield return null; // 한 프레임 대기
+
+    //    _userCoinText = GameObject.Find("PlayerCoinText");
+    //    if (_userCoinText != null)
+    //    {
+    //        _text = _userCoinText.GetComponent<Text>();
+    //        Debug.Log("CoinText found and initialized!");
+    //    }
+    //    else
+    //    {
+    //        Debug.LogWarning("PlayerCoinText not found in scene!");
+    //    }
+    //}
+
 
     protected void Update()
     {
-        ShowCoinText();
+        if(_userCoinText != null) 
+        {
+            ShowCoinText();
+        }
     }
 
     public void ShowCoinText()
