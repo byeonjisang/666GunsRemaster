@@ -430,7 +430,7 @@ GameObject:
   - component: {fileID: 82093548}
   - component: {fileID: 82093547}
   m_Layer: 5
-  m_Name: Check_Costume
+  m_Name: Change_Stats
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1033,7 +1033,7 @@ GameObject:
   - component: {fileID: 199756342}
   - component: {fileID: 199756341}
   m_Layer: 5
-  m_Name: Purchase_Costume
+  m_Name: Check_Stats
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1653,7 +1653,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uD604\uC7AC \uCF54\uC2A4\uD2AC \uD655\uC778"
+  m_Text: "\uC2A4\uD15F \uBCC0\uACBD"
 --- !u!222 &354827597
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1741,7 +1741,7 @@ Transform:
   m_GameObject: {fileID: 373477964}
   serializedVersion: 2
   m_LocalRotation: {x: 0.35826376, y: 0.000000006903897, z: -0.0000000026492735, w: 0.93362045}
-  m_LocalPosition: {x: 2.978, y: 9.28, z: -35.91}
+  m_LocalPosition: {x: 2.978, y: 9.464, z: -35.91}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3078,7 +3078,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!225 &856176976
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -3874,7 +3874,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1097347217
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4006,7 +4006,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uCF54\uC2A4\uD2AC \uAD6C\uB9E4"
+  m_Text: "\uD604\uC7AC \uC2A4\uD15F \uD655\uC778"
 --- !u!222 &1098022043
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4290,7 +4290,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uCF54\uC2A4\uD2AC \uAD50\uCCB4"
+  m_Text: "\uBCC0\uACBD \uCDE8\uC18C"
 --- !u!222 &1145053818
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4312,7 +4312,7 @@ GameObject:
   - component: {fileID: 1164047918}
   - component: {fileID: 1164047917}
   m_Layer: 5
-  m_Name: Change_Costume
+  m_Name: Cancel_Stats
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5041,7 +5041,7 @@ Transform:
   m_GameObject: {fileID: 1342224403}
   serializedVersion: 2
   m_LocalRotation: {x: 0.35826376, y: 0.000000006903897, z: -0.0000000026492735, w: 0.93362045}
-  m_LocalPosition: {x: 2.978, y: 9.28, z: -35.91}
+  m_LocalPosition: {x: 2.978, y: 9.464, z: -35.91}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5367,7 +5367,7 @@ PrefabInstance:
     - target: {fileID: 2724932844365477667, guid: f551005aa7bf7c946a6d6bc99b49fa44,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.28
+      value: 0.464
       objectReference: {fileID: 0}
     - target: {fileID: 2724932844365477667, guid: f551005aa7bf7c946a6d6bc99b49fa44,
         type: 3}
