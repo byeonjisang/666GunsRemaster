@@ -16,7 +16,7 @@ public class PlayerAttack : MonoBehaviour
         IsAttacking = false;
     }
 
-        // 버튼을 누른 순간 호출
+    // 버튼을 누른 순간 호출
     public void RequestAttack()
     {
         attackRequested = true;
@@ -25,7 +25,6 @@ public class PlayerAttack : MonoBehaviour
     // 버튼에서 손 뗀 순간 호출
     public void CancelAttackRequest()
     {
-        Debug.Log("Attack request cancelled");
         attackRequested = false;
         if (IsAttacking)
             StopAttack();
@@ -38,7 +37,7 @@ public class PlayerAttack : MonoBehaviour
             return;
 
         IsAttacking = true;
-        player.StartAttack();  
+        player.StartAttack();
     }
 
     // 공격 중지
@@ -57,10 +56,10 @@ public class PlayerAttack : MonoBehaviour
             StartAttack();
         }
 
-        // 2) 공격 중인데 탄약이 떨어졌으면 멈추기
-        if (IsAttacking)
-        {
-            StopAttack();
-        }
+        // // 2) 공격 중인데 탄약이 떨어졌으면 멈추기
+        // if (IsAttacking)
+        // {
+        //     StopAttack();
+        // }
     }  
 }

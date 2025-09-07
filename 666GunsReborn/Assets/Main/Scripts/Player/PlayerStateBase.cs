@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using Unity.VisualScripting;
-using UnityEngine;
+﻿using UnityEngine;
 
 // 상태 패턴 베이스
 public abstract class PlayerStateBase
@@ -21,7 +19,15 @@ public abstract class PlayerStateBase
 // 정지 상태
 public class IdleState : PlayerStateBase
 {
-    public IdleState(Player player) : base(player) { }
+    public IdleState(Player player) : base(player)
+    {
+        Debug.Log("IdleState 생성");
+        Debug.Log("Player 초기화 : " + this.player.name);
+
+        var scenePlayer = GameObject.FindObjectOfType<Player>();
+        Debug.Log($"State.player ID = {player?.GetInstanceID()}");
+        Debug.Log($"Scene Player ID = {scenePlayer?.GetInstanceID()}");
+    }
 
     public override void HandleInput(Vector3 direction)
     {
@@ -50,6 +56,13 @@ public class IdleState : PlayerStateBase
         };
 
         Vector3 rayDir = Vector3.down + direction.normalized * 0.5f;
+        if (player == null) {
+            Debug.Log("Unity null (Destroy됨)");
+        }
+        if (Object.ReferenceEquals(player, null))
+        {
+            Debug.Log("C# 레벨에서도 완전 null");
+        }
 
         if (Physics.Raycast(player.transform.position, rayDir.normalized, out hit, 1.5f))
         {
@@ -128,6 +141,7 @@ public class MoveState : PlayerStateBase
     {
         if (direction != Vector3.zero)
         {
+            Debug.Log($"NearestEnemy: {player.scanner.NearestEnemy}, isAttacking: {player.attackSystem.IsAttacking}");
             if (player.scanner.NearestEnemy != null && player.attackSystem.IsAttacking)
             {
                 Debug.Log("플레이어가 적을 스캔함");
