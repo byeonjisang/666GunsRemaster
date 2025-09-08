@@ -33,6 +33,11 @@ namespace Weapons
         {
             return gameObject;
         }
+
+        public WeaponType GetWeaponType()
+        {
+            return weaponStats.WeaponType;
+        }
         #endregion
 
 

@@ -11,7 +11,7 @@ namespace Weapons
             base.PlayWeaponSound();
             // Play pistol slide fire sound here
             Debug.Log("Pistol slide fire sound played");
-            SoundManagers.Instance.PlayOneShot(SFX.Pistol_Slide_Fire, transform.position);
+            //SoundManagers.Instance.PlayOneShot(SFX.Pistol_Slide_Fire, transform.position);
         }
     }
 }

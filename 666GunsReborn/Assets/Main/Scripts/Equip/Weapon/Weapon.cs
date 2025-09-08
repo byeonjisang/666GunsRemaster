@@ -7,7 +7,7 @@ public class Weapon : MonoBehaviour
     protected WeaponType weaponType;
     public WeaponType Type => weaponType;
     //무기 데이터
-    protected WeaponStats weaponStats;
+    protected Weapons.WeaponStats weaponStats;
 
     [Header("Weapon Settings")]
     [SerializeField] protected Transform bulletSpawnPoint;
@@ -27,7 +27,7 @@ public class Weapon : MonoBehaviour
         string path = "Datas/Weapon/" + weaponType.ToString();
         WeaponData weaponData = Resources.Load<WeaponData>(path);
 
-        weaponStats = gameObject.AddComponent<WeaponStats>();
+        weaponStats = gameObject.AddComponent<Weapons.WeaponStats>();
         weaponStats.Initialized(index, weaponData);
 
         // 무기 타입에 따른 IK 타겟 설정

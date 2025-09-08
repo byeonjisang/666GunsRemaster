@@ -11,7 +11,7 @@ namespace Weapons
             base.PlayWeaponSound();
             // Play revolver fire sound here
             Debug.Log("Revolver fire sound played");
-            SoundManagers.Instance.PlayOneShot(SFX.Reveolver_Fire, transform.position);
+            //SoundManagers.Instance.PlayOneShot(SFX.Reveolver_Fire, transform.position);
         } 
     }
 }
