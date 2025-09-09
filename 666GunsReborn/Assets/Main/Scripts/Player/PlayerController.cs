@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.Events;
+using Weapons;
 
 
 public class PlayerController : MonoBehaviour
@@ -45,15 +46,13 @@ public class PlayerController : MonoBehaviour
     public void OnClickAttack()
     {
         PlayerActionEvent.OnAttackPress?.Invoke();
+        WeaponManager1.Instance.OnFire();
     }
 
     public void OffClickAttack()
     {
         PlayerActionEvent.OnAttackReleased?.Invoke();
-    }
-
-    public void FireBullet(){
-        WeaponManager.Instance.Attack();
+        WeaponManager1.Instance.OffFire();
     }
     #endregion
 

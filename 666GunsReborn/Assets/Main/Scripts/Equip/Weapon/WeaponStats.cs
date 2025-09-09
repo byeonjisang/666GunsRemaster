@@ -2,96 +2,100 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.Rendering;
 
-public class WeaponStats : MonoBehaviour
+namespace Weapons
 {
-    private int index;
-
-    private Sprite weaponSprite;
-    public Sprite WeaponSprite { get {return weaponSprite; } private set { } }
-    private string weaponName;
-    private float power;
-    public float Power { get {return power; } private set { } }
-    private float fireSpeed;
-    private float fireCooldown;
-    private float fireDistance;
-    public float FireDistance { get {return fireDistance; } private set { } }
-    private float weight;
-    private WeaponType weaponType;
-    private int currentMagazine;
-    public int CurrentMagazine { get {return currentMagazine; } private set { } }
-    public int maxMagazine;
-    public int MaxMagazine { get {return maxMagazine; } private set { } }
-    
-    public float currentReloadTime;
-    private float reloadTime;
-
-    private float bulletSpeed;
-    public float BulletSpeed { get {return bulletSpeed; } private set { } }
-
-    public void Initialized(int index, WeaponData weaponData)
+    public class WeaponStats : MonoBehaviour
     {
-        this.index = index;
-        weaponSprite = weaponData.weaponSprite;
-        weaponName = weaponData.weaponName;
-        power = weaponData.power;
-        fireSpeed = weaponData.fireSpeed;
-        fireDistance = weaponData.fireDistance;
-        weight = weaponData.weight;
-        weaponType = weaponData.weaponType;
-        reloadTime = weaponData.reloadTime;
-        maxMagazine = weaponData.maxMagazine;
-        bulletSpeed = weaponData.bulletSpeed;
+        private int index;
 
-        currentMagazine = maxMagazine;
-        currentReloadTime = 0f;
-        fireCooldown = 0f;
-    }
+        private Sprite weaponSprite;
+        public Sprite WeaponSprite { get { return weaponSprite; } private set { } }
+        private string weaponName;
+        private float power;
+        public float Power { get { return power; } private set { } }
+        private float fireSpeed;
+        private float fireCooldown;
+        private float fireDistance;
+        public float FireDistance { get { return fireDistance; } private set { } }
+        private float weight;
+        private WeaponType weaponType;
+        public WeaponType WeaponType { get { return weaponType; } private set { } }
+        private int currentMagazine;
+        public int CurrentMagazine { get { return currentMagazine; } private set { } }
+        public int maxMagazine;
+        public int MaxMagazine { get { return maxMagazine; } private set { } }
 
-    private void Update()
-    {
-        if (currentReloadTime > 0)
+        public float currentReloadTime;
+        private float reloadTime;
+
+        private float bulletSpeed;
+        public float BulletSpeed { get { return bulletSpeed; } private set { } }
+
+        public void Initialized(int index, WeaponData weaponData)
         {
-            currentReloadTime -= Time.deltaTime;
-            WeaponUIEvents.OnUpdateReloadSlider?.Invoke(index, reloadTime, currentReloadTime);
-            if (currentReloadTime <= 0)
+            this.index = index;
+            weaponSprite = weaponData.weaponSprite;
+            weaponName = weaponData.weaponName;
+            power = weaponData.power;
+            fireSpeed = weaponData.fireSpeed;
+            fireDistance = weaponData.fireDistance;
+            weight = weaponData.weight;
+            weaponType = weaponData.weaponType;
+            reloadTime = weaponData.reloadTime;
+            maxMagazine = weaponData.maxMagazine;
+            bulletSpeed = weaponData.bulletSpeed;
+
+            currentMagazine = maxMagazine;
+            currentReloadTime = 0f;
+            fireCooldown = 0f;
+        }
+
+        private void Update()
+        {
+            if (currentReloadTime > 0)
             {
-                Reload();
+                currentReloadTime -= Time.deltaTime;
+                WeaponUIEvents.OnUpdateReloadSlider?.Invoke(index, reloadTime, currentReloadTime);
+                if (currentReloadTime <= 0)
+                {
+                    Reload();
+                }
+            }
+
+            if (fireCooldown > 0)
+            {
+                fireCooldown -= Time.deltaTime;
+                if (fireCooldown < 0)
+                {
+                    fireCooldown = 0;
+                }
             }
         }
 
-        if (fireCooldown > 0)
+        public bool IsReloading()
         {
-            fireCooldown -= Time.deltaTime;
-            if (fireCooldown < 0)
+            return currentReloadTime > 0;
+        }
+
+        public bool IsReadyToFire()
+        {
+            return fireCooldown <= 0 && currentReloadTime <= 0;
+        }
+
+        public void Fire()
+        {
+            currentMagazine--;
+            fireCooldown = 1.0f / fireSpeed;
+            if (currentMagazine <= 0)
             {
-                fireCooldown = 0;
+                currentReloadTime = reloadTime;
             }
         }
-    }
 
-    public bool IsReloading()
-    {
-        return currentReloadTime > 0;
-    }
-
-    public bool IsReadyToFire()
-    {
-        return fireCooldown <= 0 && currentReloadTime <= 0;
-    }
-
-    public void Fire()
-    {
-        currentMagazine--;
-        fireCooldown = 1.0f / fireSpeed;
-        if (currentMagazine <= 0)
+        private void Reload()
         {
-            currentReloadTime = reloadTime;
+            currentMagazine = maxMagazine;
+            WeaponUIEvents.OnUpdateBulletUI?.Invoke(index, maxMagazine, currentMagazine);
         }
-    }
-
-    private void Reload()
-    {
-        currentMagazine = maxMagazine;
-        WeaponUIEvents.OnUpdateBulletUI?.Invoke(index, maxMagazine, currentMagazine);
-    }
+    }   
 }

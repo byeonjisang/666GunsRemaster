@@ -13,6 +13,7 @@ public class WeaponLoader : MonoBehaviour
     public Weapon LoadWeapon(int index, WeaponType weaponType)
     {
         GameObject weaponPrefab = Resources.Load<GameObject>($"Weapons/{weaponType}");
+        
         if (weaponPrefab != null)
         {
             GameObject weaponInstance = Instantiate(weaponPrefab, weaponParent);
@@ -39,17 +40,17 @@ public class WeaponLoader : MonoBehaviour
     public IWeapon LoadWeapon(int index, WeaponID weaponID)
     {
         GameObject weaponPrefab = Resources.Load<GameObject>($"Weapons/{weaponID}");
+        Debug.Log(weaponPrefab);
         if (weaponPrefab != null)
         {
+            Debug.Log("Load Weapon : " + weaponID);
             GameObject weaponInstance = Instantiate(weaponPrefab, weaponParent);
             weaponInstance.name = weaponID.ToString();
 
             IWeapon weaponComponent = weaponInstance.GetComponent<IWeapon>();
             weaponComponent.Initialization(index, weaponID);
 
-            // 인덱스 0이 아니면 비활성화(메인 무기X)
-            if (index != 0)
-                weaponInstance.SetActive(false);
+            weaponInstance.SetActive(false);
 
             return weaponComponent;
         }

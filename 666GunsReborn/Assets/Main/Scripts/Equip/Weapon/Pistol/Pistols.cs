@@ -26,10 +26,15 @@ namespace Weapons
         }
         #endregion
 
-        #region Get GameObject
+        #region Get Info
         public GameObject GetGameObject()
         {
             return gameObject;
+        }
+
+        public WeaponType GetWeaponType()
+        {
+            return weaponStats.WeaponType;
         }
         #endregion
 

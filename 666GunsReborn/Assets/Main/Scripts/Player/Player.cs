@@ -2,7 +2,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Animations.Rigging;
 
 #region Player Enum
 public enum PlayerStateType
@@ -53,7 +52,7 @@ public class Player : MonoBehaviour, IPlayer
     // 애니메이터
     [NonSerialized]
     public Animator anim;
-    protected RigController rigController;
+    public RuntimeAnimatorController[] animationControllers;
 
     private bool hasPlayedWalkSound = false;
     #endregion
@@ -63,6 +62,13 @@ public class Player : MonoBehaviour, IPlayer
     {
         rigid = GetComponent<Rigidbody>();
         anim = GetComponent<Animator>();
+    }
+
+    private void Start()
+    {
+        // 초기화 작업
+        Debug.Log("Player Initialized");
+        Initialized(PlayerType.Attack);
     }
     #endregion
 
@@ -74,12 +80,19 @@ public class Player : MonoBehaviour, IPlayer
         //PlayerData playerData = Resources.Load<PlayerData>($"Datas/Player/{this.GetType().ToString()}");
         Debug.Log($"Player Type: {playerType}");
 
-        if(!gameObject.TryGetComponent<PlayerStats>(out stats))
+        if (!gameObject.TryGetComponent<PlayerStats>(out stats))
             stats = gameObject.AddComponent<PlayerStats>();
-        if(!gameObject.TryGetComponent<EnemyScanner>(out scanner))
+        if (!gameObject.TryGetComponent<EnemyScanner>(out scanner))
             scanner = gameObject.AddComponent<EnemyScanner>();
 
         InitStats(playerType);
+
+        // 공격 시스템 초기화
+        if (!gameObject.TryGetComponent<PlayerAttack>(out attackSystem))
+            attackSystem = gameObject.AddComponent<PlayerAttack>();
+        attackSystem.Initialize(this);
+        // 이벤트 등록
+        AddControllerEvent();
 
         // 상태 초기화
         stateMap = new Dictionary<PlayerStateType, PlayerStateBase>
@@ -90,15 +103,8 @@ public class Player : MonoBehaviour, IPlayer
         };
         SetState(PlayerStateType.Idle);
 
-        // 공격 시스템 초기화
-        if (!gameObject.TryGetComponent<PlayerAttack>(out attackSystem))
-            attackSystem = gameObject.AddComponent<PlayerAttack>();
-        attackSystem.Initialize(this);
-        AddControllerEvent();
-
         //애니메이션 초기화
         anim.applyRootMotion = false;
-        rigController = GetComponent<RigController>();
     }
 
     public void InitStats(PlayerType playerType)
@@ -118,13 +124,23 @@ public class Player : MonoBehaviour, IPlayer
         Debug.Log("[Player] 이벤트 등록 완료");
     }
 
-    private void OnDisable()
+    private void OnDestroy()
     {
         // 이벤트 해체
+        Debug.Log("[Player] 이벤트 해제 완료");
         PlayerActionEvent.OnMovePress -= HandleInput;
         PlayerActionEvent.OnAttackPress -= attackSystem.RequestAttack;
         PlayerActionEvent.OnAttackReleased -= attackSystem.CancelAttackRequest;
         PlayerActionEvent.OnDashPress -= Dash;
+
+        stateMap.Clear();
+    }
+    #endregion
+
+    #region Player Animation
+    public void SwitchPlayerAnimation()
+    {
+        anim.runtimeAnimatorController = animationControllers[(int)Weapons.WeaponManager1.Instance.GetCurrentWeaponType()];
     }
     #endregion
 
@@ -193,6 +209,7 @@ public class Player : MonoBehaviour, IPlayer
     #region Attack Action
     public virtual void StartAttack()
     {
+        Debug.Log("공격 애니메이션 시작");
         anim.SetBool("IsAttack", true);
         //attackSystem.StartAttack();
     }
