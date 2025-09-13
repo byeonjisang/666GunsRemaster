@@ -5750,6 +5750,7 @@ Transform:
   - {fileID: 6912383674355287129}
   - {fileID: 1333582906442310981}
   - {fileID: 7435367110741005195}
+  - {fileID: 6831517930057670328}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4982310962962272058
@@ -11542,3 +11543,77 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1001 &6007977543930882746
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 7307406813531006566}
+    m_Modifications:
+    - target: {fileID: 985992422348207106, guid: 91d8e6b0dcf6e2d468ff00fea10d6a66,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.177
+      objectReference: {fileID: 0}
+    - target: {fileID: 985992422348207106, guid: 91d8e6b0dcf6e2d468ff00fea10d6a66,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.233
+      objectReference: {fileID: 0}
+    - target: {fileID: 985992422348207106, guid: 91d8e6b0dcf6e2d468ff00fea10d6a66,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -2.194
+      objectReference: {fileID: 0}
+    - target: {fileID: 985992422348207106, guid: 91d8e6b0dcf6e2d468ff00fea10d6a66,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.96348107
+      objectReference: {fileID: 0}
+    - target: {fileID: 985992422348207106, guid: 91d8e6b0dcf6e2d468ff00fea10d6a66,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 985992422348207106, guid: 91d8e6b0dcf6e2d468ff00fea10d6a66,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.26777646
+      objectReference: {fileID: 0}
+    - target: {fileID: 985992422348207106, guid: 91d8e6b0dcf6e2d468ff00fea10d6a66,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 985992422348207106, guid: 91d8e6b0dcf6e2d468ff00fea10d6a66,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 985992422348207106, guid: 91d8e6b0dcf6e2d468ff00fea10d6a66,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -31.064
+      objectReference: {fileID: 0}
+    - target: {fileID: 985992422348207106, guid: 91d8e6b0dcf6e2d468ff00fea10d6a66,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6620465767892159497, guid: 91d8e6b0dcf6e2d468ff00fea10d6a66,
+        type: 3}
+      propertyPath: m_Name
+      value: Character_Junky_Male_01
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 91d8e6b0dcf6e2d468ff00fea10d6a66, type: 3}
+--- !u!4 &6831517930057670328 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 985992422348207106, guid: 91d8e6b0dcf6e2d468ff00fea10d6a66,
+    type: 3}
+  m_PrefabInstance: {fileID: 6007977543930882746}
+  m_PrefabAsset: {fileID: 0}

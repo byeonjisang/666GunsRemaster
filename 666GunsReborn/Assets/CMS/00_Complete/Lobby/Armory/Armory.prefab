@@ -1910,7 +1910,6 @@ GameObject:
   - component: {fileID: 3994158384535483556}
   - component: {fileID: 3021258928540885121}
   - component: {fileID: 4417643272983956415}
-  - component: {fileID: 7702473517550511919}
   m_Layer: 0
   m_Name: SM_Wep_Shuriken_03 (4)
   m_TagString: Untagged
@@ -1983,27 +1982,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &7702473517550511919
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 348323817780429129}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.26341417, y: 0.015519356, z: 0.22588593}
-  m_Center: {x: -0.000005155941, y: 0.0077625117, z: 0.038565945}
 --- !u!1 &383061603543442176
 GameObject:
   m_ObjectHideFlags: 0
@@ -4819,7 +4797,6 @@ GameObject:
   - component: {fileID: 6778656133896796252}
   - component: {fileID: 178963904373130077}
   - component: {fileID: 4711259835937022900}
-  - component: {fileID: 6432666089018836519}
   m_Layer: 0
   m_Name: SM_Wep_Shock_Stick_03
   m_TagString: Untagged
@@ -4892,27 +4869,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &6432666089018836519
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 948461199621873875}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.220854, y: 1.2686468, z: 0.19346915}
-  m_Center: {x: 0.000000953417, y: 0.0043151085, z: 0.0000004773699}
 --- !u!1 &977343727664804276
 GameObject:
   m_ObjectHideFlags: 0
@@ -5719,7 +5675,6 @@ GameObject:
   - component: {fileID: 1486193507165054697}
   - component: {fileID: 4802476626138694097}
   - component: {fileID: 7710553821507594174}
-  - component: {fileID: 6641709050946422508}
   m_Layer: 0
   m_Name: SM_Bld_Base_Pillar_Half_01
   m_TagString: Untagged
@@ -5792,27 +5747,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &6641709050946422508
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1140113737240237905}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.39118832, y: 1.5065417, z: 0.39119017}
-  m_Center: {x: -0.0000003054738, y: 0.75327086, z: -0.0000012218952}
 --- !u!1 &1177024613075227428
 GameObject:
   m_ObjectHideFlags: 0
@@ -8580,7 +8514,6 @@ GameObject:
   - component: {fileID: 3164678928609423930}
   - component: {fileID: 1349367580326469634}
   - component: {fileID: 3622402794519221302}
-  - component: {fileID: 7314414452416602162}
   m_Layer: 0
   m_Name: SM_Wep_Shuriken_03 (3)
   m_TagString: Untagged
@@ -8653,27 +8586,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &7314414452416602162
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1769252235989402261}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.26341408, y: 0.015519315, z: 0.22588596}
-  m_Center: {x: -0.000000022351756, y: 0.0077606114, z: 0.03857025}
 --- !u!1 &1799038897758490340
 GameObject:
   m_ObjectHideFlags: 0
@@ -8873,7 +8785,6 @@ GameObject:
   - component: {fileID: 7506158688162859451}
   - component: {fileID: 112974492049618777}
   - component: {fileID: 147103617714907422}
-  - component: {fileID: 8387338073301702816}
   m_Layer: 0
   m_Name: SM_Wep_Sword_02 (1)
   m_TagString: Untagged
@@ -8946,27 +8857,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &8387338073301702816
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1820695585687469389}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.15408291, y: 1.4580173, z: 0.19138435}
-  m_Center: {x: 0.0000019075098, y: 0.46123827, z: -0.028255098}
 --- !u!1 &1832738747876619748
 GameObject:
   m_ObjectHideFlags: 0
@@ -9819,7 +9709,6 @@ GameObject:
   - component: {fileID: 5308537069385993507}
   - component: {fileID: 6593583539822434686}
   - component: {fileID: 1979217486581569097}
-  - component: {fileID: 565116929186851383}
   m_Layer: 0
   m_Name: SM_Wep_Shuriken_03
   m_TagString: Untagged
@@ -9892,27 +9781,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &565116929186851383
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1967846837153695845}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.263414, y: 0.015519304, z: 0.22588584}
-  m_Center: {x: 0.0000009313226, y: 0.007759652, z: 0.038566653}
 --- !u!1 &2000911971361844184
 GameObject:
   m_ObjectHideFlags: 0
@@ -10479,7 +10347,6 @@ GameObject:
   - component: {fileID: 490640734870816984}
   - component: {fileID: 1692887786851683621}
   - component: {fileID: 8434240810188369445}
-  - component: {fileID: 8410843805315344183}
   m_Layer: 0
   m_Name: SM_Wep_Grenade_01 (2)
   m_TagString: Untagged
@@ -10553,27 +10420,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &8410843805315344183
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2090259323749634482}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.09871923, y: 0.12782016, z: 0.11512152}
-  m_Center: {x: -0.0000009536743, y: 0.006309312, z: 0.0000009536743}
 --- !u!1 &2092608604794800559
 GameObject:
   m_ObjectHideFlags: 0
@@ -12960,7 +12806,6 @@ GameObject:
   - component: {fileID: 4285941984749064545}
   - component: {fileID: 3049953659889435910}
   - component: {fileID: 5892095802278740778}
-  - component: {fileID: 3163112586426738348}
   m_Layer: 0
   m_Name: SM_Wep_Sword_02 (3)
   m_TagString: Untagged
@@ -13033,27 +12878,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &3163112586426738348
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2526023758157532907}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.15408301, y: 1.4580183, z: 0.19138442}
-  m_Center: {x: 0.0000028671902, y: 0.4612355, z: -0.028255561}
 --- !u!1 &2532183460759392886
 GameObject:
   m_ObjectHideFlags: 0
@@ -14035,7 +13859,6 @@ GameObject:
   - component: {fileID: 7590236785913825623}
   - component: {fileID: 2640596583954620743}
   - component: {fileID: 228466441534253447}
-  - component: {fileID: 3229156604325358486}
   m_Layer: 0
   m_Name: SM_Wep_Shock_Stick_01
   m_TagString: Untagged
@@ -14108,27 +13931,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &3229156604325358486
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2705279705556142153}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.08643997, y: 0.958105, z: 0.110811606}
-  m_Center: {x: -0.0000014167274, y: 0.33751553, z: -0.00000048375256}
 --- !u!1 &2736355160308929159
 GameObject:
   m_ObjectHideFlags: 0
@@ -14853,7 +14655,6 @@ GameObject:
   - component: {fileID: 3365227034841228791}
   - component: {fileID: 1896079978220805951}
   - component: {fileID: 870613190859258237}
-  - component: {fileID: 176024405389149973}
   m_Layer: 0
   m_Name: SM_Wep_Shuriken_03 (2)
   m_TagString: Untagged
@@ -14926,27 +14727,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &176024405389149973
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2946585445470801875}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.263414, y: 0.015519304, z: 0.22588584}
-  m_Center: {x: -0.0000004991889, y: 0.007759652, z: 0.038564745}
 --- !u!1 &2965096192937008969
 GameObject:
   m_ObjectHideFlags: 0
@@ -15884,7 +15664,6 @@ GameObject:
   - component: {fileID: 5360195119447530825}
   - component: {fileID: 6298757968126004355}
   - component: {fileID: 2528521328778351742}
-  - component: {fileID: 7120564629749932224}
   m_Layer: 0
   m_Name: SM_Bld_Base_Pillar_Half_01 (1)
   m_TagString: Untagged
@@ -15957,27 +15736,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &7120564629749932224
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3123030819968002424}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.39118832, y: 1.5065417, z: 0.39119017}
-  m_Center: {x: -0.0000003054738, y: 0.75327086, z: -0.0000012218952}
 --- !u!1 &3128539293760222575
 GameObject:
   m_ObjectHideFlags: 0
@@ -16146,7 +15904,6 @@ GameObject:
   - component: {fileID: 3338582263151818014}
   - component: {fileID: 636854302888163910}
   - component: {fileID: 5167773384319778542}
-  - component: {fileID: 7498486332441800474}
   m_Layer: 0
   m_Name: SM_Wep_Grenade_01 (1)
   m_TagString: Untagged
@@ -16220,27 +15977,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &7498486332441800474
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3153494040449609849}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.09871922, y: 0.12782016, z: 0.115121506}
-  m_Center: {x: 0.0000014305115, y: 0.006309312, z: -0.0000019073486}
 --- !u!1 &3163542791293932209
 GameObject:
   m_ObjectHideFlags: 0
@@ -16866,7 +16602,6 @@ GameObject:
   - component: {fileID: 2040151307271397595}
   - component: {fileID: 6743410932123465732}
   - component: {fileID: 2589230442682451136}
-  - component: {fileID: 9156015979828381627}
   m_Layer: 0
   m_Name: SM_Wep_Sword_06
   m_TagString: Untagged
@@ -16939,27 +16674,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &9156015979828381627
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3224156041587499133}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.09989977, y: 1.4779141, z: 0.09639639}
-  m_Center: {x: -0.0000042915344, y: 0.5445099, z: 0.0004874469}
 --- !u!1 &3278942191162212208
 GameObject:
   m_ObjectHideFlags: 0
@@ -18064,7 +17778,6 @@ GameObject:
   - component: {fileID: 8611681133486377088}
   - component: {fileID: 228048262091172771}
   - component: {fileID: 4956195389435561698}
-  - component: {fileID: 5350753626305893130}
   m_Layer: 0
   m_Name: SM_Bld_Railing_Rail_Straight_01
   m_TagString: Untagged
@@ -18137,27 +17850,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &5350753626305893130
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3503363562034135464}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 2.4999914, y: 0.32480514, z: 0.08594817}
-  m_Center: {x: -1.2499957, y: 0.9345898, z: 0.16289352}
 --- !u!1 &3524289222365807932
 GameObject:
   m_ObjectHideFlags: 0
@@ -19478,7 +19170,6 @@ GameObject:
   - component: {fileID: 8953757534702518058}
   - component: {fileID: 9106656413223707891}
   - component: {fileID: 6092335272688592370}
-  - component: {fileID: 1262170983343215597}
   m_Layer: 0
   m_Name: SM_Wep_Sword_02 (2)
   m_TagString: Untagged
@@ -19551,27 +19242,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &1262170983343215597
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3707638528345588060}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.15408303, y: 1.4580184, z: 0.1913843}
-  m_Center: {x: -0.0000028411723, y: 0.46124256, z: -0.028254721}
 --- !u!1 &3760142871060664595
 GameObject:
   m_ObjectHideFlags: 0
@@ -20797,7 +20467,6 @@ GameObject:
   - component: {fileID: 9075786621949947522}
   - component: {fileID: 2653488785833861734}
   - component: {fileID: 1139966194655409136}
-  - component: {fileID: 7215657194214270988}
   m_Layer: 0
   m_Name: SM_Wep_Sword_01 (3)
   m_TagString: Untagged
@@ -20870,27 +20539,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &7215657194214270988
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3934198502195304358}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.15408295, y: 1.458018, z: 0.19138417}
-  m_Center: {x: -0.0000038258004, y: 0.46086696, z: -0.026557397}
 --- !u!1 &3954612061318034823
 GameObject:
   m_ObjectHideFlags: 0
@@ -21791,7 +21439,6 @@ GameObject:
   - component: {fileID: 8723617003097299061}
   - component: {fileID: 3784176253244491608}
   - component: {fileID: 4858628502199473993}
-  - component: {fileID: 7341508646291373396}
   m_Layer: 0
   m_Name: SM_Wep_Shuriken_01
   m_TagString: Untagged
@@ -21864,27 +21511,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &7341508646291373396
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4137669670859144276}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.20463796, y: 0.021576976, z: 0.21056695}
-  m_Center: {x: -0.00880118, y: 0.010788488, z: 0.00409612}
 --- !u!1 &4175748034603277119
 GameObject:
   m_ObjectHideFlags: 0
@@ -22571,7 +22197,6 @@ GameObject:
   - component: {fileID: 2014510145130312275}
   - component: {fileID: 5511693750819733154}
   - component: {fileID: 2072533749656538263}
-  - component: {fileID: 5391246486947272011}
   m_Layer: 0
   m_Name: SM_Wep_Grenade_01 (4)
   m_TagString: Untagged
@@ -22645,27 +22270,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &5391246486947272011
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4335165118296317945}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.09871922, y: 0.12782016, z: 0.115121506}
-  m_Center: {x: 0, y: 0.006309312, z: 0}
 --- !u!1 &4358649641309599492
 GameObject:
   m_ObjectHideFlags: 0
@@ -23096,7 +22700,6 @@ GameObject:
   - component: {fileID: 4656456280839406913}
   - component: {fileID: 889200709018271736}
   - component: {fileID: 6006211246178448809}
-  - component: {fileID: 7680124499114019551}
   m_Layer: 0
   m_Name: SM_Bld_Railing_Rail_Straight_01
   m_TagString: Untagged
@@ -23169,27 +22772,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &7680124499114019551
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4464852810544622245}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 2.4999914, y: 0.32480514, z: 0.08594817}
-  m_Center: {x: -1.2499957, y: 0.9345898, z: 0.16289352}
 --- !u!1 &4487708898847106429
 GameObject:
   m_ObjectHideFlags: 0
@@ -23808,7 +23390,6 @@ GameObject:
   - component: {fileID: 6174862182388272252}
   - component: {fileID: 9105602911299070802}
   - component: {fileID: 7527180812458346127}
-  - component: {fileID: 7256583824766833589}
   m_Layer: 0
   m_Name: SM_Wep_Shuriken_03 (1)
   m_TagString: Untagged
@@ -23881,27 +23462,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &7256583824766833589
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4604072737338704338}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.263414, y: 0.015519304, z: 0.22588584}
-  m_Center: {x: 0.0000009313226, y: 0.007759652, z: 0.038566653}
 --- !u!1 &4605290223487387076
 GameObject:
   m_ObjectHideFlags: 0
@@ -24565,7 +24125,6 @@ GameObject:
   - component: {fileID: 5325778068345760242}
   - component: {fileID: 4193887120330860101}
   - component: {fileID: 3258885711075463205}
-  - component: {fileID: 1394923985726309849}
   m_Layer: 0
   m_Name: SM_Wep_Sword_03
   m_TagString: Untagged
@@ -24638,27 +24197,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &1394923985726309849
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4741429715492718019}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.09487467, y: 1.4631795, z: 0.1914981}
-  m_Center: {x: -0.0012205264, y: 0.5030675, z: 0.0044246702}
 --- !u!1 &4742094947593192801
 GameObject:
   m_ObjectHideFlags: 0
@@ -24775,7 +24313,6 @@ GameObject:
   - component: {fileID: 2940601833917907859}
   - component: {fileID: 3739623216255953227}
   - component: {fileID: 2795630362878941905}
-  - component: {fileID: 6032102522105928004}
   m_Layer: 0
   m_Name: SM_Wep_Grenade_01
   m_TagString: Untagged
@@ -24849,27 +24386,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &6032102522105928004
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4744920152920948122}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.09871923, y: 0.12782016, z: 0.11512152}
-  m_Center: {x: -0.0000014305115, y: 0.006309312, z: 0}
 --- !u!1 &4761817856685025029
 GameObject:
   m_ObjectHideFlags: 0
@@ -26662,7 +26178,6 @@ GameObject:
   - component: {fileID: 7887839113350703257}
   - component: {fileID: 2357635296496571312}
   - component: {fileID: 4748301236200342996}
-  - component: {fileID: 8510608863937202315}
   m_Layer: 0
   m_Name: SM_Wep_Sword_05
   m_TagString: Untagged
@@ -26735,27 +26250,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &8510608863937202315
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5031970313178258219}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.080730654, y: 1.4936357, z: 0.29329425}
-  m_Center: {x: -0.0000019209817, y: 0.5655193, z: -0.0037522584}
 --- !u!1 &5047129988886150916
 GameObject:
   m_ObjectHideFlags: 0
@@ -26850,7 +26344,6 @@ GameObject:
   - component: {fileID: 5798167544296567036}
   - component: {fileID: 8945972536518005427}
   - component: {fileID: 2325435589405632189}
-  - component: {fileID: 4697139456456478254}
   m_Layer: 0
   m_Name: SM_Wep_Sword_03 (1)
   m_TagString: Untagged
@@ -26923,27 +26416,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &4697139456456478254
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5052049363049228946}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.09487486, y: 1.4631805, z: 0.19149786}
-  m_Center: {x: -0.001222858, y: 0.5030724, z: 0.004424557}
 --- !u!1 &5102620796192247010
 GameObject:
   m_ObjectHideFlags: 0
@@ -28171,7 +27643,6 @@ GameObject:
   - component: {fileID: 7442538000249776998}
   - component: {fileID: 7411167901311905389}
   - component: {fileID: 2178030004183651013}
-  - component: {fileID: 7925453278493514832}
   m_Layer: 0
   m_Name: SM_Bld_Base_Pillar_Half_01 (3)
   m_TagString: Untagged
@@ -28244,27 +27715,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &7925453278493514832
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5266241487134789075}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.39118832, y: 1.5065417, z: 0.39119017}
-  m_Center: {x: -0.0000003054738, y: 0.75327086, z: -0.0000012218952}
 --- !u!1 &5278612257020348590
 GameObject:
   m_ObjectHideFlags: 0
@@ -29287,7 +28737,6 @@ GameObject:
   - component: {fileID: 3699640239229349593}
   - component: {fileID: 5628447821075132108}
   - component: {fileID: 8737595901637829562}
-  - component: {fileID: 7504052235847441222}
   m_Layer: 0
   m_Name: SM_Wep_Shuriken_01
   m_TagString: Untagged
@@ -29360,27 +28809,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &7504052235847441222
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5541187489504326436}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.20463796, y: 0.021576976, z: 0.21056695}
-  m_Center: {x: -0.008800703, y: 0.010788488, z: 0.0040951665}
 --- !u!1 &5544128881528764727
 GameObject:
   m_ObjectHideFlags: 0
@@ -31659,7 +31087,6 @@ GameObject:
   - component: {fileID: 3709911194136147916}
   - component: {fileID: 600694530112908752}
   - component: {fileID: 4922380684848678133}
-  - component: {fileID: 1228141668681997131}
   m_Layer: 0
   m_Name: SM_Wep_Shock_Stick_05
   m_TagString: Untagged
@@ -31732,27 +31159,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &1228141668681997131
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5993216140491497965}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.119442314, y: 0.97621924, z: 0.17498712}
-  m_Center: {x: -0.0000000094408135, y: 0.28776702, z: 0.029013695}
 --- !u!1 &6009392723662375451
 GameObject:
   m_ObjectHideFlags: 0
@@ -33836,7 +33242,6 @@ GameObject:
   - component: {fileID: 3457713948394537454}
   - component: {fileID: 8435023782373903472}
   - component: {fileID: 3552213224140189677}
-  - component: {fileID: 6024226196570087937}
   m_Layer: 0
   m_Name: SM_Wep_Sword_01 (5)
   m_TagString: Untagged
@@ -33909,27 +33314,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &6024226196570087937
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6606855223258657666}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.15408295, y: 1.4580184, z: 0.19138424}
-  m_Center: {x: -0.0000038146973, y: 0.4608718, z: -0.026556704}
 --- !u!1 &6616900532366365038
 GameObject:
   m_ObjectHideFlags: 0
@@ -35639,7 +35023,6 @@ GameObject:
   - component: {fileID: 3941854341041381839}
   - component: {fileID: 775886964878222999}
   - component: {fileID: 8895169492122660670}
-  - component: {fileID: 7799674187578657239}
   m_Layer: 0
   m_Name: SM_Bld_Railing_Rail_Straight_01
   m_TagString: Untagged
@@ -35712,27 +35095,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &7799674187578657239
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6962569193838404529}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 2.4999914, y: 0.32480514, z: 0.08594817}
-  m_Center: {x: -1.2499957, y: 0.9345898, z: 0.16289352}
 --- !u!1 &6977223206636738285
 GameObject:
   m_ObjectHideFlags: 0
@@ -35862,7 +35224,6 @@ GameObject:
   - component: {fileID: 7874435609517499473}
   - component: {fileID: 8713900451806327420}
   - component: {fileID: 4608773339943781868}
-  - component: {fileID: 2786446398791302983}
   m_Layer: 0
   m_Name: SM_Wep_Shock_Stick_01
   m_TagString: Untagged
@@ -35935,27 +35296,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &2786446398791302983
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7023584642954913947}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.08643994, y: 0.95810527, z: 0.110811606}
-  m_Center: {x: 0.0000000037252903, y: 0.33751702, z: 0}
 --- !u!1 &7041541419197990130
 GameObject:
   m_ObjectHideFlags: 0
@@ -38504,7 +37844,6 @@ GameObject:
   - component: {fileID: 5949842685740918384}
   - component: {fileID: 1164713466748829218}
   - component: {fileID: 6975650548297428984}
-  - component: {fileID: 5752738733212364496}
   m_Layer: 0
   m_Name: SM_Wep_Sword_04
   m_TagString: Untagged
@@ -38577,27 +37916,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &5752738733212364496
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7654540704844330675}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.12854935, y: 1.4316901, z: 0.324286}
-  m_Center: {x: -0.0000052570213, y: 0.54418105, z: 0.0000009569778}
 --- !u!1 &7654641265780615938
 GameObject:
   m_ObjectHideFlags: 0
@@ -39994,7 +39312,6 @@ GameObject:
   - component: {fileID: 5172631352813037358}
   - component: {fileID: 8016018471780691976}
   - component: {fileID: 6033535086999728191}
-  - component: {fileID: 5453463711939363927}
   m_Layer: 0
   m_Name: SM_Prop_Billboard_Backing_01
   m_TagString: Untagged
@@ -40067,27 +39384,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &5453463711939363927
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7852063811414572287}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 13.622253, y: 4.849101, z: 0.35197973}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7862618421640397622
 GameObject:
   m_ObjectHideFlags: 0
@@ -40728,7 +40024,6 @@ GameObject:
   - component: {fileID: 2565912318924972033}
   - component: {fileID: 5427748518345033627}
   - component: {fileID: 7089071821964068710}
-  - component: {fileID: 7314938828146660911}
   m_Layer: 0
   m_Name: SM_Wep_Sword_02
   m_TagString: Untagged
@@ -40801,27 +40096,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &7314938828146660911
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7983888210824865547}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.15408286, y: 1.4580172, z: 0.1913842}
-  m_Center: {x: -5.2629323e-10, y: 0.4612382, z: -0.028255181}
 --- !u!1 &7991329050990182049
 GameObject:
   m_ObjectHideFlags: 0
@@ -41129,7 +40403,6 @@ GameObject:
   - component: {fileID: 2852037788340636273}
   - component: {fileID: 6448083423593216018}
   - component: {fileID: 6737820491687435914}
-  - component: {fileID: 6857269512735445653}
   m_Layer: 0
   m_Name: SM_Wep_Shuriken_01 (1)
   m_TagString: Untagged
@@ -41202,27 +40475,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &6857269512735445653
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8104989975584066989}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.20463802, y: 0.021576991, z: 0.21056707}
-  m_Center: {x: -0.00880154, y: 0.010790403, z: 0.004098745}
 --- !u!1 &8116380285757893507
 GameObject:
   m_ObjectHideFlags: 0
@@ -41234,7 +40486,6 @@ GameObject:
   - component: {fileID: 258813018865670395}
   - component: {fileID: 3247123291946808956}
   - component: {fileID: 3361231598475989179}
-  - component: {fileID: 2813751288793964648}
   m_Layer: 0
   m_Name: SM_Wep_Sword_04 (1)
   m_TagString: Untagged
@@ -41307,27 +40558,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &2813751288793964648
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8116380285757893507}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.12854934, y: 1.4316897, z: 0.32428616}
-  m_Center: {x: 0.000002854862, y: 0.5441788, z: -0.00000038375967}
 --- !u!1 &8129545023138851811
 GameObject:
   m_ObjectHideFlags: 0
@@ -41422,7 +40652,6 @@ GameObject:
   - component: {fileID: 5046077485740654596}
   - component: {fileID: 1070948743218152342}
   - component: {fileID: 5257322594166133041}
-  - component: {fileID: 1652220420536142607}
   m_Layer: 0
   m_Name: SM_Wep_Sword_01 (2)
   m_TagString: Untagged
@@ -41495,27 +40724,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &1652220420536142607
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8138581392788603185}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.15408294, y: 1.4580176, z: 0.19138448}
-  m_Center: {x: 2.3625035e-10, y: 0.46086782, z: -0.026556104}
 --- !u!1 &8142119214391367827
 GameObject:
   m_ObjectHideFlags: 0
@@ -43392,7 +42600,6 @@ GameObject:
   - component: {fileID: 5701465774399715177}
   - component: {fileID: 232830382780020455}
   - component: {fileID: 5787106423430530302}
-  - component: {fileID: 3457580798922764860}
   m_Layer: 0
   m_Name: SM_Bld_Base_Pillar_Half_01 (2)
   m_TagString: Untagged
@@ -43465,27 +42672,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &3457580798922764860
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8583386530624097515}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.39118832, y: 1.5065417, z: 0.39119017}
-  m_Center: {x: -0.0000003054738, y: 0.75327086, z: -0.0000012218952}
 --- !u!1 &8598053278598177665
 GameObject:
   m_ObjectHideFlags: 0
@@ -44505,6 +43691,7 @@ Transform:
   m_Children:
   - {fileID: 8150578218645444989}
   - {fileID: 484699680019144288}
+  - {fileID: 3622291371078651254}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8783985983022976862
@@ -45067,7 +44254,6 @@ GameObject:
   - component: {fileID: 628792096552059020}
   - component: {fileID: 6310314691074348253}
   - component: {fileID: 7623744588128132506}
-  - component: {fileID: 4868941974115294462}
   m_Layer: 0
   m_Name: SM_Wep_Grenade_01 (3)
   m_TagString: Untagged
@@ -45141,27 +44327,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &4868941974115294462
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8878720975023186458}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.09871922, y: 0.12782016, z: 0.115121506}
-  m_Center: {x: 0, y: 0.006309312, z: -0.0000019073486}
 --- !u!1 &8890819518536852267
 GameObject:
   m_ObjectHideFlags: 0
@@ -45363,7 +44528,6 @@ GameObject:
   - component: {fileID: 7592385418474168577}
   - component: {fileID: 4037500603936820057}
   - component: {fileID: 6583811022503501181}
-  - component: {fileID: 7549345049670482321}
   m_Layer: 0
   m_Name: SM_Wep_Sword_01
   m_TagString: Untagged
@@ -45436,27 +44600,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &7549345049670482321
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8922536235887930243}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.15408286, y: 1.4580172, z: 0.1913842}
-  m_Center: {x: -4.9465665e-10, y: 0.4608696, z: -0.026556706}
 --- !u!1 &8927665450654848200
 GameObject:
   m_ObjectHideFlags: 0
@@ -46156,7 +45299,6 @@ GameObject:
   - component: {fileID: 995967455970503240}
   - component: {fileID: 9116492238856468794}
   - component: {fileID: 5220079246345120710}
-  - component: {fileID: 385531440668490677}
   m_Layer: 0
   m_Name: SM_Wep_Shuriken_01
   m_TagString: Untagged
@@ -46229,27 +45371,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &385531440668490677
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9037307849393966719}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.20463796, y: 0.021576976, z: 0.21056695}
-  m_Center: {x: -0.00880118, y: 0.010788488, z: 0.004094213}
 --- !u!1 &9070069312400377839
 GameObject:
   m_ObjectHideFlags: 0
@@ -46672,3 +45793,77 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 10, y: 0.1, z: 10}
   m_Center: {x: 0, y: -0.05, z: 0}
+--- !u!1001 &7817470593175077549
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 5883536121689946306}
+    m_Modifications:
+    - target: {fileID: 6157012734692562273, guid: c7562d25a41d01e459e331885a848f96,
+        type: 3}
+      propertyPath: m_Name
+      value: armory_NPC
+      objectReference: {fileID: 0}
+    - target: {fileID: 6789680953478893531, guid: c7562d25a41d01e459e331885a848f96,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 17.68413
+      objectReference: {fileID: 0}
+    - target: {fileID: 6789680953478893531, guid: c7562d25a41d01e459e331885a848f96,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6789680953478893531, guid: c7562d25a41d01e459e331885a848f96,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.3380009
+      objectReference: {fileID: 0}
+    - target: {fileID: 6789680953478893531, guid: c7562d25a41d01e459e331885a848f96,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9636305
+      objectReference: {fileID: 0}
+    - target: {fileID: 6789680953478893531, guid: c7562d25a41d01e459e331885a848f96,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6789680953478893531, guid: c7562d25a41d01e459e331885a848f96,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.26723832
+      objectReference: {fileID: 0}
+    - target: {fileID: 6789680953478893531, guid: c7562d25a41d01e459e331885a848f96,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6789680953478893531, guid: c7562d25a41d01e459e331885a848f96,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6789680953478893531, guid: c7562d25a41d01e459e331885a848f96,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 31
+      objectReference: {fileID: 0}
+    - target: {fileID: 6789680953478893531, guid: c7562d25a41d01e459e331885a848f96,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c7562d25a41d01e459e331885a848f96, type: 3}
+--- !u!4 &3622291371078651254 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6789680953478893531, guid: c7562d25a41d01e459e331885a848f96,
+    type: 3}
+  m_PrefabInstance: {fileID: 7817470593175077549}
+  m_PrefabAsset: {fileID: 0}
