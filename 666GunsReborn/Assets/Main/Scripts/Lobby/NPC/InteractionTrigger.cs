@@ -9,6 +9,9 @@ public class InteractionTrigger : MonoBehaviour
     public GameObject NpcCanvas;
     public GameObject MainCanvas;
 
+    [SerializeField] private DialogController _dialogController;
+    [SerializeField] private TopDownController _topDownController;
+
     [TextArea]
     public string dialogueText = "기본 대사입니다.";
 
