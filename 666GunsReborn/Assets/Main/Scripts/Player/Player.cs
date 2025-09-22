@@ -140,6 +140,7 @@ public class Player : MonoBehaviour, IPlayer
     #region Player Animation
     public void SwitchPlayerAnimation()
     {
+        Debug.Log($"Switch Player Animation : {(int)Weapons.WeaponManager1.Instance.GetCurrentWeaponType()}");
         anim.runtimeAnimatorController = animationControllers[(int)Weapons.WeaponManager1.Instance.GetCurrentWeaponType()];
     }
     #endregion

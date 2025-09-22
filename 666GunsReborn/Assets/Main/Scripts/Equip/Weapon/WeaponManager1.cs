@@ -39,7 +39,7 @@ namespace Weapons
             equipedWeapons[1] = weaponLoader.LoadWeapon(1, (WeaponID)weapon2Index);
 
             equipedWeapons[0].GetGameObject().SetActive(true);
-
+            SwitchWeaponEvent?.Invoke();
         }
 
         public void OnFire()
