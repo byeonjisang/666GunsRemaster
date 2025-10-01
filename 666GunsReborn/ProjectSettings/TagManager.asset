@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Coin
   - Enemy
+  - Scope Camera
   layers:
   - Default
   - TransparentFX
