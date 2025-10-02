@@ -6,16 +6,20 @@ public class InteractionTrigger : MonoBehaviour
     public Transform cameraTargetPosition;      // 카메라가 이동할 위치
     public float cameraMoveSpeed = 2f;
     public GameObject player;
+    public GameObject npc;
     public GameObject NpcCanvas;
     public GameObject MainCanvas;
 
     [SerializeField] private DialogController _dialogController;
     [SerializeField] private TopDownController _topDownController;
 
-    [TextArea]
-    public string dialogueText = "기본 대사입니다.";
-
     private bool hasTriggered = false;
+
+    private void Start()
+    {
+        _topDownController = npc.gameObject.GetComponent<TopDownController>();
+        _dialogController = npc.gameObject.GetComponent<DialogController>();
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -25,6 +29,7 @@ public class InteractionTrigger : MonoBehaviour
             StartCoroutine(HandleInteraction());
             NpcCanvas.SetActive(true);
             MainCanvas.SetActive(false);
+            _topDownController._onInteractEvent += _dialogController.DialogEvent;
         }
     }
     //private void OnTriggerExit(Collider other)

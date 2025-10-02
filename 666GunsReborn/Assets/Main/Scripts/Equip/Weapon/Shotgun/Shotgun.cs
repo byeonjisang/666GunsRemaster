@@ -50,8 +50,9 @@ namespace Weapons
 
             for (int i = 0; i < bulletCount; i++)
             {
-                bulletSpawnPoint.rotation = Quaternion.Euler(Random.Range(-10f, 10f), Random.Range(-10f, 10f), 0);
+                //bulletSpawnPoint.rotation = Quaternion.Euler(Random.Range(-10f, 10f), Random.Range(-10f, 10f), 0);
                 GameObject bullet = ObjectPoolManager.Instance.GetFromPool("Bullet_Shotgun", bulletSpawnPoint.position, bulletSpawnPoint.rotation);
+                bullet.transform.Rotate(Random.Range(-10f, 10f), Random.Range(-10f, 10f), 0);
                 bullet.GetComponent<Bullet>().Initialization(weaponStats.Power, weaponStats.BulletSpeed);
                 weaponStats.Fire();
 
@@ -79,7 +80,7 @@ namespace Weapons
         protected virtual void PlayWeaponSound()
         {
             Debug.Log("Play weapon sound");
-            SoundManagers.Instance.PlayOneShot(SFX.Shotgun_Fire, transform.position);
+            //SoundManagers.Instance.PlayOneShot(SFX.Shotgun_Fire, transform.position);
         }
         #endregion
     }    

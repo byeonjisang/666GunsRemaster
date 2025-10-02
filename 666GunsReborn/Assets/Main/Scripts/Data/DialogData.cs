@@ -5,7 +5,7 @@ using UnityEngine;
 [System.Serializable]
 public class DialogData : MonoBehaviour
 {
-    public int _dialogStep = 0;
+    private int _dialogStep = 0;
     public string[] _dialogText;
 
     public string GetDialogText()

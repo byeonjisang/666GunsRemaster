@@ -1332,9 +1332,11 @@ MonoBehaviour:
   cameraTargetPosition: {fileID: 1809854791}
   cameraMoveSpeed: 2
   player: {fileID: 1896289585}
+  npc: {fileID: 2064237989}
   NpcCanvas: {fileID: 856176975}
   MainCanvas: {fileID: 1037492528}
-  dialogueText: "\uAE30\uBCF8 \uB300\uC0AC\uC785\uB2C8\uB2E4."
+  _dialogController: {fileID: 0}
+  _topDownController: {fileID: 0}
 --- !u!65 &327818816
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4728,7 +4730,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1526865164
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6312,6 +6314,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2064237990}
+  - component: {fileID: 2064237993}
+  - component: {fileID: 2064237992}
+  - component: {fileID: 2064237991}
   m_Layer: 0
   m_Name: NPC
   m_TagString: Untagged
@@ -6335,6 +6340,48 @@ Transform:
   - {fileID: 1674510902}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2064237991
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2064237989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18495673252a80649bc03a7308258cd4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _dialogText:
+  - "\uC0C1\uC810\uC5D0 \uC624\uC2E0 \uAC83\uC744 \uD658\uC601\uD569\uB2C8\uB2E4.
+    \uBB34\uC5C7\uC744 \uB3C4\uC640\uB4DC\uB9B4\uAE4C\uC694?"
+--- !u!114 &2064237992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2064237989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 777bb5e8e2ca30a4ab11000b0aca360b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2064237993
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2064237989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bdd3d0ce57f35041a3f0708d760d973, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _dialogData: {fileID: 2064237991}
+  _dialogUI: {fileID: 1331431829}
+  _text: {fileID: 557245268}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
