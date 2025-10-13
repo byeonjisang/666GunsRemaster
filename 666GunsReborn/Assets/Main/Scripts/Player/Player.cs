@@ -41,7 +41,7 @@ public class Player : MonoBehaviour, IPlayer
 
     // 플레이어 스텟
     [NonSerialized]
-    public PlayerStats stats;
+    public PlayerStat stat;
     // 적 스캐너
     [NonSerialized]
     public EnemyScanner scanner;
@@ -80,8 +80,8 @@ public class Player : MonoBehaviour, IPlayer
         //PlayerData playerData = Resources.Load<PlayerData>($"Datas/Player/{this.GetType().ToString()}");
         Debug.Log($"Player Type: {playerType}");
 
-        if (!gameObject.TryGetComponent<PlayerStats>(out stats))
-            stats = gameObject.AddComponent<PlayerStats>();
+        if (!gameObject.TryGetComponent<PlayerStat>(out stat))
+            stat = gameObject.AddComponent<PlayerStat>();
         if (!gameObject.TryGetComponent<EnemyScanner>(out scanner))
             scanner = gameObject.AddComponent<EnemyScanner>();
 
@@ -110,7 +110,7 @@ public class Player : MonoBehaviour, IPlayer
     public void InitStats(PlayerType playerType)
     {
         PlayerData playerData = Resources.Load<PlayerData>($"Datas/Player/" + "FormOf" + playerType.ToString() + "Player");
-        stats.Init(playerData);
+        stat.Init(playerData);
     }
 
     private void AddControllerEvent()
@@ -160,7 +160,7 @@ public class Player : MonoBehaviour, IPlayer
         currentState?.Update();
 
         // 대쉬 쿨타임 계산
-        stats.DashCountCoolDown();
+        stat.DashCountCoolDown();
     }
 
     public void HandleInput(Vector3 direction)
@@ -183,7 +183,7 @@ public class Player : MonoBehaviour, IPlayer
         }
 
         //대쉬 개수 부족할 경우 대쉬 불가
-        if (stats.CurrentDashCount <= 0)
+        if (stat.CurrentDashCount <= 0)
         {
             Debug.Log("Not enough dash count.");
             return;
@@ -198,7 +198,7 @@ public class Player : MonoBehaviour, IPlayer
         // 대쉬 상태 변환
         SetState(PlayerStateType.Dash);
 
-        float dashTime = stats.CurrentDashDistance / 50f;
+        float dashTime = stat.CurrentDashDistance / 50f;
         currentState?.HandleInput(gameObject.transform.forward);
         yield return new WaitForSeconds(dashTime);
 
@@ -226,7 +226,7 @@ public class Player : MonoBehaviour, IPlayer
     public void Hit(int damage)
     {
         Debug.Log("Player Hit");
-        bool isDead = stats.DecreaseHealth(damage);
+        bool isDead = stat.DecreaseHealth(damage);
 
         if (isDead)
             Dead();

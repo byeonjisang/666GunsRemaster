@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-//¸ðµç ¸ó½ºÅÍÀÇ ±âº»ÀûÀÎ ·ÎÁ÷ÀÌ µÉ Å¬·¡½º
-public class Enemy : MonoBehaviour
+//ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½âº»ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½
+public class Enemys : MonoBehaviour
 {
-    //¸ó½ºÅÍÀÇ Á¾·ù¸¦ ±¸ºÐÇÒ enum
+    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ enum
     public enum EnemyType
     {
         A, B, C
@@ -14,7 +14,7 @@ public class Enemy : MonoBehaviour
 
     public EnemyType enemyType;
 
-    //Ã¼·Â °ü·Ã º¯¼ö
+    //Ã¼ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     public int maxHealth;
     public int currentHealth;
 
@@ -83,7 +83,7 @@ public class Enemy : MonoBehaviour
         rigid.velocity = Vector3.zero;
     }
 
-    //ÇÇ°Ý ½Ã Çàµ¿
+    //ï¿½Ç°ï¿½ ï¿½ï¿½ ï¿½àµ¿
     IEnumerator OnDamage()
     {
         material.color = Color.red;

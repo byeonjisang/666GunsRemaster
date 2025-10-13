@@ -113,12 +113,12 @@ public class MoveState : PlayerStateBase
         if (slopeInfo.onSlope && IsGrounded())
         {
             Vector3 slopeDir = Vector3.ProjectOnPlane(direction, slopeInfo.normal);
-            player.rigid.velocity = slopeDir * player.stats.CurrentMoveSpeed;
+            player.rigid.velocity = slopeDir * player.stat.CurrentMoveSpeed;
         }
         else
         {
             //평소 땅 위
-            Vector3 moveVelocity = new Vector3(direction.x, 0f, direction.z) * player.stats.CurrentMoveSpeed;
+            Vector3 moveVelocity = new Vector3(direction.x, 0f, direction.z) * player.stat.CurrentMoveSpeed;
             player.rigid.velocity = new Vector3(moveVelocity.x, player.rigid.velocity.y, moveVelocity.z);
         }
 
@@ -194,13 +194,13 @@ public class DashState : PlayerStateBase
     public override void HandleInput(Vector3 direction)
     {
         // 대쉬 개수 감소
-        player.stats.CurrentDashCount--;
+        player.stat.CurrentDashCount--;
 
         // 이동을 하고 있지 않다면 바라보는 방향으로 대쉬
         if (direction.sqrMagnitude < 0.1f)
             direction = player.transform.forward.normalized;
         // 대쉬 이동
-        player.rigid.velocity = direction * player.stats.CurrentDashDistance;
+        player.rigid.velocity = direction * player.stat.CurrentDashDistance;
     }
     public override void EnterState()
     {
