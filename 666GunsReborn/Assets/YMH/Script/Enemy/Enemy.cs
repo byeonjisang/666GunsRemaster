@@ -33,6 +33,9 @@ namespace Enemy
             Animator = GetComponent<Animator>();
             PlayerTransform = GameObject.FindWithTag("Player").transform;
 
+            // 무기 장착
+            SetupWeapon();
+
             // 상태 머신 컨텍스트 생성
             _stateContext = new EnemyStateContext(this);
 
@@ -47,6 +50,15 @@ namespace Enemy
 
             // 초기 상태 설정
             _stateContext.Transition(ChaseState);
+        }
+
+        private void SetupWeapon()
+        {
+            if (enemyData.weaponPrefab != null)
+            {
+                GameObject weapon = Instantiate(enemyData.weaponPrefab, transform);
+                weapon.transform.localPosition = Vector3.zero;
+            }
         }
 
         private void Update()

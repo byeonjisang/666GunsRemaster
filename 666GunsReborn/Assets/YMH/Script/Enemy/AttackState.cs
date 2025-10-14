@@ -12,6 +12,7 @@ namespace Enemy
         private EnemyStateContext _stateContext;
         private Animator _animator;
         private NavMeshAgent _navMeshAgent;
+        private IAttackStrategy _attackStrategy;
 
         private float _lastAttackTime;
 
@@ -22,6 +23,7 @@ namespace Enemy
             _stateContext = stateContext;
             _animator = _enemy.Animator;
             _navMeshAgent = _enemy.NavMeshAgent;
+            _attackStrategy = enemy.EnemyStat.AttackStrategy;
         }
 
         // 추격 상태에 들어갈 때 초기 설정
@@ -41,6 +43,7 @@ namespace Enemy
             {
                 _lastAttackTime = Time.time;
                 _animator.SetTrigger("Attack");
+                _attackStrategy?.Execute(_enemy);
                 Debug.Log("공격!");
             }
 

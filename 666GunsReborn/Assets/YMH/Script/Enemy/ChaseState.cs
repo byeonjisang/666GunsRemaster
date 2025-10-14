@@ -29,7 +29,7 @@ namespace Enemy
         {
             // 추격 상태에 들어갈 때 초기 설정
             _navMeshAgent.isStopped = false; // NavMeshAgent 활성화
-            _animator.SetBool("isWalk", true); // 걷기 애니메이션 시작
+            //_animator.SetBool("isWalk", true); // 걷기 애니메이션 시작
         }
 
         // 매 프레임마다 호출되어 플레이어를 추격하고 상태 전환을 관리

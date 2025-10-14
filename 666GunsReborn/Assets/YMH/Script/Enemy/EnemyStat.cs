@@ -6,6 +6,9 @@ namespace Enemy
     {
         // 공격 타입
         private AttackType _attackType;
+        // 공격 전략
+        private IAttackStrategy _attackStrategy;
+
         // 공격력
         private int _atk;
         // 공격 속도
@@ -21,6 +24,7 @@ namespace Enemy
 
         // 외부 접근용 프로퍼티
         public AttackType AttackType => _attackType;
+        public IAttackStrategy AttackStrategy => _attackStrategy;
         public int Atk => _atk;
         public float AtkSpeed => _atkSpeed;
         public float AtkRange => _atkRange;
@@ -40,6 +44,7 @@ namespace Enemy
         public void Init(EnemyData enemyData)
         {
             _attackType = enemyData.attackType;
+            _attackStrategy = enemyData.attackStrategy;
             _atk = enemyData.atk;
             _atkSpeed = enemyData.atkSpeed;
             _atkRange = enemyData.atkRange;

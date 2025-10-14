@@ -9,14 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3393d5dd872ab074e9c496387378a1ff, type: 3}
-  m_Name: PropDrone
+  m_Script: {fileID: 11500000, guid: 560fd9b46c63f7d4cbe77b7876b017b7, type: 3}
+  m_Name: Range Attack Strategy
   m_EditorClassIdentifier: 
-  attackType: 0
-  attackStrategy: {fileID: 11400000, guid: b399f3495ba0efd4f95fdf4d9ecb4709, type: 2}
-  weaponPrefab: {fileID: 0}
-  atk: 0
-  atkSpeed: 0
-  atkRange: 0
-  maxHp: 0
-  moveSpeed: 0
+  bulletPrefab: {fileID: 5649216475670180008, guid: 218f9172d89a65e4086eb72dff56b317,
+    type: 3}

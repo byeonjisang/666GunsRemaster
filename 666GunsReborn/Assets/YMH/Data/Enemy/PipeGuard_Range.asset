@@ -13,6 +13,9 @@ MonoBehaviour:
   m_Name: PipeGuard_Range
   m_EditorClassIdentifier: 
   attackType: 1
+  attackStrategy: {fileID: 11400000, guid: b399f3495ba0efd4f95fdf4d9ecb4709, type: 2}
+  weaponPrefab: {fileID: 1394443505563386, guid: db70f51fdeb1db14baa5dd2b17949ebb,
+    type: 3}
   atk: 15
   atkSpeed: 2
   atkRange: 10
