@@ -51,6 +51,7 @@ namespace Weapons
         public void OffFire()
         {
             isFiring = false;
+            currentWeapon.StopFire();
         }
 
         public void SwitchWeapon()

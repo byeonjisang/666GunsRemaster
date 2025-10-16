@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class PlayerStats : MonoBehaviour
+public class PlayerStat : MonoBehaviour
 {
     // 체력
     private int baseHealth;

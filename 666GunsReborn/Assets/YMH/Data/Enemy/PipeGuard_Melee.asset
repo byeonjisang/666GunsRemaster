@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3393d5dd872ab074e9c496387378a1ff, type: 3}
+  m_Name: PipeGuard_Melee
+  m_EditorClassIdentifier: 
+  attackType: 0
+  attackStrategy: {fileID: 11400000, guid: 7c81ec808007de947a86df9c8e03541c, type: 2}
+  weaponPrefab: {fileID: 4618892791222557071, guid: a02f5af996a85da43a45b464bfe785c2,
+    type: 3}
+  atk: 10
+  atkSpeed: 4
+  atkRange: 3
+  maxHp: 120
+  moveSpeed: 4
