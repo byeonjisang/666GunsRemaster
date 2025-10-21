@@ -53,7 +53,7 @@ public class UIManager : Singleton<UIManager>
         int clearTimeMin = (int)clearTime / 60;
         int clearTimeSec = (int)clearTime % 60;
         clearTimeText.text = "Clear Time : " + clearTimeMin.ToString("D2") + ":" + clearTimeSec.ToString("D2");
-        coinText.text = "Coin : " + PlayerManager.Instance.HoldCoins.ToString();
+        coinText.text = "Coin : " + PlayerManager.Instance.GetHoldCoins().ToString();
     }
 
     public void ShowFailedUI()

@@ -1,27 +1,51 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class PlayerStat : MonoBehaviour
+public class PlayerStat : Singleton<PlayerStat>
 {
+    /// <summary>
+    /// 플레이어의 스텟은 수술실에서 영구적인 변경을 위해 public으로 설정
+    /// </summary>
+
+    #region Health, MoveSpeed, DashCount, DashDistance Get Set
     // 체력
     private int baseHealth;
     public int CurrentHealth;
+    public int GetBaseHealth() => baseHealth;
+    public void MinusHealth(int val) => baseHealth -= val;
+    public void PlusHealth(int val) => baseHealth += val;
 
     // 이동속도
     private float baseMoveSpeed;
     public float CurrentMoveSpeed;
+    public float GetBaseMoveSpeed() => baseMoveSpeed;
+    public void MinusBaseMoveSpeed(int val) => baseMoveSpeed -= val;
+    public void PlusBaseMoveSpeed(int val) => baseMoveSpeed += val;
 
     // 대쉬
     private int baseDashCount;
     public int CurrentDashCount;
+    public int GetDashCount() => baseDashCount;
+    public void MinusDashCount(int val) => baseDashCount -= val;
+    public void PlusDashCount(int val) => baseDashCount += val;
 
     // 대쉬 거리
     private float baseDashDistance;
     public float CurrentDashDistance;
+    public float GetDashDistance() => baseDashDistance;
+    public void MinusDashDistance(int val) => baseDashDistance -= val;
+    public void PlusDashDistance(int val) => baseDashDistance += val;
+
+
 
     // 대쉬 쿨타임
     private float dashCooldown;
     private float currentDashCooldown;
+    public float GetDashCooldown() => dashCooldown;
+    public void MinusDashCooldown(int val) => dashCooldown -= val;
+    public void PlusDashCooldown(int val) => dashCooldown += val;
+
+    #endregion
 
     // 현재 공격 중인지 여부
     public bool IsAttacking = false;

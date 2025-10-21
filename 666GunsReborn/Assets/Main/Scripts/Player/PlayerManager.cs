@@ -19,8 +19,15 @@ public class PlayerManager : Singleton<PlayerManager>
     [NonSerialized]
     public Player Currentplayer;
 
+    /// <summary>
+    /// 보유 코인은 상점 시스템과 연동되어야 하므로  public으로 설정
+    /// </summary>
     private int holdCoins = 0;
-    public int HoldCoins { get { return holdCoins; } private set { } }
+
+    public int GetHoldCoins() => holdCoins;
+    public void MinusHoldCoins(int value) => holdCoins -= value;
+    public void PlusHoldCoins(int value) => holdCoins += value;
+    //public int HoldCoins { get { return holdCoins; } private set { } }
 
     // 씬 이동해도 오브젝트는 유지
     protected override bool IsPersistent => true;
