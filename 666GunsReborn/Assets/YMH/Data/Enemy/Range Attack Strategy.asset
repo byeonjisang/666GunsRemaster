@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 560fd9b46c63f7d4cbe77b7876b017b7, type: 3}
   m_Name: Range Attack Strategy
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 5649216475670180008, guid: 218f9172d89a65e4086eb72dff56b317,
+  bulletPrefab: {fileID: 6152012165266093810, guid: 11de8901a0ccc984290842589de56204,
     type: 3}

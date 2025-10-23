@@ -1,11 +1,12 @@
 using System.Xml.Serialization;
 using Enemy;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
 namespace Enemy
 {
-    public class AttackState : MonoBehaviour, IState
+    public class AttackState : IState
     {
         // Enemy로부터 필요한 컴포넌트를 담을 변수들
         private Enemy _enemy;
@@ -44,13 +45,16 @@ namespace Enemy
                 _lastAttackTime = Time.time;
                 _animator.SetTrigger("Attack");
                 _attackStrategy?.Execute(_enemy);
+                _enemy.IsAttacking = true;
                 Debug.Log("공격!");
             }
 
             // 플레이어가 공격 범위 밖으로 나가면 추격 상태로 변환
             if (!_enemy.IsPlayerInAttackRange())
             {
-                _stateContext.Transition(_enemy.ChaseState);
+                // 공격 애니메이션이 끝난 후에만 상태 전환
+                if(!_enemy.IsAttacking)
+                    _stateContext.Transition(_enemy.ChaseState); 
             }
         }
 

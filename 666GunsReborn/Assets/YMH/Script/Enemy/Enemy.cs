@@ -14,6 +14,9 @@ namespace Enemy
         // 적의 스탯 데이터
         [Header("Enemy Data")]
         [SerializeField] private EnemyData enemyData;
+        // 적 무기 장착 위치
+        [Header("Weapon Position")]
+        [SerializeField] private Transform weaponPosition;
 
         // 적의 스탯 컴포넌트
         public EnemyStat EnemyStat { get; private set; }
@@ -24,6 +27,9 @@ namespace Enemy
         // 적 애니메이터 컴포넌트
         public Animator Animator { get; private set; }
 
+        public bool IsAttacking { get; set; } = false;
+
+        // 상태 머신 컨텍스트
         private EnemyStateContext _stateContext;
 
         private void Awake()
@@ -57,7 +63,9 @@ namespace Enemy
             if (enemyData.weaponPrefab != null)
             {
                 GameObject weapon = Instantiate(enemyData.weaponPrefab, transform);
+                weapon.transform.SetParent(weaponPosition);
                 weapon.transform.localPosition = Vector3.zero;
+                weapon.transform.localRotation = Quaternion.identity;
             }
         }
 
@@ -76,6 +84,14 @@ namespace Enemy
         {
             float distance = Vector3.Distance(transform.position, PlayerTransform.position);
             return distance <= EnemyStat.AtkRange;
+        }
+
+        /// <summary>
+        /// 공격 애니메이션이 끝났을 때 호출되는 메서드
+        /// </summary>
+        public void CheckedAttackAnimationEnd()
+        {
+            IsAttacking = false;
         }
 
         /// <summary>
