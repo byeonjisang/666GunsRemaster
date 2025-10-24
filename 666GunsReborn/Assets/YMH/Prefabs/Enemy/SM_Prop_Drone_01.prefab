@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1197095773693155256}
   m_Layer: 0
-  m_Name: Bullet Spawn Poisiton
+  m_Name: Muzzle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -41,7 +41,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2313009896720904842}
   m_Layer: 0
-  m_Name: Bullet Spawn Poisiton
+  m_Name: Muzzle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -188,6 +188,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyData: {fileID: 11400000, guid: 485af41a1d0b6434fab8dcfa6bef2f09, type: 2}
   weaponSocket: {fileID: 0}
+  embeddedMuzzles:
+  - {fileID: 2313009896720904842}
+  - {fileID: 1197095773693155256}
 --- !u!195 &6294697547045657701
 NavMeshAgent:
   m_ObjectHideFlags: 0

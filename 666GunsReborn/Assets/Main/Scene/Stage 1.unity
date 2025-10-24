@@ -1885,7 +1885,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5243941cf1a0e404984ca7b74f859dfb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scopeCameraObject: {fileID: 0}
   scopeUIObject: {fileID: 1598275956}
 --- !u!4 &445574770
 Transform:
@@ -2918,6 +2917,43 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_IsOn: 1
+--- !u!1 &659120747 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7466584296626784896, guid: 14f39269c4dee2f478203b241bc78ed4,
+    type: 3}
+  m_PrefabInstance: {fileID: 1715669648}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &659120748
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 659120747}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AgentTypeID: 0
+  m_CollectObjects: 0
+  m_Size: {x: 10, y: 10, z: 10}
+  m_Center: {x: 0, y: 2, z: 0}
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_UseGeometry: 0
+  m_DefaultArea: 0
+  m_GenerateLinks: 0
+  m_IgnoreNavMeshAgent: 1
+  m_IgnoreNavMeshObstacle: 1
+  m_OverrideTileSize: 0
+  m_TileSize: 256
+  m_OverrideVoxelSize: 0
+  m_VoxelSize: 0.083333336
+  m_MinRegionArea: 2
+  m_NavMeshData: {fileID: 23800000, guid: 4530c40604abc7f47a2c288f69d74cc2, type: 2}
+  m_BuildHeightMesh: 0
 --- !u!1 &682602924
 GameObject:
   m_ObjectHideFlags: 0
@@ -10598,7 +10634,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7466584296626784896, guid: 14f39269c4dee2f478203b241bc78ed4,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 659120748}
   m_SourcePrefab: {fileID: 100100000, guid: 14f39269c4dee2f478203b241bc78ed4, type: 3}
 --- !u!1 &1719367046
 GameObject:

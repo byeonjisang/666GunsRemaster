@@ -3028,12 +3028,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1313386536}
   m_CullTransparentMesh: 1
---- !u!4 &1322617684 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7016377688786000658, guid: 37b211d0080dac84e828520c48f88800,
-    type: 3}
-  m_PrefabInstance: {fileID: 6166878047095380916}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1328802443
 GameObject:
   m_ObjectHideFlags: 0
@@ -3110,12 +3104,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1328802443}
   m_CullTransparentMesh: 1
---- !u!4 &1335624419 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2313009896720904842, guid: b1ab289ffe1445e40848f4b5e674a976,
-    type: 3}
-  m_PrefabInstance: {fileID: 3367712096118054147}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1348840924
 GameObject:
   m_ObjectHideFlags: 0
@@ -3671,12 +3659,6 @@ Transform:
   - {fileID: 4114727358651502}
   m_Father: {fileID: 863043800}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &1736712079 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1197095773693155256, guid: b1ab289ffe1445e40848f4b5e674a976,
-    type: 3}
-  m_PrefabInstance: {fileID: 3367712096118054147}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1757674308
 GameObject:
   m_ObjectHideFlags: 0
@@ -4116,12 +4098,6 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_IsOn: 1
---- !u!4 &1877423218 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 963385734215987249, guid: 9abb6fba9a5ec3e4683b8c2502f4a5c7,
-    type: 3}
-  m_PrefabInstance: {fileID: 8170798379883485435}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1883760749
 GameObject:
   m_ObjectHideFlags: 0
@@ -5095,16 +5071,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1856166255436745113, guid: b1ab289ffe1445e40848f4b5e674a976,
-        type: 3}
-      propertyPath: m_Name
-      value: Muzzle
-      objectReference: {fileID: 0}
-    - target: {fileID: 2875221651249363126, guid: b1ab289ffe1445e40848f4b5e674a976,
-        type: 3}
-      propertyPath: m_Name
-      value: Muzzle
-      objectReference: {fileID: 0}
     - target: {fileID: 5059216178030493663, guid: b1ab289ffe1445e40848f4b5e674a976,
         type: 3}
       propertyPath: m_Name
@@ -5160,21 +5126,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7269687273034835064, guid: b1ab289ffe1445e40848f4b5e674a976,
-        type: 3}
-      propertyPath: embeddedMuzzles.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7269687273034835064, guid: b1ab289ffe1445e40848f4b5e674a976,
-        type: 3}
-      propertyPath: embeddedMuzzles.Array.data[0]
-      value: 
-      objectReference: {fileID: 1335624419}
-    - target: {fileID: 7269687273034835064, guid: b1ab289ffe1445e40848f4b5e674a976,
-        type: 3}
-      propertyPath: embeddedMuzzles.Array.data[1]
-      value: 
-      objectReference: {fileID: 1736712079}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5460,16 +5411,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 700692341366549662, guid: 37b211d0080dac84e828520c48f88800,
-        type: 3}
-      propertyPath: m_AngularSpeed
-      value: 700
-      objectReference: {fileID: 0}
-    - target: {fileID: 816413063633994385, guid: 37b211d0080dac84e828520c48f88800,
-        type: 3}
-      propertyPath: weaponSocket
-      value: 
-      objectReference: {fileID: 1322617684}
     - target: {fileID: 1774231536585033527, guid: 37b211d0080dac84e828520c48f88800,
         type: 3}
       propertyPath: m_Name
@@ -5810,11 +5751,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 78580372446535263, guid: 9abb6fba9a5ec3e4683b8c2502f4a5c7,
-        type: 3}
-      propertyPath: weaponSocket
-      value: 
-      objectReference: {fileID: 1877423218}
     - target: {fileID: 1526549191021620024, guid: 9abb6fba9a5ec3e4683b8c2502f4a5c7,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5869,11 +5805,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Character_Medical_Male_01_Melee
-      objectReference: {fileID: 0}
-    - target: {fileID: 6644907256687831340, guid: 9abb6fba9a5ec3e4683b8c2502f4a5c7,
-        type: 3}
-      propertyPath: m_AngularSpeed
-      value: 700
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

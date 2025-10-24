@@ -15,33 +15,33 @@ MonoBehaviour:
   roundSpawnDatas:
   - roundIndex: 1
     monsterSpanwWaves:
-    - monsterPrefab: {fileID: 3123279499063281305, guid: ae64fb183def31046a650458d1ec80df,
+    - monsterPrefab: {fileID: 5059216178030493663, guid: b1ab289ffe1445e40848f4b5e674a976,
         type: 3}
       spawnPosition: {x: -23.77, y: 2.07, z: -56.74}
       spawnTime: 1
-    - monsterPrefab: {fileID: 3123279499063281305, guid: ae64fb183def31046a650458d1ec80df,
+    - monsterPrefab: {fileID: 1774231536585033527, guid: 37b211d0080dac84e828520c48f88800,
         type: 3}
       spawnPosition: {x: -6.34, y: 2.07, z: -36.68}
       spawnTime: 1
-    - monsterPrefab: {fileID: 3123279499063281305, guid: ae64fb183def31046a650458d1ec80df,
+    - monsterPrefab: {fileID: 5915894850163589000, guid: 9abb6fba9a5ec3e4683b8c2502f4a5c7,
         type: 3}
       spawnPosition: {x: -11.17, y: 2.07, z: -36.94}
       spawnTime: 1
   - roundIndex: 2
     monsterSpanwWaves:
-    - monsterPrefab: {fileID: 7796933507275571562, guid: 8b763ee90459b844687b4e954d8c690a,
+    - monsterPrefab: {fileID: 5059216178030493663, guid: b1ab289ffe1445e40848f4b5e674a976,
         type: 3}
       spawnPosition: {x: -10.07, y: 2.07, z: -25.14}
       spawnTime: 0
-    - monsterPrefab: {fileID: 7796933507275571562, guid: 8b763ee90459b844687b4e954d8c690a,
+    - monsterPrefab: {fileID: 5059216178030493663, guid: b1ab289ffe1445e40848f4b5e674a976,
         type: 3}
       spawnPosition: {x: -8.93, y: 2.07, z: -24.4}
       spawnTime: 0
-    - monsterPrefab: {fileID: 3123279499063281305, guid: ae64fb183def31046a650458d1ec80df,
+    - monsterPrefab: {fileID: 1774231536585033527, guid: 37b211d0080dac84e828520c48f88800,
         type: 3}
       spawnPosition: {x: -37.94, y: 2.07, z: -29.25}
       spawnTime: 0
-    - monsterPrefab: {fileID: 3123279499063281305, guid: ae64fb183def31046a650458d1ec80df,
+    - monsterPrefab: {fileID: 5915894850163589000, guid: 9abb6fba9a5ec3e4683b8c2502f4a5c7,
         type: 3}
       spawnPosition: {x: -37.94, y: 2.07, z: -29.25}
       spawnTime: 0
