@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Google.GData.Extensions;
 using UnityEngine;
 using UnityEngine.AI;
@@ -15,8 +16,13 @@ namespace Enemy
         [Header("Enemy Data")]
         [SerializeField] private EnemyData enemyData;
         // 적 무기 장착 위치
-        [Header("Weapon Position")]
-        [SerializeField] private Transform weaponPosition;
+        [Header("Weapon")]
+        [SerializeField] private Transform weaponSocket;
+        // 총구 위치들
+        [SerializeField] private List<Transform> embeddedMuzzles;
+
+        // 총구 위치들
+        public List<Transform> ActiveMuzzle { get; private set; } = new List<Transform>();
 
         // 적의 스탯 컴포넌트
         public EnemyStat EnemyStat { get; private set; }
@@ -40,7 +46,7 @@ namespace Enemy
             PlayerTransform = GameObject.FindWithTag("Player").transform;
 
             // 무기 장착
-            SetupWeapon();
+            SetupWeaponAndMuzzle();
 
             // 상태 머신 컨텍스트 생성
             _stateContext = new EnemyStateContext(this);
@@ -58,14 +64,29 @@ namespace Enemy
             _stateContext.Transition(ChaseState);
         }
 
-        private void SetupWeapon()
+        // 무기 장착 및 총구 찾는 메서드
+        private void SetupWeaponAndMuzzle()
         {
-            if (enemyData.weaponPrefab != null)
+            // 총기를 소지한 애
+            if (enemyData.weaponPrefab != null && weaponSocket != null)
             {
                 GameObject weapon = Instantiate(enemyData.weaponPrefab, transform);
-                weapon.transform.SetParent(weaponPosition);
+                weapon.transform.SetParent(weaponSocket);
                 weapon.transform.localPosition = Vector3.zero;
                 weapon.transform.localRotation = Quaternion.identity;
+
+                // 총구 위치들 찾기
+                ActiveMuzzle.Add(weapon.transform.Find("Muzzle"));
+            }
+            // 총기가 아닌 몸에 총구가 있을 때
+            else if (embeddedMuzzles.Count > 0)
+            {
+                ActiveMuzzle = embeddedMuzzles;
+            }
+            // 둘 다 없을 때
+            else
+            {
+                ActiveMuzzle.Add(weaponSocket != null ? weaponSocket : transform);
             }
         }
 
@@ -82,8 +103,14 @@ namespace Enemy
         /// <returns></returns>
         public bool IsPlayerInAttackRange()
         {
+            // 공격 범위 안에 있는가 체크하기 위해 거리 측정
             float distance = Vector3.Distance(transform.position, PlayerTransform.position);
-            return distance <= EnemyStat.AtkRange;
+
+            // 공격 범위 안에 있으면서 정면에 있는지 확인
+            Vector3 directionToPlayer = (PlayerTransform.position - transform.position).normalized;
+            float dotProduct = Vector3.Dot(transform.forward, directionToPlayer);
+
+            return distance <= EnemyStat.AtkRange && dotProduct > 0.8f;
         }
 
         /// <summary>

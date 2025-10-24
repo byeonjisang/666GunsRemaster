@@ -29,6 +29,8 @@ namespace Enemy
         {
             // 추격 상태에 들어갈 때 초기 설정
             _navMeshAgent.isStopped = false; // NavMeshAgent 활성화
+
+            // TODO: 걷기 애니메이션 전에 플레이어 쪽으로 회전
             _animator.SetBool("isWalk", true); // 걷기 애니메이션 시작
         }
 
