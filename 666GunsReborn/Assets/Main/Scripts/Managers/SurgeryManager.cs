@@ -38,6 +38,8 @@ public class Surgery
 }
 public class SurgeryManager : Singleton<SurgeryManager>
 {
+    protected override bool IsPersistent => true;
+
     [Header("Surgery Room State")]
     public SurgeryRoomState _currentState = SurgeryRoomState.Idle;
 
@@ -96,10 +98,10 @@ public class SurgeryManager : Singleton<SurgeryManager>
     {
         _statModifiers = new Dictionary<SurgeryType, System.Action<float>>
         {
-            //{ SurgeryType.Health, (modifier) => { PlayerStat.instance.GetBaseHealth() += (int)modifier; _playerStat.CurrentHealth += (int)modifier; } },
-            //{ SurgeryType.MoveSpeed, (modifier) => { _playerStat.baseMoveSpeed += modifier; _playerStat.CurrentMoveSpeed += modifier; } },
-            //{ SurgeryType.DashCount, (modifier) => { _playerStat.baseDashCount += (int)modifier; _playerStat.CurrentDashCount += (int)modifier; } },
-            //{ SurgeryType.DashDistance, (modifier) => { _playerStat.baseDashDistance += modifier; _playerStat.CurrentDashDistance += modifier; } }
+            { SurgeryType.Health, (modifier) => { PlayerStat.Instance.baseHealth += (int)modifier; PlayerStat.Instance.CurrentHealth += (int)modifier; } },
+            { SurgeryType.MoveSpeed, (modifier) => { PlayerStat.Instance.baseMoveSpeed += modifier; PlayerStat.Instance.CurrentMoveSpeed += modifier; } },
+            { SurgeryType.DashCount, (modifier) => { PlayerStat.Instance.baseDashCount += (int)modifier; PlayerStat.Instance.CurrentDashCount += (int)modifier; } },
+            { SurgeryType.DashDistance, (modifier) => { PlayerStat.Instance.baseDashDistance += modifier; PlayerStat.Instance.CurrentDashDistance += modifier; } }
         };
     }
 
@@ -181,12 +183,12 @@ public class SurgeryManager : Singleton<SurgeryManager>
 
     private void ExcuteSurgery(Surgery surgery)
     {
-        //if (_playerStat == null)
-        //{
-        //    Debug.LogError("플레이어 스탯이 할당되지 않았습니다.");
-        //    OnChangeState(SurgeryRoomState.SurgerySelect);
-        //    return;
-        //}
+        if (PlayerStat.Instance == null)
+        {
+            Debug.LogError("플레이어 스탯이 할당되지 않았습니다.");
+            OnChangeState(SurgeryRoomState.SurgerySelect);
+            return;
+        }
 
         //스텟 설정
         ApplyStatsModification(_selectedSurgery);

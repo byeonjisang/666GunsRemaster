@@ -6488,7 +6488,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _currentState: 0
   _playerManager: {fileID: 1354225973}
-  _availableSurgeries: []
+  _availableSurgeries:
+  - _surgeryType: 0
+    _upgradeCost: 0
+    _statModifier: 0
 --- !u!1 &1626416358
 GameObject:
   m_ObjectHideFlags: 0
