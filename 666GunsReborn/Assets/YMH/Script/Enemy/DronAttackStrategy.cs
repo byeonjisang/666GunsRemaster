@@ -1,11 +1,13 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Enemy
 {
-    [CreateAssetMenu(fileName = "Range Attack Strategy", menuName = "Enemy/AttackStrategy/Range")]
-    public class RangeAttackStrategy : AttackStrategy
+    [CreateAssetMenu(fileName = "Drone Attack Strategy", menuName = "Enemy/AttackStrategy/Drone")]
+    public class DroneAttackStrategy : AttackStrategy
     {
         public GameObject bulletPrefab;
+        int muzzleIndex = 0;
 
         public override void Execute(Enemy enemy)
         {
@@ -16,9 +18,12 @@ namespace Enemy
             }
 
             // 총구 위치 가져오기
-            Transform muzzle = enemy.ActiveMuzzle[0];
+            List<Transform> muzzles = enemy.ActiveMuzzle;
 
             // 총알 생성
+            Transform muzzle = muzzles[muzzleIndex];
+            muzzleIndex = 1 - muzzleIndex;
+
             GameObject bullet = GameObject.Instantiate(bulletPrefab, muzzle.position, muzzle.rotation);
             var rb = bullet.GetComponent<Rigidbody>();
             rb.velocity = muzzle.forward * 10f;

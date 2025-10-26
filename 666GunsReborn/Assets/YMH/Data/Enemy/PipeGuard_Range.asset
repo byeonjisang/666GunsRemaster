@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackType: 1
   attackStrategy: {fileID: 11400000, guid: b399f3495ba0efd4f95fdf4d9ecb4709, type: 2}
-  weaponPrefab: {fileID: 1394443505563386, guid: db70f51fdeb1db14baa5dd2b17949ebb,
+  weaponPrefab: {fileID: 1394443505563386, guid: 8d78de1c4eb319b4c8189140db362e46,
     type: 3}
   atk: 15
   atkSpeed: 2
