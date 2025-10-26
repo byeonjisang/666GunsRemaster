@@ -18,7 +18,7 @@ namespace Enemy
                 {
                     Debug.Log("근접 공격");
                     // 나중에 공격 후 아직까지 플레이어가 앞에 있는지 체크해야함
-                    //collider.GetComponent<Player>().Hit(enemy.EnemyStat.Atk);
+                    collider.GetComponent<Player>().Hit(enemy.EnemyStat.Atk);
                 }
             }
         }
