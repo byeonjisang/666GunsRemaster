@@ -13,6 +13,9 @@ namespace Enemy
         private Animator _animator;
         private NavMeshAgent _navMeshAgent;
 
+        private float deadTimer = 0f;
+        private float deadDuration = 3f; // 사망 후 대기 시간
+
         // 생성자: Enemy와 상태 컨텍스트를 받아 초기화
         public DeadState(Enemy enemy, EnemyStateContext stateContext)
         {
@@ -33,7 +36,13 @@ namespace Enemy
         // 사망 후 처리
         public void UpdateState()
         {
-            
+            deadTimer += Time.deltaTime;
+            if(deadTimer >= deadDuration)
+            {
+                // 사망 후 시간이 지나면 오브젝트 제거
+                GameObject.Destroy(_enemy.gameObject);
+
+            }
         }
 
         // 사망 상태에서 나올 때 설정
