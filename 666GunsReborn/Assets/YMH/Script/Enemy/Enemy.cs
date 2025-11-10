@@ -7,6 +7,7 @@ namespace Enemy
 {
     public class Enemy : MonoBehaviour
     {
+        #region Parameters and Components
         // 상태들을 직접 생성하고 소유하므로, public로 열어 다른 상태가 접근하게 함
         public ChaseState ChaseState { get; private set; }
         public AttackState AttackState { get; private set; }
@@ -33,11 +34,14 @@ namespace Enemy
         // 적 애니메이터 컴포넌트
         public Animator Animator { get; private set; }
 
+        // 공격 중인지 여부
         public bool IsAttacking { get; set; } = false;
 
         // 상태 머신 컨텍스트
         private EnemyStateContext _stateContext;
+        #endregion
 
+        #region Awake
         private void Awake()
         {
             // 필요한 컴포넌트 초기화
@@ -58,12 +62,14 @@ namespace Enemy
             // 상태 객체들 생성
             ChaseState = new ChaseState(this, _stateContext);
             AttackState = new AttackState(this, _stateContext);
-            DeadState = new DeadState(this, _stateContext);
+            DeadState = new DeadState(this, this, _stateContext);
 
             // 초기 상태 설정
             _stateContext.Transition(ChaseState);
         }
+        #endregion
 
+        #region Weapon Setup
         // 무기 장착 및 총구 찾는 메서드
         private void SetupWeaponAndMuzzle()
         {
@@ -89,14 +95,18 @@ namespace Enemy
                 ActiveMuzzle.Add(weaponSocket != null ? weaponSocket : transform);
             }
         }
+        #endregion
 
+        #region Update
         private void Update()
         {
             // 매 프레임마다 현재 상태의 UpdateState 메서드 호출
             if (_stateContext.CurrentState != null)
                 _stateContext.CurrentState.UpdateState();
         }
+        #endregion
 
+        #region Enemy Attack
         /// <summary>
         /// 플레이어가 공격 범위 안에 있는지 확인하는 메서드
         /// </summary>
@@ -120,7 +130,9 @@ namespace Enemy
         {
             IsAttacking = false;
         }
+        #endregion
 
+        #region Hit and Die
         /// <summary>
         /// 적이 공격을 받았을 때 호출되는 메서드
         /// </summary>
@@ -137,6 +149,6 @@ namespace Enemy
             Debug.Log("Enemy died");
             _stateContext.Transition(DeadState);
         }
-
+        #endregion
     }
 }

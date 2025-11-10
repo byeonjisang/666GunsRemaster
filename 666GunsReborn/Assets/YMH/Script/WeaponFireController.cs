@@ -125,6 +125,22 @@ namespace Weapons
             {
                 SwitchWeapon(9);
             }
+
+            if (Input.GetKeyDown(KeyCode.P))
+            {
+                Debug.Log("적 탐색!");
+                RaycastHit[] hits = Physics.SphereCastAll(Camera.main.transform.position, 100f, Camera.main.transform.forward, 100f);
+                foreach (var hitInfo in hits)
+                {
+                    Debug.Log("Hit Object: " + hitInfo.collider.name);
+                    if (hitInfo.collider.tag == "Enemy")
+                    {
+                        Debug.Log("Hit Enemy: " + hitInfo.collider.name);
+                        hitInfo.collider.GetComponent<Enemy.Enemy>().Hit(50);
+                    }
+                        
+                }
+            }
         }
 
         public void SwitchWeapon(int index)

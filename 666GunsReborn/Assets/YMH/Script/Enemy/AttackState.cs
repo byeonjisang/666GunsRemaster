@@ -37,7 +37,7 @@ namespace Enemy
             _lastAttackTime = 0f;
         }
 
-        // 사망 후 처리
+        // 공격 처리
         public void UpdateState()
         {
             if (Time.time >= _lastAttackTime + _enemy.EnemyStat.AtkSpeed)
@@ -58,10 +58,10 @@ namespace Enemy
             }
         }
 
-        // 사망 상태에서 나올 때 설정
+        // 공격 상태에서 나올 때 설정
         public void ExitState()
         {
-            _animator.SetBool("isDead", false);
+            
         }
     }
 }

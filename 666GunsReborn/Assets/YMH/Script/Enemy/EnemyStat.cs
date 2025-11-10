@@ -63,7 +63,7 @@ namespace Enemy
             // 데미지 부여
             _currentHp -= damage;
             // 체력이 0 이하이면 false 반환
-            if (_currentHp < 0)
+            if (_currentHp <= 0)
                 return false;
             return true;
         }

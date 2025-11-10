@@ -14,12 +14,14 @@ namespace Enemy
             Collider[] colliders = Physics.OverlapSphere(enemy.transform.position, enemy.EnemyStat.AtkRange);
             foreach (var collider in colliders)
             {
+                /*
                 if (collider.CompareTag("Player"))
                 {
                     Debug.Log("근접 공격");
                     // 나중에 공격 후 아직까지 플레이어가 앞에 있는지 체크해야함
                     collider.GetComponent<Player>().Hit(enemy.EnemyStat.Atk);
                 }
+                */
             }
         }
     }    
