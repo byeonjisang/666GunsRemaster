@@ -36,6 +36,8 @@ namespace Enemy
 
         // 공격 중인지 여부
         public bool IsAttacking { get; set; } = false;
+        // 사망 여부
+        private bool isDead = false;
 
         // 상태 머신 컨텍스트
         private EnemyStateContext _stateContext;
@@ -136,8 +138,12 @@ namespace Enemy
         /// <summary>
         /// 적이 공격을 받았을 때 호출되는 메서드
         /// </summary>
-        public void Hit(int damage)
+        public void TakeDamage(int damage)
         {
+            // 이미 죽은 적이면 무시
+            if (isDead)
+                return;
+                
             // 적이 살아있으면 true 죽으면 false 반환
             if (!EnemyStat.TakeDamage(damage))
                 Die();
@@ -147,6 +153,7 @@ namespace Enemy
         private void Die()
         {
             Debug.Log("Enemy died");
+            isDead = true;
             _stateContext.Transition(DeadState);
         }
         #endregion
