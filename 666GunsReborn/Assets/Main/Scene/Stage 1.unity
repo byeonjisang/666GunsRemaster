@@ -4233,7 +4233,7 @@ Transform:
   m_GameObject: {fileID: 889898358}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.5, y: 1, z: 38.2}
+  m_LocalPosition: {x: 0.5, y: 0.9, z: 38.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4254,17 +4254,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88362a868976bac4f9380c7501e9def5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  monsterSpawnWaves:
+  EnemySpawnWaves:
   - SpawnTime: 1
-    MonsterPrefab: {fileID: 1774231536585033527, guid: 37b211d0080dac84e828520c48f88800,
+    EnemyPrefab: {fileID: 1774231536585033527, guid: 37b211d0080dac84e828520c48f88800,
       type: 3}
     SpawnPoint: {fileID: 848130809}
   - SpawnTime: 1
-    MonsterPrefab: {fileID: 1774231536585033527, guid: 37b211d0080dac84e828520c48f88800,
+    EnemyPrefab: {fileID: 1774231536585033527, guid: 37b211d0080dac84e828520c48f88800,
       type: 3}
     SpawnPoint: {fileID: 889808420}
   - SpawnTime: 3
-    MonsterPrefab: {fileID: 5915894850163589000, guid: 9abb6fba9a5ec3e4683b8c2502f4a5c7,
+    EnemyPrefab: {fileID: 5915894850163589000, guid: 9abb6fba9a5ec3e4683b8c2502f4a5c7,
       type: 3}
     SpawnPoint: {fileID: 1308005141}
   onRoundComplete:
@@ -11530,7 +11530,7 @@ Transform:
   m_GameObject: {fileID: 1741591574}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -18.54, y: 1, z: 50.9}
+  m_LocalPosition: {x: -18.54, y: 0.9, z: 50.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -11551,23 +11551,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88362a868976bac4f9380c7501e9def5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  monsterSpawnWaves:
-  - SpawnTime: 2
-    MonsterPrefab: {fileID: 5915894850163589000, guid: 9abb6fba9a5ec3e4683b8c2502f4a5c7,
-      type: 3}
-    SpawnPoint: {fileID: 1077125945}
-  - SpawnTime: 2
-    MonsterPrefab: {fileID: 5915894850163589000, guid: 9abb6fba9a5ec3e4683b8c2502f4a5c7,
-      type: 3}
-    SpawnPoint: {fileID: 370339398}
-  - SpawnTime: 5
-    MonsterPrefab: {fileID: 1774231536585033527, guid: 37b211d0080dac84e828520c48f88800,
-      type: 3}
-    SpawnPoint: {fileID: 1573863000}
-  - SpawnTime: 7
-    MonsterPrefab: {fileID: 1774231536585033527, guid: 37b211d0080dac84e828520c48f88800,
-      type: 3}
-    SpawnPoint: {fileID: 1412828957}
+  EnemySpawnWaves: []
   onRoundComplete:
     m_PersistentCalls:
       m_Calls:

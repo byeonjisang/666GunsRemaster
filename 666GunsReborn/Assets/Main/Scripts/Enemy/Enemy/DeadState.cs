@@ -14,14 +14,10 @@ namespace Enemy
         private EnemyStateContext _stateContext;
         private Animator _animator;
         private NavMeshAgent _navMeshAgent;
-        private Material _material;
         private MonoBehaviour _runner;
 
         // 사망 후 대기 시간
         private float _deadDuration = 3f;
-
-        private string _splitValue = "_Split_Value";
-        private int _splitValueID;
 
         // 생성자: Enemy와 상태 컨텍스트를 받아 초기화
         public DeadState(Enemy enemy, MonoBehaviour runner, EnemyStateContext stateContext)
@@ -31,10 +27,6 @@ namespace Enemy
             _animator = _enemy.Animator;
             _navMeshAgent = _enemy.NavMeshAgent;
             _runner = runner;
-
-            _material = _enemy.GetComponent<Renderer>().material;
-            // 쉐이더 프로퍼티를 ID로 변환(최적화)
-            _splitValueID = Shader.PropertyToID(_splitValue);
         }
 
         // 사망 후 사라지는 과정 시작
@@ -57,8 +49,7 @@ namespace Enemy
             {
                 elapsed += Time.deltaTime;
                 float splitValue = Mathf.Lerp(2f, 0f, elapsed / duration);
-                Debug.Log("Split Value: " + splitValue);
-                _material.SetFloat(_splitValueID, splitValue);
+                _enemy.Material.SetFloat(_enemy.SplitValueID, splitValue);
                 yield return null;
             }
 

@@ -1,3 +1,5 @@
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using Google.GData.Extensions;
 using UnityEngine;
@@ -38,6 +40,15 @@ namespace Enemy
         public bool IsAttacking { get; set; } = false;
         // 사망 여부
         private bool isDead = false;
+        // 적 죽었을 때 라운드 컨트롤러에게 알려줄 이벤트
+        public Action<GameObject> OnEnemyDead;
+
+        // 적의 머티리얼(스폰, 디졸드 효과용)
+        public Material Material;
+        // 디졸드 쉐어더 프로퍼티 이름
+        private string _splitValue = "_Split_Value";
+        // 디졸드 쉐이더 프로퍼티 ID
+        public int SplitValueID;
 
         // 상태 머신 컨텍스트
         private EnemyStateContext _stateContext;
@@ -66,7 +77,34 @@ namespace Enemy
             AttackState = new AttackState(this, _stateContext);
             DeadState = new DeadState(this, this, _stateContext);
 
-            // 초기 상태 설정
+            // 메테리얼 초기화
+            Material = GetComponent<Renderer>().material;
+            SplitValueID = Shader.PropertyToID(_splitValue);
+            // 초기 메테리얼 설정
+            Material.SetFloat(SplitValueID, 0f);
+        }
+        #endregion
+
+        #region Enemy OnEnable
+        private void OnEnable()
+        {
+            StartCoroutine(SpawnCoroutine());
+        }
+
+        private IEnumerator SpawnCoroutine()
+        {
+            float duration = 1f;
+            float elapsed = 0f;
+
+            while (elapsed < duration)
+            {
+                elapsed += Time.deltaTime;
+                float splitValue = Mathf.Lerp(0f, 2f, elapsed / duration);
+                Material.SetFloat(SplitValueID, splitValue);
+                yield return null;
+            }
+
+            // 초기 상태로 전환(추적 상태)
             _stateContext.Transition(ChaseState);
         }
         #endregion
@@ -154,6 +192,7 @@ namespace Enemy
         {
             Debug.Log("Enemy died");
             isDead = true;
+            OnEnemyDead?.Invoke(this.gameObject);
             _stateContext.Transition(DeadState);
         }
         #endregion
