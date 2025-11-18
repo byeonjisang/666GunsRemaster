@@ -20,6 +20,7 @@ public class PlayerAttack : MonoBehaviour
     public void RequestAttack()
     {
         attackRequested = true;
+        Weapons.WeaponManager1.Instance.OnFire();
     }
 
     // 버튼에서 손 뗀 순간 호출
@@ -45,6 +46,7 @@ public class PlayerAttack : MonoBehaviour
     {
         IsAttacking = false;
         player.StopAttack();
+        Weapons.WeaponManager1.Instance.OffFire();
     }
 
 

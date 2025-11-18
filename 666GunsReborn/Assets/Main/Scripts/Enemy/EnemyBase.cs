@@ -74,7 +74,7 @@ public abstract class BaseEnemy : MonoBehaviour
         isDead = true;
         agent.isStopped = true;
         //animator.Play("Die");
-        StageManager.Instance.DeadEnemy(gameObject); // ��� ���
+        //StageManager.Instance.DeadEnemy(gameObject); // ��� ���
         gameObject.SetActive(false); // ��� ���
     }
 

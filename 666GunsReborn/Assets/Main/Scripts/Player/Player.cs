@@ -35,9 +35,12 @@ public class Player : MonoBehaviour, IPlayer
     private Dictionary<PlayerStateType, PlayerStateBase> stateMap;
     // 플레이어 공격 시스템
     [NonSerialized]
-    public PlayerAttack attackSystem;
+    public PlayerAttack AttackSystem;
     // 플레이어 상태(상태 패턴)
-    private PlayerStateBase currentState;
+    private PlayerStateBase _currentState;
+
+    // 플레이어 채널
+    [SerializeField] private PlayerChannel playerChannel;
 
     // 플레이어 스텟
     [NonSerialized]
@@ -88,9 +91,9 @@ public class Player : MonoBehaviour, IPlayer
         InitStats(playerType);
 
         // 공격 시스템 초기화
-        if (!gameObject.TryGetComponent<PlayerAttack>(out attackSystem))
-            attackSystem = gameObject.AddComponent<PlayerAttack>();
-        attackSystem.Initialize(this);
+        if (!gameObject.TryGetComponent<PlayerAttack>(out AttackSystem))
+            AttackSystem = gameObject.AddComponent<PlayerAttack>();
+        AttackSystem.Initialize(this);
         // 이벤트 등록
         AddControllerEvent();
 
@@ -116,22 +119,28 @@ public class Player : MonoBehaviour, IPlayer
     private void AddControllerEvent()
     {
         // 행동에 대한 이벤트 등록
-        PlayerActionEvent.OnMovePress += HandleInput;
-        PlayerActionEvent.OnAttackPress += attackSystem.RequestAttack;
-        PlayerActionEvent.OnAttackReleased += attackSystem.CancelAttackRequest;
-        PlayerActionEvent.OnDashPress += Dash;
-
-        Debug.Log("[Player] 이벤트 등록 완료");
+        //PlayerActionEvent.OnMovePress += HandleInput;
+        //PlayerActionEvent.OnAttackPress += AttackSystem.RequestAttack;
+        //PlayerActionEvent.OnAttackReleased += AttackSystem.CancelAttackRequest;
+        //PlayerActionEvent.OnDashPress += Dash;
+        playerChannel.OnMoveCommand += HandleInput;
+        playerChannel.OnFirePointerDown += AttackSystem.RequestAttack;
+        playerChannel.OnFirePointerUp += AttackSystem.CancelAttackRequest;
+        playerChannel.OnDashCommand += Dash;
     }
 
     private void OnDestroy()
     {
         // 이벤트 해체
         Debug.Log("[Player] 이벤트 해제 완료");
-        PlayerActionEvent.OnMovePress -= HandleInput;
-        PlayerActionEvent.OnAttackPress -= attackSystem.RequestAttack;
-        PlayerActionEvent.OnAttackReleased -= attackSystem.CancelAttackRequest;
-        PlayerActionEvent.OnDashPress -= Dash;
+        //PlayerActionEvent.OnMovePress -= HandleInput;
+        //PlayerActionEvent.OnAttackPress -= AttackSystem.RequestAttack;
+        //PlayerActionEvent.OnAttackReleased -= AttackSystem.CancelAttackRequest;
+        //PlayerActionEvent.OnDashPress -= Dash;
+        playerChannel.OnMoveCommand -= HandleInput;
+        playerChannel.OnFirePointerDown -= AttackSystem.RequestAttack;
+        playerChannel.OnFirePointerUp -= AttackSystem.CancelAttackRequest;
+        playerChannel.OnDashCommand -= Dash;
 
         stateMap.Clear();
     }
@@ -149,15 +158,15 @@ public class Player : MonoBehaviour, IPlayer
     //상태 설정
     public void SetState(PlayerStateType type)
     {
-        currentState?.ExitState();
-        currentState = stateMap[type];
-        currentState?.EnterState();
+        _currentState?.ExitState();
+        _currentState = stateMap[type];
+        _currentState?.EnterState();
     }
 
     protected virtual void Update()
     {
         // 현재 상태 업데이트
-        currentState?.Update();
+        _currentState?.Update();
 
         // 대쉬 쿨타임 계산
         stat.DashCountCoolDown();
@@ -165,10 +174,10 @@ public class Player : MonoBehaviour, IPlayer
 
     public void HandleInput(Vector3 direction)
     {
-        if (currentState is DashState)
+        if (_currentState is DashState)
             return;
             
-        currentState?.HandleInput(direction);
+        _currentState?.HandleInput(direction);
     }
     #endregion
 
@@ -176,7 +185,7 @@ public class Player : MonoBehaviour, IPlayer
     public void Dash()
     {
         // 대쉬 상태일 경우 대쉬 불가
-        if (currentState is DashState)
+        if (_currentState is DashState)
         {
             Debug.Log("Already dashing, cannot dash again.");
             return;
@@ -188,7 +197,7 @@ public class Player : MonoBehaviour, IPlayer
             Debug.Log("Not enough dash count.");
             return;
         }
-
+        
         StartCoroutine(DashCoroutine());
     }
 
@@ -199,7 +208,7 @@ public class Player : MonoBehaviour, IPlayer
         SetState(PlayerStateType.Dash);
 
         float dashTime = stat.CurrentDashDistance / 50f;
-        currentState?.HandleInput(gameObject.transform.forward);
+        _currentState?.HandleInput(gameObject.transform.forward);
         yield return new WaitForSeconds(dashTime);
 
         SetState(PlayerStateType.Idle);

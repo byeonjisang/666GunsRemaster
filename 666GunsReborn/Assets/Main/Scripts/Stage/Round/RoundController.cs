@@ -15,25 +15,25 @@ public class RoundController : MonoBehaviour
 
     [Header("Round Settings")]
     // 몬스터 소환 웨이브들
-    [SerializeField] private EnemySpawnWave[] EnemySpawnWaves;
+    [SerializeField] private EnemySpawnWave[] _enemySpawnWaves;
 
     // 라운드 클리어 후 다음 라운드에 전달하기 위한 이벤트
     [Header("Complete Round Event")]
-    [SerializeField] private UnityEvent onRoundComplete;
+    [SerializeField] private UnityEvent _onRoundComplete;
 
     [Header("Round Walls")]
     // 라운드 벽들
-    [SerializeField] private GameObject[] roundWalls;
+    [SerializeField] private GameObject[] _roundWalls;
 
     // 라운드가 시작됐는지 여부
-    private bool isRoundStated = false;
+    private bool _isRoundStarted = false;
     // 살아있는 몬스터들
-    private List<GameObject> activedEnemies = new List<GameObject>();
+    private List<GameObject> _activedEnemies = new List<GameObject>();
 
     private void Start()
     {
         // 라운드 벽 비활성화
-        foreach (GameObject wall in roundWalls)
+        foreach (GameObject wall in _roundWalls)
         {
             wall.SetActive(false);
         }
@@ -45,20 +45,20 @@ public class RoundController : MonoBehaviour
     public void StartRound()
     {
         // 이미 라운드 시작됐으면 무시
-        if (isRoundStated)
+        if (_isRoundStarted)
             return;
 
         // 라운드 시작 체크
-        isRoundStated = true;
+        _isRoundStarted = true;
 
         // 라운드 벽 활성화
-        foreach (GameObject wall in roundWalls)
+        foreach (GameObject wall in _roundWalls)
         {
             wall.SetActive(true);
         }
 
         // 몬스터 소환 등록
-        foreach (EnemySpawnWave wave in EnemySpawnWaves)
+        foreach (EnemySpawnWave wave in _enemySpawnWaves)
         {
             StartCoroutine(SpawnEnemyWave(wave));
         }
@@ -69,10 +69,10 @@ public class RoundController : MonoBehaviour
     {
         // 몬스터 미리 소환
         GameObject enemyPrefab = Instantiate(wave.EnemyPrefab, wave.SpawnPoint.position, wave.SpawnPoint.rotation);
-        activedEnemies.Add(enemyPrefab);
+        _activedEnemies.Add(enemyPrefab);
         enemyPrefab.SetActive(false);
         // 몬스터가 죽었을 때 호출되는 이벤트 등록
-        enemyPrefab.GetComponent<Enemy.Enemy>().OnEnemyDead += DeadEnemy;
+        enemyPrefab.GetComponent<Enemy.Enemy>().OnEnemyDead += CheckDeadEnemy;
 
         // 대기 시간 후 몬스터 소환
         yield return new WaitForSeconds(wave.SpawnTime);
@@ -81,15 +81,15 @@ public class RoundController : MonoBehaviour
     }
 
     // 몬스터가 죽었을 때 호출되는 메서드
-    private void DeadEnemy(GameObject deadEnemy)
+    private void CheckDeadEnemy(GameObject deadEnemy)
     {
         // 죽은 몬스터를 리스트에서 제거
-        activedEnemies.Remove(deadEnemy);
+        _activedEnemies.Remove(deadEnemy);
 
         // 모든 몬스터가 죽었는지 확인
-        if(activedEnemies.Count == 0)
+        if(_activedEnemies.Count == 0)
         {
-            isRoundStated = false;
+            _isRoundStarted = false;
             CompleteRound();
         }
     }
@@ -100,11 +100,11 @@ public class RoundController : MonoBehaviour
         Debug.Log("라운드 클리어");
 
         // 라운드 벽 비활성화
-        foreach (GameObject wall in roundWalls)
+        foreach (GameObject wall in _roundWalls)
         {
             wall.SetActive(false);
         }
         // 라운드 클리어 이벤트 호출
-        onRoundComplete.Invoke();
+        _onRoundComplete.Invoke();
     }
 }
