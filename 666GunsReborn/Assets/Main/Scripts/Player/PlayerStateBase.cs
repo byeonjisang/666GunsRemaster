@@ -141,8 +141,8 @@ public class MoveState : PlayerStateBase
     {
         if (direction != Vector3.zero)
         {
-            Debug.Log($"NearestEnemy: {player.scanner.NearestEnemy}, isAttacking: {player.attackSystem.IsAttacking}");
-            if (player.scanner.NearestEnemy != null && player.attackSystem.IsAttacking)
+            Debug.Log($"NearestEnemy: {player.scanner.NearestEnemy}, isAttacking: {player.AttackSystem.IsAttacking}");
+            if (player.scanner.NearestEnemy != null && player.AttackSystem.IsAttacking)
             {
                 Debug.Log("플레이어가 적을 스캔함");
 
