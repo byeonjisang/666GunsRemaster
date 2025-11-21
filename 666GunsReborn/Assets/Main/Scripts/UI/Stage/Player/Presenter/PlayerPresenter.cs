@@ -11,29 +11,32 @@ public class PlayerPresenter
     private FireButtonView _fireButtonView;
     private DashButtonView _dashButtonView;
     private MoveJoystickView _moveJoystickView;
+    private WeaponView _weaponView;
     
     // 생성자
     public PlayerPresenter(PlayerChannel playerChannel,
                            FireButtonView fireButtonView,
                            DashButtonView dashButtonView,
-                           MoveJoystickView moveJoystickView)
+                           MoveJoystickView moveJoystickView,
+                           WeaponView weaponView)
     {
         _playerChannel = playerChannel;
 
         _fireButtonView = fireButtonView;
         _dashButtonView = dashButtonView;
         _moveJoystickView = moveJoystickView;
+        _weaponView = weaponView;
 
         // 이벤트 등록
         // 이동
         _moveJoystickView.OnMove += playerChannel.SendMoveCommand;
-        
         // 대쉬
         _dashButtonView.OnClick += _playerChannel.SendDashCommand;
         // 공격
         _fireButtonView.OnFirePointerDown += _playerChannel.SendFirePointerDown;
         _fireButtonView.OnFirePointerUp += _playerChannel.SendFirePointerUp;
-        
+        // 무기 변경
+        //_weaponView.OnClick += _playerChannel.SendChangedWeaponCommand;
     }
 
     // 씬 넘어갈 때 이벤트들 해체

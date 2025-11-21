@@ -31,7 +31,7 @@ public class Weapon : MonoBehaviour
         weaponStats.Initialized(index, weaponData);
 
         // 무기 타입에 따른 IK 타겟 설정
-        Player player = FindObjectOfType<Player>();
+        Character.Player.Player player = FindObjectOfType<Character.Player.Player>();
         rigController = player.GetComponentInChildren<RigController>();
         if (rigController != null)
         {
@@ -98,7 +98,7 @@ public class Weapon : MonoBehaviour
     {
         if (rigController == null)
         {
-            Player player = FindObjectOfType<Player>();
+            Character.Player.Player player = FindObjectOfType<Character.Player.Player>();
             RigController rigController = player.GetComponentInChildren<RigController>();
         }
 

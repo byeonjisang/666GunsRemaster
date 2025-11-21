@@ -6,14 +6,14 @@ using UnityEngine;
 //
 public enum SurgeryRoomState
 {
-    Idle,           // ´ë±â »óÅÂ
-    NPCInteraction, // NPC¿Í »óÈ£ÀÛ¿ë
-    SurgerySelect,  // ¼ö¼ú ¼±ÅÃ Áß
-    SurgeryConfirm, // ¼ö¼ú È®ÀÎ Áß
-    SurgeryComplete // ¼ö¼ú ¿Ï·á
+    Idle,           // ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+    NPCInteraction, // NPCï¿½ï¿½ ï¿½ï¿½È£ï¿½Û¿ï¿½
+    SurgerySelect,  // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
+    SurgeryConfirm, // ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½ ï¿½ï¿½
+    SurgeryComplete // ï¿½ï¿½ï¿½ï¿½ ï¿½Ï·ï¿½
 }
 
-//¼ö¼ú Á¾·ù
+//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 public enum SurgeryType
 {
     Health,
@@ -26,8 +26,8 @@ public enum SurgeryType
 public class Surgery
 {
     public SurgeryType _surgeryType;
-    public int _upgradeCost;    //¾÷±×·¹ÀÌµå ºñ¿ë
-    public float _statModifier; //½ºÅÝ Áõ°¡·®
+    public int _upgradeCost;    //ï¿½ï¿½ï¿½×·ï¿½ï¿½Ìµï¿½ ï¿½ï¿½ï¿½
+    public float _statModifier; //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
     public Surgery(SurgeryType surgeryType, int upgradeCost, float statModifier)
     {
@@ -44,7 +44,7 @@ public class SurgeryManager : Singleton<SurgeryManager>
     public SurgeryRoomState _currentState = SurgeryRoomState.Idle;
 
     [Header("Player Money")]
-    public PlayerManager _playerManager;
+    public Player.PlayerManager _playerManager;
 
     [Header("Available Surgeries")]
     public List<Surgery> _availableSurgeries;
@@ -57,7 +57,7 @@ public class SurgeryManager : Singleton<SurgeryManager>
 
     private Dictionary<SurgeryType, System.Action<float>> _statModifiers;
 
-    //¼ö¼ú½Ç ÀÌº¥Æ®µé
+    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìºï¿½Æ®ï¿½ï¿½
     public event Action<SurgeryRoomState> _surgeryRoomStateChanged;
     public event Action<Surgery> _surgerySelected;
     public event Action<Surgery> _surgeryCompleted;
@@ -76,7 +76,7 @@ public class SurgeryManager : Singleton<SurgeryManager>
 
     void InitializeSurgery()
     {
-        //½ºÅÝ Áõ°¡·® ¼³Á¤
+        //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         _availableSurgeries = new List<Surgery>
         {
             new Surgery(SurgeryType.Health, 100, 20f),
@@ -118,28 +118,28 @@ public class SurgeryManager : Singleton<SurgeryManager>
         {
             _currentState = newState;
             _surgeryRoomStateChanged?.Invoke(_currentState);
-            Debug.Log($"¼ö¼ú½Ç »óÅÂ º¯°æ: {_currentState}");
+            Debug.Log($"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½: {_currentState}");
         }
     }
 
     void EnterSurgeryRoom()
     {
         OnChangeState(SurgeryRoomState.NPCInteraction);
-        Debug.Log("¼ö¼ú½Ç¿¡ ÀÔÀåÇß½À´Ï´Ù.");
+        Debug.Log("ï¿½ï¿½ï¿½ï¿½ï¿½Ç¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ß½ï¿½ï¿½Ï´ï¿½.");
     }
 
     public bool SelectSurgery(SurgeryType surgeryType)
     {
         if (_currentState != SurgeryRoomState.SurgerySelect)
         {
-            Debug.LogWarning("ÇöÀç ¼ö¼ú½Ç¿¡¼­ ¼ö¼úÀ» ¼±ÅÃÇÒ ¼ö ¾ø½À´Ï´Ù.");
+            Debug.LogWarning("ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ç¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.");
             return false;
         }
 
         Surgery surgery = _availableSurgeries.Find(s => s._surgeryType == surgeryType);
         if (surgery == null)
         {
-            Debug.LogWarning("¼±ÅÃÇÑ ¼ö¼úÀÌ À¯È¿ÇÏÁö ¾Ê½À´Ï´Ù.");
+            Debug.LogWarning("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¿ï¿½ï¿½ï¿½ï¿½ ï¿½Ê½ï¿½ï¿½Ï´ï¿½.");
             return false;
         }
 
@@ -147,30 +147,30 @@ public class SurgeryManager : Singleton<SurgeryManager>
         OnChangeState(SurgeryRoomState.SurgeryConfirm);
         _surgerySelected?.Invoke(_selectedSurgery);
 
-        Debug.Log($"¼ö¼úÀÌ ¼±ÅÃµÇ¾ú½À´Ï´Ù: {_selectedSurgery._surgeryType} ({_selectedSurgery._upgradeCost}) ¿ø");
+        Debug.Log($"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ÃµÇ¾ï¿½ï¿½ï¿½ï¿½Ï´ï¿½: {_selectedSurgery._surgeryType} ({_selectedSurgery._upgradeCost}) ï¿½ï¿½");
 
         return true;
     }
 
     public bool ConfirmSurgery()
     {
-        //¿¹¿Ü Ã³¸®
+        //ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
         if (_currentState != SurgeryRoomState.SurgeryConfirm)
         {
-            Debug.LogWarning("ÇöÀç ¼ö¼úÀ» È®ÀÎÇÒ ¼ö ¾ø½À´Ï´Ù.");
+            Debug.LogWarning("ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.");
             return false;
         }
 
         if (_selectedSurgery == null)
         {
-            Debug.LogWarning("¼±ÅÃµÈ ¼ö¼úÀÌ ¾ø½À´Ï´Ù.");
+            Debug.LogWarning("ï¿½ï¿½ï¿½Ãµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.");
             OnChangeState(SurgeryRoomState.SurgerySelect);
             return false;
         }
 
         if (_playerManager.GetHoldCoins() < _selectedSurgery._upgradeCost)
         {
-            string message = "¼ö¼ú ºñ¿ëÀÌ ºÎÁ·ÇÕ´Ï´Ù.";
+            string message = "ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½.";
             _surgeryFailed?.Invoke(message);
             Debug.LogWarning(message);
             return false;
@@ -185,25 +185,25 @@ public class SurgeryManager : Singleton<SurgeryManager>
     {
         if (PlayerStat.Instance == null)
         {
-            Debug.LogError("ÇÃ·¹ÀÌ¾î ½ºÅÈÀÌ ÇÒ´çµÇÁö ¾Ê¾Ò½À´Ï´Ù.");
+            Debug.LogError("ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ò´ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¾Ò½ï¿½ï¿½Ï´ï¿½.");
             OnChangeState(SurgeryRoomState.SurgerySelect);
             return;
         }
 
-        //½ºÅÝ ¼³Á¤
+        //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         ApplyStatsModification(_selectedSurgery);
 
-        //ºñ¿ë Â÷°¨
+        //ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         _playerManager.MinusHoldCoins(surgery._upgradeCost);
 
-        //±â·Ï
+        //ï¿½ï¿½ï¿½
         _surgeryCount[surgery._surgeryType]++;
 
-        //¿Ï·á »óÅÂ ÀüÈ¯
+        //ï¿½Ï·ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯
         OnChangeState(SurgeryRoomState.SurgeryComplete);
         _surgeryCompleted?.Invoke(surgery);
 
-        Debug.Log($"¼ö¼úÀÌ ¿Ï·áµÇ¾ú½À´Ï´Ù: {surgery._surgeryType}");
+        Debug.Log($"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ï·ï¿½Ç¾ï¿½ï¿½ï¿½ï¿½Ï´ï¿½: {surgery._surgeryType}");
     }
 
     #endregion
@@ -215,11 +215,11 @@ public class SurgeryManager : Singleton<SurgeryManager>
         if(_statModifiers.TryGetValue(surgery._surgeryType, out var modifyAction))
         {
             modifyAction(surgery._statModifier);
-            Debug.Log($"{surgery._surgeryType} ½ºÅÈÀÌ {surgery._statModifier}¸¸Å­ Áõ°¡Çß½À´Ï´Ù.");
+            Debug.Log($"{surgery._surgeryType} ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ {surgery._statModifier}ï¿½ï¿½Å­ ï¿½ï¿½ï¿½ï¿½ï¿½ß½ï¿½ï¿½Ï´ï¿½.");
         }
         else
         {
-            Debug.LogWarning("ÇØ´ç ¼ö¼ú Å¸ÀÔ¿¡ ´ëÇÑ ½ºÅÈ ¼öÁ¤ ÇÔ¼ö°¡ ¾ø½À´Ï´Ù.");
+            Debug.LogWarning("ï¿½Ø´ï¿½ ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½Ô¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ô¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.");
         }
     }
 

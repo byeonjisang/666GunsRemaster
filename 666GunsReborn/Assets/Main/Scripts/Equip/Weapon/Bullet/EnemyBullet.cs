@@ -8,7 +8,7 @@ public class EnemyBullet : MonoBehaviour
     {
         if (other.CompareTag("Player")) // �ڱ� �ڽŰ� �浹 ����
         {
-            other.GetComponent<Player>().Hit(1);
+            other.GetComponent<Character.Player.Player>().TakeDamage(1);
             //Destroy(gameObject);
         }
     }

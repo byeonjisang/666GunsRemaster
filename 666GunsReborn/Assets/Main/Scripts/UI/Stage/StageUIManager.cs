@@ -11,6 +11,7 @@ public class StageUIManager : MonoBehaviour
     [SerializeField] private FireButtonView fireButtonView;
     [SerializeField] private DashButtonView dashButtonView;
     [SerializeField] private MoveJoystickView moveJoystickView;
+    [SerializeField] private WeaponView weaponView;
 
     // presenter
     private PlayerPresenter _playerPresenter;
@@ -21,7 +22,8 @@ public class StageUIManager : MonoBehaviour
             playerChannel,
             fireButtonView,
             dashButtonView,
-            moveJoystickView
+            moveJoystickView,
+            weaponView
         );
     }
 

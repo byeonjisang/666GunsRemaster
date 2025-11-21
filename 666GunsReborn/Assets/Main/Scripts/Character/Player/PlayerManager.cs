@@ -1,0 +1,89 @@
+using System;
+using System.Collections.Generic;
+using UnityEngine;
+
+namespace Player
+{
+    public class PlayerManager : Singleton<PlayerManager>
+    {
+        // private Dictionary<PlayerType, Type> playerTypeMap = new Dictionary<PlayerType, Type>{
+        //     { PlayerType.Attack, typeof(FormOfAttackPlayer) },
+        //     { PlayerType.Defense, typeof(FormOfDefensePlayer) },
+        //     { PlayerType.Balance, typeof(FormOfBalancePlayer) }
+        // };
+
+        [Header("Player Type")]
+        // 시작할 때 Default 값으로 설정
+        // private PlayerType playerType = PlayerType.Attack;
+        // public PlayerType PlayerType { get { return playerType; } private set { } }
+
+        [Header("Player Variables")]
+        [NonSerialized]
+        //public Player Currentplayer;
+
+        /// <summary>
+        /// 보유 코인은 상점 시스템과 연동되어야 하므로  public으로 설정
+        /// </summary>
+        private int holdCoins = 0;
+
+        public int GetHoldCoins() => holdCoins;
+        public void MinusHoldCoins(int value) => holdCoins -= value;
+        public void PlusHoldCoins(int value) => holdCoins += value;
+        //public int HoldCoins { get { return holdCoins; } private set { } }
+
+        // 씬 이동해도 오브젝트는 유지
+        protected override bool IsPersistent => true;
+
+        /// <summary>
+        /// 다른 씬에서 플레이어의 이동이 가능하게 하기 위해 추가.
+        /// </summary>
+        private void Start()
+        {
+            GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
+            //InitializePlayer(playerObject);
+        }
+
+        #region Set Player Info Code
+        /// <summary>
+        /// Sets the player type.
+        /// <summary>
+        // public void SetPlayerType(PlayerType type)
+        // {
+        //     if (type == playerType)
+        //         return;
+
+        //     playerType = type;
+        //     Player playerScript = FindObjectOfType<Player>();
+        //     playerScript.InitStats(playerType);
+        // }
+        #endregion
+
+        #region Player Initialization Code
+        // public void InitializePlayer(GameObject playerObject)
+        // {
+        //     // Player 초기화 로직
+        //     Debug.Log("Player Initialized with Type: " + playerType);
+
+        //     holdCoins = 0;
+        //     // 플레이어 초기화
+        //     // if (!playerTypeMap.TryGetValue(playerType, out Type type))
+        //     // {
+        //     //     Debug.LogError("Unsupported PlayerType: " + playerType);
+        //     //     return;
+        //     // }
+
+        //     Player playerScript = playerObject.GetComponent<Player>();
+        //     playerScript.Initialized(playerType);
+
+        //     // Component playerScript = playerObject.AddComponent(type);
+        //     // if (playerScript is IPlayer player)
+        //     //     player.Initialized(type);
+        // }
+        #endregion
+
+        public void AddCoins(int coins)
+        {
+            holdCoins += coins;
+        }
+    }   
+}

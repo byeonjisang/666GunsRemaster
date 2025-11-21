@@ -65,7 +65,7 @@ public class Bullet : MonoBehaviour, IPooledObject
         if (other.CompareTag("Enemy"))
         {
             Debug.Log("Bullet hit enemy: " + other.name);
-            Enemy.Enemy enemyScript = other.GetComponent<Enemy.Enemy>();
+            Character.Enemy.Enemy enemyScript = other.GetComponent<Character.Enemy.Enemy>();
             if (enemyScript != null)
             {
                 enemyScript.TakeDamage((int)power);

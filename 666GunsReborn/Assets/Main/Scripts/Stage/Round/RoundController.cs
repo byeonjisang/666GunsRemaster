@@ -72,7 +72,7 @@ public class RoundController : MonoBehaviour
         _activedEnemies.Add(enemyPrefab);
         enemyPrefab.SetActive(false);
         // 몬스터가 죽었을 때 호출되는 이벤트 등록
-        enemyPrefab.GetComponent<Enemy.Enemy>().OnEnemyDead += CheckDeadEnemy;
+        enemyPrefab.GetComponent<Character.Enemy.Enemy>().OnEnemyDead += CheckDeadEnemy;
 
         // 대기 시간 후 몬스터 소환
         yield return new WaitForSeconds(wave.SpawnTime);

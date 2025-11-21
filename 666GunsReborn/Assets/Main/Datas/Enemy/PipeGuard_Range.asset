@@ -12,12 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3393d5dd872ab074e9c496387378a1ff, type: 3}
   m_Name: PipeGuard_Range
   m_EditorClassIdentifier: 
+  charaterName: Pipe Guard Range
+  health: 100
+  moveSpeed: 3
   attackType: 1
   attackStrategy: {fileID: 11400000, guid: b399f3495ba0efd4f95fdf4d9ecb4709, type: 2}
   weaponPrefab: {fileID: 1394443505563386, guid: 8d78de1c4eb319b4c8189140db362e46,
     type: 3}
-  atk: 15
-  atkSpeed: 2
-  atkRange: 10
-  maxHp: 100
-  moveSpeed: 3
+  attackPower: 15
+  attackSpeed: 2
+  attackRange: 10

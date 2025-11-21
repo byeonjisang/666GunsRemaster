@@ -8,8 +8,8 @@ public class Inventory : MonoBehaviour
     [SerializeField]
     private RectTransform inventoryUI;
 
-    //ÇÃ·¹ÀÌ¾î¿¡ Á¸ÀçÇÏ´Â ÀçÈ­ ¹× µ¥ÀÌÅÍ¿Í ¿¬°á
-    Player currentPlayer;
+    //ï¿½Ã·ï¿½ï¿½Ì¾î¿¡ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½È­ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Í¿ï¿½ ï¿½ï¿½ï¿½ï¿½
+    Character.Player.Player currentPlayer;
 
     public Transform inventoryContainer;
     public GameObject inventoryItemPrefab;
@@ -41,7 +41,7 @@ public class Inventory : MonoBehaviour
 
     private void UpdateInventoryUI()
     {
-        //ÀÎº¥Åä¸®¿¡ Á¸ÀçÇÏ´Â ¾ÆÀÌÅÛÀÌ Ãß°¡ ¹× »èÁ¦ ½Ã ¸Å¹ø ¾÷µ¥ÀÌÆ® È£Ãâ ÇÊ¿ä
+        //ï¿½Îºï¿½ï¿½ä¸®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Å¹ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® È£ï¿½ï¿½ ï¿½Ê¿ï¿½
         foreach (Transform child in inventoryContainer)
         {
             Destroy(child.gameObject);
@@ -72,18 +72,18 @@ public class Inventory : MonoBehaviour
         UpdateInventoryUI();
     }
 
-    void Enter(Player player)
+    void Enter(Character.Player.Player player)
     {
         currentPlayer = player;
 
-        //ÀÎº¥Åä¸® Ã¢ È°¼ºÈ­
+        //ï¿½Îºï¿½ï¿½ä¸® Ã¢ È°ï¿½ï¿½È­
         inventoryUI.anchoredPosition = Vector3.zero;
 
     }
 
     void Exit()
     {
-        //ÀÎº¥Åä¸® Ã¢ ³»¸²
+        //ï¿½Îºï¿½ï¿½ä¸® Ã¢ ï¿½ï¿½ï¿½ï¿½
         inventoryUI.anchoredPosition = Vector3.down * 1000;
     }
 }
