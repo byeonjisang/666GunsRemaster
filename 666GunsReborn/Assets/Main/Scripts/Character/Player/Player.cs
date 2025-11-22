@@ -53,7 +53,7 @@ namespace Character.Player
             // 플레이어 필요 컴포넌트 추가
             StateContext = new PlayerStateContext(this);
             Stat = new PlayerStats();
-            Scanner = new EnemyScanner();
+            Scanner = new EnemyScanner(this);
             AttackSystem = new PlayerAttack(this);
             IdleSystem = new PlayerIdle(this);
             MoveSystem = new PlayerMove(this);
@@ -101,6 +101,8 @@ namespace Character.Player
             StateContext.CurrentState.UpdateState();
             // 대쉬 쿨타임 업데이트
             Stat.DashCooldownUpdate();
+            // 적 스캐너 업데이트
+            Scanner.ScannerUpdate();
         }
         #endregion
 

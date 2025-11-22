@@ -28,7 +28,6 @@ namespace Character.Enemy
         public void UpdateState()
         {
             // 플레이어 추격
-            Debug.Log($"[ChaseState] {_enemy.PlayerTransform.position}");
             _enemy.NavMeshAgent.SetDestination(_enemy.PlayerTransform.position);
 
             // 플레이어가 공격 범위 안에 있는 경우 공격 상태로 변환

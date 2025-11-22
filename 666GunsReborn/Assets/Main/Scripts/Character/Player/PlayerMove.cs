@@ -32,8 +32,8 @@ namespace Character.Player
         {
             if (direction != Vector3.zero)
             {
-                //Debug.Log($"NearestEnemy: {player.scanner.NearestEnemy}, isAttacking: {player.AttackSystem.IsAttacking}");
-                if (_player.Scanner.NearestEnemy != null)// && _player.AttackSystem.IsAttacking)
+                Debug.Log($"[PlayerMove] NearsetEnemy: {_player.Scanner.NearestEnemy}, IsAttacking: {_player.AttackSystem.IsAttacking}");
+                if (_player.Scanner.NearestEnemy != null && _player.AttackSystem.IsAttacking)
                 {
                     Debug.Log("플레이어가 적을 스캔함");
 

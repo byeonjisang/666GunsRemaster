@@ -18,13 +18,22 @@ namespace Character.Player
         /// <summary>
         /// 대쉬 실행 메서드
         /// </summary>
-        public void Dash(Vector3 direction)
+        public void Dash(Vector3 direction, float dashTime)
+        {
+            _player.StartCoroutine(DashCoroutine(direction, dashTime));
+        }
+
+        // 대쉬 코루틴
+        private IEnumerator DashCoroutine(Vector3 direction, float dashTime)
         {
             if (direction.sqrMagnitude < 0.1f)
                 direction = _player.transform.forward.normalized;
             
             // 대쉬 이동
             _player.Rigid.velocity = direction * _player.Stat.CurrentDashDistance;
+            yield return new WaitForSeconds(dashTime);
+            
+            _player.Rigid.velocity = Vector3.zero;
         }
     }
 }

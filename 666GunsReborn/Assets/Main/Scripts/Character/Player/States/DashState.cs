@@ -25,7 +25,7 @@ namespace Character.Player
             dashTimer = 0f;
 
             // 대쉬 실행
-            _player.DashSystem.Dash(_player.InputDirection);
+            _player.DashSystem.Dash(_player.InputDirection, dashTime);
         }
 
         public void UpdateState()
