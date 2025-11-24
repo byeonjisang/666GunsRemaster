@@ -1,5 +1,17 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
+<<<<<<<< HEAD:666GunsReborn/Assets/Main/Scripts/Character.meta
 guid: c3a65cc63d814d140ba91047e0ad6dc6
+========
+guid: 77d0a243a86dfae41ba26647cfae9776
+>>>>>>>> origin/main:666GunsReborn/Assets/Main/Scene/Stage 3.meta
+=======
+<<<<<<<< HEAD:666GunsReborn/Assets/Main/Scripts/Character/Enemy/Old Script.meta
+guid: e9740a3f2c5feb246896f540bdfe3551
+========
+guid: f60d63aebca03054fb0477a164e3c0dd
+>>>>>>>> origin/main:666GunsReborn/Assets/Main/Scripts/Character.meta
+>>>>>>> origin/main
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

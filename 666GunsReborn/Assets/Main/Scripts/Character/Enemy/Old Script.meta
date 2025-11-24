@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:666GunsReborn/Assets/Main/Scripts/Character/Enemy/Old Script.meta
 guid: e9740a3f2c5feb246896f540bdfe3551
+========
+guid: f60d63aebca03054fb0477a164e3c0dd
+>>>>>>>> origin/main:666GunsReborn/Assets/Main/Scripts/Character.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

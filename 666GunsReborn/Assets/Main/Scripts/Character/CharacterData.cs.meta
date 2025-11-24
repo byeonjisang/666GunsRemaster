@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:666GunsReborn/Assets/Main/Scripts/Character/CharacterData.cs.meta
 guid: 3bc39b6d40d17a04eaaeb6e565972346
+========
+guid: 252d000660f1f44478a53c7b669ddf97
+>>>>>>>> origin/main:666GunsReborn/Assets/Main/Scripts/Character/Character.cs.meta
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2

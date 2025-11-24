@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <<<<<<<< HEAD:666GunsReborn/Assets/Main/Scripts/Character/Enemy/Old Script/Enemy/Enemy.cs
 using System;
 using System.Collections;
@@ -387,4 +388,193 @@ namespace Character.Enemy
         #endregion
     }
 >>>>>>>> origin/main:666GunsReborn/Assets/Main/Scripts/Character/Enemy/Enemy.cs
+=======
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.AI;
+
+namespace Character.Enemy
+{
+    public class Enemy : MonoBehaviour
+    {
+        #region Parameters and Components
+        // 적의 스탯 데이터
+        [Header("Enemy Data")]
+        [SerializeField] private EnemyData enemyData;
+        // 적 무기 장착 위치
+        [Header("Weapon")]
+        [SerializeField] private Transform weaponSocket;
+        // 총구 위치들
+        [SerializeField] private List<Transform> embeddedMuzzles;
+
+        // 총구 위치들
+        public List<Transform> ActiveMuzzle { get; private set; } = new List<Transform>();
+
+        // 적의 스탯 컴포넌트
+        public EnemyStat EnemyStat { get; private set; }
+        // 플레이어 추적용 변수
+        public Transform PlayerTransform { get; private set; }
+        // 적 AI 컴포넌트
+        public NavMeshAgent NavMeshAgent { get; private set; }
+        // 적 애니메이터 컴포넌트
+        public Animator Anim { get; private set; }
+
+        // 공격 중인지 여부
+        public bool IsAttacking { get; set; } = false;
+        // 사망 여부
+        private bool isDead = false;
+        // 적 죽었을 때 라운드 컨트롤러에게 알려줄 이벤트
+        public Action<GameObject> OnEnemyDead;
+
+        // 적의 머티리얼(스폰, 디졸드 효과용)
+        public Material Material { get; private set; }
+        // 디졸드 쉐어더 프로퍼티 이름
+        private string _splitValue = "_Split_Value";
+        // 디졸드 쉐이더 프로퍼티 ID
+        public int SplitValueID { get; private set; }
+
+        // 상태 머신 컨텍스트
+        public EnemyStateContext StateContext { get; private set; }
+        #endregion
+
+        #region Awake
+        private void Awake()
+        {
+            // 필요한 컴포넌트 초기화
+            NavMeshAgent = GetComponent<NavMeshAgent>();
+            Anim = GetComponent<Animator>();
+            PlayerTransform = GameObject.FindWithTag("Player").transform;
+
+            // 무기 장착
+            SetupWeaponAndMuzzle();
+
+            // 상태 머신 컨텍스트 생성
+            StateContext = new EnemyStateContext(this);
+
+            // 스탯 초기화
+            EnemyStat = new EnemyStat(enemyData);
+            NavMeshAgent.speed = EnemyStat.MoveSpeed;
+
+            // 메테리얼 초기화
+            Material = GetComponent<Renderer>().material;
+            SplitValueID = Shader.PropertyToID(_splitValue);
+            // 초기 메테리얼 설정
+            Material.SetFloat(SplitValueID, 0f);
+        }
+        #endregion
+
+        #region Enemy OnEnable
+        private void OnEnable()
+        {
+            StartCoroutine(SpawnCoroutine());
+        }
+
+        private IEnumerator SpawnCoroutine()
+        {
+            float duration = 1f;
+            float elapsed = 0f;
+
+            while (elapsed < duration)
+            {
+                elapsed += Time.deltaTime;
+                float splitValue = Mathf.Lerp(0f, 2f, elapsed / duration);
+                Material.SetFloat(SplitValueID, splitValue);
+                yield return null;
+            }
+
+            // 초기 상태로 전환(추적 상태)
+            StateContext.TransitionTo(StateContext.ChaseState);
+        }
+        #endregion
+
+        #region Update
+        private void Update()
+        {
+            // 상태 머신 업데이트 호출
+            StateContext.Update();
+        }
+        #endregion
+
+        #region Weapon Setup
+        // 무기 장착 및 총구 찾는 메서드
+        private void SetupWeaponAndMuzzle()
+        {
+            // 총기를 소지한 애
+            if (enemyData.weaponPrefab != null && weaponSocket != null)
+            {
+                GameObject weapon = Instantiate(enemyData.weaponPrefab, transform);
+                weapon.transform.SetParent(weaponSocket);
+                weapon.transform.localPosition = Vector3.zero;
+                weapon.transform.localRotation = Quaternion.identity;
+
+                // 총구 위치들 찾기
+                ActiveMuzzle.Add(weapon.transform.Find("Muzzle"));
+            }
+            // 총기가 아닌 몸에 총구가 있을 때
+            else if (embeddedMuzzles.Count > 0)
+            {
+                ActiveMuzzle = embeddedMuzzles;
+            }
+            // 둘 다 없을 때
+            else
+            {
+                ActiveMuzzle.Add(weaponSocket != null ? weaponSocket : transform);
+            }
+        }
+        #endregion
+
+        #region Enemy Attack
+        /// <summary>
+        /// 플레이어가 공격 범위 안에 있는지 확인하는 메서드
+        /// </summary>
+        /// <returns></returns>
+        public bool IsPlayerInAttackRange()
+        {
+            // 공격 범위 안에 있는가 체크하기 위해 거리 측정
+            float distance = Vector3.Distance(transform.position, PlayerTransform.position);
+
+            // 공격 범위 안에 있으면서 정면에 있는지 확인
+            Vector3 directionToPlayer = (PlayerTransform.position - transform.position).normalized;
+            float dotProduct = Vector3.Dot(transform.forward, directionToPlayer);
+
+            return distance <= EnemyStat.AttackRange && dotProduct > 0.8f;
+        }
+
+        /// <summary>
+        /// 공격 애니메이션이 끝났을 때 호출되는 메서드
+        /// </summary>
+        public void CheckedAttackAnimationEnd()
+        {
+            IsAttacking = false;
+        }
+        #endregion
+
+        #region Hit and Die
+        /// <summary>
+        /// 적이 공격을 받았을 때 호출되는 메서드
+        /// </summary>
+        public void TakeDamage(int damage)
+        {
+            // 이미 죽은 적이면 무시
+            if (isDead)
+                return;
+                
+            // 적이 살아있으면 true 죽으면 false 반환
+            if (!EnemyStat.TakeDamage(damage))
+                Die();
+        }
+
+        // 적이 죽었을 때 호출되는 메서드
+        private void Die()
+        {
+            Debug.Log("Enemy died");
+            isDead = true;
+            OnEnemyDead?.Invoke(this.gameObject);
+            StateContext.TransitionTo(StateContext.DeadState);
+        }
+        #endregion
+    }
+>>>>>>> origin/main
 }

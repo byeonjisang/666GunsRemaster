@@ -1,6 +1,11 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:666GunsReborn/Assets/Main/Scripts/UI/Stage/Player/PlayerChannel.asset.meta
 guid: d704267dc3ab0d64580bbc915bf72729
 NativeFormatImporter:
+========
+guid: e83c1ecb815571841972f9551ed52eca
+PrefabImporter:
+>>>>>>>> origin/main:666GunsReborn/Assets/Main/Scene/Stage 3/Stage_3 Map.prefab.meta
   externalObjects: {}
   mainObjectFileID: 11400000
   userData: 

@@ -7,6 +7,7 @@ using UnityEngine;
 public enum SurgeryRoomState
 {
 <<<<<<< HEAD
+<<<<<<< HEAD
     Idle,
     SurgerySelect,
     SurgeryConfirm,
@@ -23,6 +24,15 @@ public enum StatType
     SurgeryComplete // ï¿½ï¿½ï¿½ï¿½ ï¿½Ï·ï¿½
 }
 
+=======
+    Idle,           // ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+    NPCInteraction, // NPCï¿½ï¿½ ï¿½ï¿½È£ï¿½Û¿ï¿½
+    SurgerySelect,  // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
+    SurgeryConfirm, // ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½ ï¿½ï¿½
+    SurgeryComplete // ï¿½ï¿½ï¿½ï¿½ ï¿½Ï·ï¿½
+}
+
+>>>>>>> origin/main
 //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 public enum SurgeryType
 >>>>>>> origin/main
@@ -44,6 +54,9 @@ public class StatTypeData
     public SurgeryType _surgeryType;
     public int _upgradeCost;    //ï¿½ï¿½ï¿½×·ï¿½ï¿½Ìµï¿½ ï¿½ï¿½ï¿½
     public float _statModifier; //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+<<<<<<< HEAD
+>>>>>>> origin/main
+=======
 >>>>>>> origin/main
 
     // »ý¼ºÀÚ
@@ -71,6 +84,9 @@ public class SurgeryManager : Singleton<SurgeryManager>
 
     [Header("Player Money")]
     public Player.PlayerManager _playerManager;
+<<<<<<< HEAD
+>>>>>>> origin/main
+=======
 >>>>>>> origin/main
 
     [Header("Current State")]
@@ -109,11 +125,14 @@ public class SurgeryManager : Singleton<SurgeryManager>
     void InitializeStatData()
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
         // ÃÊ±â ½ºÅÈ µ¥ÀÌÅÍ ¼³Á¤
         _statData[StatType.Offensive] = new StatTypeData(StatType.Offensive, 100, 1.5f);
         _statData[StatType.Defensive] = new StatTypeData(StatType.Defensive, 100, 1.5f);
         _statData[StatType.Balanced] = new StatTypeData(StatType.Balanced, 100, 1.5f);
 =======
+=======
+>>>>>>> origin/main
         //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         _availableSurgeries = new List<Surgery>
         {
@@ -163,12 +182,15 @@ public class SurgeryManager : Singleton<SurgeryManager>
         if(_currentState != SurgeryRoomState.SurgerySelect)
         {
 <<<<<<< HEAD
+<<<<<<< HEAD
             _OnOperationFailed?.Invoke("Cannot change type in current state.");
             return false;
         }
 
         _selectedType = _type;
 =======
+=======
+>>>>>>> origin/main
             Debug.LogWarning("ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ç¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.");
             return false;
         }
@@ -184,7 +206,11 @@ public class SurgeryManager : Singleton<SurgeryManager>
         int _cost = _statData[_type]._baseCost;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         StateChange(SurgeryRoomState.SurgeryConfirm);
+=======
+        Debug.Log($"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ÃµÇ¾ï¿½ï¿½ï¿½ï¿½Ï´ï¿½: {_selectedSurgery._surgeryType} ({_selectedSurgery._upgradeCost}) ï¿½ï¿½");
+>>>>>>> origin/main
 =======
         Debug.Log($"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ÃµÇ¾ï¿½ï¿½ï¿½ï¿½Ï´ï¿½: {_selectedSurgery._surgeryType} ({_selectedSurgery._upgradeCost}) ï¿½ï¿½");
 >>>>>>> origin/main
@@ -195,14 +221,20 @@ public class SurgeryManager : Singleton<SurgeryManager>
     public bool ConfirmTypeChange()
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
         if(_currentState != SurgeryRoomState.SurgeryConfirm)
         {
             _OnOperationFailed?.Invoke("Cannot confirm type change in current state.");
 =======
+=======
+>>>>>>> origin/main
         //ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
         if (_currentState != SurgeryRoomState.SurgeryConfirm)
         {
             Debug.LogWarning("ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.");
+<<<<<<< HEAD
+>>>>>>> origin/main
+=======
 >>>>>>> origin/main
             return false;
         }
@@ -212,12 +244,15 @@ public class SurgeryManager : Singleton<SurgeryManager>
         if(_playerManager.GetHoldCoins() < _cost)
         {
 <<<<<<< HEAD
+<<<<<<< HEAD
             _OnOperationFailed?.Invoke("ºñ¿ë ºÎÁ·.");
             return false;
         }
 
         ExcuteTypeChange(_selectedType, _cost);
 =======
+=======
+>>>>>>> origin/main
             Debug.LogWarning("ï¿½ï¿½ï¿½Ãµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.");
             OnChangeState(SurgeryRoomState.SurgerySelect);
             return false;
@@ -266,6 +301,7 @@ public class SurgeryManager : Singleton<SurgeryManager>
         if(_stat == null)
         {
 <<<<<<< HEAD
+<<<<<<< HEAD
             Debug.LogError("PlayerStatÀÌ ¾ø½À´Ï´Ù.");
             return;
         }
@@ -288,6 +324,8 @@ public class SurgeryManager : Singleton<SurgeryManager>
                 Debug.Log("Applied Balanced effects.");
                 break;
 =======
+=======
+>>>>>>> origin/main
             Debug.LogError("ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ò´ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¾Ò½ï¿½ï¿½Ï´ï¿½.");
             OnChangeState(SurgeryRoomState.SurgerySelect);
             return;
@@ -323,6 +361,9 @@ public class SurgeryManager : Singleton<SurgeryManager>
         else
         {
             Debug.LogWarning("ï¿½Ø´ï¿½ ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½Ô¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ô¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.");
+<<<<<<< HEAD
+>>>>>>> origin/main
+=======
 >>>>>>> origin/main
         }
     }
