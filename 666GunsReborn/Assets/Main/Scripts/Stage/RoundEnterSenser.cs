@@ -28,17 +28,17 @@ public class RoundEnterSenser : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            StageController stageController = FindObjectOfType<StageController>();
-            if (stageController != null)
-            {
-                stageController.EnterRound(roundIndex);
-                SetRoundAbarsOn(true);
-                gameObject.GetComponent<Collider>().enabled = false;
-            }
-            else
-            {
-                Debug.LogWarning("StageController not found in the scene.");
-            }
+            //StageController stageController = FindObjectOfType<StageController>();
+            // if (stageController != null)
+            // {
+            //     stageController.EnterRound(roundIndex);
+            //     SetRoundAbarsOn(true);
+            //     gameObject.GetComponent<Collider>().enabled = false;
+            // }
+            // else
+            // {
+            //     Debug.LogWarning("StageController not found in the scene.");
+            // }
         }
     }
 }

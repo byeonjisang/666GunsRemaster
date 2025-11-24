@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class SelectPlayerType : MonoBehaviour
 {
     [SerializeField]
-    private List<Player> players;
+    private List<Character.Player.Player> players;
 
     private bool showDropdown = false; // 드롭다운 표시 여부
     private int selectedIndex = 0; // 선택된 항목의 인덱스

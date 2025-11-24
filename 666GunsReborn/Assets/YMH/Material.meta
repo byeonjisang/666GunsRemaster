@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:666GunsReborn/Assets/YMH/Material.meta
 guid: e2802d3f923a36b43b7de39d9e986a4a
+========
+guid: 9ed4b625440ba6a40a502c336eeb4197
+>>>>>>>> origin/main:666GunsReborn/Assets/Main/Scripts/Stage/Round.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

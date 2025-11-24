@@ -136,7 +136,11 @@ namespace Weapons
                     if (hitInfo.collider.tag == "Enemy")
                     {
                         Debug.Log("Hit Enemy: " + hitInfo.collider.name);
+<<<<<<< HEAD
                         hitInfo.collider.GetComponent<Enemy.Enemy>().TakeDamage(50);
+=======
+                        hitInfo.collider.GetComponent<Character.Enemy.Enemy>().TakeDamage(50);
+>>>>>>> origin/main
                     }
                         
                 }

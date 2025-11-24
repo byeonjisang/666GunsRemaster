@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:666GunsReborn/Assets/Main/Scripts/Stage/Round.meta
 guid: 9ed4b625440ba6a40a502c336eeb4197
+========
+guid: 77d0a243a86dfae41ba26647cfae9776
+>>>>>>>> origin/main:666GunsReborn/Assets/Main/Scene/Stage 3.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

@@ -12,11 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3393d5dd872ab074e9c496387378a1ff, type: 3}
   m_Name: PropDrone
   m_EditorClassIdentifier: 
+  charaterName: Prop Drone
+  health: 50
+  moveSpeed: 3
   attackType: 1
   attackStrategy: {fileID: 11400000, guid: 981f514fa51dca84f8b6c540ab6744cf, type: 2}
   weaponPrefab: {fileID: 0}
-  atk: 10
-  atkSpeed: 2
-  atkRange: 10
-  maxHp: 50
-  moveSpeed: 3
+  attackPower: 10
+  attackSpeed: 2
+  attackRange: 10

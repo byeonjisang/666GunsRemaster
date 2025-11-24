@@ -18,7 +18,7 @@ public class TypeSelectionManager : MonoBehaviour
 
     private void Start()
     {
-        playerTypeDropdown.value = (int)PlayerType.Attack;
+        playerTypeDropdown.value = (int)Character.Player.PlayerType.Attack;
         playerTypeDropdown.onValueChanged.AddListener(OnPlayerTypeChanged);
 
         // 무기 선택지 초기화
@@ -123,7 +123,7 @@ public class TypeSelectionManager : MonoBehaviour
         GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
         //PlayerManager.Instance.SetPlayerType((PlayerType)playerTypeDropdown.value);
         //PlayerManager.Instance.InitializePlayer(playerObject);
-        PlayerManager.Instance.SetPlayerType((PlayerType)playerTypeDropdown.value);
+        //Player.PlayerManager.Instance.SetPlayerType((Character.Player.PlayerType)playerTypeDropdown.value);
 
         //WeaponManager.Instance.Initialized(weapon1TypeDropdown.value, weapon2TypeDropdown.value);
         WeaponManager1.Instance.Initialization(weaponTypeDropdowns[0].value, weaponTypeDropdowns[1].value);

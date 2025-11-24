@@ -21,7 +21,6 @@ public class FreeCameraController : MonoBehaviour
         float mouseX = Input.GetAxis("Mouse X") * lookSensitivity;
         float mouseY = Input.GetAxis("Mouse Y") * lookSensitivity;
 
-        Debug.Log($"Mouse X: {mouseX}, Mouse Y: {mouseY}");
         rotationX -= mouseY;
         rotationY += mouseX;
         rotationX = Mathf.Clamp(rotationX, -90f, 90f); // 위아래 제한
