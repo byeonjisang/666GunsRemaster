@@ -3,235 +3,219 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-//
+//수술실 상태
 public enum SurgeryRoomState
 {
-    Idle,           // 대기 상태
-    NPCInteraction, // NPC와 상호작용
-    SurgerySelect,  // 수술 선택 중
-    SurgeryConfirm, // 수술 확인 중
-    SurgeryComplete // 수술 완료
+    Idle,
+    SurgerySelect,
+    SurgeryConfirm,
+    SurgeryComplete
 }
 
-//수술 종류
-public enum SurgeryType
+//수술 스탯 타입
+public enum StatType
 {
-    Health,
-    MoveSpeed,
-    DashCount,
-    DashDistance
+    Offensive,
+    Defensive,
+    Balanced
 }
 
 [System.Serializable]
-public class Surgery
+public class StatTypeData
 {
-    public SurgeryType _surgeryType;
-    public int _upgradeCost;    //업그레이드 비용
-    public float _statModifier; //스텟 증가량
+    public StatType _type;
+    public int _level;
+    public int _baseCost;
+    public float _costMultiplier;
 
-    public Surgery(SurgeryType surgeryType, int upgradeCost, float statModifier)
+    // 생성자
+    public StatTypeData(StatType type, int baseCost, float costMultiplier)
     {
-        this._surgeryType = surgeryType;
-        this._upgradeCost = upgradeCost;
-        this._statModifier = statModifier;
+        _type = type;
+        _level = 0;
+        _baseCost = baseCost;
+        _costMultiplier = costMultiplier;
     }
+
+    public int GetNextLevelCost() => Mathf.CeilToInt(_baseCost * Mathf.Pow(_costMultiplier, _level));
 }
+
 public class SurgeryManager : Singleton<SurgeryManager>
 {
     protected override bool IsPersistent => true;
 
-    [Header("Surgery Room State")]
-    public SurgeryRoomState _currentState = SurgeryRoomState.Idle;
-
-    [Header("Player Money")]
+    [Header("Setting")]
     public PlayerManager _playerManager;
 
-    [Header("Available Surgeries")]
-    public List<Surgery> _availableSurgeries;
+    [Header("Current State")]
+    public SurgeryRoomState _currentState = SurgeryRoomState.Idle;
+    public StatType _currentStatType = StatType.Balanced;
 
-    [Header("Selected Surgery")]
-    private Surgery _selectedSurgery;
+    private Dictionary<StatType, StatTypeData> _statData = new Dictionary<StatType, StatTypeData>();
+    private StatType _selectedType;
 
-    [Header("Surgery History")]
-    public Dictionary<SurgeryType, int> _surgeryCount = new Dictionary<SurgeryType, int>();
-
-    private Dictionary<SurgeryType, System.Action<float>> _statModifiers;
-
-    //수술실 이벤트들
-    public event Action<SurgeryRoomState> _surgeryRoomStateChanged;
-    public event Action<Surgery> _surgerySelected;
-    public event Action<Surgery> _surgeryCompleted;
-    public event Action<string> _surgeryFailed;
-
+    public event Action<StatType, int> _OnStatTypeChanged;
+    public event Action<StatType, int> _OnStatUpgraded;
+    public event Action<string> _OnOperationFailed;
 
     protected override void Awake()
     {
         base.Awake();
-
-        InitializeSurgery();
-        InitializeSurgeryCount();
-
-        InitializeStatModifiers();
+        InitializeStatData();
     }
 
-    void InitializeSurgery()
+    void InitializeStatData()
     {
-        //스텟 증가량 설정
-        _availableSurgeries = new List<Surgery>
-        {
-            new Surgery(SurgeryType.Health, 100, 20f),
-            new Surgery(SurgeryType.MoveSpeed, 150, 0.5f),
-            new Surgery(SurgeryType.DashCount, 200, 1f),
-            new Surgery(SurgeryType.DashDistance, 250, 1f)
-        };
+        // 초기 스탯 데이터 설정
+        _statData[StatType.Offensive] = new StatTypeData(StatType.Offensive, 100, 1.5f);
+        _statData[StatType.Defensive] = new StatTypeData(StatType.Defensive, 100, 1.5f);
+        _statData[StatType.Balanced] = new StatTypeData(StatType.Balanced, 100, 1.5f);
     }
 
-    void InitializeSurgeryCount()
+    #region State Management
+    void StateChange(SurgeryRoomState _state)
     {
-        foreach(SurgeryType type in Enum.GetValues(typeof(SurgeryType)))
-        {
-            _surgeryCount[type] = 0;
-        }
-    }
-
-    void InitializeStatModifiers()
-    {
-        _statModifiers = new Dictionary<SurgeryType, System.Action<float>>
-        {
-            { SurgeryType.Health, (modifier) => { PlayerStat.Instance.baseHealth += (int)modifier; PlayerStat.Instance.CurrentHealth += (int)modifier; } },
-            { SurgeryType.MoveSpeed, (modifier) => { PlayerStat.Instance.baseMoveSpeed += modifier; PlayerStat.Instance.CurrentMoveSpeed += modifier; } },
-            { SurgeryType.DashCount, (modifier) => { PlayerStat.Instance.baseDashCount += (int)modifier; PlayerStat.Instance.CurrentDashCount += (int)modifier; } },
-            { SurgeryType.DashDistance, (modifier) => { PlayerStat.Instance.baseDashDistance += modifier; PlayerStat.Instance.CurrentDashDistance += modifier; } }
-        };
-    }
-
-
-    #region FSM State
-
-    private void OnChangeState(SurgeryRoomState newState)
-    {
-        if(_currentState == newState)
-        {
+        if(_currentState == _state)
             return;
-        }
-        else
-        {
-            _currentState = newState;
-            _surgeryRoomStateChanged?.Invoke(_currentState);
-            Debug.Log($"수술실 상태 변경: {_currentState}");
-        }
+
+        _currentState = _state;
     }
 
-    void EnterSurgeryRoom()
-    {
-        OnChangeState(SurgeryRoomState.NPCInteraction);
-        Debug.Log("수술실에 입장했습니다.");
-    }
+    public void EnterSurgeryRoom() => StateChange(SurgeryRoomState.SurgerySelect);
+    public void ExitSurgeryRoom() => StateChange(SurgeryRoomState.Idle);
 
-    public bool SelectSurgery(SurgeryType surgeryType)
+    #endregion
+
+    #region Type Change
+
+    public bool SelectTypeChange(StatType _type)
     {
-        if (_currentState != SurgeryRoomState.SurgerySelect)
+        if(_currentState != SurgeryRoomState.SurgerySelect)
         {
-            Debug.LogWarning("현재 수술실에서 수술을 선택할 수 없습니다.");
+            _OnOperationFailed?.Invoke("Cannot change type in current state.");
             return false;
         }
 
-        Surgery surgery = _availableSurgeries.Find(s => s._surgeryType == surgeryType);
-        if (surgery == null)
-        {
-            Debug.LogWarning("선택한 수술이 유효하지 않습니다.");
-            return false;
-        }
+        _selectedType = _type;
 
-        _selectedSurgery = surgery;
-        OnChangeState(SurgeryRoomState.SurgeryConfirm);
-        _surgerySelected?.Invoke(_selectedSurgery);
+        int _cost = _statData[_type]._baseCost;
 
-        Debug.Log($"수술이 선택되었습니다: {_selectedSurgery._surgeryType} ({_selectedSurgery._upgradeCost}) 원");
+        StateChange(SurgeryRoomState.SurgeryConfirm);
 
         return true;
     }
 
-    public bool ConfirmSurgery()
+    public bool ConfirmTypeChange()
     {
-        //예외 처리
-        if (_currentState != SurgeryRoomState.SurgeryConfirm)
+        if(_currentState != SurgeryRoomState.SurgeryConfirm)
         {
-            Debug.LogWarning("현재 수술을 확인할 수 없습니다.");
+            _OnOperationFailed?.Invoke("Cannot confirm type change in current state.");
             return false;
         }
 
-        if (_selectedSurgery == null)
+        int _cost = _statData[_selectedType]._baseCost;
+
+        if(_playerManager.GetHoldCoins() < _cost)
         {
-            Debug.LogWarning("선택된 수술이 없습니다.");
-            OnChangeState(SurgeryRoomState.SurgerySelect);
+            _OnOperationFailed?.Invoke("비용 부족.");
             return false;
         }
 
-        if (_playerManager.GetHoldCoins() < _selectedSurgery._upgradeCost)
-        {
-            string message = "수술 비용이 부족합니다.";
-            _surgeryFailed?.Invoke(message);
-            Debug.LogWarning(message);
-            return false;
-        }
-
-
-        ExcuteSurgery(_selectedSurgery);
+        ExcuteTypeChange(_selectedType, _cost);
         return true;
     }
 
-    private void ExcuteSurgery(Surgery surgery)
+    void ExcuteTypeChange(StatType _type, int _cost)
     {
-        if (PlayerStat.Instance == null)
+        RemoveCurrentTypeEffects();
+
+        _playerManager.MinusHoldCoins(_cost);
+
+        _currentStatType = _type;
+        ApplyTypeEffects(_type, 0);
+
+        StateChange(SurgeryRoomState.SurgeryComplete);
+        _OnStatTypeChanged?.Invoke(_type, _cost);
+    }
+
+    #endregion
+
+    #region Stat Application
+
+    void RemoveCurrentTypeEffects()
+    {
+        Debug.Log("Removing effects of " + _currentStatType);
+    }
+
+    void ApplyTypeEffects(StatType _type, int _level)
+    {
+        PlayerStat _stat = PlayerStat.Instance;
+
+        if(_stat == null)
         {
-            Debug.LogError("플레이어 스탯이 할당되지 않았습니다.");
-            OnChangeState(SurgeryRoomState.SurgerySelect);
+            Debug.LogError("PlayerStat이 없습니다.");
             return;
         }
 
-        //스텟 설정
-        ApplyStatsModification(_selectedSurgery);
+        //보너스 개념(아마 없을 듯 싶다)
+        //float _levelBonus = level * 0.1f; // 레벨당 10% 증가
 
-        //비용 차감
-        _playerManager.MinusHoldCoins(surgery._upgradeCost);
-
-        //기록
-        _surgeryCount[surgery._surgeryType]++;
-
-        //완료 상태 전환
-        OnChangeState(SurgeryRoomState.SurgeryComplete);
-        _surgeryCompleted?.Invoke(surgery);
-
-        Debug.Log($"수술이 완료되었습니다: {surgery._surgeryType}");
-    }
-
-    #endregion
-
-    #region Stat  Modification
-
-    private void ApplyStatsModification(Surgery surgery)
-    {
-        if(_statModifiers.TryGetValue(surgery._surgeryType, out var modifyAction))
+        //타입 별로 스텟 적용
+        switch (_type)
         {
-            modifyAction(surgery._statModifier);
-            Debug.Log($"{surgery._surgeryType} 스탯이 {surgery._statModifier}만큼 증가했습니다.");
-        }
-        else
-        {
-            Debug.LogWarning("해당 수술 타입에 대한 스탯 수정 함수가 없습니다.");
+            case StatType.Offensive:
+                ApplyOffensiveType(_stat);
+                Debug.Log("Applied Offensive effects.");
+                break;
+            case StatType.Defensive:
+                ApplyDefensiveType(_stat);
+                break;
+            case StatType.Balanced:
+                ApplyBalancedType(_stat);
+                Debug.Log("Applied Balanced effects.");
+                break;
         }
     }
 
-    #endregion
-
-    #region Getter
-
-    public List<Surgery> GetAvailableSurgeries()
+    void ApplyOffensiveType(PlayerStat _stat)
     {
-        return new List<Surgery>(_availableSurgeries);
+        //float _attackBounus = 1.3f;
+        float _defenseBonus = Mathf.Lerp(0.8f, 0.9f, 1f);
+        float _moveSpeedBonus = 1.1f;
+
+        _stat.baseHealth = Mathf.RoundToInt(_stat.baseHealth * _defenseBonus);
+        _stat.baseMoveSpeed *= _moveSpeedBonus;
+
+        Debug.Log("공격 스텟 적용.");
+    }
+
+    void ApplyDefensiveType(PlayerStat _stat)
+    {
+        //float _attackBounus = Mathf.Lerp(0.8f, 0.9f, 1f);
+        float _defenseBonus = 1.3f;
+        float _moveSpeedBonus = 0.9f;
+        float _additionalHealthBonus = 50f;
+
+        _stat.baseHealth = Mathf.RoundToInt(_stat.baseHealth * _defenseBonus + _additionalHealthBonus);
+        _stat.baseMoveSpeed *= _moveSpeedBonus;
+
+
+        Debug.Log("방어 스텟 적용.");
+    }
+
+    void ApplyBalancedType(PlayerStat _stat)
+    {
+        float _baseBonus = 1.1f;
+        float _moveSpeedBonus = 1.0f;
+
+        _stat.baseHealth = Mathf.RoundToInt(_stat.baseHealth * _baseBonus);
+        _stat.baseMoveSpeed *= _moveSpeedBonus;
+
+        _stat.baseDashCount = Mathf.RoundToInt(_stat.baseDashCount * _baseBonus);
+
+
+        Debug.Log("밸런스 스텟 적용.");
     }
 
     #endregion
 }
-
