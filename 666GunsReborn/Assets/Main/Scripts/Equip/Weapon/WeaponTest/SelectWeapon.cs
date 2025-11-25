@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.UI;
+using Weapon;
 
 public class SelectWeapon : MonoBehaviour
 {
@@ -14,7 +15,7 @@ public class SelectWeapon : MonoBehaviour
         weaponTypeDropdowns[0].value = (int)WeaponType.Pistol;
         //weaponTypeDropdowns[1].value = (int)WeaponType.Rifle;
 
-        WeaponManager.Instance.Initialized((int)WeaponType.Pistol);
+        //WeaponManager.Instance.Initialized((int)WeaponType.Pistol);
 
         // Add listeners to handle changes
         weaponTypeDropdowns[0].onValueChanged.AddListener(OnWeapon1TypeChanged);
@@ -24,7 +25,7 @@ public class SelectWeapon : MonoBehaviour
     private void OnWeapon1TypeChanged(int index)
     {
         WeaponType selectedType = (WeaponType)index;
-        WeaponManager.Instance.Initialized((int)selectedType);
+        //WeaponManager.Instance.Initialized((int)selectedType);
     }
 
     private void OnWeapon2TypeChanged(int index)

@@ -1,18 +1,7 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
-<<<<<<<< HEAD:666GunsReborn/Assets/Main/Shader Graph.meta
 guid: 6d02225d42b66ec4a91781978ed196c9
 folderAsset: yes
 DefaultImporter:
-========
-guid: e83c1ecb815571841972f9551ed52eca
-PrefabImporter:
->>>>>>>> origin/main:666GunsReborn/Assets/Main/Scene/Stage 3/Stage_3 Map.prefab.meta
-=======
-guid: 6d02225d42b66ec4a91781978ed196c9
-folderAsset: yes
-DefaultImporter:
->>>>>>> origin/main
   externalObjects: {}
   userData: 
   assetBundleName: 

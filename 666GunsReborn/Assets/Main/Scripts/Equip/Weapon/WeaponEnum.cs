@@ -1,4 +1,4 @@
-namespace Weapons
+namespace Weapon
 {
     public enum WeaponType
     {

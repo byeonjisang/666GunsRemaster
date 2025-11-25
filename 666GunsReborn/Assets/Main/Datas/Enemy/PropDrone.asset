@@ -9,14 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3393d5dd872ab074e9c496387378a1ff, type: 3}
+  m_Script: {fileID: 11500000, guid: d49cc21685c54304a96e51c983dab92d, type: 3}
   m_Name: PropDrone
   m_EditorClassIdentifier: 
   charaterName: Prop Drone
   health: 50
-  moveSpeed: 3
+  moveSpeed: 2
   attackType: 1
-  attackStrategy: {fileID: 11400000, guid: 981f514fa51dca84f8b6c540ab6744cf, type: 2}
+  attackStrategy: {fileID: 11400000, guid: 06780001e86084d4f9a07b2f2519c11d, type: 2}
   weaponPrefab: {fileID: 0}
   attackPower: 10
   attackSpeed: 2

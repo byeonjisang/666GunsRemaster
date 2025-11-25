@@ -1,63 +1,60 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
+using UnityEngine.AddressableAssets;
 using UnityEngine;
-using Weapons;
+using System.Collections.Generic;
+using System.Collections;
+using System.Threading.Tasks;
+using System;
 
-public class WeaponLoader : MonoBehaviour
+namespace Weapon
 {
-    [SerializeField]
-    private Transform weaponParent;
-
-    // 과거에 사용된 코드(지울 예정)
-    public Weapon LoadWeapon(int index, WeaponType weaponType)
+    public class WeaponLoader : MonoBehaviour
     {
-        GameObject weaponPrefab = Resources.Load<GameObject>($"Weapons/{weaponType}");
+        // 무기 프리팹 주소 참조 리스트
+        [SerializeField]
+        private List<AssetReferenceGameObject> weaponPrefabs;
+
+        // 무기 프리팹을 소환해야할 위치(플레이어 손)
+        [SerializeField]
+        private Transform weaponParent;
         
-        if (weaponPrefab != null)
+        // Addressables 초기화
+        private void Start()
         {
-            GameObject weaponInstance = Instantiate(weaponPrefab, weaponParent);
-            weaponInstance.name = weaponType.ToString();
+            StartCoroutine(InitAddressable());
+        }
+        // Addressables 초기화 코루틴
+        private IEnumerator InitAddressable()
+        {
+            var init = Addressables.InitializeAsync();
+            yield return init;
+        }
 
-            Weapon weaponComponent = weaponInstance.GetComponent<Weapon>();
-            weaponComponent.Initialized(index, weaponType);
-
-            if (index != 0)
+        /// <summary>
+        /// 무기 프리팹을 생성하는 메서드
+        /// </summary>
+        /// <param name="index"></param>
+        /// <param name="weaponID"></param>
+        public void LoadWeapon(int index, WeaponID weaponID, Action<IWeapon> onWeaponLoaded)
+        {
+            // Addressables를 통해 무기 프리팹 로드 및 인스턴스화
+            weaponPrefabs[(int)weaponID].InstantiateAsync(weaponParent).Completed += (obj) =>
             {
+                // 인스턴스화된 무기 프리팹 가져오기
+                GameObject weaponInstance = obj.Result;
+                weaponInstance.name = weaponID.ToString();
+
+                // 무기 컴포넌트 초기화
+                IWeapon weaponComponent = weaponInstance.GetComponent<IWeapon>();
+                weaponComponent.Init(index, weaponID);
+
+                // 무기 비활성화(장착 중인 무기만 활성화)
                 weaponInstance.SetActive(false);
-            }
+                if(index == 0)
+                    weaponInstance.SetActive(true); 
 
-            return weaponComponent;
-        }
-        else
-        {
-            Debug.LogError($"Weapon prefab for {weaponType} not found in Resources/Weapons.");
-            return null;
-        }
-    }
-
-    // 무기 리펙토링 버전
-    public IWeapon LoadWeapon(int index, WeaponID weaponID)
-    {
-        GameObject weaponPrefab = Resources.Load<GameObject>($"Weapons/{weaponID}");
-        Debug.Log(weaponPrefab);
-        if (weaponPrefab != null)
-        {
-            Debug.Log("Load Weapon : " + weaponID);
-            GameObject weaponInstance = Instantiate(weaponPrefab, weaponParent);
-            weaponInstance.name = weaponID.ToString();
-
-            IWeapon weaponComponent = weaponInstance.GetComponent<IWeapon>();
-            weaponComponent.Initialization(index, weaponID);
-
-            weaponInstance.SetActive(false);
-
-            return weaponComponent;
-        }
-        else
-        {
-            Debug.LogError($"Weapon Prefab for {weaponID} not found in Resources/Weapons.");
-            return null;
+                // 콜백 호출
+                onWeaponLoaded?.Invoke(weaponComponent);
+            };
         }
     }
 }

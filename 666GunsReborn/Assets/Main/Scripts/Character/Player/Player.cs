@@ -35,11 +35,15 @@ namespace Character.Player
         [Header("Player Channel")]
         [SerializeField] private PlayerChannel playerChannel;
 
+        // 무기 매니저
+        public Weapon.WeaponManager WeaponManager { get; private set; }
+
         // 입력 방향
         public Vector3 InputDirection { get; private set; }
         
         private void Start()
         {
+            // TODO: 임시 플레이어 타임 설정, 나중에 변경 필요
             Init(PlayerType.Attack);
         }
 
@@ -51,6 +55,10 @@ namespace Character.Player
         public void Init(PlayerType playerType)
         {
             // 플레이어 필요 컴포넌트 추가
+            WeaponManager = new Weapon.WeaponManager();
+            // 무기 매니저 임시 초기화
+            // TODO: 나중에 무기 선택하는 기능 따로 구현해야함
+            WeaponManager.Init(Weapon.WeaponID.Pistol_Slide, Weapon.WeaponID.Revolver);
             StateContext = new PlayerStateContext(this);
             Stat = new PlayerStats();
             Scanner = new EnemyScanner(this);
@@ -69,8 +77,7 @@ namespace Character.Player
             // 초기 상태 설정
             StateContext.TransitionTo(StateContext.IdleState);
 
-            // 애니메이션 초기화
-            // TODO:: 왜 하는지 모름. 찾아보고 다시 주석 풀기
+            // 애니메이션으로 인한 이동 방지
             Anim.applyRootMotion = false;
         }
 
@@ -81,6 +88,7 @@ namespace Character.Player
             playerChannel.OnFirePointerDown += AttackSystem.RequestAttack;
             playerChannel.OnFirePointerUp += AttackSystem.CancelAttackRequest;
             playerChannel.OnDashCommand += OnDash;
+            playerChannel.OnChangedWeaponCommand += WeaponManager.SwitchWeapon;
         }
 
         // Player 사라지면 실행되는 메서드
@@ -91,6 +99,7 @@ namespace Character.Player
             playerChannel.OnFirePointerDown -= AttackSystem.RequestAttack;
             playerChannel.OnFirePointerUp -= AttackSystem.CancelAttackRequest;
             playerChannel.OnDashCommand -= OnDash;
+            playerChannel.OnChangedWeaponCommand -= WeaponManager.SwitchWeapon;
         }
         #endregion
 

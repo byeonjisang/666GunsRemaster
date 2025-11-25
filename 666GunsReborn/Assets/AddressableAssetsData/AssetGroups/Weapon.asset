@@ -1,0 +1,75 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Weapon
+  m_EditorClassIdentifier: 
+  m_GroupName: Weapon
+  m_Data:
+    m_SerializedData: []
+  m_GUID: e47476598d541a8459fb4419e3e757c6
+  m_SerializeEntries:
+  - m_GUID: 0d2ffd8c8beaa0243800c26726ec4f07
+    m_Address: Shotgun_Plasma_02
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 18c224385e6bc3246aca537839c42192
+    m_Address: Shotgun_Plasma_01
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 24ef8af6f7edc4d4597c33dcfe59d886
+    m_Address: Sniper_Plasma
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 662c9f27a56baec4da48cb0f011c7da4
+    m_Address: Rifle_Base
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 82ead264cd9bb4f47b8a9558c1d6ec30
+    m_Address: Sniper_Base
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8718d8929506a3248ba07be0084e7858
+    m_Address: Rifle_Small
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c713fdf03c3a22545afefa8db0295dbb
+    m_Address: Rifle_Laser
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d5697a8443e7a5546888062b938b4b12
+    m_Address: Shotgun_Base
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ee5d34ee9cdf14442a9bfa629d249fa2
+    m_Address: Pistol_Slide
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ff55832caee95d64db24fa5ce4d39aca
+    m_Address: Revolver
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 58f92b348de6e734e9d0e04e18d42bea, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 06c8ecfcfee459b489a90dfecd433851, type: 2}
+    - {fileID: 11400000, guid: 01d9fee9e13e00143b244fa6bf33412d, type: 2}

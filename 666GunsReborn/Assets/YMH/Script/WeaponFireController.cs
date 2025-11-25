@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
 
-namespace Weapons
+namespace Weapon
 {
     public class WeaponFireController : MonoBehaviour
     {
@@ -27,7 +27,7 @@ namespace Weapons
         {
             for (int i = 0; i < weapons.Count; i++)
             {
-                weapons[i].GetComponent<IWeapon>().Initialization(0, (WeaponID)i);
+                //weapons[i].GetComponent<IWeapon>().Initialization(0, (WeaponID)i);
             }
         }
 
@@ -46,7 +46,7 @@ namespace Weapons
 
         public void FireWeapon()
         {
-            weapons[index].GetComponent<IWeapon>().Fire();
+            //weapons[index].GetComponent<IWeapon>().Fire();
         }
 
         public void StopFireWeapon()
@@ -136,15 +136,6 @@ namespace Weapons
                     if (hitInfo.collider.tag == "Enemy")
                     {
                         Debug.Log("Hit Enemy: " + hitInfo.collider.name);
-<<<<<<< HEAD
-<<<<<<< HEAD
-                        hitInfo.collider.GetComponent<Enemy.Enemy>().TakeDamage(50);
-=======
-                        hitInfo.collider.GetComponent<Character.Enemy.Enemy>().TakeDamage(50);
->>>>>>> origin/main
-=======
-                        hitInfo.collider.GetComponent<Character.Enemy.Enemy>().TakeDamage(50);
->>>>>>> origin/main
                     }
                         
                 }

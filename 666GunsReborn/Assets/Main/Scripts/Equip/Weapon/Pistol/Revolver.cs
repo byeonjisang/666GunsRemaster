@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Weapons
+namespace Weapon
 {
-    public class Revolver : Pistols
+    public class Revolver : PistolBase
     {
-        protected override void PlayWeaponSound()
+        protected override void PlayFireSound()
         {
-            base.PlayWeaponSound();
+            base.PlayFireSound();
             // Play revolver fire sound here
             Debug.Log("Revolver fire sound played");
             //SoundManagers.Instance.PlayOneShot(SFX.Reveolver_Fire, transform.position);

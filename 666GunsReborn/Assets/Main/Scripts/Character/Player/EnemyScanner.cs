@@ -22,7 +22,6 @@ namespace Character.Player
             //범위 안에 있는 모든 오브젝트 탐색
             RaycastHit[] hit = Physics.SphereCastAll(_player.transform.position, _distance, _player.transform.forward, 0);
 
-            Debug.Log($"[EnemyScanner] Detected {hit.Length} objects.");
             foreach (RaycastHit h in hit)
             {
                 switch (h.collider.tag)

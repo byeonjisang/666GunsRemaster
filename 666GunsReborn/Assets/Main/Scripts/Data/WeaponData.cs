@@ -16,7 +16,7 @@ public class WeaponData : ScriptableObject
     // 무게
     public float weight;
     // 무기 타입
-    public Weapons.WeaponType weaponType;
+    public Weapon.WeaponType weaponType;
     // 탄알 개수
     public int maxMagazine;
     // 재장전 속도

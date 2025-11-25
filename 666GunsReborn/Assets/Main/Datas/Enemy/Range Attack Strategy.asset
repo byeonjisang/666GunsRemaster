@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 560fd9b46c63f7d4cbe77b7876b017b7, type: 3}
+  m_Script: {fileID: 11500000, guid: 0950178142660154f8a89086ba97ab2d, type: 3}
   m_Name: Range Attack Strategy
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 6152012165266093810, guid: 11de8901a0ccc984290842589de56204,

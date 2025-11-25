@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
-using Weapons;
+using Weapon;
 
 public class TypeSelectionManager : MonoBehaviour
 {
@@ -47,12 +47,12 @@ public class TypeSelectionManager : MonoBehaviour
 
         // 여기부터는 드롭다운 선택 시 잠금되는 기능 구현(못해서 나중으로 미룸)
         // Default 무기들로 설정
-        //OnWeaponTypeChange(0, (int)WeaponID.Pistol_Slide);
-        //OnWeaponTypeChange(1, (int)WeaponID.Revolver);
+        OnWeaponTypeChange(0, (int)WeaponID.Pistol_Slide);
+        OnWeaponTypeChange(1, (int)WeaponID.Revolver);
 
         // 드롭다운 값 변경 리스너 등록
-        //weaponTypeDropdowns[0].onValueChanged.AddListener(value => OnWeaponTypeChange(0, value));
-        //weaponTypeDropdowns[1].onValueChanged.AddListener(value => OnWeaponTypeChange(1, value));
+        weaponTypeDropdowns[0].onValueChanged.AddListener(value => OnWeaponTypeChange(0, value));
+        weaponTypeDropdowns[1].onValueChanged.AddListener(value => OnWeaponTypeChange(1, value));
     }
 
     private void OnWeaponTypeChange(int value)
@@ -125,8 +125,8 @@ public class TypeSelectionManager : MonoBehaviour
         //PlayerManager.Instance.InitializePlayer(playerObject);
         //Player.PlayerManager.Instance.SetPlayerType((Character.Player.PlayerType)playerTypeDropdown.value);
 
-        //WeaponManager.Instance.Initialized(weapon1TypeDropdown.value, weapon2TypeDropdown.value);
-        WeaponManager1.Instance.Initialization(weaponTypeDropdowns[0].value, weaponTypeDropdowns[1].value);
+        //WeaponManager.Instance.Initialized(weaponTypeDropdowns[0].value, weaponTypeDropdowns[1].value);
+        //WeaponManager.Instance.Initialization(weaponTypeDropdowns[0].value, weaponTypeDropdowns[1].value);
 
         typeSelectionPanel.SetActive(false);
     }

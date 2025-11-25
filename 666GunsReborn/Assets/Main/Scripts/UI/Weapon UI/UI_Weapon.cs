@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using Weapon;
 
 public class UI_Weapon : MonoBehaviour
 {
@@ -53,17 +54,17 @@ public class UI_Weapon : MonoBehaviour
     // 메인 무기와 서브 부기 UI 변경
     public void SwitchWeapon()
     {
-        weaponUI[WeaponManager.Instance.CurrentWeaponIndex].transform.SetAsLastSibling();
+        //weaponUI[WeaponManager.Instance.CurrentWeaponIndex].transform.SetAsLastSibling();
 
         // 메인 무기랑 서브 무기 UI를 서로 바꿔줌
         // 위치 변경
-        Vector3 subBackgroundPosition = weaponUI[WeaponManager.Instance.CurrentWeaponIndex].transform.position;
-        weaponUI[WeaponManager.Instance.CurrentWeaponIndex].transform.position = weaponUI[1 - WeaponManager.Instance.CurrentWeaponIndex].transform.position;
-        weaponUI[1 - WeaponManager.Instance.CurrentWeaponIndex].transform.position = subBackgroundPosition;
+        // Vector3 subBackgroundPosition = weaponUI[WeaponManager.Instance.CurrentWeaponIndex].transform.position;
+        // weaponUI[WeaponManager.Instance.CurrentWeaponIndex].transform.position = weaponUI[1 - WeaponManager.Instance.CurrentWeaponIndex].transform.position;
+        // weaponUI[1 - WeaponManager.Instance.CurrentWeaponIndex].transform.position = subBackgroundPosition;
 
-        // 배경 색상 변경
-        Color subBackgroundColor = weaponUI[WeaponManager.Instance.CurrentWeaponIndex].GetComponent<Image>().color;
-        weaponUI[WeaponManager.Instance.CurrentWeaponIndex].GetComponent<Image>().color = weaponUI[1 - WeaponManager.Instance.CurrentWeaponIndex].GetComponent<Image>().color;
-        weaponUI[1 - WeaponManager.Instance.CurrentWeaponIndex].GetComponent<Image>().color = subBackgroundColor;
+        // // 배경 색상 변경
+        // Color subBackgroundColor = weaponUI[WeaponManager.Instance.CurrentWeaponIndex].GetComponent<Image>().color;
+        // weaponUI[WeaponManager.Instance.CurrentWeaponIndex].GetComponent<Image>().color = weaponUI[1 - WeaponManager.Instance.CurrentWeaponIndex].GetComponent<Image>().color;
+        // weaponUI[1 - WeaponManager.Instance.CurrentWeaponIndex].GetComponent<Image>().color = subBackgroundColor;
     }
 }
