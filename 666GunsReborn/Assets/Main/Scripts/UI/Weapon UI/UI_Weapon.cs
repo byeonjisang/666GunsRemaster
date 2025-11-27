@@ -16,6 +16,9 @@ public class UI_Weapon : MonoBehaviour
     [SerializeField]
     private Slider[] weaponReloadSlider = new Slider[2];
 
+    [SerializeField]
+    private Text weaponChangeCooldownText;
+
     private void Awake()
     {
         WeaponUIEvents.OnUpdateBulletUI += UpdateBulletUI;

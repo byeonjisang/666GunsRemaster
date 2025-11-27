@@ -24,9 +24,23 @@ public class PlayerChannel : ScriptableObject
     public event Action OnChangedWeaponCommand;
     public void SendChangedWeaponCommand() => OnChangedWeaponCommand?.Invoke();
     #endregion
-
+    
     #region Player -> UI
     // 무기 변경
+    public event Action<int> OnWeaponChanged;
+    public void SendWeaponChanged(int weaponIndex) => OnWeaponChanged?.Invoke(weaponIndex);
+    
+    // 무기 변경 쿨타임
+    public event Action<float> OnChangedWeaponCooldown;
+    public void SendChangedWeaponCooldown(float cooldownTime) => OnChangedWeaponCooldown?.Invoke(cooldownTime);
+
+    // 무기 발사
+    public event Action<int, int> OnUpdateBullet;
+    public void SendUpdateBullet(int maxMagazine, int currentMagazine) => OnUpdateBullet?.Invoke(maxMagazine, currentMagazine);
+
+    // 무기 재장전 시간표시
+    public event Action<float, float> OnReloadTime;
+    public void SendReloadTime(float maxReloadTime, float currentReloadTime) => OnReloadTime?.Invoke(maxReloadTime, currentReloadTime);
 
     #endregion
 }

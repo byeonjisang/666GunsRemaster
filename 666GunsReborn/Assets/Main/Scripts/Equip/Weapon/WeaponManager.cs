@@ -4,8 +4,10 @@ using Unity.Mathematics;
 
 namespace Weapon
 {
-    public class WeaponManager : MonoBehaviour
+    public class WeaponManager
     {
+        private PlayerChannel _playerChannel;
+
         // 현재 소지 중인 무기들
         private IWeapon[] equipedWeapons = new IWeapon[2];
         // 현재 장착 중인 무기 인덱스
@@ -28,6 +30,11 @@ namespace Weapon
                     return false;
                 return currentWeapon.IsFiring;
             }
+        }
+
+        public WeaponManager(PlayerChannel playerChannel)
+        {
+            _playerChannel = playerChannel;
         }
 
         // WeaponManager 초기화
@@ -80,7 +87,7 @@ namespace Weapon
         {
             if (currentChangeTime > 0)
             {
-                Debug.Log("무기 교체 쿨타임");
+                Debug.Log($"무기 교체 쿨타임 : {currentChangeTime:F2}초 남음");
                 return;
             }
 
@@ -89,26 +96,26 @@ namespace Weapon
             currentWeaponIndex = 1 - currentWeaponIndex.Value;
             equipedWeapons[currentWeaponIndex.Value].GameObject.SetActive(true);
 
+            // ui 업데이트 이벤트 발생
+            _playerChannel.SendWeaponChanged(currentWeaponIndex.Value);
+
             // 교체 쿨타임 적용
             currentChangeTime = changeCooldown;
         }
 
         /// <summary>
-        /// 현재 무기 타입 변환
+        /// WeaponManager 업데이트
         /// </summary>
-        /// <returns></returns>
-        public WeaponType GetCurrentWeaponType()
-        {
-            return WeaponType.Pistol;
-            //return currentWeapon.GetWeaponType();
-        }
-
-        // 변경 쿨타임 타이머 업데이트
-        private void Update()
+        public void Update()
         {
             if (currentChangeTime > 0)
             {
                 currentChangeTime -= Time.deltaTime;
+                if (currentChangeTime < 0)
+                    currentChangeTime = 0;
+                
+                // 교체 쿨타임 UI 업데이트 이벤트
+                _playerChannel.SendChangedWeaponCooldown(currentChangeTime);
             }
         }
     }    

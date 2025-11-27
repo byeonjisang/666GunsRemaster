@@ -6,6 +6,8 @@ namespace Weapon
 {
     public class WeaponStat
     {
+        private WeaponBase _weaponBase;
+
         // 무기 인덱스
         private int _index;
 
@@ -44,8 +46,10 @@ namespace Weapon
         public float BulletSpeed => _bulletSpeed;
 
         // 무기 스탯 초기화
-        public WeaponStat(int index, WeaponData weaponData)
+        public WeaponStat(WeaponBase weaponBase, int index, WeaponData weaponData)
         {
+            _weaponBase = weaponBase;
+
             _index = index;
             _weaponSprite = weaponData.weaponSprite;
             _weaponName = weaponData.weaponName;
@@ -61,6 +65,8 @@ namespace Weapon
             _currentMagazine = _maxMagazine;
             _currentReloadTime = 0f;
             _fireCooldown = 0f;
+
+            _weaponBase.PlayerChannel.SendUpdateBullet(_maxMagazine, _currentMagazine);
         }
 
         // 무기 스텟 업데이트
@@ -70,9 +76,12 @@ namespace Weapon
             if (_currentReloadTime > 0)
             {
                 _currentReloadTime -= Time.deltaTime;
-                WeaponUIEvents.OnUpdateReloadSlider?.Invoke(_index, _reloadTime, _currentReloadTime);
+                _weaponBase.PlayerChannel.SendReloadTime(_reloadTime, _currentReloadTime);
+
                 if (_currentReloadTime <= 0)
                 {
+                    _currentReloadTime = 0; 
+                    _weaponBase.PlayerChannel.SendReloadTime(_reloadTime, _currentReloadTime);
                     Reload();
                 }
             }
@@ -112,6 +121,7 @@ namespace Weapon
         public void Fire()
         {
             _currentMagazine--;
+            _weaponBase.PlayerChannel.SendUpdateBullet(_maxMagazine, _currentMagazine);
             _fireCooldown = 1.0f / _fireSpeed;
             if (_currentMagazine <= 0)
             {
@@ -123,7 +133,7 @@ namespace Weapon
         private void Reload()
         {
             _currentMagazine = _maxMagazine;
-            WeaponUIEvents.OnUpdateBulletUI?.Invoke(_index, _maxMagazine, _currentMagazine);
+            _weaponBase.PlayerChannel.SendUpdateBullet(_maxMagazine, _currentMagazine);
         }
     }   
 }

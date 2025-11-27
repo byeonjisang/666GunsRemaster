@@ -5,6 +5,12 @@ namespace Weapon
 {
     public class WeaponBase : MonoBehaviour, IWeapon
     {
+        // 플레이어의 무기 관련 UI 전달자
+        [Header("Player Channel")]
+        [SerializeField] private PlayerChannel playerChannel;
+        public PlayerChannel PlayerChannel => playerChannel;
+
+
         // 무기 데이터
         [Header("Weapon Data")]
         [SerializeField] protected WeaponData weaponData;
@@ -33,7 +39,7 @@ namespace Weapon
         {
             // 무기 데이터 로드
             // TODO: Resources.Load 성능이 않좋아서 Addressables로 변경 필요
-            WeaponStat = new WeaponStat(index, weaponData);
+            WeaponStat = new WeaponStat(this, index, weaponData);
         }
         #endregion
 

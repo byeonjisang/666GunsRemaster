@@ -27,7 +27,7 @@ public class PlayerPresenter
         _moveJoystickView = moveJoystickView;
         _weaponView = weaponView;
 
-        // 이벤트 등록
+        // UI -> Player 이벤트 등록
         // 이동
         _moveJoystickView.OnMove += playerChannel.SendMoveCommand;
         // 대쉬
@@ -37,13 +37,25 @@ public class PlayerPresenter
         _fireButtonView.OnFirePointerUp += _playerChannel.SendFirePointerUp;
         // 무기 변경
         _weaponView.OnClick += _playerChannel.SendChangedWeaponCommand;
+
+        // Player -> UI 이벤트 등록
+        // 무기 변경
+        _playerChannel.OnWeaponChanged += _weaponView.UpdateWeaponUI;
+        // 무기 변경 쿨타임
+        _playerChannel.OnChangedWeaponCooldown += _weaponView.UpdateWeaponChangeCooldown;
+        // 무기 총알 UI 업데이트
+        _playerChannel.OnUpdateBullet += _weaponView.UpdateWeaponBulletUI;
+        // 무기 재장전 시간표시 UI 업데이트
+        _playerChannel.OnReloadTime += _weaponView.UpdateWeaponReloadSlider;
     }
 
     // 씬 넘어갈 때 이벤트들 해체
     public void Dispose()
     {
+        _moveJoystickView.OnMove -= _playerChannel.SendMoveCommand;
         _dashButtonView.OnClick -= _playerChannel.SendDashCommand;
         _fireButtonView.OnFirePointerDown -= _playerChannel.SendFirePointerDown;
         _fireButtonView.OnFirePointerUp -= _playerChannel.SendFirePointerUp;
+        _weaponView.OnClick -= _playerChannel.SendChangedWeaponCommand;
     }
 }

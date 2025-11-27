@@ -55,7 +55,7 @@ namespace Character.Player
         public void Init(PlayerType playerType)
         {
             // 플레이어 필요 컴포넌트 추가
-            WeaponManager = new Weapon.WeaponManager();
+            WeaponManager = new Weapon.WeaponManager(playerChannel);
             // 무기 매니저 임시 초기화
             // TODO: 나중에 무기 선택하는 기능 따로 구현해야함
             WeaponManager.Init(Weapon.WeaponID.Pistol_Slide, Weapon.WeaponID.Revolver);
@@ -84,11 +84,15 @@ namespace Character.Player
         // 이벤트 등록
         private void AddEvent()
         {
+            // 입력 이벤트 등록
             playerChannel.OnMoveCommand += HandleInput;
             playerChannel.OnFirePointerDown += AttackSystem.RequestAttack;
             playerChannel.OnFirePointerUp += AttackSystem.CancelAttackRequest;
             playerChannel.OnDashCommand += OnDash;
             playerChannel.OnChangedWeaponCommand += WeaponManager.SwitchWeapon;
+
+            // 무기 변경 이벤트 등록
+            //playerChannel.OnWeaponChanged += WeaponManager.OnWeaponChanged;
         }
 
         // Player 사라지면 실행되는 메서드
@@ -112,6 +116,8 @@ namespace Character.Player
             Stat.DashCooldownUpdate();
             // 적 스캐너 업데이트
             Scanner.ScannerUpdate();
+            // WeaponManager 업데이트
+            WeaponManager.Update();
         }
         #endregion
 
