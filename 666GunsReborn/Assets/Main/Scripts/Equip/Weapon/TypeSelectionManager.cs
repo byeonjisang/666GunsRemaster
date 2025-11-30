@@ -18,7 +18,7 @@ public class TypeSelectionManager : MonoBehaviour
 
     private void Start()
     {
-        playerTypeDropdown.value = (int)Character.Player.PlayerType.Attack;
+        playerTypeDropdown.value = (int)Character.Player.PlayerType.DrifterFrame;
         playerTypeDropdown.onValueChanged.AddListener(OnPlayerTypeChanged);
 
         // 무기 선택지 초기화

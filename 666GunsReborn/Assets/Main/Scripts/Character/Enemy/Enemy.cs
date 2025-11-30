@@ -111,9 +111,9 @@ namespace Character.Enemy
         private void SetupWeaponAndMuzzle()
         {
             // 총기를 소지한 애
-            if (enemyData.weaponPrefab != null && weaponSocket != null)
+            if (enemyData.WeaponPrefab != null && weaponSocket != null)
             {
-                GameObject weapon = Instantiate(enemyData.weaponPrefab, transform);
+                GameObject weapon = Instantiate(enemyData.WeaponPrefab, transform);
                 weapon.transform.SetParent(weaponSocket);
                 weapon.transform.localPosition = Vector3.zero;
                 weapon.transform.localRotation = Quaternion.identity;

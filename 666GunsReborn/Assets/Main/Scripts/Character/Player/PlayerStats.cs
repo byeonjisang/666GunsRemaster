@@ -7,6 +7,8 @@ namespace Character.Player
         // 체력
         private float _baseHealth;
         private float _currentHealth;
+        // 외부에서 접근 가능한 현재 체력
+        public float CurrentHealth => _currentHealth;
 
         // 이동속도
         private float _baseMoveSpeed;
@@ -30,33 +32,45 @@ namespace Character.Player
         private float _baseDashCooldown;
         private float _currentDashCooldown;
         private float _dashCooldownTimer;
+        // 외부에서 접근 가능한 현재 대쉬 쿨타임
+        public float CurrentDashCooldown => _currentDashCooldown;
 
         /// <summary>
         /// 플레이어 스텟 초기화 메서드
         /// </summary>
         /// <param name="playerData"></param>
-        public void Init(PlayerData playerData)
+        public void Init(PlayerData playerData, PlayerTypeData playerTypeData)
         {
             // 체력 초기화
-            _baseHealth = playerData.health;
+            _baseHealth = playerData.Health;
+            // 레벨에 따른 체력 증가 적용
+            _baseHealth += _baseHealth * playerTypeData.PlayerLevelData[(int)playerTypeData.playerType].levelData[playerTypeData.level - 1].HealthIncreasePerLevel;
             _currentHealth = _baseHealth;
 
             // 이동속도 초기화
-            _baseMoveSpeed = playerData.moveSpeed;
+            _baseMoveSpeed = playerData.MoveSpeed;
+            // 레벨에 따른 이동속도 증가 적용
+            _baseMoveSpeed += _baseMoveSpeed * playerTypeData.PlayerLevelData[(int)playerTypeData.playerType].levelData[playerTypeData.level - 1].MoveSpeedIncreasePerLevel;
             _currentMoveSpeed = _baseMoveSpeed;
 
             // 대쉬 개수 초기화
-            _baseDashCount = playerData.dashCount;
+            _baseDashCount = playerData.DashCount;
             _currentDashCount = _baseDashCount;
 
             // 대쉬 거리 초기화
-            _baseDashDistance = playerData.dashDistance;
+            _baseDashDistance = playerData.DashDistance;
+            // 레벨에 따른 대쉬 거리 증가 적용
+            _baseDashDistance += _baseDashDistance * playerTypeData.PlayerLevelData[(int)playerTypeData.playerType].levelData[playerTypeData.level - 1].DashDistanceIncreasePerLevel;
             _currentDashDistance = _baseDashDistance;
 
             // 대쉬 쿨타임 초기화
-            _baseDashCooldown = playerData.dashCooldown;
+            _baseDashCooldown = playerData.DashCooldown;
+            // 레벨에 따른 대쉬 쿨타임 증가 적용
+            _baseDashCooldown += _baseDashCooldown * playerTypeData.PlayerLevelData[(int)playerTypeData.playerType].levelData[playerTypeData.level - 1].DashCooldownIncreasePerLevel;
             _currentDashCooldown = _baseDashCooldown;
             _dashCooldownTimer = 0f;
+
+            Debug.Log($"[PlayerStats] Initialized with Level {playerTypeData.level} - Health: {_currentHealth}, MoveSpeed: {_currentMoveSpeed}, DashDistance: {_currentDashDistance}, DashCooldown: {_currentDashCooldown}");
         }
 
         /// <summary>

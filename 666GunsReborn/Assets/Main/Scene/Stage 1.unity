@@ -10124,6 +10124,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e5d2750653f375498c58b18d8cf7c58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerData: {fileID: 11400000, guid: 8808706731d559142bce50c402dcab48, type: 2}
+  playerTypeData: {fileID: 11400000, guid: 712e8817d0bfd0c48980ef6f95b73db8, type: 2}
   playerChannel: {fileID: 11400000, guid: d704267dc3ab0d64580bbc915bf72729, type: 2}
 --- !u!4 &1614233158 stripped
 Transform:

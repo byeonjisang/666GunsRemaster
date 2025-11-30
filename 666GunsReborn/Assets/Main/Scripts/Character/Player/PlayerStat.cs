@@ -52,19 +52,19 @@ public class PlayerStat : Singleton<PlayerStat>
 
     public void Init(Character.Player.PlayerData playerData)
     {
-        baseHealth = playerData.health;
+        baseHealth = playerData.Health;
         CurrentHealth = baseHealth;
 
-        baseMoveSpeed = playerData.moveSpeed;
+        baseMoveSpeed = playerData.MoveSpeed;
         CurrentMoveSpeed = baseMoveSpeed;
 
-        baseDashCount = playerData.dashCount;
+        baseDashCount = playerData.DashCount;
         CurrentDashCount = baseDashCount;
 
-        baseDashDistance = playerData.dashDistance;
+        baseDashDistance = playerData.DashDistance;
         CurrentDashDistance = baseDashDistance;
 
-        dashCooldown = playerData.dashCooldown;
+        dashCooldown = playerData.DashCooldown;
         currentDashCooldown = 0.0f;
 
         //방어구 장착 이벤트 등록
