@@ -86,6 +86,14 @@ namespace Character.Player
             Anim.applyRootMotion = false;
         }
 
+        /// <summary>
+        /// 플레이어 타입 및 레벨 변경 메서드
+        /// </summary>
+        public void SwitchPlayerType()
+        {
+            Stat.Init(playerData, playerTypeData);
+        }
+
         // 이벤트 등록
         private void AddEvent()
         {
