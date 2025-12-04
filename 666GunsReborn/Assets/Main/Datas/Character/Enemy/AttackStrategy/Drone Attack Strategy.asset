@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02e05baa6274c7345b892d85e607f138, type: 3}
   m_Name: Drone Attack Strategy
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 6152012165266093810, guid: 11de8901a0ccc984290842589de56204,
+  bulletPrefab: {fileID: 4724720043867078303, guid: 6aaf3a158ef04a3458d15ad61439ec63,
     type: 3}

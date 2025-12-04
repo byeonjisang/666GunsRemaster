@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 4867804411804526}
   - component: {fileID: 33956180848211522}
   - component: {fileID: 23387873413692308}
+  - component: {fileID: 8110855767933544353}
   m_Layer: 0
-  m_Name: SM_Wep_Rifle_Plasma_03
+  m_Name: Character_Medical_Male_01_Range_Weapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -85,6 +86,21 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &8110855767933544353
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1394443505563386}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70364bbec9da67f4588d7b788fdf6d72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerChannel: {fileID: 0}
+  weaponData: {fileID: 0}
+  _bulletSpawnPoint: {fileID: 0}
 --- !u!1 &1578513250158568
 GameObject:
   m_ObjectHideFlags: 0

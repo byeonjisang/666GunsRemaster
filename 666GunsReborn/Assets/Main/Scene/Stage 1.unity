@@ -2251,6 +2251,11 @@ MonoBehaviour:
       type: 3}
     defaultCapacity: 0
     maxSize: 10
+  - tag: Bullet_Enemy
+    prefab: {fileID: 4724720043867078303, guid: 6aaf3a158ef04a3458d15ad61439ec63,
+      type: 3}
+    defaultCapacity: 0
+    maxSize: 10
 --- !u!1 &707757841
 GameObject:
   m_ObjectHideFlags: 0

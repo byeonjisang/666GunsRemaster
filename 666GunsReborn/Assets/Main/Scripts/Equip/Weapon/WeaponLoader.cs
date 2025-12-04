@@ -41,11 +41,10 @@ namespace Weapon
             {
                 // 인스턴스화된 무기 프리팹 가져오기
                 GameObject weaponInstance = obj.Result;
-                weaponInstance.name = weaponID.ToString();
 
                 // 무기 컴포넌트 초기화
                 IWeapon weaponComponent = weaponInstance.GetComponent<IWeapon>();
-                weaponComponent.Init(index, weaponID);
+                weaponComponent.Init(index);
 
                 // 무기 비활성화(장착 중인 무기만 활성화)
                 weaponInstance.SetActive(false);

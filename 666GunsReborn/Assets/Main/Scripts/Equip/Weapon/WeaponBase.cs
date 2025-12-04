@@ -34,8 +34,7 @@ namespace Weapon
         /// 무기 초기화
         /// </summary>
         /// <param name="index"></param>
-        /// <param name="weaponName"></param>
-        public virtual void Init(int index, WeaponID weaponName)
+        public virtual void Init(int index)
         {
             // 무기 데이터 로드
             // TODO: Resources.Load 성능이 않좋아서 Addressables로 변경 필요

@@ -58,7 +58,7 @@ namespace Character.Enemy
         /// </summary>
         /// <param name="damage"></param>
         /// <returns></returns>
-        public bool TakeDamage(int damage)
+        public bool TakeDamage(float damage)
         {
             // 데미지 부여
             _currentHealth -= damage;
