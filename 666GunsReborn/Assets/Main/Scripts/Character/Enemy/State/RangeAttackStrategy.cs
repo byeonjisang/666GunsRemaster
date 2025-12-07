@@ -19,9 +19,8 @@ namespace Character.Enemy
             Transform muzzle = enemy.ActiveMuzzle[0];
 
             // 총알 생성
-            GameObject bullet = GameObject.Instantiate(bulletPrefab, muzzle.position, muzzle.rotation);
-            var rb = bullet.GetComponent<Rigidbody>();
-            rb.velocity = muzzle.forward * 10f;
+            GameObject bullet = ObjectPoolManager.Instance.GetFromPool("Bullet_Enemy", muzzle.position, muzzle.rotation);
+            bullet.GetComponent<Weapon.Bullet.BulletBase>().Initialization((float)enemy.EnemyStat.Attack, 10f);
         }
     }
 }

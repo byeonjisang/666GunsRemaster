@@ -43,14 +43,14 @@ namespace Character.Enemy
         /// <param name="enemyData"></param>
         public void Init(EnemyData enemyData)
         {
-            _attackType = enemyData.attackType;
-            _attackStrategy = enemyData.attackStrategy;
-            _attack = enemyData.attackPower;
-            _attackSpeed = enemyData.attackSpeed;
-            _attackRange = enemyData.attackRange;
-            _maxHealth = enemyData.health;
+            _attackType = enemyData.AttackType;
+            _attackStrategy = enemyData.AttackStrategy;
+            _attack = enemyData.AttackPower;
+            _attackSpeed = enemyData.AttackSpeed;
+            _attackRange = enemyData.AttackRange;
+            _maxHealth = enemyData.Health;
             _currentHealth = _maxHealth; // 초기 현재 체력은 최대 체력과 동일
-            _moveSpeed = enemyData.moveSpeed;
+            _moveSpeed = enemyData.MoveSpeed;
         }
 
         /// <summary>
@@ -58,7 +58,7 @@ namespace Character.Enemy
         /// </summary>
         /// <param name="damage"></param>
         /// <returns></returns>
-        public bool TakeDamage(int damage)
+        public bool TakeDamage(float damage)
         {
             // 데미지 부여
             _currentHealth -= damage;

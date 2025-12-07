@@ -5,10 +5,18 @@ namespace Character
     public class CharacterData : ScriptableObject
     {
         // 캐릭터 이름
-        public string charaterName;
+        [SerializeField]
+        private string characterName;
+        public string CharacterName => characterName;
+        
         // 캐릭터 체력
-        public int health;
+        [SerializeField]
+        private int health;
+        public int Health => health;
+        
         // 캐릭터 이동 속도
-        public float moveSpeed;
+        [SerializeField]
+        private float moveSpeed;
+        public float MoveSpeed => moveSpeed;
     }
 }

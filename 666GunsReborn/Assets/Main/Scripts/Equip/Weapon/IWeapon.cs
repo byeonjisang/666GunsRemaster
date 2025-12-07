@@ -9,7 +9,7 @@ namespace Weapon
         public bool IsFiring { get; }
 
         // 무기 초기화
-        public void Init(int index, WeaponID weaponName);
+        public void Init(int index);
         // 총알 발사 시작
         public void StartFire();
         // 총알 발사 중지

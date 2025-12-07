@@ -13,7 +13,7 @@ namespace Weapon
                 return;
 
             GameObject bullet = ObjectPoolManager.Instance.GetFromPool("Bullet_Pistol", _bulletSpawnPoint.position, _bulletSpawnPoint.rotation);
-            bullet.GetComponent<Bullet>().Initialization(WeaponStat.Power, WeaponStat.BulletSpeed);
+            bullet.GetComponent<Bullet.Bullet>().Initialization(WeaponStat.Power, WeaponStat.BulletSpeed);
             WeaponStat.Fire();
 
             //애니메이션

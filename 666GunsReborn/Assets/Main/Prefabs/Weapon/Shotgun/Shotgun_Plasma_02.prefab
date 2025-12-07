@@ -212,5 +212,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1675f9dc06b399d408aac35b0d36cf7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerChannel: {fileID: 11400000, guid: d704267dc3ab0d64580bbc915bf72729, type: 2}
   weaponData: {fileID: 11400000, guid: e1c306876bef49b489077b3b059ad9c7, type: 2}
   _bulletSpawnPoint: {fileID: 6773129240875143624}

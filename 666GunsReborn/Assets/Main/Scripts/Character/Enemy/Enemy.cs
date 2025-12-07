@@ -6,7 +6,7 @@ using UnityEngine.AI;
 
 namespace Character.Enemy
 {
-    public class Enemy : MonoBehaviour
+    public class Enemy : Character
     {
         #region Parameters and Components
         // 적의 스탯 데이터
@@ -27,8 +27,6 @@ namespace Character.Enemy
         public Transform PlayerTransform { get; private set; }
         // 적 AI 컴포넌트
         public NavMeshAgent NavMeshAgent { get; private set; }
-        // 적 애니메이터 컴포넌트
-        public Animator Anim { get; private set; }
 
         // 공격 중인지 여부
         public bool IsAttacking { get; set; } = false;
@@ -49,11 +47,12 @@ namespace Character.Enemy
         #endregion
 
         #region Awake
-        private void Awake()
+        protected override void Awake()
         {
+            base.Awake();
+            
             // 필요한 컴포넌트 초기화
             NavMeshAgent = GetComponent<NavMeshAgent>();
-            Anim = GetComponent<Animator>();
             PlayerTransform = GameObject.FindWithTag("Player").transform;
 
             // 무기 장착
@@ -111,9 +110,9 @@ namespace Character.Enemy
         private void SetupWeaponAndMuzzle()
         {
             // 총기를 소지한 애
-            if (enemyData.weaponPrefab != null && weaponSocket != null)
+            if (enemyData.WeaponPrefab != null && weaponSocket != null)
             {
-                GameObject weapon = Instantiate(enemyData.weaponPrefab, transform);
+                GameObject weapon = Instantiate(enemyData.WeaponPrefab, transform);
                 weapon.transform.SetParent(weaponSocket);
                 weapon.transform.localPosition = Vector3.zero;
                 weapon.transform.localRotation = Quaternion.identity;
@@ -164,7 +163,7 @@ namespace Character.Enemy
         /// <summary>
         /// 적이 공격을 받았을 때 호출되는 메서드
         /// </summary>
-        public void TakeDamage(int damage)
+        public override void TakeDamage(float damage)
         {
             // 이미 죽은 적이면 무시
             if (isDead)
@@ -172,11 +171,11 @@ namespace Character.Enemy
                 
             // 적이 살아있으면 true 죽으면 false 반환
             if (!EnemyStat.TakeDamage(damage))
-                Die();
+                Dead();
         }
 
         // 적이 죽었을 때 호출되는 메서드
-        private void Die()
+        protected override void Dead()
         {
             Debug.Log("Enemy died");
             isDead = true;

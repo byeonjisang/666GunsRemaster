@@ -103,6 +103,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a619bd9aeaf9e44198b77b0645b8658, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerChannel: {fileID: 11400000, guid: d704267dc3ab0d64580bbc915bf72729, type: 2}
   weaponData: {fileID: 11400000, guid: f9597ace3db07224fb6f95b548397409, type: 2}
   _bulletSpawnPoint: {fileID: 6310469675123117689}
   scopeCameraObject: {fileID: 6777505157967884121}
