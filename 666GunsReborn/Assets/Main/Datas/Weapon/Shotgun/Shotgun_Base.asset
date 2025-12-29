@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af4876f9022ede54aabb669051c2b485, type: 3}
   m_Name: Shotgun_Base
   m_EditorClassIdentifier: 
-  weaponSprite: {fileID: 0}
+  weaponID: 5
+  weaponSprite: {fileID: 21300000, guid: d7a257cb40df66f4fb924db31ada55e5, type: 3}
   weaponName: Shotgun_Base
+  weaponDescription: "Shotgun_Base \uC124\uBA85\uC785\uB2C8\uB2E4."
   power: 20
   fireSpeed: 0.9
   fireDistance: 10

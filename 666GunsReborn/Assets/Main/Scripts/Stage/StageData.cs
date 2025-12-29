@@ -16,4 +16,6 @@ public class StageData : ScriptableObject
     public string stageName; // 스테이지 이름
     public StageType stageType; // 스테이지 타입
     public float stageTime; // 스테이지 시간
+
+    public bool isCleared = false; // 스테이지 클리어 여부
 }

@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af4876f9022ede54aabb669051c2b485, type: 3}
   m_Name: Pistol_Slide
   m_EditorClassIdentifier: 
-  weaponSprite: {fileID: 21300000, guid: ddcd5fff3dcd1ca4d8cbf3faf378ebe5, type: 3}
+  weaponSprite: {fileID: 21300000, guid: 89d1b52c045410943ab0ec68646196e6, type: 3}
   weaponName: Pistol_Slide
+  weaponDescription: "Pistol_Silder \uC124\uBA85\uC785\uB2C8\uB2E4."
   power: 10
   fireSpeed: 2
   fireDistance: 10

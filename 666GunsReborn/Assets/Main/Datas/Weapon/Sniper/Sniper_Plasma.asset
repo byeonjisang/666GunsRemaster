@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af4876f9022ede54aabb669051c2b485, type: 3}
   m_Name: Sniper_Plasma
   m_EditorClassIdentifier: 
-  weaponSprite: {fileID: 0}
+  weaponID: 9
+  weaponSprite: {fileID: 21300000, guid: c7a0075fa78f65f46b1de85a2d2404b5, type: 3}
   weaponName: Sniper_Plasma
+  weaponDescription: "Sniper_Plasma \uC124\uBA85\uC785\uB2C8\uB2E4."
   power: 80
   fireSpeed: 0.65
   fireDistance: 20

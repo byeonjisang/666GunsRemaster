@@ -15,7 +15,7 @@ MonoBehaviour:
   m_DefaultGroup: 415edd6be0f19514b9284b346756a2d1
   m_currentHash:
     serializedVersion: 2
-    Hash: 81768737b1224a8b8cb42b5ce8156531
+    Hash: 00000000000000000000000000000000
   m_OptimizeCatalogSize: 0
   m_BuildRemoteCatalog: 0
   m_BundleLocalCatalog: 0
@@ -47,6 +47,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: bcff5d070a9f9184486704ee4ca08aec, type: 2}
   - {fileID: 11400000, guid: 850aa5694a905a5499c537d72cd2db50, type: 2}
   - {fileID: 11400000, guid: bf33d03873faaea40a2a5fe5fa0c5bcc, type: 2}
+  - {fileID: 11400000, guid: 1aec6feacb1cee34cb8890faadab9daa, type: 2}
   - {fileID: 11400000, guid: 62d1240355380d64984c2a70bdb7bf9a, type: 2}
   m_BuildSettings:
     m_CompileScriptsInVirtualMode: 0
@@ -89,6 +90,9 @@ MonoBehaviour:
   m_LabelTable:
     m_LabelNames:
     - default
+    - Weapon
+    - WeaponData
+    - StageData
   m_SchemaTemplates: []
   m_GroupTemplateObjects:
   - {fileID: 11400000, guid: febfd9ab4374f2c42ac695177773c3f3, type: 2}

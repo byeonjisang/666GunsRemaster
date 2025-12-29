@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af4876f9022ede54aabb669051c2b485, type: 3}
   m_Name: Sniper_Base
   m_EditorClassIdentifier: 
-  weaponSprite: {fileID: 0}
+  weaponID: 8
+  weaponSprite: {fileID: 21300000, guid: 7ff6851d3026b5e4a971bb9d8835592f, type: 3}
   weaponName: Sniper_Base
+  weaponDescription: "Sniper_Base \uC124\uBA85\uC785\uB2C8\uB2E4."
   power: 100
   fireSpeed: 0.5
   fireDistance: 100

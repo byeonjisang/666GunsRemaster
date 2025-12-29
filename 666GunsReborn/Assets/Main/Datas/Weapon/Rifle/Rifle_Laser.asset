@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af4876f9022ede54aabb669051c2b485, type: 3}
   m_Name: Rifle_Laser
   m_EditorClassIdentifier: 
-  weaponSprite: {fileID: 21300000, guid: 11e31a093200615449584643b3ebbcae, type: 3}
+  weaponID: 3
+  weaponSprite: {fileID: 21300000, guid: c58a62f0f79cb184eb81e725d9c687e8, type: 3}
   weaponName: Rife_Lazer
+  weaponDescription: "Rifle_Laser \uC124\uBA85\uC785\uB2C8\uB2E4."
   power: 5
   fireSpeed: 5
   fireDistance: 7

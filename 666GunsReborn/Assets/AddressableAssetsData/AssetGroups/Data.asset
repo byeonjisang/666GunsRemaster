@@ -1,0 +1,109 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Data
+  m_EditorClassIdentifier: 
+  m_GroupName: Data
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 98d4010561f20b748b3c0503e20c1740
+  m_SerializeEntries:
+  - m_GUID: 04081802a5e1f6849ac05e837c1e2402
+    m_Address: Assets/Main/Datas/Weapon/Pistol/Revolver.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - WeaponData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1101f46c6e99e3347a38a8e5057f06e9
+    m_Address: Assets/Main/Datas/Weapon/Shotgun/Shotgun_Plasma_01.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - WeaponData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1cec8ed7f903f75499ddc73c39e33a17
+    m_Address: Assets/Main/Datas/Stage/Stage 4.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - StageData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 253ce70daad13c840becb2b8ced6fc41
+    m_Address: Assets/Main/Datas/Stage/Stage 2.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - StageData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 34c1f1712ff29904d8938757f7b1d990
+    m_Address: Assets/Main/Datas/Weapon/Rifle/Rifle_Laser.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - WeaponData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3d8e8f4ef5b0c8d4fb5cdc439d4011d1
+    m_Address: Assets/Main/Datas/Stage/Stage 1.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - StageData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 73059a1049b8cc147ad1ae26535ee208
+    m_Address: Assets/Main/Datas/Weapon/Rifle/Rifle_Base.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - WeaponData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7bb92ebec3e420a47ad9cf10fd8e096d
+    m_Address: Assets/Main/Datas/Weapon/Shotgun/Shotgun_Base.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - WeaponData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ba3ce37176b03c843a9d81e024ceeed7
+    m_Address: Assets/Main/Datas/Stage/Stage 3.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - StageData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bc3835f457c5c2b43826e29b876d061b
+    m_Address: Assets/Main/Datas/Weapon/Pistol/Pistol_Slide.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - WeaponData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e1c306876bef49b489077b3b059ad9c7
+    m_Address: Assets/Main/Datas/Weapon/Shotgun/Shotgun_Plasma_02.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - WeaponData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e418c35029811f74d9dae23f1d1d4eb9
+    m_Address: Assets/Main/Datas/Weapon/Sniper/Sniper_Plasma.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - WeaponData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e4baf82b510f0704d9998f33d6ec835d
+    m_Address: Assets/Main/Datas/Weapon/Rifle/Rifle_Small.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - WeaponData
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f9597ace3db07224fb6f95b548397409
+    m_Address: Assets/Main/Datas/Weapon/Sniper/Sniper_Base.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - WeaponData
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 58f92b348de6e734e9d0e04e18d42bea, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: c27a7fdb0d583ec439faa3539a860adf, type: 2}
+    - {fileID: 11400000, guid: 619bb82760f35264085b539ccb697440, type: 2}

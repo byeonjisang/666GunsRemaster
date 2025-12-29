@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af4876f9022ede54aabb669051c2b485, type: 3}
   m_Name: Shotgun_Plasma_02
   m_EditorClassIdentifier: 
-  weaponSprite: {fileID: 0}
+  weaponID: 7
+  weaponSprite: {fileID: 21300000, guid: ef5344b00e585ea46b162b278e433e64, type: 3}
   weaponName: Shotgun_Plasma_02
+  weaponDescription: "Shotgun_Plasma_02 \uC124\uBA85\uC785\uB2C8\uB2E4."
   power: 20
   fireSpeed: 0.9
   fireDistance: 10

@@ -36,6 +36,7 @@ namespace Weapon
         /// <param name="weaponID"></param>
         public void LoadWeapon(int index, WeaponID weaponID, Action<IWeapon> onWeaponLoaded)
         {
+            //Todo : 이거 AddressablesLoader로 옮기기
             // Addressables를 통해 무기 프리팹 로드 및 인스턴스화
             weaponPrefabs[(int)weaponID].InstantiateAsync(weaponParent).Completed += (obj) =>
             {

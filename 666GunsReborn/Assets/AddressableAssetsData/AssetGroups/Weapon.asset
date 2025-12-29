@@ -20,52 +20,62 @@ MonoBehaviour:
   - m_GUID: 0d2ffd8c8beaa0243800c26726ec4f07
     m_Address: Shotgun_Plasma_02
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Weapon
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 18c224385e6bc3246aca537839c42192
     m_Address: Shotgun_Plasma_01
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Weapon
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 24ef8af6f7edc4d4597c33dcfe59d886
     m_Address: Sniper_Plasma
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Weapon
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 662c9f27a56baec4da48cb0f011c7da4
     m_Address: Rifle_Base
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Weapon
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 82ead264cd9bb4f47b8a9558c1d6ec30
     m_Address: Sniper_Base
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Weapon
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8718d8929506a3248ba07be0084e7858
     m_Address: Rifle_Small
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Weapon
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c713fdf03c3a22545afefa8db0295dbb
     m_Address: Rifle_Laser
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Weapon
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d5697a8443e7a5546888062b938b4b12
     m_Address: Shotgun_Base
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Weapon
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ee5d34ee9cdf14442a9bfa629d249fa2
     m_Address: Pistol_Slide
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Weapon
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ff55832caee95d64db24fa5ce4d39aca
     m_Address: Revolver
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Weapon
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 58f92b348de6e734e9d0e04e18d42bea, type: 2}
