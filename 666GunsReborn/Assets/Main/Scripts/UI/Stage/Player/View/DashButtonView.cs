@@ -6,13 +6,18 @@ using UnityEngine.UI;
 
 public class DashButtonView : MonoBehaviour
 {
+    [Header("Dash UI")]
     [SerializeField] private Button button;
     [SerializeField] private Image coolDownImage;
 
-    public event Action OnClick;
+    // 중재자
+    public DashButtonPresenter Presenter { get; private set;}
 
-    private void Start()
+    /// <summary>
+    /// 초기화
+    /// </summary>
+    public void Init()
     {
-        button.onClick.AddListener(() => OnClick?.Invoke());
+        Presenter = new DashButtonPresenter(this);
     }
 }

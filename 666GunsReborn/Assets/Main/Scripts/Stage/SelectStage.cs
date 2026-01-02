@@ -19,11 +19,11 @@ public class SelectStage : MonoBehaviour
 
     public void StageSelect(int stageIndex)
     {
-        StageManager.Instance.StartStage(stageIndex);
+        //StageManager.Instance.StartStage(stageIndex);
     }
 
     public void CheckStageState(){
-        List<bool> isStageClear = StageManager.Instance.GetStageClearState();
+        List<bool> isStageClear = StageManagers.Instance.GetStageClearState();
 
         // 스테이지 클리어 및 잠금 미리 비활성화
         for (int i = 0; i < stageButtons.Count; i++)

@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class MoveJoystickView : MonoBehaviour
@@ -8,11 +6,19 @@ public class MoveJoystickView : MonoBehaviour
     // 조이스틱 참조
     [SerializeField] private Joystick joystick;
 
-    // 이동 이벤트
-    public event Action<Vector3> OnMove;
-
     // 이동 방향 벡터
     private Vector3 direction = Vector3.zero;
+
+    // 중재자
+    public MoveJoystickPresenter Presenter { get; private set; }
+
+    /// <summary>
+    /// 초기화
+    /// </summary>
+    public void Init()
+    {
+        Presenter = new MoveJoystickPresenter(this);
+    }
 
     private void FixedUpdate()
     {
@@ -24,6 +30,7 @@ public class MoveJoystickView : MonoBehaviour
         // 이동
         direction.Normalize();
 
-        OnMove?.Invoke(direction);
+        //Presenter.OnMove?.Invoke(direction);
+        Presenter.OnMove?.Invoke(direction);
     }
 }

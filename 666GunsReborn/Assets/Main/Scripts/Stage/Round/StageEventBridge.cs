@@ -6,9 +6,9 @@ public class StageEventBridge : MonoBehaviour
 {
     public void CallCompleteStage()
     {
-        if(StageManager.Instance != null)
+        if(StageManagers.Instance != null)
         {
-            StageManager.Instance.StageClear();
+            StageManagers.Instance.StageClear();
         }
     }
 }

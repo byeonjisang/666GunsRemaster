@@ -9,14 +9,20 @@ public class WeaponView : MonoBehaviour
     [SerializeField] private Text[] text = new Text[2];
     [SerializeField] private Slider[] reloadSlider = new Slider[2];
     [SerializeField] private Text weaponChangeCooldownText;
-    
-    // 무기 변경 클릭 이벤트
-    public event Action OnClick;
-    
-    public void Start()
-    {
-        button.onClick.AddListener(() => OnClick?.Invoke());
 
+    // 중재자
+    public WeaponPresenter Presenter { get; private set; }
+
+    /// <summary>
+    /// 초기화
+    /// </summary>
+    public void Init()
+    {
+        Presenter = new WeaponPresenter(this);
+
+        // 버튼 클릭 이벤트 등록
+        button.onClick.AddListener(() => Presenter.OnClick?.Invoke());
+        // 쿨타임 텍스트 비활성화
         weaponChangeCooldownText.gameObject.SetActive(false);
     }
 

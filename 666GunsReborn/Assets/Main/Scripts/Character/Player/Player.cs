@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Player;
 using Unity.VisualScripting;
 using UnityEngine;
+using Weapon;
 
 namespace Character.Player
 {
@@ -25,6 +26,7 @@ namespace Character.Player
         // 플레이어 스텟
         public PlayerStats Stat { get; private set; }
 
+        // Player 행동 시스템
         // 플레이어 정지 시스템
         public PlayerIdle IdleSystem { get; private set; }
         // 플레이어 이동 시스템
@@ -49,7 +51,7 @@ namespace Character.Player
         private void Start()
         {
             // 플레이어 초기화
-            Init();
+            Init(new WeaponID[] { WeaponID.Pistol_Slide, WeaponID.Rifle_Base });
         }
 
         #region Initialize
@@ -57,13 +59,13 @@ namespace Character.Player
         /// Player 초기화 메서드
         /// </summary>
         /// <param name="playerType"></param>
-        public void Init()
+        public void Init(WeaponID[] selectWeaponsID)
         {
             // 플레이어 필요 컴포넌트 추가
             WeaponManager = new Weapon.WeaponManager(playerChannel);
             // 무기 매니저 임시 초기화
             // TODO: 나중에 무기 선택하는 기능 따로 구현해야함
-            WeaponManager.Init(Weapon.WeaponID.Pistol_Slide, Weapon.WeaponID.Revolver);
+            WeaponManager.Init(selectWeaponsID);
             StateContext = new PlayerStateContext(this);
             Stat = new PlayerStats();
             Scanner = new EnemyScanner(this);
@@ -170,7 +172,7 @@ namespace Character.Player
         protected override void Dead()
         {
             Debug.Log("Player Dead");
-            StageManager.Instance.StageFailed();
+            //StageManager.Instance.StageFailed();
         }
         #endregion
     }

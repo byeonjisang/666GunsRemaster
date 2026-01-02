@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Threading.Tasks;
 using Unity.Mathematics;
+using System.Collections.Generic;
 
 namespace Weapon
 {
@@ -38,28 +39,53 @@ namespace Weapon
         }
 
         // WeaponManager 초기화
-        public void Init(WeaponID weapon1ID, WeaponID weapon2ID)
+        public void Init(WeaponID[] selectWeaponsID)
         {
             Debug.Log("WeaponManager Initialization");
             currentWeaponIndex = 0;
             
-            // TODOl: 다 수정 필요, 너무 하드코딩 느낌이 있음
-            WeaponLoader weaponLoader = GameObject.FindObjectOfType<WeaponLoader>();
-            if (weaponLoader == null)
+            AddressablesLoader.LoadAssetByLabel<GameObject>("Weapon", (loadedWeapons) =>
             {
-                Debug.LogError("WeaponLoader not found in the scene.");
-                return;
-            }
+                foreach (var weapon in loadedWeapons)
+                {
+                    if (weapon.name == selectWeaponsID[0].ToString())
+                    {
+                        GameObject instance = GameObject.Instantiate(weapon);
+                        IWeapon iWeapon = instance.GetComponent<IWeapon>();
+                        iWeapon.Init(0);
+                        equipedWeapons[0] = iWeapon;
+                        equipedWeapons[0].GameObject.SetActive(true);
+                    }
+                    else if (weapon.name == selectWeaponsID[1].ToString())
+                    {
+                        GameObject instance = GameObject.Instantiate(weapon);
+                        IWeapon iWeapon = instance.GetComponent<IWeapon>();
+                        iWeapon.Init(1);
+                        equipedWeapons[1] = iWeapon;
+                        equipedWeapons[1].GameObject.SetActive(false);
+                    }
+                }
 
-            // 무기 불러오기
-            weaponLoader.LoadWeapon(0, weapon1ID, (loadedWeapon) =>
-            {
-                equipedWeapons[0] = loadedWeapon;   
+                // 무기 장착 완료 이벤트 발생
+                _playerChannel.SendWeaponChanged(currentWeaponIndex.Value);
             });
-            weaponLoader.LoadWeapon(1, weapon2ID, (loadedWeapon) =>
-            {
-                equipedWeapons[1] = loadedWeapon;
-            });
+            // TODOl: 다 수정 필요, 너무 하드코딩 느낌이 있음
+            // WeaponLoader weaponLoader = GameObject.FindObjectOfType<WeaponLoader>();
+            // if (weaponLoader == null)
+            // {
+            //     Debug.LogError("WeaponLoader not found in the scene.");
+            //     return;
+            // }
+
+            // // 무기 불러오기
+            // weaponLoader.LoadWeapon(0, selectWeaponsID[0], (loadedWeapon) =>
+            // {
+            //     equipedWeapons[0] = loadedWeapon;   
+            // });
+            // weaponLoader.LoadWeapon(1, selectWeaponsID[1], (loadedWeapon) =>
+            // {
+            //     equipedWeapons[1] = loadedWeapon;
+            // });
         }
 
         /// <summary>
