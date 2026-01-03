@@ -4866,14 +4866,14 @@ RectTransform:
   m_GameObject: {fileID: 1213841909}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.9, y: 0.9, z: 1}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2113406206}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 16}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 528, y: 153}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1213841911
@@ -6411,15 +6411,15 @@ RectTransform:
   m_GameObject: {fileID: 1456973356}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.9, y: 0.9, z: 1}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2058239930}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 16}
-  m_SizeDelta: {x: 530, y: 286}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 541, y: 144}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1456973358
 MonoBehaviour:
@@ -6725,92 +6725,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1467256383}
   m_CullTransparentMesh: 1
---- !u!1 &1499156551
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1499156552}
-  - component: {fileID: 1499156553}
-  m_Layer: 0
-  m_Name: Weapon Loader
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1499156552
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1499156551}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -20.04, y: 2.074, z: -73.57}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1499156553
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1499156551}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2b516d1328e1d784287d71d07a9824f5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  weaponPrefabs:
-  - m_AssetGUID: ee5d34ee9cdf14442a9bfa629d249fa2
-    m_SubObjectName: 
-    m_SubObjectType: 
-    m_EditorAssetChanged: 0
-  - m_AssetGUID: ff55832caee95d64db24fa5ce4d39aca
-    m_SubObjectName: 
-    m_SubObjectType: 
-    m_EditorAssetChanged: 0
-  - m_AssetGUID: 662c9f27a56baec4da48cb0f011c7da4
-    m_SubObjectName: 
-    m_SubObjectType: 
-    m_EditorAssetChanged: 0
-  - m_AssetGUID: c713fdf03c3a22545afefa8db0295dbb
-    m_SubObjectName: 
-    m_SubObjectType: 
-    m_EditorAssetChanged: 0
-  - m_AssetGUID: 8718d8929506a3248ba07be0084e7858
-    m_SubObjectName: 
-    m_SubObjectType: 
-    m_EditorAssetChanged: 0
-  - m_AssetGUID: d5697a8443e7a5546888062b938b4b12
-    m_SubObjectName: 
-    m_SubObjectType: 
-    m_EditorAssetChanged: 0
-  - m_AssetGUID: 18c224385e6bc3246aca537839c42192
-    m_SubObjectName: 
-    m_SubObjectType: 
-    m_EditorAssetChanged: 0
-  - m_AssetGUID: 0d2ffd8c8beaa0243800c26726ec4f07
-    m_SubObjectName: 
-    m_SubObjectType: 
-    m_EditorAssetChanged: 1
-  - m_AssetGUID: 82ead264cd9bb4f47b8a9558c1d6ec30
-    m_SubObjectName: 
-    m_SubObjectType: 
-    m_EditorAssetChanged: 0
-  - m_AssetGUID: 24ef8af6f7edc4d4597c33dcfe59d886
-    m_SubObjectName: 
-    m_SubObjectType: 
-    m_EditorAssetChanged: 1
-  weaponParent: {fileID: 1081677704}
 --- !u!1 &1546316108
 GameObject:
   m_ObjectHideFlags: 0
@@ -7482,6 +7396,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerData: {fileID: 11400000, guid: 8808706731d559142bce50c402dcab48, type: 2}
   playerTypeData: {fileID: 11400000, guid: 712e8817d0bfd0c48980ef6f95b73db8, type: 2}
+  _weaponSpawnPoint: {fileID: 1081677704}
   playerChannel: {fileID: 11400000, guid: d704267dc3ab0d64580bbc915bf72729, type: 2}
 --- !u!4 &1614233158 stripped
 Transform:
@@ -11260,7 +11175,6 @@ SceneRoots:
   - {fileID: 1653859567}
   - {fileID: 1250497120}
   - {fileID: 1715669648}
-  - {fileID: 1499156552}
   - {fileID: 1614233150}
   - {fileID: 763912414}
   - {fileID: 1428412227}

@@ -27,15 +27,29 @@ public class WeaponView : MonoBehaviour
     }
 
     /// <summary>
+    /// 무기 이미지 초기화
+    /// </summary>
+    /// <param name="weaponIndex"></param>
+    public void UpdateWeaponSprite(int weaponIndex, Sprite weaponSprite)
+    {
+        // 무기 아이콘 이미지 변경
+        iconImage[weaponIndex].sprite = weaponSprite;
+        iconImage[weaponIndex].SetNativeSize();
+    }
+
+    /// <summary>
     /// 무기 변경 후 UI 업데이트
     /// </summary>
-    public void UpdateWeaponUI(int weaponIndex)
+    public void SwitchWeaponUI(int weaponIndex)
     {
         // TODO: 무기 변경하면 앞뒤로 변경되는 효과는 적용
         // 이미지 변경
         Sprite tempIcon = iconImage[weaponIndex].sprite;
         iconImage[weaponIndex].sprite = iconImage[1 - weaponIndex].sprite;
         iconImage[1 - weaponIndex].sprite = tempIcon;
+        // 이미지 크기 재설정
+        iconImage[weaponIndex].SetNativeSize();
+        iconImage[1 - weaponIndex].SetNativeSize();
 
         // 총알 수 변경
         string tempText = text[weaponIndex].text;
@@ -72,9 +86,9 @@ public class WeaponView : MonoBehaviour
     /// </summary>
     /// <param name="maxMagazine"></param>
     /// <param name="currentMagazine"></param>
-    public void UpdateWeaponBulletUI(int maxMagazine, int currentMagazine)
+    public void UpdateWeaponBulletUI(int maxMagazine, int currentMagazine, int index = 0)
     {
-        text[0].text = $"{currentMagazine} / {maxMagazine}";
+        text[index].text = $"{currentMagazine} / {maxMagazine}";
     }
 
     /// <summary>

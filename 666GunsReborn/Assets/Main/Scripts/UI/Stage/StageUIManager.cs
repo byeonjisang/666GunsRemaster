@@ -43,8 +43,10 @@ public class StageUIManager : MonoBehaviour
         _weaponView.Presenter.OnClick += _playerChannel.SendChangedWeaponCommand;
 
         // Player -> UI 이벤트 등록
+        // 초기 무기 Sprite 변경 이벤트
+        _playerChannel.OnWeaponSprite += _weaponView.UpdateWeaponSprite;
         // 무기 변경 UI 업데이트 이벤트 등록
-        _playerChannel.OnWeaponChanged += _weaponView.UpdateWeaponUI;
+        _playerChannel.OnWeaponChanged += _weaponView.SwitchWeaponUI;
         // 무기 변경 쿨타임 UI 업데이트 이벤트 등록
         _playerChannel.OnChangedWeaponCooldown += _weaponView.UpdateWeaponChangeCooldown;
         // 무기 총알 UI 업데이트 이벤트 등록

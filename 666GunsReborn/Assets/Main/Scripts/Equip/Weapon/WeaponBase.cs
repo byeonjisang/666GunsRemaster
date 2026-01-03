@@ -7,13 +7,13 @@ namespace Weapon
     {
         // 플레이어의 무기 관련 UI 전달자
         [Header("Player Channel")]
-        [SerializeField] private PlayerChannel playerChannel;
-        public PlayerChannel PlayerChannel => playerChannel;
+        [SerializeField] private PlayerChannel _playerChannel;
+        public PlayerChannel PlayerChannel => _playerChannel;
 
 
         // 무기 데이터
         [Header("Weapon Data")]
-        [SerializeField] protected WeaponData weaponData;
+        [SerializeField] protected WeaponData _weaponData;
         // 무기 스텟
         public WeaponStat WeaponStat { get; private set; }
 
@@ -37,8 +37,7 @@ namespace Weapon
         public virtual void Init(int index)
         {
             // 무기 데이터 로드
-            // TODO: Resources.Load 성능이 않좋아서 Addressables로 변경 필요
-            WeaponStat = new WeaponStat(this, index, weaponData);
+            WeaponStat = new WeaponStat(this, index, _weaponData);
         }
         #endregion
 

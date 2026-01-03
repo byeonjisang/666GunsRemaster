@@ -6,6 +6,7 @@ namespace Weapon
 {
     public class WeaponStat
     {
+        #region Weapon Stat Variables
         private WeaponBase _weaponBase;
 
         // 무기 인덱스
@@ -44,7 +45,9 @@ namespace Weapon
         // 총알 속도
         private float _bulletSpeed;
         public float BulletSpeed => _bulletSpeed;
+        #endregion
 
+        #region Weapon Stat Init
         // 무기 스탯 초기화
         public WeaponStat(WeaponBase weaponBase, int index, WeaponData weaponData)
         {
@@ -66,9 +69,15 @@ namespace Weapon
             _currentReloadTime = 0f;
             _fireCooldown = 0f;
 
-            _weaponBase.PlayerChannel.SendUpdateBullet(_maxMagazine, _currentMagazine);
+            // 초기 총알 UI 업데이트
+            // index를 반전 시켜야 정상 작동(왜 그러는지는 모름)
+            _weaponBase.PlayerChannel.SendUpdateBullet(_maxMagazine, _currentMagazine, 1 - index);
+            // 무기 이미지 초기화
+            _weaponBase.PlayerChannel.SendWeaponSprite(index, _weaponSprite);
         }
+        #endregion
 
+        #region Weapon Stat Update
         // 무기 스텟 업데이트
         public void WeaponStatUpdate()
         {
@@ -96,6 +105,15 @@ namespace Weapon
                 }
             }
         }
+        #endregion
+
+        #region Reload
+        // 재장전
+        private void Reload()
+        {
+            _currentMagazine = _maxMagazine;
+            _weaponBase.PlayerChannel.SendUpdateBullet(_maxMagazine, _currentMagazine);
+        }
 
         /// <summary>
         /// 재장전 중인지 여부
@@ -114,7 +132,9 @@ namespace Weapon
         {
             return _fireCooldown <= 0 && _currentReloadTime <= 0;
         }
+        #endregion
 
+        #region Fire
         /// <summary>
         /// 무기 발사
         /// </summary>
@@ -128,12 +148,6 @@ namespace Weapon
                 _currentReloadTime = _reloadTime;
             }
         }
-
-        // 재장전
-        private void Reload()
-        {
-            _currentMagazine = _maxMagazine;
-            _weaponBase.PlayerChannel.SendUpdateBullet(_maxMagazine, _currentMagazine);
-        }
+        #endregion
     }   
 }

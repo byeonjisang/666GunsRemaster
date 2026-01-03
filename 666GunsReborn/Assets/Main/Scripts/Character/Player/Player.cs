@@ -7,6 +7,7 @@ using Weapon;
 
 namespace Character.Player
 {
+    // 경사 정보 구조체
     public struct SlopeInfo
     {
         public bool onSlope;
@@ -16,10 +17,11 @@ namespace Character.Player
 
     public class Player : Character
     {
-        [Header("Player Data")]
+        [Header("Player Datas")]
         [SerializeField] private PlayerData playerData;
-        [Header("Player Type Data")]
         [SerializeField] private PlayerTypeData playerTypeData;
+        [Header("Player Weapon Spawn Point")]
+        [SerializeField] private Transform _weaponSpawnPoint;
 
         // 플레이어 상태변환 컨텍스트
         public PlayerStateContext StateContext { get; private set;}
@@ -51,7 +53,7 @@ namespace Character.Player
         private void Start()
         {
             // 플레이어 초기화
-            Init(new WeaponID[] { WeaponID.Pistol_Slide, WeaponID.Rifle_Base });
+            //Init();
         }
 
         #region Initialize
@@ -59,30 +61,30 @@ namespace Character.Player
         /// Player 초기화 메서드
         /// </summary>
         /// <param name="playerType"></param>
-        public void Init(WeaponID[] selectWeaponsID)
+        public void Init(WeaponID[] selectWeaponsID = null)
         {
             // 플레이어 필요 컴포넌트 추가
             WeaponManager = new Weapon.WeaponManager(playerChannel);
-            // 무기 매니저 임시 초기화
-            // TODO: 나중에 무기 선택하는 기능 따로 구현해야함
-            WeaponManager.Init(selectWeaponsID);
+            // 상태 초기화
             StateContext = new PlayerStateContext(this);
             Stat = new PlayerStats();
+            // Enemy 스캐너 초기화
             Scanner = new EnemyScanner(this);
+            // 행동 시스템 초기화
             AttackSystem = new PlayerAttack(this);
             IdleSystem = new PlayerIdle(this);
             MoveSystem = new PlayerMove(this);
             DashSystem = new PlayerDash(this);
-
-            // 플레이어 타입에 따른 스텟 초기화
-            // TODO:: Resources이 성능이 좋지 않아 변경해야 함
-            Stat.Init(playerData, playerTypeData);
 
             // 이벤트 등록
             AddEvent();
 
             // 초기 상태 설정
             StateContext.TransitionTo(StateContext.IdleState);
+            // 플레이어 타입에 따른 스텟 초기화
+            Stat.Init(playerData, playerTypeData);
+             // 무기 매니저 초기화
+            WeaponManager.Init(selectWeaponsID, _weaponSpawnPoint);
 
             // 애니메이션으로 인한 이동 방지
             Anim.applyRootMotion = false;
@@ -172,7 +174,6 @@ namespace Character.Player
         protected override void Dead()
         {
             Debug.Log("Player Dead");
-            //StageManager.Instance.StageFailed();
         }
         #endregion
     }

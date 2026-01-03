@@ -26,6 +26,10 @@ public class PlayerChannel : ScriptableObject
     #endregion
     
     #region Player -> UI
+    // 무기 이미지 초기화
+    public Action<int, Sprite> OnWeaponSprite;
+    public void SendWeaponSprite(int weaponIndex, Sprite weaponSprite) => OnWeaponSprite?.Invoke(weaponIndex, weaponSprite);
+
     // 무기 변경
     public Action<int> OnWeaponChanged;
     public void SendWeaponChanged(int weaponIndex) => OnWeaponChanged?.Invoke(weaponIndex);
@@ -35,8 +39,10 @@ public class PlayerChannel : ScriptableObject
     public void SendChangedWeaponCooldown(float cooldownTime) => OnChangedWeaponCooldown?.Invoke(cooldownTime);
 
     // 무기 발사
-    public Action<int, int> OnUpdateBullet;
-    public void SendUpdateBullet(int maxMagazine, int currentMagazine) => OnUpdateBullet?.Invoke(maxMagazine, currentMagazine);
+    public Action<int, int, int> OnUpdateBullet;
+    // maxMagazine: 최대 탄알, currentMagazine: 현재 탄알, index: 무기 인덱스(0: 주무기, 1: 보조무기)
+    // 초기화 시 index 값 지정, 그 외 재장정 및 발사 시 index 값은 기본 0
+    public void SendUpdateBullet(int maxMagazine, int currentMagazine, int index = 0) => OnUpdateBullet?.Invoke(maxMagazine, currentMagazine, index);  
 
     // 무기 재장전 시간표시
     public Action<float, float> OnReloadTime;

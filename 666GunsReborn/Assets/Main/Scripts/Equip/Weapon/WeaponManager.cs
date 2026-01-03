@@ -10,12 +10,12 @@ namespace Weapon
         private PlayerChannel _playerChannel;
 
         // 현재 소지 중인 무기들
-        private IWeapon[] equipedWeapons = new IWeapon[2];
+        private IWeapon[] _equipedWeapons = new IWeapon[2];
         // 현재 장착 중인 무기 인덱스
         // 0 : 무기 1, 1 : 무기 2, null : 무기 없음
-        private int? currentWeaponIndex = 0;
+        private int? _currentWeaponIndex = 0;
         // 현재 장착 중인 무기 외부 참조
-        private IWeapon currentWeapon => equipedWeapons[currentWeaponIndex.Value];
+        private IWeapon currentWeapon => _equipedWeapons[_currentWeaponIndex.Value];
 
         // 무기 교체 쿨타임
         private float changeCooldown = 5.0f;
@@ -39,53 +39,37 @@ namespace Weapon
         }
 
         // WeaponManager 초기화
-        public void Init(WeaponID[] selectWeaponsID)
+        public void Init(WeaponID[] selectWeaponsID, Transform weaponSpawnPoint)
         {
-            Debug.Log("WeaponManager Initialization");
-            currentWeaponIndex = 0;
+            _currentWeaponIndex = 0;
             
+            // 무기 로드 및 장착
             AddressablesLoader.LoadAssetByLabel<GameObject>("Weapon", (loadedWeapons) =>
             {
                 foreach (var weapon in loadedWeapons)
                 {
+                    // 주무기 장착
                     if (weapon.name == selectWeaponsID[0].ToString())
                     {
                         GameObject instance = GameObject.Instantiate(weapon);
                         IWeapon iWeapon = instance.GetComponent<IWeapon>();
                         iWeapon.Init(0);
-                        equipedWeapons[0] = iWeapon;
-                        equipedWeapons[0].GameObject.SetActive(true);
+                        _equipedWeapons[0] = iWeapon;
+                        _equipedWeapons[0].GameObject.SetActive(true);
+                        _equipedWeapons[0].GameObject.transform.SetParent(weaponSpawnPoint, false);
                     }
+                    // 보조무기 장착
                     else if (weapon.name == selectWeaponsID[1].ToString())
                     {
                         GameObject instance = GameObject.Instantiate(weapon);
                         IWeapon iWeapon = instance.GetComponent<IWeapon>();
                         iWeapon.Init(1);
-                        equipedWeapons[1] = iWeapon;
-                        equipedWeapons[1].GameObject.SetActive(false);
+                        _equipedWeapons[1] = iWeapon;
+                        _equipedWeapons[1].GameObject.SetActive(false);
+                        _equipedWeapons[1].GameObject.transform.SetParent(weaponSpawnPoint, false);
                     }
                 }
-
-                // 무기 장착 완료 이벤트 발생
-                _playerChannel.SendWeaponChanged(currentWeaponIndex.Value);
             });
-            // TODOl: 다 수정 필요, 너무 하드코딩 느낌이 있음
-            // WeaponLoader weaponLoader = GameObject.FindObjectOfType<WeaponLoader>();
-            // if (weaponLoader == null)
-            // {
-            //     Debug.LogError("WeaponLoader not found in the scene.");
-            //     return;
-            // }
-
-            // // 무기 불러오기
-            // weaponLoader.LoadWeapon(0, selectWeaponsID[0], (loadedWeapon) =>
-            // {
-            //     equipedWeapons[0] = loadedWeapon;   
-            // });
-            // weaponLoader.LoadWeapon(1, selectWeaponsID[1], (loadedWeapon) =>
-            // {
-            //     equipedWeapons[1] = loadedWeapon;
-            // });
         }
 
         /// <summary>
@@ -118,12 +102,12 @@ namespace Weapon
             }
 
             // 무기 교체
-            equipedWeapons[currentWeaponIndex.Value].GameObject.SetActive(false);
-            currentWeaponIndex = 1 - currentWeaponIndex.Value;
-            equipedWeapons[currentWeaponIndex.Value].GameObject.SetActive(true);
+            _equipedWeapons[_currentWeaponIndex.Value].GameObject.SetActive(false);
+            _currentWeaponIndex = 1 - _currentWeaponIndex.Value;
+            _equipedWeapons[_currentWeaponIndex.Value].GameObject.SetActive(true);
 
             // ui 업데이트 이벤트 발생
-            _playerChannel.SendWeaponChanged(currentWeaponIndex.Value);
+            _playerChannel.SendWeaponChanged(_currentWeaponIndex.Value);
 
             // 교체 쿨타임 적용
             currentChangeTime = changeCooldown;
