@@ -11,12 +11,12 @@ namespace Character.Enemy
         #region Parameters and Components
         // 적의 스탯 데이터
         [Header("Enemy Data")]
-        [SerializeField] private EnemyData enemyData;
+        [SerializeField] protected EnemyData _enemyData;
         // 적 무기 장착 위치
         [Header("Weapon")]
-        [SerializeField] private Transform weaponSocket;
+        [SerializeField] protected Transform _weaponSocket;
         // 총구 위치들
-        [SerializeField] private List<Transform> embeddedMuzzles;
+        [SerializeField] private List<Transform> _embeddedMuzzles;
 
         // 총구 위치들
         public List<Transform> ActiveMuzzle { get; private set; } = new List<Transform>();
@@ -31,7 +31,7 @@ namespace Character.Enemy
         // 공격 중인지 여부
         public bool IsAttacking { get; set; } = false;
         // 사망 여부
-        private bool isDead = false;
+        private bool _isDead = false;
         // 적 죽었을 때 라운드 컨트롤러에게 알려줄 이벤트
         public Action<GameObject> OnEnemyDead;
 
@@ -62,7 +62,7 @@ namespace Character.Enemy
             StateContext = new EnemyStateContext(this);
 
             // 스탯 초기화
-            EnemyStat = new EnemyStat(enemyData);
+            EnemyStat = new EnemyStat(_enemyData);
             NavMeshAgent.speed = EnemyStat.MoveSpeed;
 
             // 메테리얼 초기화
@@ -110,30 +110,35 @@ namespace Character.Enemy
         private void SetupWeaponAndMuzzle()
         {
             // 총기를 소지한 애
-            if (enemyData.WeaponPrefab != null && weaponSocket != null)
+            if (_enemyData.WeaponPrefab != null && _weaponSocket != null)
             {
-                GameObject weapon = Instantiate(enemyData.WeaponPrefab, transform);
-                weapon.transform.SetParent(weaponSocket);
+                GameObject weapon = Instantiate(_enemyData.WeaponPrefab, transform);
+                weapon.transform.SetParent(_weaponSocket, false);
                 weapon.transform.localPosition = Vector3.zero;
                 weapon.transform.localRotation = Quaternion.identity;
 
                 // 총구 위치들 찾기
-                ActiveMuzzle.Add(weapon.transform.Find("Muzzle"));
+                ActiveMuzzle.Add(weapon.transform.Find("Bullet Spawn Point"));
             }
             // 총기가 아닌 몸에 총구가 있을 때
-            else if (embeddedMuzzles.Count > 0)
+            else if (_embeddedMuzzles.Count > 0)
             {
-                ActiveMuzzle = embeddedMuzzles;
+                ActiveMuzzle = _embeddedMuzzles;
             }
             // 둘 다 없을 때
             else
             {
-                ActiveMuzzle.Add(weaponSocket != null ? weaponSocket : transform);
+                ActiveMuzzle.Add(_weaponSocket != null ? _weaponSocket : transform);
             }
         }
         #endregion
 
         #region Enemy Attack
+        public virtual void Attack()
+        {
+            // 공격 로직은 각 적 타입에서 구현
+        }
+
         /// <summary>
         /// 플레이어가 공격 범위 안에 있는지 확인하는 메서드
         /// </summary>
@@ -166,7 +171,7 @@ namespace Character.Enemy
         public override void TakeDamage(float damage)
         {
             // 이미 죽은 적이면 무시
-            if (isDead)
+            if (_isDead)
                 return;
                 
             // 적이 살아있으면 true 죽으면 false 반환
@@ -178,7 +183,7 @@ namespace Character.Enemy
         protected override void Dead()
         {
             Debug.Log("Enemy died");
-            isDead = true;
+            _isDead = true;
             OnEnemyDead?.Invoke(this.gameObject);
             StateContext.TransitionTo(StateContext.DeadState);
         }

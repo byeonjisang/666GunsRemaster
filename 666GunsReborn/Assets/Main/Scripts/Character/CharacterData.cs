@@ -4,6 +4,11 @@ namespace Character
 {
     public class CharacterData : ScriptableObject
     {
+        // 캐릭터 ID
+        [SerializeField]
+        private int characterID;
+        public int CharacterID => characterID;
+        
         // 캐릭터 이름
         [SerializeField]
         private string characterName;

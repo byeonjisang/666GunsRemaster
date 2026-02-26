@@ -12,9 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d49cc21685c54304a96e51c983dab92d, type: 3}
   m_Name: PipeGuard_Range
   m_EditorClassIdentifier: 
-  charaterName: Pipe Guard Range
+  characterID: 1000
+  characterName: Pipe Guard_Range
   health: 100
   moveSpeed: 3
+  meshKey: PipeGuard_Mesh
+  materialKey: PolygonScifi_01_A
+  prefabKey: Base_Humanoid
+  animationKey: Range_Animation
   attackType: 1
   attackStrategy: {fileID: 11400000, guid: b399f3495ba0efd4f95fdf4d9ecb4709, type: 2}
   weaponPrefab: {fileID: 1394443505563386, guid: 8d78de1c4eb319b4c8189140db362e46,

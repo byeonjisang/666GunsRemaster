@@ -20,7 +20,7 @@ namespace Character.Enemy
 
             // 총알 생성
             GameObject bullet = ObjectPoolManager.Instance.GetFromPool("Bullet_Enemy", muzzle.position, muzzle.rotation);
-            bullet.GetComponent<Weapon.Bullet.BulletBase>().Initialization((float)enemy.EnemyStat.Attack, 10f);
+            bullet.GetComponent<Weapon.Bullet.BulletBase>().Init((float)enemy.EnemyStat.Attack, 10f);
         }
     }
 }

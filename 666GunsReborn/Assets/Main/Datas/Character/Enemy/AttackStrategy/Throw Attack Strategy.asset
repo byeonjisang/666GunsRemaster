@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 831faf515089e2241859152d69dd12e3, type: 3}
+  m_Name: Throw Attack Strategy
+  m_EditorClassIdentifier: 
+  _throwPrefab:
+  - {fileID: 404715428338946873, guid: 67809628e89a272458cfff6176a333c7, type: 3}
+  - {fileID: 5680303046432068382, guid: 878d5ca14f469e24697802e16166a43c, type: 3}
+  - {fileID: 6222378182980355683, guid: 1242bdbf5d5ebce4da59a0ab1eae21fe, type: 3}

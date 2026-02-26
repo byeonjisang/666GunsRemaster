@@ -33,7 +33,8 @@ namespace Character.Enemy
             {
                 _lastAttackTime = Time.time;
                 _enemy.Anim.SetTrigger("Attack");
-                _enemy.EnemyStat.AttackStrategy?.Execute(_enemy);
+                //_enemy.EnemyStat.AttackStrategy?.Execute(_enemy);
+                _enemy.Attack();
                 _enemy.IsAttacking = true;
                 Debug.Log("공격!");
             }

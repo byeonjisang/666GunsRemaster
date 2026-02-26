@@ -21,7 +21,7 @@ namespace Weapon.Bullet
             this.pool = pool;
         }
 
-        public virtual void Initialization(float power, float speed)
+        public virtual void Init(float power, float speed)
         {
             this.power = power;
 

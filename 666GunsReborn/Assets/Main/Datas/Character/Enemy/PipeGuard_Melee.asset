@@ -12,12 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d49cc21685c54304a96e51c983dab92d, type: 3}
   m_Name: PipeGuard_Melee
   m_EditorClassIdentifier: 
-  charaterName: Pipe Guard Melee
+  characterID: 1001
+  characterName: Pipe Guard_Melee
   health: 120
   moveSpeed: 4
   attackType: 0
   attackStrategy: {fileID: 11400000, guid: 7c81ec808007de947a86df9c8e03541c, type: 2}
-  weaponPrefab: {fileID: 4618892791222557071, guid: a02f5af996a85da43a45b464bfe785c2,
+  weaponPrefab: {fileID: 4618892791222557071, guid: 6588f4d860ab4a74da4b6691c4954ad7,
     type: 3}
   attackPower: 10
   attackSpeed: 4

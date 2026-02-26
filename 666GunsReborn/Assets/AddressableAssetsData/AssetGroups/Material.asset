@@ -17,10 +17,11 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: 2e3d765a2bb021c42890e92b0a8dfe70
   m_SerializeEntries:
-  - m_GUID: 06d40dc2e1401784eb420a0d2d5d7235
-    m_Address: PolygonScifi_01_A.mat
+  - m_GUID: 45bb6788c9762b34098b1640dbdd6ff3
+    m_Address: PolygonScifi_01_A
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Material
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 58f92b348de6e734e9d0e04e18d42bea, type: 2}

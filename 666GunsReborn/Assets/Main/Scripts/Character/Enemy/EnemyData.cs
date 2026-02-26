@@ -4,7 +4,22 @@ namespace Character.Enemy
 {
     [CreateAssetMenu(fileName = "EnemyData", menuName = "ScriptableObjects/Datas/EnemyData", order = 1)]
     public class EnemyData : CharacterData
-    {
+    {   
+        // 적을 소환할 때 필요한 정보들
+        // [Header("Enemy Spawn Info")]
+        // // 적 Mesh
+        // [SerializeField] private string meshKey;
+        // public string MeshKey => meshKey;
+        // // 적 머테리얼
+        // [SerializeField] private string materialKey;
+        // public string MaterialKey => materialKey;
+        // // 적 뼈대
+        // [SerializeField] private string prefabKey;
+        // public string PrefabKey => prefabKey;
+        // // 적 애니메이션 키
+        // [SerializeField] private string animationKey;
+        // public string AnimationKey => animationKey;
+
         [Header("Enemy Attack Type")]
         // 공격 타입
         [SerializeField] private AttackType attackType;

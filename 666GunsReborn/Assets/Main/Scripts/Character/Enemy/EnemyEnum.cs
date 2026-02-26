@@ -9,6 +9,7 @@ namespace Character.Enemy
     {
         Melee,
         Range,
+        Throw,
     }
 
     public enum EnemyState

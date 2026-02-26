@@ -12,9 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d49cc21685c54304a96e51c983dab92d, type: 3}
   m_Name: PropDrone
   m_EditorClassIdentifier: 
-  charaterName: Prop Drone
+  characterID: 1002
+  characterName: Prop Drone
   health: 50
   moveSpeed: 2
+  materialKey: 
+  prefabKey: 
+  animationKey: 
   attackType: 1
   attackStrategy: {fileID: 11400000, guid: 06780001e86084d4f9a07b2f2519c11d, type: 2}
   weaponPrefab: {fileID: 0}
