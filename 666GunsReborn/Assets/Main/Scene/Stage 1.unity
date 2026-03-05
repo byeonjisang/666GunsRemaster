@@ -3455,7 +3455,7 @@ MonoBehaviour:
       type: 3}
     SpawnPoint: {fileID: 848130809}
   - SpawnTime: 1
-    EnemyPrefab: {fileID: 1774231536585033527, guid: 37b211d0080dac84e828520c48f88800,
+    EnemyPrefab: {fileID: 9072893900493407818, guid: e7813db769ca3f047800f3fde018100e,
       type: 3}
     SpawnPoint: {fileID: 889808420}
   - SpawnTime: 3

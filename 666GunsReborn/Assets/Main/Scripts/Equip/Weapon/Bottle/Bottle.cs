@@ -45,8 +45,9 @@ namespace Weapon
         {
             _bombRadiusEffect = Instantiate(_bombRadiusPrefab, playerTransform.position, Quaternion.identity);
             // 폭탄 터지는 범위 효과 크기 조절
-            //_bombRadiusEffect.transform.localScale = Vector3.one * _bombRadius * 2f;
             _bombRadiusEffect.transform.localScale = new Vector3(_bombRadius * 2f, 0.001f, _bombRadius * 2f);
+            // 폭탄 임펙트 크기 조절
+            _bombEffect.transform.localScale = new Vector3(_bombRadius * 0.3f, _bombRadius * 0.3f, _bombRadius * 0.3f);
         }
 
         // 병이 날아가는 코루틴
@@ -89,6 +90,16 @@ namespace Weapon
             
             // 폭탄 터지는 효과
             _bombEffect.Play();
+            
+            // 플레이어에게 데미지 주기
+            Collider[] hitColliders = Physics.OverlapSphere(transform.position, _bombRadius);
+            foreach (Collider hitCollider in hitColliders)
+            {
+                if (hitCollider.CompareTag("Player"))
+                {
+                    hitCollider.GetComponent<Character.Player.Player>().TakeDamage(20); // 예시 데미지
+                }
+            }
 
             // 오브젝트 삭제
             Destroy(gameObject, 1.0f);

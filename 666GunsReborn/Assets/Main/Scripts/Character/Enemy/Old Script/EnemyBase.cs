@@ -90,7 +90,7 @@ public abstract class BaseEnemy : MonoBehaviour
         if (hp <= 0)
         {
             state = EnemyState.Die;
-            Player.PlayerManager.Instance.AddCoins(DropCoins());
+            Character.Player.PlayerManager.Instance.AddCoins(DropCoins());
         }
         else
         {

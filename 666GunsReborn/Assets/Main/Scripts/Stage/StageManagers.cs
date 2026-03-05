@@ -50,7 +50,7 @@ public class StageManagers : Singleton<StageManagers>
     {
         _isStageClear[_currentStageIndex] = true;
         UIManager.Instance.ShowStageClearUI(clearTime);
-        GameManager.Instance._coin += Player.PlayerManager.Instance.GetHoldCoins();
+        GameManager.Instance._coin += Character.Player.PlayerManager.Instance.GetHoldCoins();
 
         var currentQuest = QuestManager.Instance.currentQuest;
         if (currentQuest == null) return;

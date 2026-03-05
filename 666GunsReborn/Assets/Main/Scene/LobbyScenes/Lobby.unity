@@ -3092,6 +3092,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4088cbe68f2c0934596cf63b01665914, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _player: {fileID: 1958812261}
 --- !u!4 &473167017
 Transform:
   m_ObjectHideFlags: 0
@@ -7074,11 +7075,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90bd7947c57d7784585390dbb57df63e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerChannel: {fileID: 11400000, guid: d704267dc3ab0d64580bbc915bf72729, type: 2}
-  fireButtonView: {fileID: 0}
-  dashButtonView: {fileID: 0}
-  moveJoystickView: {fileID: 1163555019}
-  weaponView: {fileID: 0}
+  _playerChannel: {fileID: 11400000, guid: d704267dc3ab0d64580bbc915bf72729, type: 2}
+  _fireButtonView: {fileID: 0}
+  _dashButtonView: {fileID: 0}
+  _moveJoystickView: {fileID: 1163555019}
+  _weaponView: {fileID: 0}
 --- !u!1 &1208380186
 GameObject:
   m_ObjectHideFlags: 0
@@ -11374,6 +11375,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerData: {fileID: 11400000, guid: 8808706731d559142bce50c402dcab48, type: 2}
   playerTypeData: {fileID: 11400000, guid: 712e8817d0bfd0c48980ef6f95b73db8, type: 2}
+  _weaponSpawnPoint: {fileID: 0}
   playerChannel: {fileID: 11400000, guid: d704267dc3ab0d64580bbc915bf72729, type: 2}
 --- !u!4 &1958812263 stripped
 Transform:

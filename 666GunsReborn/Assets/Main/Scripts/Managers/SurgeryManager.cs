@@ -46,7 +46,7 @@ public class SurgeryManager : Singleton<SurgeryManager>
 
     [Header("Setting")]
     // PlayerManager의 네임스페이스가 Player.PlayerManager인지 확인 필요
-    public Player.PlayerManager _playerManager; 
+    public Character.Player.PlayerManager _playerManager; 
 
     [Header("Current State")]
     public SurgeryRoomState _currentState = SurgeryRoomState.Idle;

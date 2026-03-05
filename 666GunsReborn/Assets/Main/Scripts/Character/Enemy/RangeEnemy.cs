@@ -7,7 +7,16 @@ namespace Character.Enemy
         [SerializeField] private GameObject _bulletPrefab;
         public override void Attack()
         {
-            if (_bulletPrefab == null)
+
+        }
+        
+        /// <summary>
+        /// 총알 발사
+        /// 애니메이션에 이벤트 걸어서 사용하기 위해 따로 분리
+        /// </summary>
+        public void Shoot()
+        {
+                        if (_bulletPrefab == null)
             {
                 Debug.LogError("Bullet Prefab is not assigned!");
                 return;

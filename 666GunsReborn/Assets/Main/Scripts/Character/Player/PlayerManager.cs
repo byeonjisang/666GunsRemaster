@@ -2,10 +2,11 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Player
+namespace Character.Player
 {
     public class PlayerManager : Singleton<PlayerManager>
     {
+        [SerializeField] private Player _player;
         // private Dictionary<PlayerType, Type> playerTypeMap = new Dictionary<PlayerType, Type>{
         //     { PlayerType.Attack, typeof(FormOfAttackPlayer) },
         //     { PlayerType.Defense, typeof(FormOfDefensePlayer) },
@@ -40,6 +41,7 @@ namespace Player
         private void Start()
         {
             GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
+            _player.Init();
             //InitializePlayer(playerObject);
         }
 

@@ -19,10 +19,14 @@ public class StageUIManager : MonoBehaviour
 
     private void Start()
     {
-        _fireButtonView.Init();
-        _dashButtonView.Init();
-        _moveJoystickView.Init();
-        _weaponView.Init();
+        if(_fireButtonView != null)
+            _fireButtonView.Init();
+        if(_dashButtonView != null)
+            _dashButtonView.Init();
+        if(_moveJoystickView != null)
+            _moveJoystickView.Init();
+        if(_weaponView != null)
+            _weaponView.Init();
 
         // 이벤트 연결
         SubscribeEvents();
@@ -33,17 +37,25 @@ public class StageUIManager : MonoBehaviour
     {
         // UI -> Player 이벤트 등록
         // 이동 UI 이벤트 등록
-        _moveJoystickView.Presenter.OnMove += _playerChannel.SendMoveCommand;
+        if(_moveJoystickView != null)
+            _moveJoystickView.Presenter.OnMove += _playerChannel.SendMoveCommand;
         // 대쉬 UI 이벤트 등록
-        _dashButtonView.Presenter.OnClick += _playerChannel.SendDashCommand;
+        if(_dashButtonView != null)
+            _dashButtonView.Presenter.OnClick += _playerChannel.SendDashCommand;
         // 공격 UI 이벤트 등록
-        _fireButtonView.Presenter.OnFirePointerDown += _playerChannel.SendFirePointerDown;
-        _fireButtonView.Presenter.OnFirePointerUp += _playerChannel.SendFirePointerUp;
+        if(_fireButtonView != null)
+        {
+            _fireButtonView.Presenter.OnFirePointerDown += _playerChannel.SendFirePointerDown;
+            _fireButtonView.Presenter.OnFirePointerUp += _playerChannel.SendFirePointerUp;
+        }
         // 무기 변경 UI 이벤트 등록
-        _weaponView.Presenter.OnClick += _playerChannel.SendChangedWeaponCommand;
+        if(_weaponView != null)
+            _weaponView.Presenter.OnClick += _playerChannel.SendChangedWeaponCommand;
 
         // Player -> UI 이벤트 등록
-        // 초기 무기 Sprite 변경 이벤트
+        if(_weaponView != null)
+        {
+            // 초기 무기 Sprite 변경 이벤트
         _playerChannel.OnWeaponSprite += _weaponView.UpdateWeaponSprite;
         // 무기 변경 UI 업데이트 이벤트 등록
         _playerChannel.OnWeaponChanged += _weaponView.SwitchWeaponUI;
@@ -53,6 +65,7 @@ public class StageUIManager : MonoBehaviour
         _playerChannel.OnUpdateBullet += _weaponView.UpdateWeaponBulletUI;
         // 무기 재장전 시간표시 UI 업데이트 이벤트 등록
         _playerChannel.OnReloadTime += _weaponView.UpdateWeaponReloadSlider;
+        }
     }
 
     // 이벤트 구독 해체

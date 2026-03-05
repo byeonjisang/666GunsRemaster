@@ -29,8 +29,6 @@ public class MoveJoystickView : MonoBehaviour
 
         // 이동
         direction.Normalize();
-
-        //Presenter.OnMove?.Invoke(direction);
         Presenter.OnMove?.Invoke(direction);
     }
 }
