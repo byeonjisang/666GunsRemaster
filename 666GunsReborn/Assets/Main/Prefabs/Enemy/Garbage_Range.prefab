@@ -1528,9 +1528,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d31397a878ddb0c4a9e0bcea244d1bb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyData: {fileID: 11400000, guid: be8be5e19374f7d4d8f18dfecfc8d8f3, type: 2}
-  weaponSocket: {fileID: 8819822740534692609}
-  embeddedMuzzles: []
+  _enemyData: {fileID: 11400000, guid: be8be5e19374f7d4d8f18dfecfc8d8f3, type: 2}
+  _weaponSocket: {fileID: 8819822740534692609}
+  _embeddedMuzzles: []
+  _bulletPrefab: {fileID: 4724720043867078303, guid: 833286949982909429b591899cd91002,
+    type: 3}
 --- !u!137 &3418873067143901138
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 0

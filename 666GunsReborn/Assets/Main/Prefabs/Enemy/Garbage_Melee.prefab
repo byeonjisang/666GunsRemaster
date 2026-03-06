@@ -135,9 +135,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdc560e61b53c0747aeab758099a0bd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyData: {fileID: 11400000, guid: c046f3b6075f271428b64afd20818446, type: 2}
-  weaponSocket: {fileID: 1625577240702196662}
-  embeddedMuzzles: []
+  _enemyData: {fileID: 11400000, guid: c046f3b6075f271428b64afd20818446, type: 2}
+  _weaponSocket: {fileID: 1625577240702196662}
+  _embeddedMuzzles: []
 --- !u!137 &7270628076771426859
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 0

@@ -1126,9 +1126,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdc560e61b53c0747aeab758099a0bd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyData: {fileID: 11400000, guid: ac6136b6d453cb341b986a1efcadc74c, type: 2}
-  weaponSocket: {fileID: 963385734215987249}
-  embeddedMuzzles: []
+  _enemyData: {fileID: 11400000, guid: ac6136b6d453cb341b986a1efcadc74c, type: 2}
+  _weaponSocket: {fileID: 963385734215987249}
+  _embeddedMuzzles: []
 --- !u!195 &6644907256687831340
 NavMeshAgent:
   m_ObjectHideFlags: 0

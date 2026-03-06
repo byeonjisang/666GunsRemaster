@@ -320,9 +320,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d31397a878ddb0c4a9e0bcea244d1bb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyData: {fileID: 11400000, guid: 831462805b55e5c40a1231eeb4b5584c, type: 2}
-  weaponSocket: {fileID: 7016377688786000658}
-  embeddedMuzzles: []
+  _enemyData: {fileID: 11400000, guid: 831462805b55e5c40a1231eeb4b5584c, type: 2}
+  _weaponSocket: {fileID: 7016377688786000658}
+  _embeddedMuzzles: []
+  _bulletPrefab: {fileID: 4724720043867078303, guid: 833286949982909429b591899cd91002,
+    type: 3}
 --- !u!195 &700692341366549662
 NavMeshAgent:
   m_ObjectHideFlags: 0

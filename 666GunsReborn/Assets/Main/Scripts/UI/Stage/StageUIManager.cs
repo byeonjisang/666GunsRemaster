@@ -56,15 +56,15 @@ public class StageUIManager : MonoBehaviour
         if(_weaponView != null)
         {
             // 초기 무기 Sprite 변경 이벤트
-        _playerChannel.OnWeaponSprite += _weaponView.UpdateWeaponSprite;
-        // 무기 변경 UI 업데이트 이벤트 등록
-        _playerChannel.OnWeaponChanged += _weaponView.SwitchWeaponUI;
-        // 무기 변경 쿨타임 UI 업데이트 이벤트 등록
-        _playerChannel.OnChangedWeaponCooldown += _weaponView.UpdateWeaponChangeCooldown;
-        // 무기 총알 UI 업데이트 이벤트 등록
-        _playerChannel.OnUpdateBullet += _weaponView.UpdateWeaponBulletUI;
-        // 무기 재장전 시간표시 UI 업데이트 이벤트 등록
-        _playerChannel.OnReloadTime += _weaponView.UpdateWeaponReloadSlider;
+            _playerChannel.OnWeaponSprite += _weaponView.UpdateWeaponSprite;
+            // 무기 변경 UI 업데이트 이벤트 등록
+            _playerChannel.OnWeaponChanged += _weaponView.SwitchWeaponUI;
+            // 무기 변경 쿨타임 UI 업데이트 이벤트 등록
+            _playerChannel.OnChangedWeaponCooldown += _weaponView.UpdateWeaponChangeCooldown;
+            // 무기 총알 UI 업데이트 이벤트 등록
+            _playerChannel.OnUpdateBullet += _weaponView.UpdateWeaponBulletUI;
+            // 무기 재장전 시간표시 UI 업데이트 이벤트 등록
+            _playerChannel.OnReloadTime += _weaponView.UpdateWeaponReloadSlider;
         }
     }
 

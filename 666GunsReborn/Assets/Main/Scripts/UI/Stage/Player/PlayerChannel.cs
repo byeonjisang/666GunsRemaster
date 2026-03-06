@@ -28,7 +28,10 @@ public class PlayerChannel : ScriptableObject
     #region Player -> UI
     // 무기 이미지 초기화
     public Action<int, Sprite> OnWeaponSprite;
-    public void SendWeaponSprite(int weaponIndex, Sprite weaponSprite) => OnWeaponSprite?.Invoke(weaponIndex, weaponSprite);
+    public void SendWeaponSprite(int weaponIndex, Sprite weaponSprite)
+    {
+        OnWeaponSprite?.Invoke(weaponIndex, weaponSprite);  
+    } 
 
     // 무기 변경
     public Action<int> OnWeaponChanged;
